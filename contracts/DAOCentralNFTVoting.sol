@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity =0.8.17;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -22,6 +23,7 @@ contract DAOCentralNFTVoting is Ownable {
     }
 
     struct Proposal {
+        uint256 id;
         string description;
         uint256 startTime;
         uint256 endTime;
@@ -55,6 +57,7 @@ contract DAOCentralNFTVoting is Ownable {
         proposalsCount++;
 
         proposals[proposalsCount] = Proposal(
+            proposalsCount,
             description,
             startTime,
             endTime,
@@ -65,7 +68,7 @@ contract DAOCentralNFTVoting is Ownable {
         emit NewProposal(proposalsCount);
     }
 
-    function approveProposal(
+    function castVote(
         uint256 proposalId,
         Vote vote,
         uint256[] memory nftsIdToVote
@@ -92,12 +95,16 @@ contract DAOCentralNFTVoting is Ownable {
                 if (previousVote == Vote.DENIAL) {
                     currentProposal.denials--;
                 }
-            }
-
-            if (vote == Vote.DENIAL) {
+            } else if (vote == Vote.DENIAL) {
                 currentProposal.denials++;
 
                 if (previousVote == Vote.APPROVAL) {
+                    currentProposal.approvals--;
+                }
+            } else {
+                if (previousVote == Vote.DENIAL) {
+                    currentProposal.denials--;
+                } else {
                     currentProposal.approvals--;
                 }
             }
