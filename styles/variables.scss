@@ -1,0 +1,27 @@
+// Colors
+$primary-color: #275efe;
+$primary-color-light: lighten($primary-color, 10%);
+$primary-color-dark: darken($primary-color, 10%);
+$background: #fff;
+$text: #000;
+$gray: #aaa;
+$gray-light: lighten($gray, 10%);
+$gray-darken: darken($gray, 10%);
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-m: 16px;
+$spacing-l: 32px;
+$spacing-xl: 64px;
+
+// Sizing
+$font-size-big: 22px;
+$font-size-normal: 18px;
+$font-size-small: 16px;
+$button-height: 48px;
+$button-min-width: 200px;
+
+// Other
+$border-radius: 8px;
+$transition-time: 0.3s;

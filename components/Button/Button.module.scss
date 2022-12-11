@@ -1,0 +1,38 @@
+@import "styles/variables.scss";
+@import "styles/keyframes.scss";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: $button-min-width;
+  height: $button-height;
+  padding: 0;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-small;
+  color: $background;
+  background-color: $primary-color;
+  transition: $transition-time background-color;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $primary-color-light;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $gray;
+  }
+
+  &_loading {
+    &:disabled {
+      background-color: $primary-color-light;
+    }
+  }
+}
+
+.spinner {
+  animation: spin 2000ms linear infinite;
+}

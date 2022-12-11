@@ -1,4 +1,11 @@
+import { Open_Sans } from "@next/font/google";
 import "styles/global.scss";
+
+const openSans = Open_Sans({
+  weight: ["300", "400", "500", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -6,7 +13,7 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html>
+    <html className={openSans.className}>
       <head />
       <body>{children}</body>
     </html>
