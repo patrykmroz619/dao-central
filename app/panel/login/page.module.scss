@@ -1,0 +1,8 @@
+@import "styles/variables.scss";
+
+.main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: $spacing-m;
+}

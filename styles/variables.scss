@@ -1,9 +1,10 @@
 // Colors
-$primary-color: #275efe;
+$primary-color: #4548f7;
 $primary-color-light: lighten($primary-color, 10%);
 $primary-color-dark: darken($primary-color, 10%);
-$background: #fff;
-$text: #000;
+$background: #f6f8fa;
+$text-color: #4d4d4d;
+$heading-color: #1b1b1b;
 $gray: #aaa;
 $gray-light: lighten($gray, 10%);
 $gray-darken: darken($gray, 10%);
@@ -16,6 +17,10 @@ $spacing-l: 32px;
 $spacing-xl: 64px;
 
 // Sizing
+$font-size-h1-big: 36px;
+$font-size-h1-small: 32px;
+$font-size-h2-big: 28px;
+$font-size-h2-small: 24px;
 $font-size-big: 22px;
 $font-size-normal: 18px;
 $font-size-small: 16px;
@@ -23,5 +28,6 @@ $button-height: 48px;
 $button-min-width: 200px;
 
 // Other
-$border-radius: 8px;
+$border-radius-small: 8px;
+$border-radius-big: 16px;
 $transition-time: 0.3s;

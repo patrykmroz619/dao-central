@@ -1,0 +1,19 @@
+@import "styles/variables.scss";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-l;
+  width: 100%;
+  max-width: 600px;
+  padding: $spacing-m;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-l;
+  max-width: 400px;
+}

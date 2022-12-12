@@ -1,0 +1,18 @@
+@import "styles/variables.scss";
+
+.h1 {
+  font-size: $font-size-h1-big;
+  font-weight: 700;
+  color: $heading-color;
+}
+
+.h2 {
+  font-size: $font-size-h2-big;
+  font-weight: 700;
+  color: $heading-color;
+}
+
+.text {
+  font-size: $font-size-normal;
+  color: $text-color;
+}

@@ -1,14 +1,11 @@
-import { AtSign } from "react-feather";
-import { Button, IconButton } from "components";
+import { LoginIllustration, LoginSection } from "./components";
+import styles from "./page.module.scss";
 
 export default function LoginPage() {
   return (
-    <div>
-      <Button>Button</Button>
-      <IconButton disabled Icon={AtSign}>
-        Icon button
-      </IconButton>
-      <IconButton Icon={AtSign} />
-    </div>
+    <main className={styles.main}>
+      <LoginSection />
+      <LoginIllustration />
+    </main>
   );
 }

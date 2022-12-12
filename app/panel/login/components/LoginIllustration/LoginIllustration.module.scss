@@ -1,0 +1,11 @@
+@import "styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  background-color: $primary-color;
+  border-radius: $border-radius-big;
+}
