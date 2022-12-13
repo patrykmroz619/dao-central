@@ -1,8 +1,15 @@
 @import "styles/variables.scss";
+@import "styles/media.scss";
 
 .main {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   padding: $spacing-m;
+
+  @include min-vw($breakpoint-lg) {
+    flex-direction: row;
+  }
 }

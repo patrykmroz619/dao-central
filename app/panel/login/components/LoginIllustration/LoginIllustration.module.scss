@@ -1,11 +1,23 @@
 @import "styles/variables.scss";
+@import "styles/media.scss";
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  height: 100%;
-  background-color: $primary-color;
-  border-radius: $border-radius-big;
+  width: 400px;
+
+  img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  @include min-vw($breakpoint-lg) {
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+    background-color: $primary-color;
+    border-radius: $border-radius-big;
+  }
 }

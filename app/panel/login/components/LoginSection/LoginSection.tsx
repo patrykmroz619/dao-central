@@ -1,5 +1,7 @@
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { H1, Text } from "components";
 import styles from "./LoginSection.module.scss";
+import { WalletLogin } from "./WalletLogin";
 
 export function LoginSection() {
   return (
@@ -10,6 +12,7 @@ export function LoginSection() {
           Empower your community - the future of decentralized organization is
           here.
         </Text>
+        <WalletLogin />
       </div>
     </section>
   );

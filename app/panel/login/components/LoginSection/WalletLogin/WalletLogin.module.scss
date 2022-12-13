@@ -1,0 +1,14 @@
+@import "styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+  height: 104px;
+}
+
+.walletWrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-s;
+}

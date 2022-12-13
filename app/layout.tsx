@@ -1,4 +1,5 @@
 import { Open_Sans } from "@next/font/google";
+import { GlobalProvider } from "features";
 import "styles/global.scss";
 
 const openSans = Open_Sans({
@@ -14,8 +15,12 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html className={openSans.className}>
-      <head />
-      <body>{children}</body>
+      <head>
+        <meta name="viewport" content="width=device-width" />
+      </head>
+      <body>
+        <GlobalProvider>{children}</GlobalProvider>
+      </body>
     </html>
   );
 }
