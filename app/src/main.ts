@@ -1,6 +1,6 @@
 import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-import * as cookieParser from "cookie-parser";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 
 import { AppModule } from "./app.module";
 import { NODE_ENV } from "./constants";
@@ -17,8 +17,11 @@ async function bootstrap() {
     }),
   );
 
-  // Add cookie parser
-  app.use(cookieParser());
+  if (process.env.NODE_ENV === NODE_ENV.DEVELOPMENT) {
+    const config = new DocumentBuilder().setTitle("DAO Maker").build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup("explorer", app, document);
+  }
 
   const port = Number(process.env.PORT || 3000);
   await app.listen(port);

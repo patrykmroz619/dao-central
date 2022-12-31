@@ -12,7 +12,10 @@ const config = registerAs(
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE_NAME,
-    entities: ["**/*.entity.{ts,js}"],
+    entities:
+      process.env.NODE_ENV === NODE_ENV.TEST
+        ? ["**/*.entity.{ts,js}"]
+        : ["dist/**/*.entity.{ts,js}"],
     synchronize: process.env.NODE_ENV !== NODE_ENV.PRODUCTION,
     logging: process.env.NODE_ENV === NODE_ENV.DEVELOPMENT,
     bigNumberStrings: false,

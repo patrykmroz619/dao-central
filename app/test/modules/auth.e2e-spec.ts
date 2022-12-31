@@ -103,10 +103,11 @@ describe("AuthModule (e2e)", () => {
         signature,
       });
 
-      const cookies = loginResponse.get("Set-Cookie");
+      const { accessToken, refreshToken } = loginResponse.body;
 
       expect(loginResponse.status).toEqual(HttpStatus.CREATED);
-      expect(cookies).toHaveLength(2);
+      expect(accessToken).toBeDefined();
+      expect(refreshToken).toBeDefined();
     });
 
     it("should not allow to log in twice with the same signature", async () => {
@@ -148,12 +149,12 @@ describe("AuthModule (e2e)", () => {
     it("should allow to log out", async () => {
       const wallet = ethers.Wallet.createRandom();
 
-      const { cookies, userAgent } = await login(httpServer, wallet);
+      const { accessToken, userAgent } = await login(httpServer, wallet);
 
       const logoutResponse = await request(httpServer)
         .delete("/auth/logout")
         .set("user-agent", userAgent)
-        .set("Cookie", cookies);
+        .set("Authorization", `Bearer ${accessToken}`);
 
       expect(logoutResponse.status).toEqual(HttpStatus.OK);
     });
@@ -163,12 +164,12 @@ describe("AuthModule (e2e)", () => {
     it("should not allow to refresh token with invalid refresh token", async () => {
       const wallet = ethers.Wallet.createRandom();
 
-      const { cookies, userAgent } = await login(httpServer, wallet);
+      const { accessToken, userAgent } = await login(httpServer, wallet);
 
       const refreshTokenResponse = await request(httpServer)
         .post("/auth/refresh")
         .set("user-agent", userAgent)
-        .set("Cookie", [cookies[0], cookies[1] + "x"]);
+        .set("Authorization", `Bearer ${accessToken}`);
 
       expectApiError(
         refreshTokenResponse,
@@ -180,13 +181,13 @@ describe("AuthModule (e2e)", () => {
     it("should not allow to refresh token with different ip address", async () => {
       const wallet = ethers.Wallet.createRandom();
 
-      const { cookies, userAgent } = await login(httpServer, wallet);
+      const { refreshToken, userAgent } = await login(httpServer, wallet);
 
       const refreshTokenResponse = await request(httpServer)
         .post("/auth/refresh")
         .set("user-agent", userAgent)
         .set("x-client-ip", "::2")
-        .set("Cookie", cookies);
+        .set("Authorization", `Bearer ${refreshToken}`);
 
       expectApiError(
         refreshTokenResponse,
@@ -198,17 +199,19 @@ describe("AuthModule (e2e)", () => {
     it("should allow to refresh tokens", async () => {
       const wallet = ethers.Wallet.createRandom();
 
-      const { cookies, userAgent } = await login(httpServer, wallet);
+      const { refreshToken, userAgent } = await login(httpServer, wallet);
 
       const refreshTokenResponse = await request(httpServer)
         .post("/auth/refresh")
         .set("user-agent", userAgent)
-        .set("Cookie", cookies);
+        .set("Authorization", `Bearer ${refreshToken}`);
 
-      const cookiesAfterRefresh = refreshTokenResponse.get("Set-Cookie");
+      const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
+        refreshTokenResponse.body;
 
       expect(refreshTokenResponse.status).toEqual(HttpStatus.CREATED);
-      expect(cookiesAfterRefresh).toHaveLength(2);
+      expect(newAccessToken).toBeDefined();
+      expect(newRefreshToken).toBeDefined();
     });
   });
 

@@ -6,6 +6,7 @@ import { Repository } from "typeorm";
 import * as crypto from "crypto";
 import { Request } from "express";
 import * as requestIp from "request-ip";
+import * as dayjs from "dayjs";
 
 import { UserEntity } from "src/modules/users/users.entity";
 import { JWTEntity } from "./jwt.entity";
@@ -65,6 +66,11 @@ export class JWTService {
       ip,
     };
 
+    const accessTokenExpiry = dayjs().add(
+      this.configService.get<number>(CONFIG.JWT_ACCESS_TOKEN_EXP),
+      "seconds",
+    );
+
     return {
       accessToken: this.nestJwtService.sign(accessTokenPayload, {
         expiresIn: this.configService.get<number>(CONFIG.JWT_ACCESS_TOKEN_EXP),
@@ -74,6 +80,7 @@ export class JWTService {
         issuer: this.configService.get<string>(CONFIG.APP_BACKEND_URL),
         audience: this.configService.get<string>(CONFIG.APP_FRONTEND_URL),
       }),
+      accessTokenExpiry: accessTokenExpiry.toDate(),
       refreshToken: this.nestJwtService.sign(refreshTokenPayload, {
         expiresIn: this.configService.get<string>(CONFIG.JWT_REFRESH_TOKEN_EXP),
         subject: user.id,

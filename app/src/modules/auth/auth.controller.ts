@@ -5,7 +5,6 @@ import {
   Get,
   Post,
   Query,
-  Res,
   UseGuards,
 } from "@nestjs/common";
 import {
@@ -17,14 +16,17 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from "@nestjs/swagger";
-import { Response } from "express";
 
 import { ErrorDto } from "src/global";
 import { User, Ip } from "src/decorators";
 import { JwtRefreshGuard, JwtAuthGuard } from "src/guards";
 import { UserEntity } from "src/modules/users/users.entity";
 import { AuthService } from "./auth.service";
-import { InitLoginResponseDto, LoginRequestDto } from "./dto";
+import {
+  InitLoginResponseDto,
+  JwtTokensResponseDto,
+  LoginRequestDto,
+} from "./dto";
 
 @ApiTags("auth")
 @Controller("auth")
@@ -49,23 +51,21 @@ export class AuthController {
 
   @Post("/login")
   @ApiOperation({
-    summary: "Login with a signed signature and get JWTs via cookies",
+    summary: "Login with a signed signature and get JWTs",
   })
   @ApiBody({ type: LoginRequestDto })
   @ApiCreatedResponse({
-    description: "Access and refresh token cookies will be set upon success",
+    type: JwtTokensResponseDto,
   })
   @ApiUnauthorizedResponse({ type: ErrorDto })
   async login(
     @Ip() ip: string,
     @Body() loginData: LoginRequestDto,
-    @Res() response: Response,
-  ): Promise<void> {
+  ): Promise<JwtTokensResponseDto> {
     return this.authService.login(
       loginData.walletAddress,
       loginData.signature,
       ip,
-      response,
     );
   }
 
@@ -82,16 +82,14 @@ export class AuthController {
   @Post("/refresh")
   @ApiOperation({ summary: "Refresh an access token" })
   @ApiCreatedResponse({
-    description:
-      "New pair of access and refresh token cookies will be set upon success",
+    type: JwtTokensResponseDto,
   })
   @ApiUnauthorizedResponse({ type: ErrorDto })
   @UseGuards(JwtRefreshGuard)
   async refreshToken(
     @User() user: UserEntity,
     @Ip() ip: string,
-    @Res() response: Response,
-  ): Promise<void> {
-    return this.authService.refreshToken(user, ip, response);
+  ): Promise<JwtTokensResponseDto> {
+    return this.authService.refreshToken(user, ip);
   }
 }

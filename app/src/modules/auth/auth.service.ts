@@ -7,17 +7,19 @@ import {
 import { ConfigService } from "@nestjs/config";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { CookieOptions, Response } from "express";
 import * as crypto from "crypto";
 import { ethers } from "ethers";
 
-import { CONFIG, ERRORS, NODE_ENV } from "src/constants";
+import { ERRORS } from "src/constants";
 import { UserEntity } from "src/modules/users/users.entity";
 import { UsersService } from "src/modules/users/users.service";
-import { InitLoginResponseDto, LoginRequestDto } from "./dto";
+import {
+  InitLoginResponseDto,
+  JwtTokensResponseDto,
+  LoginRequestDto,
+} from "./dto";
 import { InitLoginEntity } from "./init-login.entity";
 import { JWTService } from "./jwt/jwt.service";
-import { JWTTokens } from "./jwt/jwt.interfaces";
 
 @Injectable()
 export class AuthService {
@@ -58,8 +60,7 @@ export class AuthService {
     walletAddress: LoginRequestDto["walletAddress"],
     signature: LoginRequestDto["signature"],
     ip: string,
-    response: Response,
-  ): Promise<void> {
+  ): Promise<JwtTokensResponseDto> {
     const signerWalletAddress = await this.verifySignature(
       walletAddress,
       signature,
@@ -79,7 +80,7 @@ export class AuthService {
     );
     const jwtTokens = await this.jwtService.getNewJWTTokens(user, ip);
 
-    this.sendCookiesWithJwtTokens(jwtTokens, response);
+    return jwtTokens;
   }
 
   async logout(user: UserEntity): Promise<void> {
@@ -90,38 +91,13 @@ export class AuthService {
   async refreshToken(
     user: UserEntity,
     ip: string,
-    response: Response,
-  ): Promise<void> {
+  ): Promise<JwtTokensResponseDto> {
     const jwtTokens = await this.jwtService.getNewJWTTokens(user, ip);
     this.logger.log(
       `JWT tokens have been refreshed for user with id ${user.id}`,
     );
-    this.sendCookiesWithJwtTokens(jwtTokens, response);
-  }
 
-  private sendCookiesWithJwtTokens(
-    jwtTokens: JWTTokens,
-    response: Response,
-  ): void {
-    const cookieSetup: CookieOptions = {
-      secure:
-        this.configService.get<string>(CONFIG.APP_NODE_ENV) !=
-        NODE_ENV.DEVELOPMENT,
-      sameSite:
-        this.configService.get<string>(CONFIG.APP_NODE_ENV) !=
-        NODE_ENV.DEVELOPMENT
-          ? "strict"
-          : undefined,
-      httpOnly: true,
-    };
-
-    response
-      .cookie("accessToken", jwtTokens.accessToken, cookieSetup)
-      .cookie("refreshToken", jwtTokens.refreshToken, {
-        ...cookieSetup,
-        path: "/auth/refresh",
-      })
-      .send();
+    return jwtTokens;
   }
 
   private async verifySignature(

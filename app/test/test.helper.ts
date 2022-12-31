@@ -6,7 +6,6 @@ import {
 import { Test } from "@nestjs/testing";
 import { AppModule } from "../src/app.module";
 import * as request from "supertest";
-import * as cookieParser from "cookie-parser";
 
 export class EmptyLogger implements LoggerService {
   log() {
@@ -42,9 +41,6 @@ export async function prepareFixture() {
       forbidNonWhitelisted: true,
     }),
   );
-
-  // Add cookie parser
-  app.use(cookieParser());
 
   await app.init();
 

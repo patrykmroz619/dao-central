@@ -21,5 +21,6 @@ export type JWTToken = string;
 
 export interface JWTTokens {
   accessToken: JWTToken;
+  accessTokenExpiry: Date;
   refreshToken: JWTToken;
 }

@@ -17,15 +17,11 @@ export const login = async (httpServer: any, wallet: ethers.Wallet) => {
       signature,
     });
 
-  const cookies = loginResponse.get("Set-Cookie").map((cookie) =>
-    cookie
-      .split(",")
-      .map((item) => item.split(";")[0])
-      .join(";"),
-  );
+  const { accessToken, refreshToken } = loginResponse.body;
 
   return {
     userAgent,
-    cookies,
+    accessToken,
+    refreshToken,
   };
 };
