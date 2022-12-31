@@ -1,5 +1,6 @@
 "use client";
 
+import { SessionProvider } from "next-auth/react";
 import { Web3Provider } from "./Web3Provider";
 
 type GlobalProviderProps = {
@@ -7,5 +8,9 @@ type GlobalProviderProps = {
 };
 
 export function GlobalProvider({ children }: GlobalProviderProps) {
-  return <Web3Provider>{children}</Web3Provider>;
+  return (
+    <SessionProvider>
+      <Web3Provider>{children}</Web3Provider>
+    </SessionProvider>
+  );
 }

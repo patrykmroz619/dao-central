@@ -1,5 +1,4 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { H1, Text } from "components";
+import { H1, Text } from "shared/components";
 import styles from "./LoginSection.module.scss";
 import { WalletLogin } from "./WalletLogin";
 

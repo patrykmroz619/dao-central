@@ -1,6 +1,7 @@
 import { Open_Sans } from "@next/font/google";
-import { GlobalProvider } from "features";
-import "styles/global.scss";
+
+import { GlobalProvider } from "shared/features";
+import "shared/styles/global.scss";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],

@@ -1,6 +1,7 @@
-import Image from "next/image";
-import organizationImage from "public/illustrations/organization.svg";
-import styles from "./LoginIllustration.module.scss";
+import Image from 'next/image';
+
+import organizationImage from 'public/illustrations/organization.svg';
+import styles from './LoginIllustration.module.scss';
 
 export function LoginIllustration() {
   return (
