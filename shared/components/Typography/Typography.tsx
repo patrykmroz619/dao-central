@@ -18,10 +18,16 @@ export function H2(props: H2Props) {
   return <h2 className={classNames(styles.h2, className)} {...rest}></h2>;
 }
 
-type TextProps = ComponentPropsWithoutRef<"p">;
+type TextProps = ComponentPropsWithoutRef<"p"> & {
+  danger?: boolean;
+};
 
 export function Text(props: TextProps) {
-  const { className, ...rest } = props;
+  const { className, danger, ...rest } = props;
 
-  return <p className={classNames(styles.text, className)} {...rest}></p>;
+  const finalClass = classNames(styles.text, className, {
+    [styles.textDanger]: danger,
+  });
+
+  return <p className={finalClass} {...rest}></p>;
 }

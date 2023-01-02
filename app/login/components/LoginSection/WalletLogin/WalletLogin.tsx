@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useAccount, useSignMessage } from "wagmi";
@@ -8,8 +7,9 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { LogIn } from "react-feather";
 
 import { IconButton, Text } from "shared/components";
-import { useIsBrowser } from "shared/hooks";
+import { useAsyncState, useIsBrowser } from "shared/hooks";
 import { restAPI } from "shared/api";
+import { getErrorMessage } from "shared/utils/getErrorMessage";
 import styles from "./WalletLogin.module.scss";
 
 export const WalletLogin = () => {
@@ -19,10 +19,10 @@ export const WalletLogin = () => {
 
   const router = useRouter();
 
-  const [isLoginPending, setIsLoginPending] = useState(false);
+  const { state: loginState, setLoading, setError } = useAsyncState();
 
   const handleLogin = async () => {
-    setIsLoginPending(true);
+    setLoading();
 
     try {
       if (!address) {
@@ -47,8 +47,8 @@ export const WalletLogin = () => {
         router.push("/panel");
       }
     } catch (e: unknown) {
-      // TODO: Error handling
-      setIsLoginPending(false);
+      const errorMessage = getErrorMessage(e);
+      setError(errorMessage);
     }
   };
 
@@ -69,10 +69,13 @@ export const WalletLogin = () => {
             <IconButton
               Icon={LogIn}
               onClick={handleLogin}
-              isLoading={isLoginPending}
+              isLoading={loginState.state === "LOADING"}
             >
               Sign message to log in
             </IconButton>
+          )}
+          {loginState.state == "ERROR" && (
+            <Text danger>{loginState.error}</Text>
           )}
         </>
       )}
