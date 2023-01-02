@@ -1,5 +1,4 @@
 import { getSession } from "shared/utils";
-import { User } from "./components/User";
 
 export default async function Panel() {
   const session = await getSession();
@@ -7,7 +6,6 @@ export default async function Panel() {
   return (
     <div>
       <h2 className="mb-3">User {session?.user.wallet}</h2>
-      {/* <User /> */}
     </div>
   );
 }

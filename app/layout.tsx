@@ -1,6 +1,7 @@
 import { Open_Sans } from "@next/font/google";
 
 import { GlobalProvider } from "shared/features";
+import styles from "./panel.module.scss";
 import "shared/styles/global.scss";
 
 const openSans = Open_Sans({
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <meta name="viewport" content="width=device-width" />
       </head>
-      <body>
+      <body className={styles.body}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>
