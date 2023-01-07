@@ -1,0 +1,21 @@
+@import "shared/styles/variables";
+@import "shared/styles/media";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-s $spacing-l;
+  background-color: $box-color;
+  box-shadow: $shadow;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $spacing-m;
+  }
+
+  @include min-vw($breakpoint-lg) {
+    display: none;
+  }
+}

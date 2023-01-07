@@ -1,4 +1,4 @@
-import { getSession } from "shared/utils";
+import { getSession } from "shared/utils/getSession";
 
 export default async function Panel() {
   const session = await getSession();

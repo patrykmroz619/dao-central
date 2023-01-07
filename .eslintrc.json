@@ -19,6 +19,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

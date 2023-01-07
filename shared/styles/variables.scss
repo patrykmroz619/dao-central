@@ -2,12 +2,14 @@
 $primary-color: #4548f7;
 $primary-color-light: lighten($primary-color, 10%);
 $primary-color-dark: darken($primary-color, 10%);
+$primary-color-inverted: #f6f8fa;
 $background: #f6f8fa;
+$box-color: #ffffff;
 $text-color: #4d4d4d;
 $heading-color: #1b1b1b;
 $gray: #aaa;
-$gray-light: lighten($gray, 10%);
-$gray-darken: darken($gray, 10%);
+$gray-light: lighten($gray, 20%);
+$gray-darken: darken($gray, 20%);
 $danger: red;
 $success: green;
 
@@ -32,4 +34,5 @@ $button-min-width: 200px;
 // Other
 $border-radius-small: 8px;
 $border-radius-big: 16px;
+$shadow: 0px 0px 12px 2px $gray-light;
 $transition-time: 0.3s;

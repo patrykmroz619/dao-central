@@ -1,4 +1,4 @@
-import { HTTP_METHOD } from "shared/constants";
+import { HTTP_METHOD } from "shared/constants/httpMethod";
 import { restApiClient } from "../restApiClient";
 
 type RefreshTokensResponse = {

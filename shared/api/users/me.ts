@@ -1,5 +1,5 @@
 import { restApiClient } from "shared/api/restApiClient";
-import { HTTP_METHOD } from "shared/constants";
+import { HTTP_METHOD } from "shared/constants/httpMethod";
 
 type MeResponse = {
   id: string;

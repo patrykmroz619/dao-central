@@ -1,6 +1,6 @@
 import { Open_Sans } from "@next/font/google";
 
-import { GlobalProvider } from "shared/features";
+import { GlobalProvider } from "shared/features/GlobalProvider";
 import styles from "./panel.module.scss";
 import "shared/styles/global.scss";
 
