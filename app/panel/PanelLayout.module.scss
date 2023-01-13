@@ -1,4 +1,5 @@
 @import "shared/styles/variables";
+@import "shared/styles/media";
 
 .wrapper {
   display: flex;
@@ -7,6 +8,10 @@
     max-width: 100vw;
     min-height: 100vh;
     flex-grow: 1;
+
+    @include min-vw($breakpoint-lg) {
+      margin-left: -45px;
+    }
   }
 }
 

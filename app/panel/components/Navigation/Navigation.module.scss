@@ -19,7 +19,7 @@
       top: 0;
       left: -45px;
       bottom: 0;
-      width: 45px + 16px;
+      width: 45px + 8px;
       background-color: $primary-color;
       opacity: 0;
       border-radius: $border-radius-small;
@@ -36,7 +36,7 @@
   &__link {
     display: flex;
     width: 100%;
-    height: $button-height;
+    height: $form-element-height;
     padding: 0 $spacing-m;
     color: $text-color;
     font-weight: 500;

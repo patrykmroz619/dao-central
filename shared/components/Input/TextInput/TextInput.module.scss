@@ -1,0 +1,14 @@
+@import "shared/styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  margin-left: $spacing-xs;
+  color: $text-color;
+  font-weight: 600;
+  font-size: 14px;
+}

@@ -21,15 +21,15 @@
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    min-width: $button-min-width - $button-height;
+    min-width: $button-min-width - $form-element-height;
   }
 
   .iconWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: $button-height;
-    height: $button-height;
+    width: $form-element-height;
+    height: $form-element-height;
     background-color: $primary-color-light;
   }
 

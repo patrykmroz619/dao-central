@@ -1,0 +1,8 @@
+@import "shared/styles/variables";
+
+.box {
+  background-color: $box-color;
+  box-shadow: $shadow;
+  padding: $spacing-m;
+  border-radius: $border-radius-small;
+}

@@ -1,0 +1,12 @@
+@import "shared/styles/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+
+  &__button {
+    margin-top: $spacing-m;
+    align-self: flex-end;
+  }
+}
