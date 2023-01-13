@@ -1,4 +1,4 @@
-import { H1, Text } from "shared/components";
+import { H1, Text } from "shared/components/Typography";
 import { WalletLogin } from "./WalletLogin";
 import styles from "./LoginSection.module.scss";
 

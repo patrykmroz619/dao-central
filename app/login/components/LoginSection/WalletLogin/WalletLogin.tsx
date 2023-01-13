@@ -6,10 +6,12 @@ import { useAccount, useSignMessage } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { LogIn } from "react-feather";
 
-import { IconButton, Text } from "shared/components";
-import { useAsyncState, useIsBrowser } from "shared/hooks";
 import { restAPI } from "shared/api";
 import { getErrorMessage } from "shared/utils/getErrorMessage";
+import { useIsBrowser } from "shared/hooks/useIsBrowser";
+import { useAsyncState } from "shared/hooks/useAsyncState";
+import { Text } from "shared/components/Typography";
+import { IconButton } from "shared/components/IconButton";
 import styles from "./WalletLogin.module.scss";
 
 export const WalletLogin = () => {
