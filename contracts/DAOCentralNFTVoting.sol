@@ -10,6 +10,7 @@ error NotOwnerOfNFT();
 error AlreadyVoted();
 
 contract DAOCentralNFTVoting is Ownable {
+    /// @dev Event is emitted when new proposal is added
     event NewProposal(uint256 indexed proposalId);
     event NewVote(uint256 indexed nftId, uint256 indexed proposalId, Vote vote);
 
