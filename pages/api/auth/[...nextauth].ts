@@ -63,9 +63,6 @@ export const authOptions: AuthOptions = {
           data: { accessToken, accessTokenExpiry, refreshToken },
         } = await restAPI.auth.refresh(token.refreshToken);
 
-        token.accessToken = accessToken;
-        token.accessTokenExpiry = accessTokenExpiry;
-        token.refreshToken = refreshToken;
         return {
           user: token.user,
           accessToken,

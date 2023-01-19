@@ -1,8 +1,10 @@
 "use client";
 
+import { ReactNode } from "react";
 import { motion, HTMLMotionProps, MotionProps } from "framer-motion";
 import { Loader } from "react-feather";
 import classNames from "classnames";
+
 import styles from "./Button.module.scss";
 
 const animationProps: MotionProps = {
@@ -13,6 +15,7 @@ const animationProps: MotionProps = {
 
 export type ButtonProps = HTMLMotionProps<"button"> & {
   isLoading?: boolean;
+  children: ReactNode;
 };
 
 export function Button(props: ButtonProps) {

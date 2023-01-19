@@ -1,0 +1,1 @@
+export { InitialInfo } from "./InitialInfo";

@@ -1,5 +1,6 @@
 import { Icon, Loader } from "react-feather";
 import classNames from "classnames";
+
 import { Button, ButtonProps } from "../Button";
 import styles from "./IconButton.module.scss";
 

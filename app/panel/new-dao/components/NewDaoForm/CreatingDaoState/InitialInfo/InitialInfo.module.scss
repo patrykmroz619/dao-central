@@ -1,12 +1,14 @@
 @import "shared/styles/variables";
 
-.form {
+.list {
   display: flex;
   flex-direction: column;
   gap: $spacing-m;
 
-  &__buttonContainer {
-    display: flex;
-    justify-content: flex-end;
+  &__item {
+    strong {
+      color: $primary-color-dark;
+      font-weight: 700;
+    }
   }
 }

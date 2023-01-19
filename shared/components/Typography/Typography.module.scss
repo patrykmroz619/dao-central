@@ -15,6 +15,18 @@
 .text {
   font-size: $font-size-normal;
   color: $text-color;
+
+  &__bold {
+    font-weight: 600;
+  }
+
+  &__bolder {
+    font-weight: 700;
+  }
+
+  &__center {
+    text-align: center;
+  }
 }
 
 .textDanger {

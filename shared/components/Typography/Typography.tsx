@@ -20,13 +20,19 @@ export function H2(props: H2Props) {
 
 type TextProps = ComponentPropsWithoutRef<"p"> & {
   danger?: boolean;
+  bold?: boolean;
+  bolder?: boolean;
+  center?: boolean;
 };
 
 export function Text(props: TextProps) {
-  const { className, danger, ...rest } = props;
+  const { className, danger, bold, bolder, center, ...rest } = props;
 
   const finalClass = classNames(styles.text, className, {
     [styles.textDanger]: danger,
+    [styles.text__bold]: bold,
+    [styles.text__bolder]: bolder,
+    [styles.text__center]: center,
   });
 
   return <p className={finalClass} {...rest}></p>;
