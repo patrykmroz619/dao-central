@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+
+import { RpcProviderEntity } from "../rpc-providers/rpc-providers.entity";
 
 @Entity({ name: "chains" })
 export class ChainEntity {
@@ -13,4 +15,7 @@ export class ChainEntity {
 
   @Column()
   nativeCurrency: string;
+
+  @OneToMany(() => RpcProviderEntity, (rpcProvider) => rpcProvider.chain)
+  rpcProviders: RpcProviderEntity[];
 }

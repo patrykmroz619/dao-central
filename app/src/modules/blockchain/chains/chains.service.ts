@@ -1,7 +1,8 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { ERRORS } from "src/constants";
 import { Repository } from "typeorm";
+
+import { ERRORS } from "src/constants";
 import { ChainEntity } from "./chains.entity";
 import { ChainDto, GetChainsDto, SaveChainDto } from "./dto";
 
