@@ -1,18 +1,25 @@
+import { Skeleton } from "shared/components/Skeleton";
 import { Text } from "shared/components/Typography";
 import { useAccount, useBalance, useNetwork } from "wagmi";
 
 import styles from "./InitialInfo.module.scss";
 
 export const InitialInfo = () => {
-  const { address, isConnecting } = useAccount();
+  const { address, isConnecting, isConnected } = useAccount();
   const { data, isFetching } = useBalance({ address });
   const { chain } = useNetwork();
 
-  console.log(chain);
+  if (!isConnected) {
+    return (
+      <Text center>
+        To deploy a new contract, you first need to connect a wallet.
+      </Text>
+    );
+  }
 
   const dataItems = [
     {
-      label: "Address",
+      label: "Connected wallet",
       value: address,
       isLoading: isConnecting,
     },
@@ -22,7 +29,7 @@ export const InitialInfo = () => {
       isLoading: isFetching,
     },
     {
-      label: "Connected chain",
+      label: "Network",
       value: chain?.unsupported ? "Unsupported" : chain?.name,
       isLoading: false,
     },
@@ -32,7 +39,8 @@ export const InitialInfo = () => {
     <ul className={styles.list}>
       {dataItems.map((item) => (
         <li key={item.label} className={styles.list__item}>
-          <strong>{item.label}:</strong> {item.value}
+          <strong>{item.label}: </strong>
+          {item.isLoading ? <Skeleton inline width="150px" /> : item.value}
         </li>
       ))}
       <Text>
