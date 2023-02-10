@@ -19,6 +19,8 @@ contract DAOCentralNFTVotingFactory is AbstractDAOCentralFactory {
             IERC721(nftContractAddress)
         );
 
+        newContract.transferOwnership(msg.sender);
+
         return address(newContract);
     }
 }

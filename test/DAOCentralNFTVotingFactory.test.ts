@@ -1,7 +1,11 @@
 import { loadFixture, time } from "@nomicfoundation/hardhat-network-helpers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { DAOCentralNFTVotingFactory } from "../typechain-types";
+import {
+  DAOCentralNFTVotingFactory,
+  DAOCentralNFTVotingFactory__factory,
+  DAOCentralNFTVoting__factory,
+} from "../typechain-types";
 import { deployContract } from "./utils";
 
 describe("DAOCentralNFTVotingFactory", () => {
@@ -38,7 +42,22 @@ describe("DAOCentralNFTVotingFactory", () => {
       (event) => event.event === "ContractCreated"
     );
 
-    expect(contractCreatedEvent?.args?.creator).to.be.equal(user1.address);
-    expect(contractCreatedEvent?.args?.contractAddress).to.be.exist;
+    const creator = contractCreatedEvent?.args?.creator;
+    const deployedContractAddress = contractCreatedEvent?.args?.contractAddress;
+
+    expect(creator).to.be.equal(user1.address);
+    expect(deployedContractAddress).to.be.exist;
+
+    const contractsCount = Number(await Factory.deployedContractsCount());
+    expect(contractsCount).to.be.equal(1);
+
+    const DAOCentralNFTVotingFactory = DAOCentralNFTVoting__factory.connect(
+      deployedContractAddress,
+      user1
+    );
+
+    const ownerOfDeployedContract = await DAOCentralNFTVotingFactory.owner();
+
+    expect(ownerOfDeployedContract).to.be.equal(user1.address);
   });
 });
