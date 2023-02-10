@@ -21,6 +21,7 @@
     "test:e2e": "cross-env NODE_ENV=test jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@moralisweb3/common-evm-utils": "^2.14.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
@@ -36,6 +37,7 @@
     "dotenv-extended": "^2.9.0",
     "ethers": "^5.7.2",
     "joi": "^17.7.0",
+    "moralis": "^2.14.1",
     "mysql2": "^2.3.3",
     "passport-jwt": "^4.0.0",
     "reflect-metadata": "^0.1.13",

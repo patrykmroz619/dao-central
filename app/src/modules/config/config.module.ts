@@ -3,6 +3,7 @@ import { ConfigModule as NestConfigModule } from "@nestjs/config";
 import * as Joi from "joi";
 import { NODE_ENV } from "src/constants";
 import { appConfig } from "./app.config";
+import { credentialsConfig } from "./credentials.config";
 import { databaseConfig } from "./database.config";
 import { jwtConfig } from "./jwt.config";
 
@@ -21,11 +22,17 @@ const getEnvFilePath = () => {
 @Module({
   imports: [
     NestConfigModule.forRoot({
-      load: [appConfig.config, databaseConfig.config, jwtConfig.config],
+      load: [
+        appConfig.config,
+        databaseConfig.config,
+        jwtConfig.config,
+        credentialsConfig.config,
+      ],
       validationSchema: Joi.object({
         ...appConfig.validation,
         ...databaseConfig.validation,
         ...jwtConfig.validation,
+        ...credentialsConfig.validation,
       }),
       isGlobal: true,
       envFilePath: getEnvFilePath(),
