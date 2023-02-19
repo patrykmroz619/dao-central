@@ -34,7 +34,7 @@ export class AuthService {
   ) {}
 
   async initLogin(walletAddress: string): Promise<InitLoginResponseDto> {
-    if (!ethers.utils.isAddress(walletAddress)) {
+    if (!ethers.isAddress(walletAddress)) {
       throw new BadRequestException(ERRORS.auth.invalidEthAddress);
     }
 
@@ -118,7 +118,7 @@ export class AuthService {
         initLoginRecord.code,
       );
 
-      const signerAddress = ethers.utils.verifyMessage(message, signature);
+      const signerAddress = ethers.verifyMessage(message, signature);
 
       if (signerAddress.toLowerCase() != walletAddress.toLowerCase()) {
         throw new Error(
@@ -138,8 +138,6 @@ export class AuthService {
   private getMessageToSign(userWalletAddress: string, code: string): string {
     const message = `Please sign this message to log in\n\n`;
 
-    return (
-      message + ethers.utils.keccak256(userWalletAddress.toLowerCase() + code)
-    );
+    return message + ethers.keccak256(userWalletAddress.toLowerCase() + code);
   }
 }

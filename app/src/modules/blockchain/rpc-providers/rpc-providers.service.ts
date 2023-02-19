@@ -33,19 +33,21 @@ export class RpcProvidersService {
 
     const providerType = this.getProviderType(url);
 
-    let rpcProvider: ethers.providers.BaseProvider;
+    let rpcProvider: ethers.Provider;
 
     if (providerType === RPCProviderType.WSS) {
-      rpcProvider = new ethers.providers.WebSocketProvider(url);
+      rpcProvider = new ethers.WebSocketProvider(url);
     } else if (providerType === RPCProviderType.HTTPS) {
-      rpcProvider = new ethers.providers.JsonRpcProvider(url);
+      rpcProvider = new ethers.JsonRpcProvider(url);
     } else {
       throw new Error("Unsupported provider type");
     }
 
     const { chainId: providerChainId } = await rpcProvider.getNetwork();
 
-    const chain = await this.chainService.getChainByChainId(providerChainId);
+    const chain = await this.chainService.getChainByChainId(
+      Number(providerChainId),
+    );
 
     if (!chain) {
       throw new BadRequestException(ERRORS.rpcProviders.chainNotFound);
@@ -98,13 +100,7 @@ export class RpcProvidersService {
   public async getJsonRpcProvider(
     chainId: ChainEntity["chainId"],
     exceptId?: RpcProviderEntity["id"],
-  ): Promise<
-    [
-      ethers.providers.JsonRpcProvider,
-      ethers.providers.JsonRpcBatchProvider,
-      RpcProviderEntity,
-    ]
-  > {
+  ): Promise<[ethers.JsonRpcProvider, RpcProviderEntity]> {
     const rpcProviderEntity = await this.getRPCProvider(
       chainId,
       RPCProviderType.HTTPS,
@@ -115,19 +111,14 @@ export class RpcProvidersService {
       throw new Error(`RPC provider for given chain id (${chainId}) not found`);
     }
 
-    const JsonRpcProvider = new ethers.providers.JsonRpcProvider(
-      rpcProviderEntity.url,
-    );
-    const JsonRpcBatchProvider = new ethers.providers.JsonRpcBatchProvider(
-      rpcProviderEntity.url,
-    );
+    const JsonRpcProvider = new ethers.JsonRpcProvider(rpcProviderEntity.url);
 
-    return [JsonRpcProvider, JsonRpcBatchProvider, rpcProviderEntity];
+    return [JsonRpcProvider, rpcProviderEntity];
   }
 
   public async getWebsocketProvider(
     chainId: ChainEntity["chainId"],
-  ): Promise<[ethers.providers.WebSocketProvider, RpcProviderEntity]> {
+  ): Promise<[ethers.WebSocketProvider, RpcProviderEntity]> {
     const rpcProviderEntity = await this.getRPCProvider(
       chainId,
       RPCProviderType.WSS,
@@ -137,7 +128,7 @@ export class RpcProvidersService {
       throw new Error(`RPC provider for given chain id (${chainId}) not found`);
     }
 
-    const WebsocketProvider = new ethers.providers.WebSocketProvider(
+    const WebsocketProvider = new ethers.WebSocketProvider(
       rpcProviderEntity.url,
     );
     return [WebsocketProvider, rpcProviderEntity];
@@ -156,27 +147,29 @@ export class RpcProvidersService {
   }
 
   public async executeJsonRpcQuery<T>(
-    query: (provider: ethers.providers.Provider) => T,
+    query: (provider: ethers.Provider) => T,
     chainId: ChainEntity["chainId"],
     queryName: string,
-    batch = false,
   ): Promise<T> {
-    let [JsonRpcProvider, JsonRpcBatchProvider, RpcProviderEntity] =
-      await this.getJsonRpcProvider(chainId);
+    let [JsonRpcProvider, RpcProviderEntity] = await this.getJsonRpcProvider(
+      chainId,
+    );
 
     while (true) {
       try {
         this.logger.log(
           `Execute ${queryName} query by provider with id ${RpcProviderEntity.id}`,
         );
-        return await query(batch ? JsonRpcBatchProvider : JsonRpcProvider);
+        return await query(JsonRpcProvider);
       } catch (e: unknown) {
         this.logger.error(
           `Rpc query failed (Query - ${queryName}, chainId - ${chainId}, providerId - ${RpcProviderEntity.id}), Error: ${e}`,
         );
         await this.reportProviderError(RpcProviderEntity.id);
-        [JsonRpcProvider, JsonRpcBatchProvider, RpcProviderEntity] =
-          await this.getJsonRpcProvider(chainId, RpcProviderEntity.id);
+        [JsonRpcProvider, RpcProviderEntity] = await this.getJsonRpcProvider(
+          chainId,
+          RpcProviderEntity.id,
+        );
       }
     }
   }

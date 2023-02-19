@@ -3,6 +3,7 @@ import { ConfigModule as NestConfigModule } from "@nestjs/config";
 import * as Joi from "joi";
 import { NODE_ENV } from "src/constants";
 import { appConfig } from "./app.config";
+import { blockchainConfig } from "./blockchain.config";
 import { credentialsConfig } from "./credentials.config";
 import { databaseConfig } from "./database.config";
 import { jwtConfig } from "./jwt.config";
@@ -27,12 +28,14 @@ const getEnvFilePath = () => {
         databaseConfig.config,
         jwtConfig.config,
         credentialsConfig.config,
+        blockchainConfig.config,
       ],
       validationSchema: Joi.object({
         ...appConfig.validation,
         ...databaseConfig.validation,
         ...jwtConfig.validation,
         ...credentialsConfig.validation,
+        ...blockchainConfig.validation,
       }),
       isGlobal: true,
       envFilePath: getEnvFilePath(),
