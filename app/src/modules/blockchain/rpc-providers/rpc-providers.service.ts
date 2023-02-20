@@ -13,6 +13,7 @@ import { RPCProviderType } from "./rpc-providers.type";
 @Injectable()
 export class RpcProvidersService {
   private logger = new Logger(RpcProvidersService.name);
+  private readonly ERRORS_LIMIT = 5;
 
   constructor(
     private chainService: ChainsService,
@@ -155,13 +156,16 @@ export class RpcProvidersService {
       chainId,
     );
 
-    while (true) {
+    let errorsCount = 0;
+
+    while (errorsCount < this.ERRORS_LIMIT) {
       try {
         this.logger.log(
           `Execute ${queryName} query by provider with id ${RpcProviderEntity.id}`,
         );
         return await query(JsonRpcProvider);
       } catch (e: unknown) {
+        errorsCount++;
         this.logger.error(
           `Rpc query failed (Query - ${queryName}, chainId - ${chainId}, providerId - ${RpcProviderEntity.id}), Error: ${e}`,
         );

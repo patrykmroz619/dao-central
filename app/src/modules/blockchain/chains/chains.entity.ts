@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
+import { DaoEntity } from "src/modules/dao/dao.entity";
 import { RpcProviderEntity } from "../rpc-providers/rpc-providers.entity";
 
 @Entity({ name: "chains" })
@@ -18,4 +19,7 @@ export class ChainEntity {
 
   @OneToMany(() => RpcProviderEntity, (rpcProvider) => rpcProvider.chain)
   rpcProviders: RpcProviderEntity[];
+
+  @OneToMany(() => DaoEntity, (dao) => dao.chain)
+  daos: DaoEntity[];
 }

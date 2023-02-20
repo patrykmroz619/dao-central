@@ -4,5 +4,6 @@ import { RpcProvidersModule } from "./rpc-providers/rpc-providers.module";
 
 @Module({
   imports: [ChainsModule, RpcProvidersModule],
+  exports: [ChainsModule, RpcProvidersModule],
 })
 export class BlockchainModule {}

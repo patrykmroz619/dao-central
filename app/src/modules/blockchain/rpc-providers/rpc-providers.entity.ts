@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
+import { NODE_ENV } from "src/constants";
 import { ChainEntity } from "../chains/chains.entity";
 import { RPCProviderType } from "./rpc-providers.type";
 
@@ -11,10 +12,14 @@ export class RpcProviderEntity {
   @Column({ unique: true })
   url: string;
 
-  @Column({
-    type: "enum",
-    enum: RPCProviderType,
-  })
+  @Column(
+    process.env.NODE_ENV !== NODE_ENV.TEST
+      ? {
+          type: "enum",
+          enum: RPCProviderType,
+        }
+      : undefined,
+  )
   type: RPCProviderType;
 
   @Column({
@@ -30,6 +35,6 @@ export class RpcProviderEntity {
   @Column({ nullable: true })
   lastUsage: Date;
 
-  @ManyToOne(() => ChainEntity, (chain) => chain.rpcProviders)
+  @ManyToOne(() => ChainEntity, (chain: ChainEntity) => chain.rpcProviders)
   chain: ChainEntity;
 }

@@ -1,7 +1,7 @@
 import { HttpStatus, INestApplication } from "@nestjs/common";
 import * as request from "supertest";
 import * as ethers from "ethers";
-import { clearDatabase, expectApiError, prepareFixture } from "../test.helper";
+import { onTestsEnd, expectApiError, prepareFixture } from "../test.helper";
 import { ERRORS } from "../../src/constants";
 import { login } from "../utils/login-test.utils";
 
@@ -216,7 +216,7 @@ describe("AuthModule (e2e)", () => {
   });
 
   afterAll(async () => {
-    await clearDatabase(app);
+    await onTestsEnd(app);
     await app.close();
   });
 });

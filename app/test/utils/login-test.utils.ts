@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import * as request from "supertest";
 
-export const login = async (httpServer: any, wallet: ethers.Wallet) => {
+export const login = async (httpServer: any, wallet: ethers.HDNodeWallet) => {
   const initLoginResponse = await request(httpServer).get(
     `/auth/login?walletAddress=${wallet.address}`,
   );

@@ -47,7 +47,7 @@ export async function prepareFixture() {
   return app;
 }
 
-export async function clearDatabase(app: INestApplication) {
+export async function onTestsEnd(app: INestApplication) {
   const repos = [
     await app.get("InitLoginEntityRepository"),
     await app.get("JWTEntityRepository"),
