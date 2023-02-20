@@ -4,6 +4,7 @@ import { Cron, CronExpression } from "@nestjs/schedule";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ethers } from "ethers";
+import { FilterOperator, paginate, PaginateQuery } from "nestjs-paginate";
 
 import { CONFIG } from "src/constants";
 import { ChainsService } from "../blockchain/chains/chains.service";
@@ -12,7 +13,7 @@ import { RpcProvidersService } from "../blockchain/rpc-providers/rpc-providers.s
 import { UsersService } from "../users/users.service";
 import { nftVotingContractAbi, nftVotingFactoryContractAbi } from "./abi";
 import { DaoEntity } from "./dao.entity";
-import { DaoDto } from "./dto";
+import { DaoDto, GetDaosDto } from "./dto";
 
 @Injectable()
 export class DaoService {
@@ -37,7 +38,7 @@ export class DaoService {
     );
   }
 
-  @Cron(CronExpression.EVERY_MINUTE)
+  @Cron(CronExpression.EVERY_10_MINUTES)
   public async handleCron() {
     this.logger.log("Cron start");
 
@@ -54,7 +55,7 @@ export class DaoService {
           "Deployed contracts count",
         );
 
-      const savedContractsCount = await this.daoRepository.count({
+      const savedContracts = await this.daoRepository.find({
         where: {
           chain: {
             chainId: chain.chainId,
@@ -65,8 +66,13 @@ export class DaoService {
         },
       });
 
+      const savedContractsCount = savedContracts.length;
+
       if (savedContractsCount < deployedContractsCount) {
-        for (let i = savedContractsCount; i < deployedContractsCount; i++) {
+        let lackedContractsCount =
+          Number(deployedContractsCount.toString()) - savedContractsCount;
+
+        for (let i = deployedContractsCount - BigInt(1); i >= 0; i--) {
           const daoAddress: string =
             await this.rpcProvidersService.executeJsonRpcQuery(
               (provider) =>
@@ -78,7 +84,21 @@ export class DaoService {
             );
 
           if (daoAddress !== ethers.ZeroAddress) {
-            await this.saveDAO(chain.chainId, daoAddress);
+            const newDao = await this.saveDAO(chain.chainId, daoAddress);
+
+            const isAlreadySaved = savedContracts.some(
+              (dao) =>
+                dao.contractAddress.toLowerCase() ===
+                newDao.contractAddress.toLowerCase(),
+            );
+
+            if (!isAlreadySaved) {
+              lackedContractsCount--;
+            }
+
+            if (lackedContractsCount === 0) {
+              break;
+            }
           }
         }
       }
@@ -146,6 +166,30 @@ export class DaoService {
       nftAddress: newDao.nftAddress,
       organization: newDao.organization,
       owner: newDao.owner.walletAddress,
+    };
+  }
+
+  public async getDAOs(query: PaginateQuery): Promise<GetDaosDto> {
+    const { data, meta } = await paginate(query, this.daoRepository, {
+      sortableColumns: ["id"],
+      filterableColumns: {
+        id: [FilterOperator.EQ],
+        organization: [FilterOperator.ILIKE],
+        nftAddress: [FilterOperator.EQ],
+        owner: [FilterOperator.EQ],
+      },
+      relations: ["owner"],
+    });
+
+    return {
+      data: data.map((dao) => ({
+        id: dao.id,
+        contractAddress: dao.contractAddress,
+        nftAddress: dao.nftAddress,
+        organization: dao.organization,
+        owner: dao.owner.walletAddress,
+      })),
+      count: meta.totalItems,
     };
   }
 }
