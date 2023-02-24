@@ -1,0 +1,1 @@
+export { MyDaoTable } from "./MyDaoTable";

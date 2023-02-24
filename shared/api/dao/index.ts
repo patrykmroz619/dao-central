@@ -1,4 +1,7 @@
+import qs from "qs";
+
 import { restApiClient } from "../restApiClient";
+import { GetQueryParams } from "../types/getQueryParams.type";
 
 type DaoData = {
   id: number;
@@ -27,4 +30,22 @@ const save = async (
   return response.data;
 };
 
-export const dao = { save };
+type GetDaoListResponse = {
+  data: DaoData[];
+  count: number;
+};
+
+const getList = async (params: GetQueryParams<"owner">) => {
+  const queryString = qs.stringify(params);
+
+  const response = await restApiClient<GetDaoListResponse>(
+    `dao?${queryString}`,
+    {
+      method: "GET",
+    }
+  );
+
+  return response.data;
+};
+
+export const dao = { save, getList };

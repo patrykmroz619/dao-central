@@ -1,0 +1,7 @@
+@import "shared/styles/variables";
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+}
