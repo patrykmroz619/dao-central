@@ -21,9 +21,7 @@
 .tableHeadCell {
   padding: $spacing-m;
 
-  &:first-child {
-    text-align: left;
-  }
+  text-align: left;
 
   &:last-child {
     text-align: right;
