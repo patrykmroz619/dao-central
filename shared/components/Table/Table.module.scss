@@ -22,6 +22,7 @@
   padding: $spacing-m;
 
   text-align: left;
+  white-space: nowrap;
 
   &:last-child {
     text-align: right;
@@ -34,6 +35,7 @@
 
 .tableCell {
   padding: $spacing-m;
+  white-space: nowrap;
 
   &:last-child {
     text-align: right;
