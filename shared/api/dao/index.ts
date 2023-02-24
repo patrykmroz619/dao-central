@@ -9,6 +9,8 @@ type DaoData = {
   contractAddress: string;
   nftAddress: string;
   owner: string;
+  chainId: number;
+  chainName: string;
 };
 
 const save = async (
@@ -42,6 +44,7 @@ const getList = async (params: GetQueryParams<"owner">) => {
     `dao?${queryString}`,
     {
       method: "GET",
+      cache: "no-store",
     }
   );
 

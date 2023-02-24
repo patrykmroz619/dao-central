@@ -23,7 +23,7 @@ export const LoadingState = ({ txHash }: LoadingStateProps) => {
         browser.
       </Text>
       {txHash && (
-        <a href={explorerUrl} target="_blank" rel="noreferrer">
+        <a href={explorerUrl} target="_blank" rel="noreferrer noopener">
           View pending transaction on the {blockExplorerName}
         </a>
       )}

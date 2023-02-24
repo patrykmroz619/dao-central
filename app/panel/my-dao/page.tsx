@@ -6,6 +6,8 @@ import { H2, Text } from "shared/components/Typography";
 import { MyDaoTable } from "./features";
 import styles from "./MyDaoPage.module.scss";
 
+export const dynamic = "force-dynamic";
+
 const MyDaoPage = async () => {
   const { user } = await getSession();
 
@@ -15,17 +17,12 @@ const MyDaoPage = async () => {
     },
   });
 
-  const daos = data.map((dao) => ({
-    id: dao.id,
-    contractAddress: dao.contractAddress,
-  }));
-
   return (
     <DefaultPageWrapper>
       <Box className={styles.box}>
         <H2>My DAOs</H2>
         <Text>List of your created DAO contracts</Text>
-        <MyDaoTable daos={daos} />
+        <MyDaoTable daos={data} />
       </Box>
     </DefaultPageWrapper>
   );
