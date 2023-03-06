@@ -1,0 +1,13 @@
+@import "shared/styles/variables";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-s;
+
+  &__item {
+    strong {
+      font-weight: 700;
+    }
+  }
+}

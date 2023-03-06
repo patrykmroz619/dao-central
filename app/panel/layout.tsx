@@ -3,7 +3,7 @@ import Image from "next/image";
 import logo from "public/images/brand/logo-black.png";
 import { H1 } from "shared/components/Typography";
 import { MainSidebar, Navigation, MobileHeader } from "./components";
-import { MainSidebarContextProvider } from "./features";
+import { MainSidebarContextProvider } from "./containers";
 import styles from "./PanelLayout.module.scss";
 
 type PanelLayoutProps = {

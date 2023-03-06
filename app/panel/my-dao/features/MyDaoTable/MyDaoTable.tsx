@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo } from "react";
+import Link from "next/link";
+import { ExternalLink } from "react-feather";
+
 import { Table, TableConfig } from "shared/components/Table";
-import { getChainData } from "shared/utils/getChainData";
-import { truncateEthAddress } from "shared/utils/truncateEthAddress";
+import { BlockchainExplorerLink } from "shared/features/common/BlockchainExplorerLink";
 
 type DaoTableItem = {
   id: number;
@@ -34,29 +36,30 @@ export const MyDaoTable = (props: MyDaoTableProps) => {
           label: "Contract address",
           isSortable: true,
           value: (item) => (
-            <a
-              href={`${
-                getChainData(item.chainId)?.blockExplorers?.default.url
-              }/address/${item.contractAddress}`}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              {truncateEthAddress(item.contractAddress)}
-            </a>
+            <BlockchainExplorerLink
+              chainId={item.chainId}
+              address={item.contractAddress}
+            />
           ),
         },
         nftAddress: {
           label: "NFT Address",
           value: (item) => (
-            <a
-              href={`${
-                getChainData(item.chainId)?.blockExplorers?.default.url
-              }/address/${item.nftAddress}`}
-              target="_blank"
-              rel="noreferrer noopener"
+            <BlockchainExplorerLink
+              chainId={item.chainId}
+              address={item.nftAddress}
+            />
+          ),
+        },
+        link: {
+          label: "",
+          value: (item) => (
+            <Link
+              href={`/panel/dao/${item.id}`}
+              aria-label={`Details of ${item.organization}`}
             >
-              {truncateEthAddress(item.nftAddress)}
-            </a>
+              <ExternalLink />
+            </Link>
           ),
         },
       },

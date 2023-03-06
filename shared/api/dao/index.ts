@@ -1,5 +1,6 @@
 import qs from "qs";
 
+import { HTTP_METHOD } from "shared/constants/httpMethod";
 import { restApiClient } from "../restApiClient";
 import { GetQueryParams } from "../types/getQueryParams.type";
 
@@ -19,7 +20,7 @@ const save = async (
   accessToken: string
 ) => {
   const response = await restApiClient<DaoData>("dao", {
-    method: "POST",
+    method: HTTP_METHOD.POST,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -43,7 +44,7 @@ const getList = async (params: GetQueryParams<"owner">) => {
   const response = await restApiClient<GetDaoListResponse>(
     `dao?${queryString}`,
     {
-      method: "GET",
+      method: HTTP_METHOD.GET,
       cache: "no-store",
     }
   );
@@ -51,4 +52,12 @@ const getList = async (params: GetQueryParams<"owner">) => {
   return response.data;
 };
 
-export const dao = { save, getList };
+const getById = async (daoId: string) => {
+  const response = await restApiClient<DaoData>(`dao/${daoId}`, {
+    method: HTTP_METHOD.GET,
+  });
+
+  return response.data;
+};
+
+export const dao = { save, getList, getById };
