@@ -1,4 +1,4 @@
-import { Injectable, Logger } from "@nestjs/common";
+import { Injectable, Logger, NotFoundException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Cron, CronExpression } from "@nestjs/schedule";
 import { Repository } from "typeorm";
@@ -6,7 +6,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { ethers } from "ethers";
 import { FilterOperator, paginate, PaginateQuery } from "nestjs-paginate";
 
-import { CONFIG } from "src/constants";
+import { CONFIG, ERRORS } from "src/constants";
 import { ChainsService } from "../blockchain/chains/chains.service";
 import { ChainDto } from "../blockchain/chains/dto";
 import { RpcProvidersService } from "../blockchain/rpc-providers/rpc-providers.service";
@@ -118,6 +118,7 @@ export class DaoService {
       },
       relations: {
         owner: true,
+        chain: true,
       },
     });
 
@@ -128,6 +129,8 @@ export class DaoService {
         nftAddress: dao.nftAddress,
         organization: dao.organization,
         owner: dao.owner.walletAddress,
+        chainId: dao.chain.chainId,
+        chainName: dao.chain.name,
       };
     }
 
@@ -166,6 +169,8 @@ export class DaoService {
       nftAddress: newDao.nftAddress,
       organization: newDao.organization,
       owner: newDao.owner.walletAddress,
+      chainId: dao.chain.chainId,
+      chainName: dao.chain.name,
     };
   }
 
@@ -178,7 +183,7 @@ export class DaoService {
         nftAddress: [FilterOperator.EQ],
         owner: [FilterOperator.EQ],
       },
-      relations: ["owner"],
+      relations: ["owner", "chain"],
     });
 
     return {
@@ -188,8 +193,37 @@ export class DaoService {
         nftAddress: dao.nftAddress,
         organization: dao.organization,
         owner: dao.owner.walletAddress,
+        chainId: dao.chain.chainId,
+        chainName: dao.chain.name,
       })),
       count: meta.totalItems,
+    };
+  }
+
+  public async getDAO(daoId: DaoEntity["id"]): Promise<DaoDto> {
+    console.log({ daoId });
+    const dao = await this.daoRepository.findOne({
+      where: {
+        id: daoId,
+      },
+      relations: {
+        chain: true,
+        owner: true,
+      },
+    });
+
+    if (!dao) {
+      throw new NotFoundException(ERRORS.dao.notFound);
+    }
+
+    return {
+      id: dao.id,
+      contractAddress: dao.contractAddress,
+      nftAddress: dao.nftAddress,
+      organization: dao.organization,
+      owner: dao.owner.walletAddress,
+      chainId: dao.chain.chainId,
+      chainName: dao.chain.name,
     };
   }
 }

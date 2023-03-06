@@ -11,4 +11,7 @@ export const ERRORS = {
     providerAlreadyExists: "The provider with given url already exists",
     chainNotFound: "Chain not found for given provider",
   },
+  dao: {
+    notFound: "DAO not found",
+  },
 } as const;

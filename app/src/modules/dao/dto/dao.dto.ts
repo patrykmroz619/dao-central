@@ -15,4 +15,10 @@ export class DaoDto {
 
   @ApiProperty()
   owner: string;
+
+  @ApiProperty()
+  chainId: number;
+
+  @ApiProperty()
+  chainName: string;
 }

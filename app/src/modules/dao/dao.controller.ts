@@ -1,11 +1,10 @@
-import { Body, Controller, Get, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, UseGuards } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Paginate, PaginateQuery } from "nestjs-paginate";
 
 import { JwtAuthGuard } from "src/guards";
 import { DaoService } from "./dao.service";
-import { SaveDaoDocs } from "./docs";
-import { GetDaosDocs } from "./docs/get-daos.docs";
+import { SaveDaoDocs, GetDaosDocs, GetDaoDocs } from "./docs";
 import { DaoDto, GetDaosDto, SaveDaoDto } from "./dto";
 
 @ApiTags("DAO")
@@ -21,6 +20,13 @@ export class DaoController {
       saveDaoDto.chainId,
       saveDaoDto.contractAddress,
     );
+  }
+
+  @Get(":id")
+  @GetDaoDocs()
+  async getDAO(@Param("id") id: string): Promise<DaoDto> {
+    console.log({ id });
+    return this.daoService.getDAO(Number(id));
   }
 
   @Get()
