@@ -3,6 +3,7 @@ import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
 import { H2 } from "shared/components/Typography";
 import { Box } from "shared/components/Box";
 import { DaoDetails } from "./components";
+import { DaoProposals } from "./containers";
 import styles from "./DaoDetailsPage.module.scss";
 
 type DaoDetailsPageProps = {
@@ -20,16 +21,24 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
 
   return (
     <DefaultPageWrapper>
-      <Box>
-        <H2 className={styles.heading}>{dao.organization}</H2>
-        <DaoDetails
-          chainName={dao.chainName}
-          chainId={dao.chainId}
-          ownerAddress={dao.owner}
-          contractAddress={dao.contractAddress}
-          nftAddress={dao.nftAddress}
-        />
-      </Box>
+      <section>
+        <Box>
+          <H2 className={styles.heading}>{dao.organization}</H2>
+          <DaoDetails
+            chainName={dao.chainName}
+            chainId={dao.chainId}
+            ownerAddress={dao.owner}
+            contractAddress={dao.contractAddress}
+            nftAddress={dao.nftAddress}
+          />
+        </Box>
+      </section>
+      <section>
+        <Box className={styles.votingBox}>
+          <H2 className={styles.heading}>Vote on proposals</H2>
+          <DaoProposals />
+        </Box>
+      </section>
     </DefaultPageWrapper>
   );
 }

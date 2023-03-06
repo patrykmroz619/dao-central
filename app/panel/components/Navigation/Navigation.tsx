@@ -3,7 +3,7 @@
 import { Home, Archive, PlusCircle, User } from "react-feather";
 
 import { NavLink } from "shared/components/NavLink";
-import { useMainSidebar } from "app/panel/features";
+import { useMainSidebar } from "app/panel/containers";
 import styles from "./Navigation.module.scss";
 
 const links = [

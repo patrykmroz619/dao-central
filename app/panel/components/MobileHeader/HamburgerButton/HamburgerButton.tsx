@@ -1,6 +1,6 @@
 "use client";
 
-import { useMainSidebar } from "app/panel/features";
+import { useMainSidebar } from "app/panel/containers";
 import { Menu } from "react-feather";
 
 import styles from "./HamburgerButton.module.scss";

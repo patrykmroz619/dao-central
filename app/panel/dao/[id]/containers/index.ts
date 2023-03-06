@@ -1,0 +1,1 @@
+export { DaoProposals } from "./DaoProposals";

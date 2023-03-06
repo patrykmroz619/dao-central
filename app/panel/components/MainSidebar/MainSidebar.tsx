@@ -4,7 +4,7 @@ import { ReactNode, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 
 import { useOutsideClick } from "shared/hooks/useOutsideClick";
-import { useMainSidebar } from "app/panel/features";
+import { useMainSidebar } from "app/panel/containers";
 import styles from "./MainSidebar.module.scss";
 
 const sidebarVariants: Variants = {
