@@ -1,4 +1,4 @@
-import { Open_Sans } from "@next/font/google";
+import { Open_Sans } from "next/font/google";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import { GlobalProvider } from "shared/features/GlobalProvider";
