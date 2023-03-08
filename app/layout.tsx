@@ -23,6 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body className={styles.body}>
         <GlobalProvider>{children}</GlobalProvider>
+        <div id="modal" />
       </body>
     </html>
   );
