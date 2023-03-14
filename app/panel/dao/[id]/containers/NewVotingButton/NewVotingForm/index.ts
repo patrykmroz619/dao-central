@@ -1,0 +1,1 @@
+export { NewVotingForm } from "./NewVotingForm";

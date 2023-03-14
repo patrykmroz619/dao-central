@@ -4,6 +4,7 @@ import { Spinner } from "shared/components/Spinner";
 import { Text } from "shared/components/Typography";
 
 import styles from "./LoadingState.module.scss";
+import { InfoBox } from "shared/components/InfoBox";
 
 type LoadingStateProps = {
   txHash?: string;
@@ -19,7 +20,7 @@ export const LoadingState = (props: LoadingStateProps) => {
   const explorerUrl = `${chain?.blockExplorers?.default.url}/tx/${txHash}`;
 
   return (
-    <div className={styles.wrapper}>
+    <InfoBox className={styles.wrapper}>
       <Spinner />
       <Text>{loadingHeading}</Text>
       {txHash && (
@@ -27,6 +28,6 @@ export const LoadingState = (props: LoadingStateProps) => {
           View pending transaction on the {blockExplorerName}
         </a>
       )}
-    </div>
+    </InfoBox>
   );
 };

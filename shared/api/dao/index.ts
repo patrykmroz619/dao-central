@@ -2,17 +2,8 @@ import qs from "qs";
 
 import { HTTP_METHOD } from "shared/constants/httpMethod";
 import { restApiClient } from "../restApiClient";
+import { DaoData } from "../types/daoData.type";
 import { GetQueryParams } from "../types/getQueryParams.type";
-
-type DaoData = {
-  id: number;
-  organization: string;
-  contractAddress: string;
-  nftAddress: string;
-  owner: string;
-  chainId: number;
-  chainName: string;
-};
 
 const save = async (
   chainId: number,

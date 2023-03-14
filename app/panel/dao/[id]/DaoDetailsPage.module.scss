@@ -6,4 +6,9 @@
 
 .votingBox {
   margin-top: $spacing-l;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
 }

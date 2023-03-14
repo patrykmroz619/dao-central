@@ -9,8 +9,6 @@
   font-size: $font-size-small;
 
   &__info {
-    border: 1px solid $primary-color;
-    background-color: transparentize($primary-color, 0.75);
   }
 
   &__success {

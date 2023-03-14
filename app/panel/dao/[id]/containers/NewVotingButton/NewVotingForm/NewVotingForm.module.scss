@@ -1,0 +1,7 @@
+@import "shared/styles/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+}

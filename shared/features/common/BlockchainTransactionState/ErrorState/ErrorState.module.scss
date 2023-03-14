@@ -1,7 +1,7 @@
 @import "shared/styles/variables";
 
 .box {
-  height: 125px;
+  min-height: 125px;
 
   &__content {
     display: flex;

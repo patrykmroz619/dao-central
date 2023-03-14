@@ -3,8 +3,9 @@ import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
 import { H2 } from "shared/components/Typography";
 import { Box } from "shared/components/Box";
 import { DaoDetails } from "./components";
-import { DaoProposals } from "./containers";
+import { DaoProposals, NewVotingButton } from "./containers";
 import styles from "./DaoDetailsPage.module.scss";
+import { DaoPageContextProvider } from "./context";
 
 type DaoDetailsPageProps = {
   params: {
@@ -21,24 +22,29 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
 
   return (
     <DefaultPageWrapper>
-      <section>
-        <Box>
-          <H2 className={styles.heading}>{dao.organization}</H2>
-          <DaoDetails
-            chainName={dao.chainName}
-            chainId={dao.chainId}
-            ownerAddress={dao.owner}
-            contractAddress={dao.contractAddress}
-            nftAddress={dao.nftAddress}
-          />
-        </Box>
-      </section>
-      <section>
-        <Box className={styles.votingBox}>
-          <H2 className={styles.heading}>Vote on proposals</H2>
-          <DaoProposals />
-        </Box>
-      </section>
+      <DaoPageContextProvider daoData={dao}>
+        <section>
+          <Box>
+            <H2 className={styles.heading}>{dao.organization}</H2>
+            <DaoDetails
+              chainName={dao.chainName}
+              chainId={dao.chainId}
+              ownerAddress={dao.owner}
+              contractAddress={dao.contractAddress}
+              nftAddress={dao.nftAddress}
+            />
+          </Box>
+        </section>
+        <section>
+          <Box className={styles.votingBox}>
+            <div className={styles.votingBox__header}>
+              <H2 className={styles.heading}>Vote on proposals</H2>
+              <NewVotingButton />
+            </div>
+            <DaoProposals />
+          </Box>
+        </section>
+      </DaoPageContextProvider>
     </DefaultPageWrapper>
   );
 }

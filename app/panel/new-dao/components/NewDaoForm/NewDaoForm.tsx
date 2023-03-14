@@ -1,6 +1,8 @@
 "use client";
 
 import { Plus } from "react-feather";
+import { useAccount } from "wagmi";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import { IconButton } from "shared/components/IconButton";
 import { TextInput } from "shared/components/Input/TextInput";
@@ -9,8 +11,6 @@ import { useCreateDao } from "./useCreateDao";
 import { CreatingDaoState } from "./CreatingDaoState";
 
 import styles from "./NewDaoForm.module.scss";
-import { useAccount } from "wagmi";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export const NewDaoForm = () => {
   const {
