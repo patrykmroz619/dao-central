@@ -1,0 +1,12 @@
+@import "shared/styles/variables";
+
+.box {
+  height: 125px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-m;
+  }
+}
