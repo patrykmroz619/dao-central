@@ -1,0 +1,1 @@
+export { SingleBarChart } from "./SingleBarChart";

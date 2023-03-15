@@ -18,6 +18,14 @@ export function H2(props: H2Props) {
   return <h2 className={classNames(styles.h2, className)} {...rest}></h2>;
 }
 
+type H3Props = ComponentPropsWithoutRef<"h3">;
+
+export function H3(props: H3Props) {
+  const { className, ...rest } = props;
+
+  return <h3 className={classNames(styles.h3, className)} {...rest}></h3>;
+}
+
 type TextProps = ComponentPropsWithoutRef<"p"> & {
   danger?: boolean;
   bold?: boolean;

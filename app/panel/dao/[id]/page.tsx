@@ -3,7 +3,7 @@ import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
 import { H2 } from "shared/components/Typography";
 import { Box } from "shared/components/Box";
 import { DaoDetails } from "./components";
-import { DaoProposals, NewVotingButton } from "./containers";
+import { NewVotingButton, ProposalsList } from "./containers";
 import styles from "./DaoDetailsPage.module.scss";
 import { DaoPageContextProvider } from "./context";
 
@@ -41,7 +41,7 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
               <H2 className={styles.heading}>Vote on proposals</H2>
               <NewVotingButton />
             </div>
-            <DaoProposals />
+            <ProposalsList />
           </Box>
         </section>
       </DaoPageContextProvider>

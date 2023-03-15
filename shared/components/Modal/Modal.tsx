@@ -7,6 +7,7 @@ import { X } from "react-feather";
 
 import { useIsBrowser } from "shared/hooks/useIsBrowser";
 import { useOutsideClick } from "shared/hooks/useOutsideClick";
+import { H3 } from "../Typography";
 import styles from "./Modal.module.scss";
 
 type ModalProps = {
@@ -45,7 +46,7 @@ export const Modal = (props: ModalProps) => {
           style={{ maxWidth: width }}
         >
           <div className={styles.modal} ref={modalRef}>
-            {heading && <h3 className={styles.modal__heading}>{heading}</h3>}
+            {heading && <H3 className={styles.modal__heading}>{heading}</H3>}
             {onClose && (
               <button className={styles.modal__closeBtn} onClick={handleClose}>
                 <X />

@@ -1,0 +1,33 @@
+@import "shared/styles/variables";
+
+.proposal {
+  border-bottom: 1px solid $gray-light;
+  padding-bottom: $spacing-m;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &__header {
+    margin-bottom: $spacing-m;
+  }
+
+  &__chart {
+    margin: $spacing-s 0;
+  }
+
+  &__dates {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-s;
+  }
+
+  &__footer {
+    display: flex;
+    gap: $spacing-s;
+    justify-content: center;
+    align-items: center;
+    min-height: $form-element-height;
+  }
+}

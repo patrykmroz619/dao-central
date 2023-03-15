@@ -1,8 +1,13 @@
 @import "shared/styles/variables";
+@import "shared/styles/media";
 
 .box {
   background-color: $box-color;
   box-shadow: $shadow;
   padding: $spacing-m;
   border-radius: $border-radius-small;
+
+  @include min-vw($breakpoint-md) {
+    padding: $spacing-l;
+  }
 }
