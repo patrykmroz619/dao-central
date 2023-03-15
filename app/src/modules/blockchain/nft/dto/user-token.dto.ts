@@ -6,4 +6,10 @@ export class UserTokenDto {
 
   @ApiProperty()
   collectionAddress: string;
+
+  @ApiProperty()
+  nftName: string;
+
+  @ApiProperty()
+  nftSymbol: string;
 }

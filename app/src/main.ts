@@ -20,7 +20,10 @@ async function bootstrap() {
   );
 
   if (process.env.NODE_ENV === NODE_ENV.DEVELOPMENT) {
-    const config = new DocumentBuilder().setTitle("DAO Maker").build();
+    const config = new DocumentBuilder()
+      .setTitle("DAO Maker")
+      .addBearerAuth()
+      .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup("explorer", app, document);
   }

@@ -20,7 +20,7 @@ export class NftController {
   ): Promise<GetUserTokensDto> {
     return this.nftService.getUserTokens(
       req.user,
-      query.chainId,
+      Number(query.chainId),
       query.collectionAddress,
     );
   }

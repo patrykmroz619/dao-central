@@ -1,10 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEthereumAddress, IsInt, IsOptional } from "class-validator";
+import { IsEthereumAddress, IsNumberString, IsOptional } from "class-validator";
 
 export class GetUserTokensQueryDto {
   @ApiProperty()
-  @IsInt()
-  chainId: number;
+  @IsNumberString()
+  chainId: string;
 
   @ApiProperty({
     required: false,

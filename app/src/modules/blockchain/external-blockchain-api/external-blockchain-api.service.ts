@@ -40,11 +40,13 @@ export class ExternalBlockchainApiService implements OnApplicationBootstrap {
       const fetchedNfts = response.result.map((nft) => ({
         nftId: Number(nft.tokenId),
         collectionAddress: nft.tokenAddress.lowercase,
+        nftName: nft.name,
+        nftSymbol: nft.symbol,
       }));
 
       nfts.push(...fetchedNfts);
 
-      if (!response.hasNext) {
+      if (!response.hasNext()) {
         break;
       }
     }

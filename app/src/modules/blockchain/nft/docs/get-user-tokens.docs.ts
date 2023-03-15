@@ -1,5 +1,5 @@
 import { applyDecorators } from "@nestjs/common";
-import { ApiOkResponse, ApiOperation } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiOkResponse, ApiOperation } from "@nestjs/swagger";
 import { GetUserTokensDto } from "../dto";
 
 export const GetUserTokensDocs = () =>
@@ -9,4 +9,5 @@ export const GetUserTokensDocs = () =>
       description: "List of NFTs",
       type: GetUserTokensDto,
     }),
+    ApiBearerAuth(),
   );
