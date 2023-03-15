@@ -1,7 +1,9 @@
-import { Controller, Get, Query, Request, UseGuards } from "@nestjs/common";
+import { Controller, Get, Query, UseGuards } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
+import { User } from "src/decorators";
 import { JwtAuthGuard } from "src/guards";
+import { UserEntity } from "src/modules/users/users.entity";
 import { GetUserTokensDocs } from "./docs";
 import { GetUserTokensDto, GetUserTokensQueryDto } from "./dto";
 import { NftService } from "./nft.service";
@@ -15,11 +17,11 @@ export class NftController {
   @GetUserTokensDocs()
   @UseGuards(JwtAuthGuard)
   public async getUserTokens(
-    @Request() req,
+    @User() user: UserEntity,
     @Query() query: GetUserTokensQueryDto,
   ): Promise<GetUserTokensDto> {
     return this.nftService.getUserTokens(
-      req.user,
+      user,
       Number(query.chainId),
       query.collectionAddress,
     );

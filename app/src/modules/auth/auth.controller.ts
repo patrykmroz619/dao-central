@@ -7,17 +7,8 @@ import {
   Query,
   UseGuards,
 } from "@nestjs/common";
-import {
-  ApiBody,
-  ApiCreatedResponse,
-  ApiOkResponse,
-  ApiOperation,
-  ApiQuery,
-  ApiTags,
-  ApiUnauthorizedResponse,
-} from "@nestjs/swagger";
+import { ApiTags } from "@nestjs/swagger";
 
-import { ErrorDto } from "src/global";
 import { User, Ip } from "src/decorators";
 import { JwtRefreshGuard, JwtAuthGuard } from "src/guards";
 import { UserEntity } from "src/modules/users/users.entity";
@@ -27,6 +18,8 @@ import {
   JwtTokensResponseDto,
   LoginRequestDto,
 } from "./dto";
+import { InitLoginDocs, LoginDocs, LogoutDocs } from "./docs";
+import { RefreshTokenDocs } from "./docs/refresh-token.docs";
 
 @ApiTags("auth")
 @Controller("auth")
@@ -34,15 +27,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Get("/login")
-  @ApiOperation({
-    summary: "Initialize login procedure via wallet and get message to sign",
-  })
-  @ApiQuery({
-    name: "walletAddress",
-    required: true,
-    description: "The user's wallet address",
-  })
-  @ApiOkResponse({ type: InitLoginResponseDto })
+  @InitLoginDocs()
   async initLogin(
     @Query("walletAddress") walletAddress: string,
   ): Promise<InitLoginResponseDto> {
@@ -50,14 +35,7 @@ export class AuthController {
   }
 
   @Post("/login")
-  @ApiOperation({
-    summary: "Login with a signed signature and get JWTs",
-  })
-  @ApiBody({ type: LoginRequestDto })
-  @ApiCreatedResponse({
-    type: JwtTokensResponseDto,
-  })
-  @ApiUnauthorizedResponse({ type: ErrorDto })
+  @LoginDocs()
   async login(
     @Ip() ip: string,
     @Body() loginData: LoginRequestDto,
@@ -70,21 +48,14 @@ export class AuthController {
   }
 
   @Delete("/logout")
-  @ApiOkResponse({
-    description: "Successful logout",
-  })
-  @ApiUnauthorizedResponse({ type: ErrorDto })
+  @LogoutDocs()
   @UseGuards(JwtAuthGuard)
   async logout(@User() user: UserEntity): Promise<void> {
     return this.authService.logout(user);
   }
 
   @Post("/refresh")
-  @ApiOperation({ summary: "Refresh an access token" })
-  @ApiCreatedResponse({
-    type: JwtTokensResponseDto,
-  })
-  @ApiUnauthorizedResponse({ type: ErrorDto })
+  @RefreshTokenDocs()
   @UseGuards(JwtRefreshGuard)
   async refreshToken(
     @User() user: UserEntity,
