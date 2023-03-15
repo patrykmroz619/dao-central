@@ -6,8 +6,9 @@
 
   &__pageContent {
     max-width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     flex-grow: 1;
+    overflow-y: auto;
 
     @include min-vw($breakpoint-lg) {
       margin-left: -45px;
