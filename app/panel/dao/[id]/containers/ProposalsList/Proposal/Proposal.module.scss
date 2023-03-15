@@ -29,5 +29,9 @@
     justify-content: center;
     align-items: center;
     min-height: $form-element-height;
+
+    p {
+      text-align: center;
+    }
   }
 }

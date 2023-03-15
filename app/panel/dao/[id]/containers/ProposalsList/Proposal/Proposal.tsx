@@ -6,6 +6,7 @@ import { SingleBarChart } from "shared/components/SingleBarChart";
 import { H3, Text } from "shared/components/Typography";
 
 import styles from "./Proposal.module.scss";
+import { useCheckNFTOnWallet } from "./useCheckNFTOnWallet";
 
 type ProposalProps = {
   description: string;
@@ -19,6 +20,8 @@ export const Proposal = (props: ProposalProps) => {
   const { description, start, end, approvals, denials } = props;
 
   const { isConnected } = useAccount();
+
+  const { hasUserNFTs } = useCheckNFTOnWallet();
 
   const currentDate = new Date();
   const isVotingActive = currentDate >= start && currentDate < end;
@@ -45,6 +48,11 @@ export const Proposal = (props: ProposalProps) => {
           <Text>Voting is inactive.</Text>
         ) : !isConnected ? (
           <Text>Connect wallet to vote.</Text>
+        ) : !hasUserNFTs ? (
+          <Text>
+            You need to have an NFT from the organization&apos;s official
+            collection to vote
+          </Text>
         ) : (
           <>
             <IconButton Icon={Check}>Approve</IconButton>
