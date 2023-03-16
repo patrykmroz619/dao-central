@@ -1,10 +1,24 @@
+import Image from "next/image";
+
+import welcomeImage from "public/images/illustrations/welcome.svg";
 import { Box } from "shared/components/Box";
 import { H2 } from "shared/components/Typography";
 
+import styles from "./WelcomeCard.module.scss";
+
 export const WelcomeCard = () => {
   return (
-    <Box>
-      <H2>Welcome in the DAO Cental App</H2>
+    <Box className={styles.wrapper}>
+      <H2 className={styles.heading}>
+        Welcome in <br />
+        <strong>DAO Central</strong>
+      </H2>
+      <Image
+        className={styles.illustration}
+        src={welcomeImage}
+        alt=""
+        priority
+      />
     </Box>
   );
 };
