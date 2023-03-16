@@ -6,3 +6,15 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes scaleXAnimation {
+  from {
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+  }
+
+  to {
+    transform-origin: 0 50%;
+    transform: scaleX(1);
+  }
+}

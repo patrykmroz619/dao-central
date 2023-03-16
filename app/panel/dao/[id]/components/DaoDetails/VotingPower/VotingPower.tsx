@@ -7,5 +7,5 @@ export const VotingPower = () => {
 
   const numberOfNFTs = userNFTs.length;
 
-  return <>You have {numberOfNFTs} NFTs</>;
+  return <>You have {numberOfNFTs} NFTs of the organization</>;
 };

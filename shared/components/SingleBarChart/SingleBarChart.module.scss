@@ -1,4 +1,5 @@
 @import "shared/styles/variables";
+@import "shared/styles/keyframes";
 
 .chart {
   &__labels {
@@ -37,6 +38,7 @@
       left: 0;
       width: var(--bar-width, 0%);
       background-color: $primary-color-light;
+      animation: scaleXAnimation 2s;
     }
   }
 }

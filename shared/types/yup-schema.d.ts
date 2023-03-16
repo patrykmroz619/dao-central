@@ -1,3 +1,3 @@
-import { AnySchema } from "yup";
+import { ISchema } from "yup";
 
-declare type YupShape<FormDataType> = Record<keyof FormDataType, AnySchema>;
+declare type YupShape<FormDataType> = Record<keyof FormDataType, ISchema>;

@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
-import { TestConfig } from "yup";
-import { AnyObject } from "yup/lib/types";
+import { TestConfig, AnyObject } from "yup";
 
 export const walletAddressValidation: TestConfig<
   string | undefined,
