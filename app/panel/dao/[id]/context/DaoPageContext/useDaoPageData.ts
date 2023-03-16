@@ -5,6 +5,7 @@ import { DaoData } from "shared/api/types/daoData.type";
 import { nftVotingContractConfig } from "shared/features/contracts";
 import { getErrorMessage } from "shared/utils/getErrorMessage";
 import { useUserNFTs } from "./useUserNFTs";
+import { toast } from "react-toastify";
 
 type ProposalData = {
   id: number;
@@ -89,6 +90,32 @@ export const useDaoPageData = (dao: DaoData) => {
     setProposalsCount(proposalsCount + 1);
   };
 
+  const updateProposalData = async (proposalId: number) => {
+    if (VotingContract) {
+      try {
+        const response = await VotingContract.proposals(proposalId);
+
+        const updatedProposal: ProposalData = {
+          id: Number(response.id),
+          description: response.description,
+          startTime: new Date(response.startTime.mul(1000).toNumber()),
+          endTime: new Date(response.endTime.mul(1000).toNumber()),
+          approvals: Number(response.approvals),
+          denials: Number(response.denials),
+        };
+
+        setProposals((proposals) =>
+          proposals.map((proposal) =>
+            proposal.id === proposalId ? updatedProposal : proposal
+          )
+        );
+      } catch (error: unknown) {
+        const errorMessage = getErrorMessage(error);
+        toast.error(`Failed to update proposal data: ${errorMessage}`);
+      }
+    }
+  };
+
   useEffect(() => {
     if (VotingContract) {
       console.log("FETCHING");
@@ -101,6 +128,7 @@ export const useDaoPageData = (dao: DaoData) => {
     proposals,
     fetchingProposalsError,
     registerNewProposal,
+    updateProposalData,
     dao,
     userNFTs,
   };

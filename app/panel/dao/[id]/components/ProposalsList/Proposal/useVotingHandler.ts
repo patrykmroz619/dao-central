@@ -14,7 +14,7 @@ enum VOTE {
 export const useVotingHandler = (proposalId: number) => {
   const { data: signer } = useSigner();
 
-  const { dao, userNFTs } = useDaoPageContext();
+  const { dao, userNFTs, updateProposalData } = useDaoPageContext();
 
   const handleVote = async (approve: boolean) => {
     try {
@@ -36,6 +36,7 @@ export const useVotingHandler = (proposalId: number) => {
       );
 
       await wait();
+      await updateProposalData(proposalId);
     } catch (error: unknown) {
       const errorMessage = getErrorMessage(error);
       toast.error(errorMessage);
