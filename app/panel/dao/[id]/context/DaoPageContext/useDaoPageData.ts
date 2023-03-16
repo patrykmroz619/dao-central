@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { useContract, useProvider } from "wagmi";
 
 import { DaoData } from "shared/api/types/daoData.type";
 import { nftVotingContractConfig } from "shared/features/contracts";
 import { getErrorMessage } from "shared/utils/getErrorMessage";
-import { useContract, useProvider } from "wagmi";
+import { useUserNFTs } from "./useUserNFTs";
 
 type ProposalData = {
   id: number;
@@ -19,6 +20,8 @@ export const useDaoPageData = (dao: DaoData) => {
   const [proposals, setProposals] = useState<ProposalData[]>([]);
   const [fetchingProposalsError, setFetchingProposalsError] =
     useState<string>();
+
+  const { userNFTs } = useUserNFTs(dao.chainId, dao.nftAddress);
 
   const provider = useProvider({
     chainId: dao.chainId,
@@ -80,5 +83,6 @@ export const useDaoPageData = (dao: DaoData) => {
     proposals,
     fetchingProposalsError,
     dao,
+    userNFTs,
   };
 };
