@@ -6,7 +6,7 @@ import { SingleBarChart } from "shared/components/SingleBarChart";
 import { H3, Text } from "shared/components/Typography";
 
 import styles from "./Proposal.module.scss";
-import { useCheckNFTOnWallet } from "./useCheckNFTOnWallet";
+import { useDaoPageContext } from "../../../context";
 
 type ProposalProps = {
   description: string;
@@ -21,7 +21,8 @@ export const Proposal = (props: ProposalProps) => {
 
   const { isConnected } = useAccount();
 
-  const { hasUserNFTs } = useCheckNFTOnWallet();
+  const { userNFTs } = useDaoPageContext();
+  const hasUserNFTs = userNFTs.length > 0;
 
   const currentDate = new Date();
   const isVotingActive = currentDate >= start && currentDate < end;

@@ -8,11 +8,17 @@ import { IconButton } from "shared/components/IconButton";
 import { Modal } from "shared/components/Modal";
 import { useBoolean } from "shared/hooks/useBoolean";
 import { NewVotingForm } from "./NewVotingForm";
+import { useIsBrowser } from "shared/hooks/useIsBrowser";
 
 export const NewVotingButton = () => {
   const [isModalOpen, openModal, closeModal] = useBoolean();
 
   const { isConnected } = useAccount();
+  const isBrowser = useIsBrowser();
+
+  if (!isBrowser) {
+    return null;
+  }
 
   return (
     <>

@@ -22,7 +22,7 @@ const getUserNFTs = async (
   const queryString = params.toString();
 
   const response = await restApiClient<GetUserNFTResponse>(
-    `/nft/user-tokens?${queryString}`,
+    `nft/user-tokens?${queryString}`,
     {
       method: HTTP_METHOD.GET,
       headers: {

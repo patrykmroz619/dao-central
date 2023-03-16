@@ -5,6 +5,8 @@ import { ToastContainer } from "react-toastify";
 
 import { Web3Provider } from "./Web3Provider";
 
+import "react-toastify/dist/ReactToastify.css";
+
 type GlobalProviderProps = {
   children: React.ReactNode;
 };

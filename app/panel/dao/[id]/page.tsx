@@ -4,8 +4,7 @@ import { H2 } from "shared/components/Typography";
 import { Box } from "shared/components/Box";
 
 import { DaoPageContextProvider } from "./context";
-import { DaoDetails } from "./components";
-import { NewVotingButton, ProposalsList } from "./containers";
+import { DaoDetails, NewVotingButton, ProposalsList } from "./components";
 
 import styles from "./DaoDetailsPage.module.scss";
 
