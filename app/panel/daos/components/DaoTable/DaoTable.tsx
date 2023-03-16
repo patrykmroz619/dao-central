@@ -11,16 +11,17 @@ type DaoTableItem = {
   id: number;
   organization: string;
   contractAddress: string;
+  owner: string;
   nftAddress: string;
   chainId: number;
   chainName: string;
 };
 
-type MyDaoTableProps = {
+type DaoTableProps = {
   daos: DaoTableItem[];
 };
 
-export const MyDaoTable = (props: MyDaoTableProps) => {
+export const DaoTable = (props: DaoTableProps) => {
   const { daos } = props;
 
   const tableConfig: TableConfig<DaoTableItem> = useMemo(
@@ -42,6 +43,15 @@ export const MyDaoTable = (props: MyDaoTableProps) => {
             />
           ),
         },
+        owner: {
+          label: "Owner",
+          value: (item) => (
+            <BlockchainExplorerLink
+              chainId={item.chainId}
+              address={item.owner}
+            />
+          ),
+        },
         nftAddress: {
           label: "NFT Address",
           value: (item) => (
@@ -55,7 +65,7 @@ export const MyDaoTable = (props: MyDaoTableProps) => {
           label: "",
           value: (item) => (
             <Link
-              href={`/panel/dao/${item.id}`}
+              href={`/panel/daos/${item.id}`}
               aria-label={`Details of ${item.organization}`}
             >
               <ExternalLink />

@@ -13,8 +13,8 @@ const links = [
     Icon: Home,
   },
   {
-    href: "/panel/my-dao",
-    label: "My DAOs",
+    href: "/panel/daos",
+    label: "Explore DAOs",
     Icon: Archive,
   },
   {
