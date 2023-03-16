@@ -1,10 +1,20 @@
+import { restAPI } from "shared/api";
 import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
-import { WelcomeCard } from "./components/page";
+import { LastDaosCard, WelcomeCard } from "./components/page";
 
-export default async function Panel() {
+import styles from "./HomePage.module.scss";
+
+export default async function HomePage() {
+  const { data: lastDaos } = await restAPI.dao.getList({
+    limit: 5,
+  });
+
   return (
     <DefaultPageWrapper>
       <WelcomeCard />
+      <div className={styles.cardWrapper}>
+        <LastDaosCard daos={lastDaos} />
+      </div>
     </DefaultPageWrapper>
   );
 }

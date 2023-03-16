@@ -1,0 +1,18 @@
+@import "shared/styles/variables";
+
+.box {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: $spacing-m;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+}
+
+.footer {
+  align-self: end;
+}

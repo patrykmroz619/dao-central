@@ -1,0 +1,24 @@
+@import "shared/styles/variables";
+
+.item {
+  display: flex;
+  gap: $spacing-m;
+  border-bottom: 1px solid $gray-light;
+  padding-bottom: $spacing-m;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: $spacing-s;
+  }
+
+  &__buttonWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__detailsBtn {
+    min-width: 100px;
+  }
+}

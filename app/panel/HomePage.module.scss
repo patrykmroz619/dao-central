@@ -1,0 +1,7 @@
+@import "shared/styles/variables";
+
+.cardWrapper {
+  display: flex;
+  gap: $spacing-l;
+  margin-top: $spacing-l;
+}
