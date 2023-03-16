@@ -25,7 +25,7 @@ export const useCreateVotingHandler = () => {
   const { setLoading, setError, setSuccess, state } = useAsyncState();
   const [txHash, setTxHash] = useState<string>();
 
-  const { dao } = useDaoPageContext();
+  const { dao, registerNewProposal } = useDaoPageContext();
   const { data: signer } = useSigner({
     chainId: dao.chainId,
   });
@@ -55,6 +55,8 @@ export const useCreateVotingHandler = () => {
       await wait();
 
       setTxHash(hash);
+
+      registerNewProposal(description, new Date(startDate), new Date(endDate));
       setSuccess();
     } catch (error: unknown) {
       setError(getErrorMessage(error));

@@ -71,6 +71,24 @@ export const useDaoPageData = (dao: DaoData) => {
     }
   };
 
+  const registerNewProposal = async (
+    description: string,
+    startTime: Date,
+    endTime: Date
+  ) => {
+    const newProposal: ProposalData = {
+      id: proposalsCount + 1,
+      description,
+      startTime,
+      endTime,
+      approvals: 0,
+      denials: 0,
+    };
+
+    setProposals((prev) => [newProposal, ...prev]);
+    setProposalsCount(proposalsCount + 1);
+  };
+
   useEffect(() => {
     if (VotingContract) {
       console.log("FETCHING");
@@ -82,6 +100,7 @@ export const useDaoPageData = (dao: DaoData) => {
     proposalsCount,
     proposals,
     fetchingProposalsError,
+    registerNewProposal,
     dao,
     userNFTs,
   };
