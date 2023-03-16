@@ -1,0 +1,1 @@
+export { VotingPower } from "./VotingPower";

@@ -1,4 +1,5 @@
 import { BlockchainExplorerLink } from "shared/features/common/BlockchainExplorerLink";
+import { VotingPower } from "./VotingPower";
 import styles from "./DaoDetails.module.scss";
 
 type DaoDetailsProps = {
@@ -30,6 +31,10 @@ export const DaoDetails = (props: DaoDetailsProps) => {
     {
       label: "NFT address",
       value: <BlockchainExplorerLink address={nftAddress} chainId={chainId} />,
+    },
+    {
+      label: "Voting power",
+      value: <VotingPower />,
     },
   ];
 

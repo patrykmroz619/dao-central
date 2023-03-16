@@ -22,7 +22,8 @@ export const Proposal = (props: ProposalProps) => {
   const { isConnected } = useAccount();
 
   const { userNFTs } = useDaoPageContext();
-  const hasUserNFTs = userNFTs.length > 0;
+  const numberOfUserNFTs = userNFTs.length;
+  const hasUserNFTs = numberOfUserNFTs > 0;
 
   const currentDate = new Date();
   const isVotingActive = currentDate >= start && currentDate < end;
@@ -56,8 +57,8 @@ export const Proposal = (props: ProposalProps) => {
           </Text>
         ) : (
           <>
-            <IconButton Icon={Check}>Approve</IconButton>
-            <IconButton Icon={X}>Deny</IconButton>
+            <IconButton Icon={Check}>Approve (+{numberOfUserNFTs})</IconButton>
+            <IconButton Icon={X}>Deny (-{numberOfUserNFTs})</IconButton>
           </>
         )}
       </div>
