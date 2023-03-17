@@ -1,5 +1,5 @@
 # compiled output
-app/dist
+dist
 node_modules
 
 # Logs
