@@ -9,7 +9,7 @@ export const ExploreDaosBtn = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/daos");
+    router.push("/panel/daos");
   };
 
   return (

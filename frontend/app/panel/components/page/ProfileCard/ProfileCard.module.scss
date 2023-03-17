@@ -1,0 +1,29 @@
+@import "shared/styles/variables";
+
+.box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-self: flex-start;
+  max-width: 450px;
+  gap: $spacing-m;
+
+  &__image {
+    align-self: center;
+  }
+
+  &__text {
+    margin: $spacing-m 0;
+    text-align: center;
+
+    strong {
+      font-weight: 700;
+      color: $primary-color;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

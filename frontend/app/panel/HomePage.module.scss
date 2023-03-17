@@ -2,6 +2,8 @@
 
 .cardWrapper {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: $spacing-l;
   margin-top: $spacing-l;
 }
