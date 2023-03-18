@@ -1,4 +1,9 @@
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import {
+  getDefaultWallets,
+  RainbowKitProvider,
+  Theme,
+  lightTheme,
+} from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import {
   mainnet,
@@ -42,7 +47,14 @@ type Web3ProviderProps = {
 export function Web3Provider({ children }: Web3ProviderProps) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>{children}</RainbowKitProvider>
+      <RainbowKitProvider
+        chains={chains}
+        theme={lightTheme({
+          accentColor: "#4548f7",
+        })}
+      >
+        {children}
+      </RainbowKitProvider>
     </WagmiConfig>
   );
 }
