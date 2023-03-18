@@ -1,5 +1,5 @@
 import { HttpService } from "modules/common/services/httpService";
-import { PUBLIC_CONFIG } from "modules/config/public";
+import { PUBLIC_CONFIG } from "modules/core/config/public";
 
 export class UserService {
   constructor(

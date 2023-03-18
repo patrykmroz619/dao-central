@@ -1,10 +1,11 @@
-import { restAPI } from "shared/api";
-import { DefaultPageWrapper } from "modules/common/layout/DefaultPageWrapper";
+import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { H2 } from "modules/common/components/Typography";
 import { Box } from "modules/common/components/Box";
-
-import { DaoPageContextProvider } from "./context";
-import { DaoDetails, NewVotingButton, ProposalsList } from "./components";
+import { DaoService } from "modules/dao/services/daoService";
+import { DaoDetailsProvider } from "modules/dao/providers/DaoDetailsProvider";
+import { DaoDetails } from "modules/dao/components/DaoDetails";
+import { NewVotingButton } from "modules/dao/components/NewVotingButton";
+import { ProposalsList } from "modules/dao/components/ProposalsList";
 
 import styles from "./DaoDetailsPage.module.scss";
 
@@ -19,11 +20,12 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
     params: { id: daoId },
   } = props;
 
-  const dao = await restAPI.dao.getById(daoId);
+  const daoService = new DaoService();
+  const dao = await daoService.getDaoById(daoId);
 
   return (
     <DefaultPageWrapper>
-      <DaoPageContextProvider daoData={dao}>
+      <DaoDetailsProvider daoData={dao}>
         <section>
           <Box>
             <H2 className={styles.heading}>{dao.organization}</H2>
@@ -45,7 +47,7 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
             <ProposalsList />
           </Box>
         </section>
-      </DaoPageContextProvider>
+      </DaoDetailsProvider>
     </DefaultPageWrapper>
   );
 }

@@ -1,1 +1,0 @@
-export { LoginIllustration } from "./LoginIllustration";

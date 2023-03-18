@@ -1,7 +1,7 @@
 import NextAuth, { AuthOptions, User } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 
-import { PRIVATE_CONFIG } from "modules/config/private";
+import { PRIVATE_CONFIG } from "modules/core/config/private";
 import { AuthService } from "modules/auth/services/authService";
 import { UserService } from "modules/user/services/userService";
 

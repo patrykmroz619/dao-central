@@ -13,3 +13,42 @@
     flex-direction: row;
   }
 }
+
+.loginSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-l;
+  width: 100%;
+  max-width: 600px;
+  padding: $spacing-m;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-l;
+    max-width: 400px;
+  }
+}
+
+.illustrationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+
+  img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  @include min-vw($breakpoint-lg) {
+    width: 100%;
+    flex-grow: 1;
+    height: 100%;
+    background-color: $primary-color;
+    border-radius: $border-radius-big;
+  }
+}

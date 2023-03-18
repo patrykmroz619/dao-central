@@ -2,8 +2,11 @@ import Image from "next/image";
 
 import logo from "public/images/brand/logo-black.png";
 import { H1 } from "modules/common/components/Typography";
-import { MainSidebar, Navigation, MobileHeader } from "./components/layout";
-import { MainSidebarContextProvider } from "./contexts";
+import { PanelLayoutStateProvider } from "modules/layout/providers/PanelLayoutStateProvider";
+import { MainSidebar } from "modules/layout/components/MainSidebar";
+import { MobileHeader } from "modules/layout/components/MobileHeader";
+import { Navigation } from "modules/layout/components/Navigation";
+
 import styles from "./PanelLayout.module.scss";
 
 type PanelLayoutProps = {
@@ -13,7 +16,7 @@ type PanelLayoutProps = {
 const PanelLayout = ({ children }: PanelLayoutProps) => {
   return (
     <main className={styles.wrapper}>
-      <MainSidebarContextProvider>
+      <PanelLayoutStateProvider>
         <MainSidebar>
           <div className={styles.sidebarContent}>
             <Image src={logo} width="80" height="80" alt="DAO Central logo" />
@@ -26,7 +29,7 @@ const PanelLayout = ({ children }: PanelLayoutProps) => {
           <MobileHeader />
           <section>{children}</section>
         </div>
-      </MainSidebarContextProvider>
+      </PanelLayoutStateProvider>
     </main>
   );
 };

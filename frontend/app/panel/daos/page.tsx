@@ -1,15 +1,16 @@
-import { restAPI } from "shared/api";
-import { DefaultPageWrapper } from "modules/common/layout/DefaultPageWrapper";
+import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { Box } from "modules/common/components/Box";
 import { H2, Text } from "modules/common/components/Typography";
+import { DaoService } from "modules/dao/services/daoService";
+import { DaoTable } from "modules/dao/components/DaoTable";
 
-import { DaoTable } from "./components";
 import styles from "./DaosListPage.module.scss";
 
 export const dynamic = "force-dynamic";
 
 const DaosListPage = async () => {
-  const { data } = await restAPI.dao.getList({});
+  const daoService = new DaoService();
+  const { data } = await daoService.getDaosList({});
 
   return (
     <DefaultPageWrapper>

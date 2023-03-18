@@ -13,7 +13,7 @@ import { infuraProvider } from "wagmi/providers/infura";
 import { publicProvider } from "wagmi/providers/public";
 import "@rainbow-me/rainbowkit/styles.css";
 
-import { PUBLIC_CONFIG } from "modules/config/public";
+import { PUBLIC_CONFIG } from "modules/core/config/public";
 
 const { chains, provider } = configureChains(
   [mainnet, goerli, polygon, polygonMumbai, optimism, arbitrum],

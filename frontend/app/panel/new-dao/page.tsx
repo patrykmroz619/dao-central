@@ -1,7 +1,7 @@
 import { Box } from "modules/common/components/Box";
-import { DefaultPageWrapper } from "modules/common/layout/DefaultPageWrapper";
+import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { H2, Text } from "modules/common/components/Typography";
-import { NewDaoForm } from "./components";
+import { NewDaoForm } from "modules/dao/components/NewDaoForm";
 
 import styles from "./NewDaoPage.module.scss";
 

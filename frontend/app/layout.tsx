@@ -1,9 +1,10 @@
 import { Open_Sans } from "next/font/google";
 import "react-loading-skeleton/dist/skeleton.css";
 
-import { GlobalProvider } from "shared/features/GlobalProvider";
+import { GlobalProvider } from "modules/core/providers/GlobalProvider";
+import "modules/core/styles/global.scss";
+
 import styles from "./panel.module.scss";
-import "modules/common/styles/global.scss";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],
