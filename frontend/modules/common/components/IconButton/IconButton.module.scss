@@ -30,12 +30,5 @@
     align-items: center;
     width: $form-element-height;
     height: $form-element-height;
-    background-color: $primary-color-light;
-  }
-
-  &:disabled {
-    .iconWrapper {
-      background-color: $gray-light;
-    }
   }
 }
