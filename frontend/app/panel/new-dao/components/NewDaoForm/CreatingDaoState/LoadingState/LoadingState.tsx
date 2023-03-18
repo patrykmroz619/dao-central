@@ -1,7 +1,7 @@
 import { useNetwork } from "wagmi";
 
-import { Spinner } from "shared/components/Spinner";
-import { Text } from "shared/components/Typography";
+import { Spinner } from "modules/common/components/Spinner";
+import { Text } from "modules/common/components/Typography";
 
 import styles from "./LoadingState.module.scss";
 

@@ -4,8 +4,8 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { ExternalLink } from "react-feather";
 
-import { Table, TableConfig } from "shared/components/Table";
-import { BlockchainExplorerLink } from "shared/features/common/BlockchainExplorerLink";
+import { Table, TableConfig } from "modules/common/components/Table";
+import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 type DaoTableItem = {
   id: number;

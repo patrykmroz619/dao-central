@@ -4,8 +4,8 @@ import { ethers } from "ethers";
 import { useSigner } from "wagmi";
 
 import { nftVotingContractConfig } from "shared/features/contracts";
-import { useAsyncState } from "shared/hooks/useAsyncState";
-import { getErrorMessage } from "shared/utils/getErrorMessage";
+import { useAsyncState } from "modules/common/hooks/useAsyncState";
+import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 
 import { useDaoPageContext } from "../../../context";
 

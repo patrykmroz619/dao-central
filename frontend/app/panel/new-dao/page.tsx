@@ -1,6 +1,6 @@
-import { Box } from "shared/components/Box";
-import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
-import { H2, Text } from "shared/components/Typography";
+import { Box } from "modules/common/components/Box";
+import { DefaultPageWrapper } from "modules/common/layout/DefaultPageWrapper";
+import { H2, Text } from "modules/common/components/Typography";
 import { NewDaoForm } from "./components";
 
 import styles from "./NewDaoPage.module.scss";

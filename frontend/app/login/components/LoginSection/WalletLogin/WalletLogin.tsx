@@ -6,13 +6,13 @@ import { useAccount, useSignMessage } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { LogIn } from "react-feather";
 
-import { restAPI } from "shared/api";
-import { getErrorMessage } from "shared/utils/getErrorMessage";
-import { useIsBrowser } from "shared/hooks/useIsBrowser";
-import { useAsyncState } from "shared/hooks/useAsyncState";
-import { Text } from "shared/components/Typography";
-import { IconButton } from "shared/components/IconButton";
+import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { useIsBrowser } from "modules/common/hooks/useIsBrowser";
+import { useAsyncState } from "modules/common/hooks/useAsyncState";
+import { Text } from "modules/common/components/Typography";
+import { IconButton } from "modules/common/components/IconButton";
 import styles from "./WalletLogin.module.scss";
+import { useAuthService } from "modules/auth/hooks/useAuthService";
 
 export const WalletLogin = () => {
   const { address } = useAccount();
@@ -20,6 +20,7 @@ export const WalletLogin = () => {
   const isBrowser = useIsBrowser();
 
   const router = useRouter();
+  const authService = useAuthService();
 
   const { state: loginState, setLoading, setError } = useAsyncState();
 
@@ -31,9 +32,9 @@ export const WalletLogin = () => {
         throw new Error("Wallet is not connected");
       }
 
-      const {
-        data: { message },
-      } = await restAPI.auth.login.getMessageToSign(address);
+      const message = await authService.getMessageToSignToLoginByWallet(
+        address
+      );
 
       const signature = await signMessageAsync({
         message,

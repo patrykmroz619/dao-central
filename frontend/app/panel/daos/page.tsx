@@ -1,7 +1,7 @@
 import { restAPI } from "shared/api";
-import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
-import { Box } from "shared/components/Box";
-import { H2, Text } from "shared/components/Typography";
+import { DefaultPageWrapper } from "modules/common/layout/DefaultPageWrapper";
+import { Box } from "modules/common/components/Box";
+import { H2, Text } from "modules/common/components/Typography";
 
 import { DaoTable } from "./components";
 import styles from "./DaosListPage.module.scss";

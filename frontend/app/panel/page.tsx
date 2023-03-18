@@ -1,5 +1,5 @@
 import { restAPI } from "shared/api";
-import { DefaultPageWrapper } from "shared/components/DefaultPageWrapper";
+import { DefaultPageWrapper } from "modules/common/layout/DefaultPageWrapper";
 import { LastDaosCard, ProfileCard, WelcomeCard } from "./components/page";
 
 import styles from "./HomePage.module.scss";

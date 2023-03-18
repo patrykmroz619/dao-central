@@ -1,5 +1,5 @@
-import { Skeleton } from "shared/components/Skeleton";
-import { Text } from "shared/components/Typography";
+import { Skeleton } from "modules/common/components/Skeleton";
+import { Text } from "modules/common/components/Typography";
 import { useAccount, useBalance, useNetwork } from "wagmi";
 
 import styles from "./InitialInfo.module.scss";

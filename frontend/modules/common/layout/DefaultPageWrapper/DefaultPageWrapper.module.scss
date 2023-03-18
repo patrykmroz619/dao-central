@@ -1,0 +1,10 @@
+@import "modules/common/styles/variables";
+@import "modules/common/styles/media";
+
+.wrapper {
+  padding: $spacing-m;
+
+  @include min-vw($breakpoint-lg) {
+    padding: $spacing-l;
+  }
+}

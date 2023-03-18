@@ -1,4 +1,4 @@
-import { InfoBox, INFO_BOX_VARIANT } from "shared/components/InfoBox";
+import { InfoBox, INFO_BOX_VARIANT } from "modules/common/components/InfoBox";
 
 import styles from "./SuccessState.module.scss";
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import logo from "public/images/brand/logo-black.png";
-import { H1 } from "shared/components/Typography";
+import { H1 } from "modules/common/components/Typography";
 import { MainSidebar, Navigation, MobileHeader } from "./components/layout";
 import { MainSidebarContextProvider } from "./contexts";
 import styles from "./PanelLayout.module.scss";

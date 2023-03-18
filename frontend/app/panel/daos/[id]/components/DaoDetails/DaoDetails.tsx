@@ -1,4 +1,4 @@
-import { BlockchainExplorerLink } from "shared/features/common/BlockchainExplorerLink";
+import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 import { VotingPower } from "./VotingPower";
 import styles from "./DaoDetails.module.scss";
 

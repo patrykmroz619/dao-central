@@ -2,7 +2,7 @@
 
 import { Home, Archive, PlusCircle, User } from "react-feather";
 
-import { NavLink } from "shared/components/NavLink";
+import { NavLink } from "modules/common/components/NavLink";
 import { useMainSidebar } from "app/panel/contexts";
 import styles from "./Navigation.module.scss";
 

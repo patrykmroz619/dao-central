@@ -1,10 +1,12 @@
 import NextAuth, { AuthOptions, User } from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
 
-import { restAPI } from "shared/api";
+import { PRIVATE_CONFIG } from "modules/config/private";
+import { AuthService } from "modules/auth/services/authService";
+import { UserService } from "modules/user/services/userService";
 
 export const authOptions: AuthOptions = {
-  secret: process.env.NEXT_AUTH_SECRET,
+  secret: PRIVATE_CONFIG.AUTH_SECRET,
   providers: [
     CredentialProvider({
       name: "wallet",
@@ -14,16 +16,17 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         if (credentials) {
-          const {
-            data: { accessToken, refreshToken, accessTokenExpiry },
-          } = await restAPI.auth.login.loginByWallet(
-            credentials.walletAddress,
-            credentials.signature
-          );
+          const authService = new AuthService();
+          const { accessToken, refreshToken, accessTokenExpiry } =
+            await authService.loginByWallet(
+              credentials.walletAddress,
+              credentials.signature
+            );
 
-          const {
-            data: { id, walletAddress },
-          } = await restAPI.users.me(accessToken);
+          const userService = new UserService();
+          const { id, walletAddress } = await userService.getLoggedUser(
+            accessToken
+          );
 
           const user: User = {
             id,
@@ -59,9 +62,9 @@ export const authOptions: AuthOptions = {
       }
 
       try {
-        const {
-          data: { accessToken, accessTokenExpiry, refreshToken },
-        } = await restAPI.auth.refresh(token.refreshToken);
+        const authService = new AuthService();
+        const { accessToken, accessTokenExpiry, refreshToken } =
+          await authService.refreshAccessToken(token.refreshToken);
 
         return {
           user: token.user,

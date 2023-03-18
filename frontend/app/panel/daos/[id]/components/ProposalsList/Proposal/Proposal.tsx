@@ -1,9 +1,9 @@
 import { useAccount } from "wagmi";
 import { Check, X } from "react-feather";
 
-import { IconButton } from "shared/components/IconButton";
-import { SingleBarChart } from "shared/components/SingleBarChart";
-import { H3, Text } from "shared/components/Typography";
+import { IconButton } from "modules/common/components/IconButton";
+import { SingleBarChart } from "modules/common/components/SingleBarChart";
+import { H3, Text } from "modules/common/components/Typography";
 
 import styles from "./Proposal.module.scss";
 import { useDaoPageContext } from "../../../context";

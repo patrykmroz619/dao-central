@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Archive } from "react-feather";
 
-import { IconButton } from "shared/components/IconButton";
+import { IconButton } from "modules/common/components/IconButton";
 
 export const ExploreDaosBtn = () => {
   const router = useRouter();

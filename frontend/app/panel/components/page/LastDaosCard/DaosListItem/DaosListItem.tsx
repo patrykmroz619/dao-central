@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 
-import { Button } from "shared/components/Button";
-import { H3, Text } from "shared/components/Typography";
-import { BlockchainExplorerLink } from "shared/features/common/BlockchainExplorerLink";
+import { Button } from "modules/common/components/Button";
+import { H3, Text } from "modules/common/components/Typography";
+import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 import styles from "./DaosListItem.module.scss";
 

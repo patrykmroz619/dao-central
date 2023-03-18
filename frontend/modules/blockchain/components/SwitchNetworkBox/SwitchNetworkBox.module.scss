@@ -1,0 +1,9 @@
+@import "modules/common/styles/variables";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+
+  text-align: center;
+}

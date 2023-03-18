@@ -1,0 +1,41 @@
+@import "modules/common/styles/variables.scss";
+@import "modules/common/styles/keyframes.scss";
+
+.button {
+  justify-content: space-between;
+  min-width: auto;
+
+  &_loading {
+    &:disabled {
+      background-color: $primary-color-light;
+    }
+
+    .iconWrapper {
+      & > * {
+        animation: spin 2000ms linear infinite;
+      }
+    }
+  }
+
+  .contentWrapper {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: $button-min-width - $form-element-height;
+  }
+
+  .iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $form-element-height;
+    height: $form-element-height;
+    background-color: $primary-color-light;
+  }
+
+  &:disabled {
+    .iconWrapper {
+      background-color: $gray-light;
+    }
+  }
+}

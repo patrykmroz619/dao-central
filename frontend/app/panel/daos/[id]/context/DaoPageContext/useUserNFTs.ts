@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { restAPI } from "shared/api";
 import { NFTData } from "shared/api/types/nftData.type";
-import { getErrorMessage } from "shared/utils/getErrorMessage";
+import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 
 export const useUserNFTs = (chainId: number, collectionAddress: string) => {
   const [userNFTs, setUserNFTs] = useState<NFTData[]>([]);

@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
-import { useBoolean } from "shared/hooks/useBoolean";
-import { useMediaQuery } from "shared/hooks/useMediaQuery";
-import { SwipeDirection, useSwipe } from "shared/hooks/useSwipe";
+import { useBoolean } from "modules/common/hooks/useBoolean";
+import { useMediaQuery } from "modules/common/hooks/useMediaQuery";
+import { SwipeDirection, useSwipe } from "modules/common/hooks/useSwipe";
 
 export const useMainSidebarHandler = () => {
   const [isOpen, openSidebar, closeSidebar] = useBoolean(false);

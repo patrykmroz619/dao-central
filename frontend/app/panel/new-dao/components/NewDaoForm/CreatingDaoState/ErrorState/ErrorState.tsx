@@ -1,5 +1,5 @@
-import { InfoBox, INFO_BOX_VARIANT } from "shared/components/InfoBox";
-import { Text } from "shared/components/Typography";
+import { InfoBox, INFO_BOX_VARIANT } from "modules/common/components/InfoBox";
+import { Text } from "modules/common/components/Typography";
 
 import styles from "./ErrorState.module.scss";
 

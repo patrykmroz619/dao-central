@@ -1,6 +1,6 @@
 import qs from "qs";
 
-import { HTTP_METHOD } from "shared/constants/httpMethod";
+import { HTTP_METHOD } from "modules/common/constants/httpMethod";
 import { restApiClient } from "../restApiClient";
 import { DaoData } from "../types/daoData.type";
 import { GetQueryParams } from "../types/getQueryParams.type";

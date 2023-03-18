@@ -3,7 +3,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 import { GlobalProvider } from "shared/features/GlobalProvider";
 import styles from "./panel.module.scss";
-import "shared/styles/global.scss";
+import "modules/common/styles/global.scss";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],

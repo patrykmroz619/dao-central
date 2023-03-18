@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 import welcomeImage from "public/images/illustrations/welcome.svg";
-import { Box } from "shared/components/Box";
-import { H2 } from "shared/components/Typography";
+import { Box } from "modules/common/components/Box";
+import { H2 } from "modules/common/components/Typography";
 
 import styles from "./WelcomeCard.module.scss";
 

@@ -7,10 +7,10 @@ import { useNetwork, useSigner } from "wagmi";
 import { ethers } from "ethers";
 import * as yup from "yup";
 
-import { YupShape } from "shared/types/yup-schema";
-import { walletAddressValidation } from "shared/utils/walletAddressValidation";
-import { getErrorMessage } from "shared/utils/getErrorMessage";
-import { useAsyncState } from "shared/hooks/useAsyncState";
+import { YupShape } from "modules/common/types/yup-schema";
+import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { useAsyncState } from "modules/common/hooks/useAsyncState";
+import { walletAddressValidation } from "modules/blockchain/utils/walletAddressValidation";
 import { nftVotingFactoryContractConfig } from "shared/features/contracts";
 import { restAPI } from "shared/api";
 

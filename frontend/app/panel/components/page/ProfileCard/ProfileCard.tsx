@@ -6,10 +6,10 @@ import Image from "next/image";
 import { LogIn, User } from "react-feather";
 
 import profileImage from "public/images/illustrations/profile.svg";
-import { Box } from "shared/components/Box";
-import { IconButton } from "shared/components/IconButton";
-import { H2, Text } from "shared/components/Typography";
-import { BlockchainExplorerLink } from "shared/features/common/BlockchainExplorerLink";
+import { Box } from "modules/common/components/Box";
+import { IconButton } from "modules/common/components/IconButton";
+import { H2, Text } from "modules/common/components/Typography";
+import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 import styles from "./ProfileCard.module.scss";
 

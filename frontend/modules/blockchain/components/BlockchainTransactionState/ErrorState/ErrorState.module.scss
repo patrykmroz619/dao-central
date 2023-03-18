@@ -1,0 +1,12 @@
+@import "modules/common/styles/variables";
+
+.box {
+  min-height: 125px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-m;
+  }
+}

@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { toast } from "react-toastify/dist/core";
 import { nftVotingContractConfig } from "shared/features/contracts";
-import { getErrorMessage } from "shared/utils/getErrorMessage";
+import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { useSigner } from "wagmi";
 import { useDaoPageContext } from "../../../context";
 

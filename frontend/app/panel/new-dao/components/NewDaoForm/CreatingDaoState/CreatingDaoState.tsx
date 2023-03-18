@@ -1,6 +1,9 @@
 import { useMemo } from "react";
 
-import { ASYNC_STATE, AsyncStateObject } from "shared/hooks/useAsyncState";
+import {
+  ASYNC_STATE,
+  AsyncStateObject,
+} from "modules/common/hooks/useAsyncState";
 import { InitialInfo } from "./InitialInfo";
 
 import styles from "./CreatingDaoState.module.scss";

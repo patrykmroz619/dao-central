@@ -3,7 +3,7 @@
 import { ReactNode, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 
-import { useOutsideClick } from "shared/hooks/useOutsideClick";
+import { useOutsideClick } from "modules/common/hooks/useOutsideClick";
 import { useMainSidebar } from "app/panel/contexts";
 import styles from "./MainSidebar.module.scss";
 

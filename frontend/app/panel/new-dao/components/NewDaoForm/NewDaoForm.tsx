@@ -4,9 +4,9 @@ import { Plus } from "react-feather";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-import { IconButton } from "shared/components/IconButton";
-import { TextInput } from "shared/components/Input/TextInput";
-import { ASYNC_STATE } from "shared/hooks/useAsyncState";
+import { IconButton } from "modules/common/components/IconButton";
+import { TextInput } from "modules/common/components/Input/TextInput";
+import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
 import { useCreateDao } from "./useCreateDao";
 import { CreatingDaoState } from "./CreatingDaoState";
 

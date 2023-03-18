@@ -3,7 +3,7 @@ import { useContract, useProvider } from "wagmi";
 
 import { DaoData } from "shared/api/types/daoData.type";
 import { nftVotingContractConfig } from "shared/features/contracts";
-import { getErrorMessage } from "shared/utils/getErrorMessage";
+import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { useUserNFTs } from "./useUserNFTs";
 import { toast } from "react-toastify";
 

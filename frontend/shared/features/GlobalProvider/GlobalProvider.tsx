@@ -3,7 +3,7 @@
 import { SessionProvider } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
 
-import { Web3Provider } from "./Web3Provider";
+import { Web3Provider } from "modules/blockchain/providers/Web3Provider";
 
 import "react-toastify/dist/ReactToastify.css";
 
