@@ -1,3 +1,4 @@
+import { InlineLink } from "modules/common/components/InlineLink";
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { truncateEthAddress } from "modules/blockchain/utils/truncateEthAddress";
 
@@ -14,8 +15,8 @@ export const BlockchainExplorerLink = (props: BlockchainExplorerLinkProps) => {
   const href = `${chainData?.blockExplorers?.default.url}/address/${address}`;
 
   return (
-    <a href={href} target="_blank" rel="noreferrer noopener">
+    <InlineLink href={href} external>
       {truncateEthAddress(address)}
-    </a>
+    </InlineLink>
   );
 };
