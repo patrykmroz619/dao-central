@@ -66,3 +66,11 @@ The smart contract to handle the single DAO. It provides the following features:
 #### RPC Nodes
 
 External RPC nodes provided by [Infura](https://www.infura.io/platform/infrastructure), [Alchemy](https://www.alchemy.com/supernode), and [Ankr](https://www.ankr.com/remote-procedure-call/)
+
+## Authentication
+
+To log in to the application users need to have a configured crypto wallet. The diagram below presents the exact authentication flow.
+
+> Please note: When a cryptocurrency wallet app is connected to a web app, it is possible to read wallet data, send requests for signing messages, and approve transactions or contract interactions, but the wallet's private key cannot be read. Connecting the wallet is secure. There is no option to perform unauthorized or unconfirmed operations without the user's approval.
+
+![Authentication activity diagram](./docs/diagrams/dao-central-authentication-flow.png)
