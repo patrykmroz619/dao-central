@@ -7,4 +7,5 @@ export const PUBLIC_CONFIG = {
       process.env.NEXT_PUBLIC_NFT_VOTING_FACTORY_ADDRESS
     ),
   },
+  MODE_ENV: String(process.env.MODE_ENV),
 };

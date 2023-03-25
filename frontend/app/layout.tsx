@@ -5,6 +5,7 @@ import { GlobalProvider } from "modules/core/providers/GlobalProvider";
 import "modules/core/styles/global.scss";
 
 import styles from "./panel.module.scss";
+import { PUBLIC_CONFIG } from "modules/core/config/public";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],
@@ -15,6 +16,10 @@ const openSans = Open_Sans({
 type RootLayoutProps = {
   children: React.ReactNode;
 };
+
+if (PUBLIC_CONFIG.MODE_ENV === "test") {
+  require("tests/mocks/http");
+}
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (

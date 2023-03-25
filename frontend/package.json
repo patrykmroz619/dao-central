@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:test-mode": "cross-env NODE_ENV=test next dev",
+    "test:e2e": "cypress open"
   },
   "dependencies": {
     "@hookform/resolvers": "2.9.11",
@@ -38,10 +40,13 @@
     "@types/qs": "6.9.7",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
+    "cross-env": "^7.0.3",
+    "cypress": "^12.8.1",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.7.0",
     "eslint-import-resolver-typescript": "3.5.3",
     "eslint-plugin-prettier": "4.2.1",
+    "msw": "^1.2.1",
     "prettier": "2.8.4",
     "sass": "1.59.3"
   }
