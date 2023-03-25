@@ -4,6 +4,8 @@
 
 DAO Central is the decentralized application powered by blockchain for creating and managing DAOs (decentralized autonomous organizations) technology. DAO creators can add proposals pertaining to the organization and allow the community to vote on them.
 
+Currently, the platform supports creating DAOs for communities built around an NFT collection. The user is recognized as a community member if he is a holder of NFTs from the collection. The smart contracts of DAO verify balance of NFTs on the user's wallet and allows to participate in votings only for community.
+
 **Learn more about DAOs:**
 
 - [Decentralized Autonomous Organization (DAO): Definition, Purpose, and Example](https://www.investopedia.com/tech/what-dao/)
@@ -57,7 +59,7 @@ The smart contract to handle the single DAO. It provides the following features:
 - Adding new proposals by the owner of the organization
 - Voting on the proposals for holders of NFT tokens from the connected NFT collection.
 
-### External Service
+### External Services
 
 #### NFT API
 
@@ -74,3 +76,17 @@ To log in to the application users need to have a configured crypto wallet. The 
 > Please note: When a cryptocurrency wallet app is connected to a web app, it is possible to read wallet data, send requests for signing messages, and approve transactions or contract interactions, but the wallet's private key cannot be read. Connecting the wallet is secure. There is no option to perform unauthorized or unconfirmed operations without the user's approval.
 
 ![Authentication activity diagram](./docs/diagrams/dao-central-authentication-flow.png)
+
+## Creating DAO
+
+Prerequisites:
+
+- The user is authenticated
+- Connected the wallet to the application with target network set up
+- Address of the NFT collection smart contract for organization on the target network
+
+Each logged user can create their own DAO. To do it the user passes an organization name and address of the NFT contract associated with the organization.
+
+The process of creating DAO is presented on the diagram below:
+
+![Creating DAO flow](./docs/diagrams/dao-central-creating-dao.png)
