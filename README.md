@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DAO Central is the decentralized application powered by blockchain for creating and managing DAOs (decentralized autonomous organizations) technology. DAO creators can add proposals pertaining to the organization and allow the community to participate in the decision-making process by casting votes.
+DAO Central is the decentralized application powered by blockchain technology for creating and managing DAOs (decentralized autonomous organizations). DAO creators can add proposals pertaining to the organization and allow the community to participate in the decision-making process by casting votes.
 
 Currently, the platform supports creating DAOs for communities built around an NFT collection. The user is recognized as a community member if he is a holder of NFTs from the collection. The smart contracts of DAO verify balance of NFTs on the user's wallet and allows to participate in votings only for community.
 
