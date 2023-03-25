@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DAO Central is the decentralized application powered by blockchain for creating and managing DAOs (decentralized autonomous organizations) technology. DAO creators can add proposals pertaining to the organization and allow the community to vote on them.
+DAO Central is the decentralized application powered by blockchain for creating and managing DAOs (decentralized autonomous organizations) technology. DAO creators can add proposals pertaining to the organization and allow the community to participate in the decision-making process by casting votes.
 
 Currently, the platform supports creating DAOs for communities built around an NFT collection. The user is recognized as a community member if he is a holder of NFTs from the collection. The smart contracts of DAO verify balance of NFTs on the user's wallet and allows to participate in votings only for community.
 
@@ -85,8 +85,14 @@ Prerequisites:
 - Connected the wallet to the application with target network set up
 - Address of the NFT collection smart contract for organization on the target network
 
-Each logged user can create their own DAO. To do it the user passes an organization name and address of the NFT contract associated with the organization.
+Each logged user can create their own DAO. To do it the user passes an organization name and address of the NFT contract associated with the organization. After it, the new smart contract is deployed for the DAO and information about the organization is visible at the platform.
 
 The process of creating DAO is presented on the diagram below:
 
 ![Creating DAO flow](./docs/diagrams/dao-central-creating-dao.png)
+
+## Voting
+
+An owner of DAO can submit a proposal for a vote. The proposal include the description of proposal, start time and end time of voting.
+
+The members of the community (holders of NFT associated with DAO) are eligible to cast their vote. One NFT corresponds to one vote, so if a user has more than one NFT on their wallet the vote power is equal to number of NFTS.
