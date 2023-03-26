@@ -1,11 +1,11 @@
 import { Open_Sans } from "next/font/google";
 import "react-loading-skeleton/dist/skeleton.css";
 
+import { RegisterHttpMocks } from "tests/mocks/http";
 import { GlobalProvider } from "modules/core/providers/GlobalProvider";
 import "modules/core/styles/global.scss";
 
 import styles from "./panel.module.scss";
-import { PUBLIC_CONFIG } from "modules/core/config/public";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],
@@ -17,10 +17,6 @@ type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-if (PUBLIC_CONFIG.MODE_ENV === "test") {
-  require("tests/mocks/http");
-}
-
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html className={openSans.className}>
@@ -28,6 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width" />
       </head>
       <body className={styles.body}>
+        <RegisterHttpMocks />
         <GlobalProvider>{children}</GlobalProvider>
         <div id="modal" />
       </body>
