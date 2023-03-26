@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "start:test-mode": "cross-env NODE_ENV=test next dev",
-    "test:e2e": "cypress open"
+    "test:e2e": "cross-env CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open"
   },
   "dependencies": {
     "@hookform/resolvers": "2.9.11",
@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "5.55.0",
     "cross-env": "^7.0.3",
     "cypress": "^12.8.1",
+    "cypress-metamask-v2": "^1.7.2",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.7.0",
     "eslint-import-resolver-typescript": "3.5.3",

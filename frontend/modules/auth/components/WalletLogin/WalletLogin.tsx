@@ -74,6 +74,7 @@ export const WalletLogin = () => {
               Icon={LogIn}
               onClick={handleLogin}
               isLoading={loginState.state === "LOADING"}
+              data-cy="sign-message"
             >
               Sign message to log in
             </IconButton>
