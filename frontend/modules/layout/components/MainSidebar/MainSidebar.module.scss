@@ -9,6 +9,7 @@
     bottom: 0;
   }
   transform: translateX(-45px);
+  z-index: $z-index-sidebar;
 
   &__content {
     display: flex;
