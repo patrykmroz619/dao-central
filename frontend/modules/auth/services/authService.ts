@@ -54,4 +54,10 @@ export class AuthService {
 
     return data;
   }
+
+  public async logout(accessToken: string) {
+    await this.api.delete("auth/logout", undefined, {
+      bearerToken: accessToken,
+    });
+  }
 }

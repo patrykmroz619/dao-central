@@ -38,12 +38,16 @@
     width: 100%;
     height: $form-element-height;
     padding: 0 $spacing-m;
+    background-color: transparent;
     color: $text-color;
     font-weight: 500;
+    font-size: $font-size-normal;
     text-decoration: none;
+    border: none;
     border-radius: $border-radius-small;
     align-items: center;
     transition: $transition-time;
+    cursor: pointer;
 
     &:hover {
       background-color: $primary-color-light;
@@ -57,6 +61,15 @@
 
     span {
       margin-left: $spacing-m;
+    }
+
+    &_logout {
+      color: $danger;
+
+      &:hover {
+        color: $danger;
+        background-color: $danger-light;
+      }
     }
   }
 }

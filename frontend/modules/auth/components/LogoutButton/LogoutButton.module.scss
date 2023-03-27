@@ -1,0 +1,31 @@
+@import "modules/common/styles/variables";
+@import "modules/common/styles/keyframes";
+
+.button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $form-element-height;
+  padding: 0 $spacing-m;
+  background-color: transparent;
+  border: none;
+  border-radius: $border-radius-small;
+  color: $danger;
+  font-weight: 500;
+  font-size: $font-size-normal;
+  transition: $transition-time;
+
+  cursor: pointer;
+
+  &__label {
+    margin-left: $spacing-m;
+  }
+
+  &:hover {
+    background-color: $danger-light;
+  }
+
+  &__loadingIcon {
+    animation: spin 2000ms linear infinite;
+  }
+}
