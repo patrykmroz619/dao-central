@@ -1,6 +1,5 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { Home, Archive, PlusCircle, User } from "react-feather";
 
 import { NavLink } from "modules/common/components/NavLink";
@@ -35,8 +34,6 @@ const links = [
 export const Navigation = () => {
   const { closeSidebar } = usePanelLayoutState();
 
-  const { status } = useSession();
-
   return (
     <nav className={styles.navigation}>
       <ul className={styles.navigation__list}>
@@ -53,11 +50,9 @@ export const Navigation = () => {
             </NavLink>
           </li>
         ))}
-        {status === "authenticated" && (
-          <li className={styles.navigation__listItem} key="logout">
-            <LogoutButton />
-          </li>
-        )}
+        <li className={styles.navigation__listItem} key="logout">
+          <LogoutButton />
+        </li>
       </ul>
     </nav>
   );

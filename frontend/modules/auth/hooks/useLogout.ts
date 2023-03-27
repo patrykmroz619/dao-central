@@ -16,7 +16,6 @@ export const useLogout = () => {
         setLoading(true);
         await authService.logout(session.accessToken);
         await signOut({
-          redirect: false,
           callbackUrl: "/login",
         });
       } catch (error: unknown) {

@@ -82,12 +82,16 @@ export class HttpService {
 
     const response = await fetch(url, fetchConfig);
 
-    const data = await response.json();
+    let data = undefined;
+
+    try {
+      data = await response.json();
+    } catch {}
 
     if (response.ok) {
       return { ...response, data };
     } else {
-      throw new HttpError(response.statusText, data);
+      throw new HttpError(response.statusText, response.status, data);
     }
   }
 

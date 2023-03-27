@@ -1,4 +1,5 @@
 import { HttpService } from "modules/common/services/httpService/httpService";
+import { isHttpError } from "modules/common/services/httpService/isHttpError";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
 
 export class AuthService {
@@ -56,8 +57,16 @@ export class AuthService {
   }
 
   public async logout(accessToken: string) {
-    await this.api.delete("auth/logout", undefined, {
-      bearerToken: accessToken,
-    });
+    try {
+      await this.api.delete("auth/logout", undefined, {
+        bearerToken: accessToken,
+      });
+    } catch (error: unknown) {
+      if (isHttpError(error) && error.status === 401) {
+        return;
+      } else {
+        throw error;
+      }
+    }
   }
 }
