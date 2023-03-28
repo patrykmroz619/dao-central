@@ -1,8 +1,27 @@
 @import "modules/common/styles/variables";
 
-.box {
+.wrapper {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   gap: $spacing-m;
-  max-width: 600px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-m;
+    max-width: 600px;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    img {
+      max-width: 100%;
+    }
+  }
 }
