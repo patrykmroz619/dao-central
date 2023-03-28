@@ -1,21 +1,25 @@
-import classNames from "classnames";
 import { ComponentPropsWithoutRef } from "react";
-import { Loader, IconProps } from "react-feather";
+import classNames from "classnames";
 
 import styles from "./Spinner.module.scss";
 
 type SpinnerProps = {
-  iconProps?: IconProps;
+  size?: number;
 } & ComponentPropsWithoutRef<"span">;
 
 export const Spinner = (props: SpinnerProps) => {
-  const { className, iconProps, ...rest } = props;
+  const { className, size = 50, ...rest } = props;
 
   const finalClass = classNames(styles.spinner, className);
 
   return (
-    <span className={finalClass} {...rest}>
-      <Loader {...iconProps} />
+    <span
+      className={finalClass}
+      style={{ width: size, height: size }}
+      {...rest}
+    >
+      <span className={styles.spinner__item} />
+      <span className={styles.spinner__item} />
     </span>
   );
 };

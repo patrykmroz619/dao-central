@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 @keyframes scaleXAnimation {
   from {
     transform-origin: 0 50%;
