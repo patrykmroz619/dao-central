@@ -1,0 +1,11 @@
+@import "modules/common/styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-s;
+}
+
+.label {
+  font-weight: 700;
+}

@@ -1,0 +1,13 @@
+@import "modules/common/styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-l;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+}
