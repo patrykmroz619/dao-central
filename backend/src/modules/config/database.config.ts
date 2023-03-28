@@ -6,7 +6,7 @@ import { CONFIG, NODE_ENV } from "src/constants";
 const config = registerAs(
   CONFIG.DATABASE,
   (): TypeOrmModuleOptions => ({
-    type: process.env.DB_TYPE as "mysql" | "mariadb",
+    type: process.env.DB_TYPE as "mysql" | "mariadb" | "postgres",
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
     username: process.env.DB_USERNAME,
@@ -16,11 +16,15 @@ const config = registerAs(
     logging: process.env.NODE_ENV === NODE_ENV.DEVELOPMENT,
     bigNumberStrings: false,
     autoLoadEntities: true,
+    migrations: ["dist/migrations/*.js"],
+    migrationsTableName: "migrations",
   }),
 );
 
 const validation = {
-  DB_TYPE: Joi.string().valid("mysql", "mariadb", "sqlite").required(),
+  DB_TYPE: Joi.string()
+    .valid("mysql", "mariadb", "sqlite", "postgres")
+    .required(),
   DB_HOST: Joi.string().required(),
   DB_PORT: Joi.number().required(),
   DB_USERNAME: Joi.string().required(),

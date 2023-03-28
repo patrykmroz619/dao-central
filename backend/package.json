@@ -18,7 +18,13 @@
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:cov": "cross-env NODE_ENV=test jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "cross-env NODE_ENV=test jest --config ./test/jest-e2e.json --forceExit"
+    "test:e2e": "cross-env NODE_ENV=test jest --config ./test/jest-e2e.json --forceExit",
+    "pretypeorm": "cross-env NODE_ENV=production node dist/main --export-typeorm-config",
+    "typeorm": "node ./node_modules/typeorm/cli.js",
+    "migration:show": "npm run build && npm run typeorm -- -d ./dist/datasource.js schema:log",
+    "migration:generate": "npm run build && npm run typeorm migration:generate src/migrations/migrations -- -d ./dist/datasource.js",
+    "migration:run": "npm run build && npm run typeorm migration:run -- -d ./dist/datasource.js",
+    "migration:revert": "npm run build && npm run typeorm migration:revert -- -d ./dist/datasource.js"
   },
   "dependencies": {
     "@moralisweb3/common-evm-utils": "2.16.1",
@@ -42,6 +48,7 @@
     "mysql2": "3.2.0",
     "nestjs-paginate": "5.1.1",
     "passport-jwt": "4.0.1",
+    "pg": "^8.10.0",
     "reflect-metadata": "0.1.13",
     "request-ip": "3.3.0",
     "rimraf": "4.4.0",
