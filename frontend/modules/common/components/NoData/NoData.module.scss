@@ -1,0 +1,9 @@
+@import "modules/common/styles/variables";
+
+.noDataWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-m;
+  padding: $spacing-xl $spacing-m;
+}

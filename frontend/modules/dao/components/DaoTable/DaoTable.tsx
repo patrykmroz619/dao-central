@@ -6,6 +6,7 @@ import { ExternalLink } from "react-feather";
 
 import { Table, TableConfig } from "modules/common/components/Table";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
+import { NoData } from "modules/common/components/NoData";
 
 type DaoTableItem = {
   id: number;
@@ -80,6 +81,12 @@ export const DaoTable = (props: DaoTableProps) => {
   return (
     <div>
       <Table items={daos} config={tableConfig} />
+      {daos.length === 0 && (
+        <NoData>
+          There are no any organizations to show.{" "}
+          <Link href="/panel/new-dao">Create DAO</Link>
+        </NoData>
+      )}
     </div>
   );
 };
