@@ -26,7 +26,7 @@
   npm run deploy:voting-factory -- --network ethereum
   npm run deploy:voting-factory -- --network goerli
   npm run deploy:voting-factory -- --network bsc
-  npm run deploy:voting-factory -- --network bsc-test
+  npm run deploy:voting-factory -- --network bsc_test
   npm run deploy:voting-factory -- --network polygon
   npm run deploy:voting-factory -- --network mumbai
 ```
