@@ -96,7 +96,6 @@ export const useCreateDao = () => {
       for (const log of logs) {
         try {
           const parsedLog = NFTVotingFactoryInterface.parseLog(log);
-          console.log({ log, parsedLog });
           if (parsedLog.name === "ContractCreated") {
             createdContractAddress = parsedLog.args.contractAddress;
             break;

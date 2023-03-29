@@ -8,7 +8,7 @@ import { DaoTable } from "modules/dao/components/DaoTable";
 import styles from "./ProfilePage.module.scss";
 import { ProfileData } from "modules/user/components/ProfileData";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 10;
 
 const ProfilePage = async () => {
   const { user } = await getSession();

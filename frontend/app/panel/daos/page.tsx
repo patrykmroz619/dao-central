@@ -6,7 +6,7 @@ import { DaoTable } from "modules/dao/components/DaoTable";
 
 import styles from "./DaosListPage.module.scss";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 10;
 
 const DaosListPage = async () => {
   const daoService = new DaoService();
