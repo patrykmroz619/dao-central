@@ -5,7 +5,7 @@ import { RegisterHttpMocks } from "tests/mocks/http";
 import { GlobalProvider } from "modules/core/providers/GlobalProvider";
 import "modules/core/styles/global.scss";
 
-import styles from "./panel.module.scss";
+import styles from "./Panel.module.scss";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],

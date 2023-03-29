@@ -1,6 +1,6 @@
-import { DaoData } from "shared/api/types/daoData.type";
 import { Box } from "modules/common/components/Box";
 import { H2 } from "modules/common/components/Typography";
+import { DaoData } from "modules/dao/types/daoData.type";
 import { DaosListItem } from "./DaosListItem";
 import { ExploreDaosBtn } from "./ExploreDaosBtn";
 

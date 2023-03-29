@@ -4,7 +4,7 @@ import { toast } from "react-toastify/dist/core";
 
 import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { NFT_VOTING_CONTRACT_ABI } from "modules/dao/constants/nftVotingContractAbi";
-import { useDaoPageContext } from "../../../context";
+import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 
 enum VOTE {
   NO_VOTE,
@@ -15,7 +15,7 @@ enum VOTE {
 export const useVotingHandler = (proposalId: number) => {
   const { data: signer } = useSigner();
 
-  const { dao, userNFTs, updateProposalData } = useDaoPageContext();
+  const { dao, userNFTs, updateProposalData } = useDaoDetails();
 
   const handleVote = async (approve: boolean) => {
     try {
