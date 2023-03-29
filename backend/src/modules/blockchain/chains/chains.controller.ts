@@ -1,5 +1,7 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post, UseGuards } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
+
+import { AdminApiKeyGuard } from "src/guards";
 import { ChainsService } from "./chains.service";
 import { GetChainsDocs, SaveChainDocs } from "./docs";
 import { ChainDto, GetChainsDto, SaveChainDto } from "./dto";
@@ -10,6 +12,7 @@ export class ChainsController {
   constructor(private chainsService: ChainsService) {}
 
   @GetChainsDocs()
+  @UseGuards(AdminApiKeyGuard)
   @Get()
   public async getChains(): Promise<GetChainsDto> {
     return this.chainsService.getChains();

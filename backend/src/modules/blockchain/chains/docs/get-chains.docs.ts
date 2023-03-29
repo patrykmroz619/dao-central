@@ -1,5 +1,12 @@
 import { applyDecorators } from "@nestjs/common";
-import { ApiOkResponse, ApiOperation } from "@nestjs/swagger";
+import {
+  ApiForbiddenResponse,
+  ApiHeader,
+  ApiOkResponse,
+  ApiOperation,
+} from "@nestjs/swagger";
+
+import { CUSTOM_HEADERS } from "src/constants";
 import { GetChainsDto } from "../dto";
 
 export const GetChainsDocs = () =>
@@ -7,5 +14,9 @@ export const GetChainsDocs = () =>
     ApiOperation({
       summary: "Get the list of all chains",
     }),
+    ApiHeader({
+      name: CUSTOM_HEADERS.ADMIN_API_KEY,
+    }),
     ApiOkResponse({ type: GetChainsDto }),
+    ApiForbiddenResponse(),
   );

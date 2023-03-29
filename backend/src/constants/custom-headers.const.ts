@@ -1,0 +1,3 @@
+export enum CUSTOM_HEADERS {
+  ADMIN_API_KEY = "ADMIN-API-KEY",
+}
