@@ -5,7 +5,7 @@ import { HttpError } from "./httpError";
 
 type ResponseWithData<DataType> = Response & { data: DataType };
 
-type RequestConfig = {
+type RequestConfig = Omit<RequestInit, "headers"> & {
   bearerToken?: string;
   params?: object;
   headers?: Record<string, string>;
@@ -107,6 +107,7 @@ export class HttpService {
     }
 
     return {
+      ...config,
       headers,
       method,
       body: data ? JSON.stringify(data) : undefined,

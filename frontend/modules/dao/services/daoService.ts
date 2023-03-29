@@ -27,7 +27,10 @@ export class DaoService {
     return response.data;
   }
 
-  public async getDaosList(params: GetQueryParams<"owner">) {
+  public async getDaosList(
+    params: GetQueryParams<"owner">,
+    revalidate?: number
+  ) {
     type GetDaoListResponse = {
       data: DaoData[];
       count: number;
@@ -35,6 +38,9 @@ export class DaoService {
 
     const response = await this.api.get<GetDaoListResponse>("/dao", {
       params,
+      next: {
+        revalidate,
+      },
     });
 
     return response.data;

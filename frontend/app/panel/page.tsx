@@ -17,9 +17,12 @@ export default async function HomePage() {
   }
 
   const daoService = new DaoService();
-  const { data: lastDaos } = await daoService.getDaosList({
-    limit: 5,
-  });
+  const { data: lastDaos } = await daoService.getDaosList(
+    {
+      limit: 5,
+    },
+    0
+  );
 
   return (
     <DefaultPageWrapper>

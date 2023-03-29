@@ -8,17 +8,18 @@ import { DaoTable } from "modules/dao/components/DaoTable";
 import styles from "./ProfilePage.module.scss";
 import { ProfileData } from "modules/user/components/ProfileData";
 
-export const revalidate = 10;
-
 const ProfilePage = async () => {
   const { user } = await getSession();
 
   const daoService = new DaoService();
-  const { data: daos } = await daoService.getDaosList({
-    filter: {
-      owner: `$eq:${user.wallet + "s"}`,
+  const { data: daos } = await daoService.getDaosList(
+    {
+      filter: {
+        owner: `$eq:${user.wallet + "s"}`,
+      },
     },
-  });
+    0
+  );
 
   return (
     <DefaultPageWrapper className={styles.wrapper}>

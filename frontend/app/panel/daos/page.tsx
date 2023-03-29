@@ -6,11 +6,9 @@ import { DaoTable } from "modules/dao/components/DaoTable";
 
 import styles from "./DaosListPage.module.scss";
 
-export const revalidate = 10;
-
 const DaosListPage = async () => {
   const daoService = new DaoService();
-  const { data } = await daoService.getDaosList({});
+  const { data } = await daoService.getDaosList({}, 0);
 
   return (
     <DefaultPageWrapper>
