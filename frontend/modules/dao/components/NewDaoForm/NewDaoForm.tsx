@@ -11,6 +11,8 @@ import { useCreateDao } from "./useCreateDao";
 import { CreatingDaoState } from "./CreatingDaoState";
 
 import styles from "./NewDaoForm.module.scss";
+import { Text } from "modules/common/components/Typography";
+import { InlineLink } from "modules/common/components/InlineLink";
 
 export const NewDaoForm = () => {
   const {
@@ -39,6 +41,12 @@ export const NewDaoForm = () => {
         isError={Boolean(formErrors.nftAddress)}
         helperText={formErrors.nftAddress?.message}
       />
+      <Text>
+        If you do not have an NFT contract, you can create one using the{" "}
+        <InlineLink external href="https://www.zerocodenft.com/">
+          Zero Code NFT Platform
+        </InlineLink>
+      </Text>
       <CreatingDaoState state={creatingDaoState} txHash={txHash} />
       <div className={styles.form__buttonContainer}>
         {isConnected ? (
