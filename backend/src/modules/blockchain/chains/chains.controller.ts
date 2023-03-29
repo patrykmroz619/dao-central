@@ -19,6 +19,7 @@ export class ChainsController {
   }
 
   @SaveChainDocs()
+  @UseGuards(AdminApiKeyGuard)
   @Post()
   public async saveChain(
     @Body() saveChainDto: SaveChainDto,

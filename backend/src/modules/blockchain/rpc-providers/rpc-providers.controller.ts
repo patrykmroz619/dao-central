@@ -1,7 +1,8 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post, UseGuards } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 
-import { SaveRPCProviderDocs } from "./docs";
+import { AdminApiKeyGuard } from "src/guards";
+import { GetRPCProvidersDocs, SaveRPCProviderDocs } from "./docs";
 import { RPCProviderDto, SaveRPCProviderDto } from "./dto";
 import { RpcProvidersService } from "./rpc-providers.service";
 
@@ -10,7 +11,15 @@ import { RpcProvidersService } from "./rpc-providers.service";
 export class RpcProvidersController {
   constructor(private rpcProvidersService: RpcProvidersService) {}
 
+  @GetRPCProvidersDocs()
+  @UseGuards(AdminApiKeyGuard)
+  @Get()
+  async getRPCProviders(): Promise<RPCProviderDto[]> {
+    return this.rpcProvidersService.getRPCProviders();
+  }
+
   @SaveRPCProviderDocs()
+  @UseGuards(AdminApiKeyGuard)
   @Post()
   async saveRPCProvider(
     @Body() saveRPCProviderDto: SaveRPCProviderDto,

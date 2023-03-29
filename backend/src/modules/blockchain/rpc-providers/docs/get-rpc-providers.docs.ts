@@ -1,9 +1,8 @@
 import { applyDecorators } from "@nestjs/common";
 import {
-  ApiBadRequestResponse,
-  ApiCreatedResponse,
   ApiForbiddenResponse,
   ApiHeader,
+  ApiOkResponse,
   ApiOperation,
 } from "@nestjs/swagger";
 
@@ -11,13 +10,12 @@ import { CUSTOM_HEADERS } from "src/constants";
 import { ErrorDto } from "src/global";
 import { RPCProviderDto } from "../dto";
 
-export const SaveRPCProviderDocs = () =>
+export const GetRPCProvidersDocs = () =>
   applyDecorators(
-    ApiOperation({ summary: "Save new rpc provider" }),
+    ApiOperation({ summary: "Get rpc providers list" }),
     ApiHeader({
       name: CUSTOM_HEADERS.ADMIN_API_KEY,
     }),
-    ApiCreatedResponse({ type: RPCProviderDto }),
-    ApiBadRequestResponse({ type: ErrorDto }),
+    ApiOkResponse({ type: [RPCProviderDto] }),
     ApiForbiddenResponse({ type: ErrorDto }),
   );

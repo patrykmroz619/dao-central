@@ -21,6 +21,22 @@ export class RpcProvidersService {
     private rpcProvidersRepository: Repository<RpcProviderEntity>,
   ) {}
 
+  public async getRPCProviders(): Promise<RPCProviderDto[]> {
+    const providers = await this.rpcProvidersRepository.find({
+      relations: {
+        chain: true,
+      },
+    });
+
+    return providers.map((provider) => ({
+      id: provider.id,
+      chainId: provider.chain.chainId,
+      chainName: provider.chain.name,
+      type: provider.type,
+      url: provider.url,
+    }));
+  }
+
   public async saveRPCProvider({
     url,
   }: SaveRPCProviderDto): Promise<RPCProviderDto> {

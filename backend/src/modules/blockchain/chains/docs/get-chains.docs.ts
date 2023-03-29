@@ -7,6 +7,7 @@ import {
 } from "@nestjs/swagger";
 
 import { CUSTOM_HEADERS } from "src/constants";
+import { ErrorDto } from "src/global";
 import { GetChainsDto } from "../dto";
 
 export const GetChainsDocs = () =>
@@ -18,5 +19,5 @@ export const GetChainsDocs = () =>
       name: CUSTOM_HEADERS.ADMIN_API_KEY,
     }),
     ApiOkResponse({ type: GetChainsDto }),
-    ApiForbiddenResponse(),
+    ApiForbiddenResponse({ type: ErrorDto }),
   );
