@@ -38,69 +38,73 @@ export class DaoService {
     );
   }
 
-  @Cron(CronExpression.EVERY_10_MINUTES)
+  @Cron(CronExpression.EVERY_30_MINUTES)
   public async handleCron() {
-    this.logger.log("Cron start");
+    this.logger.log("Cron to detect unsaved DAOs started");
 
     const { chains } = await this.chainsService.getChains();
 
     for (const chain of chains) {
-      const deployedContractsCount: bigint =
-        await this.rpcProvidersService.executeJsonRpcQuery(
-          (provider) =>
-            (
-              this.factoryContract.connect(provider) as ethers.Contract
-            ).deployedContractsCount(),
-          chain.chainId,
-          "Deployed contracts count",
-        );
+      try {
+        const deployedContractsCount: bigint =
+          await this.rpcProvidersService.executeJsonRpcQuery(
+            (provider) =>
+              (
+                this.factoryContract.connect(provider) as ethers.Contract
+              ).deployedContractsCount(),
+            chain.chainId,
+            "Deployed contracts count",
+          );
 
-      const savedContracts = await this.daoRepository.find({
-        where: {
-          chain: {
-            chainId: chain.chainId,
+        const savedContracts = await this.daoRepository.find({
+          where: {
+            chain: {
+              chainId: chain.chainId,
+            },
           },
-        },
-        relations: {
-          chain: true,
-        },
-      });
+          relations: {
+            chain: true,
+          },
+        });
 
-      const savedContractsCount = savedContracts.length;
+        const savedContractsCount = savedContracts.length;
 
-      if (savedContractsCount < deployedContractsCount) {
-        let lackedContractsCount =
-          Number(deployedContractsCount.toString()) - savedContractsCount;
+        if (savedContractsCount < deployedContractsCount) {
+          let lackedContractsCount =
+            Number(deployedContractsCount.toString()) - savedContractsCount;
 
-        for (let i = deployedContractsCount - BigInt(1); i >= 0; i--) {
-          const daoAddress: string =
-            await this.rpcProvidersService.executeJsonRpcQuery(
-              (provider) =>
-                (
-                  this.factoryContract.connect(provider) as ethers.Contract
-                ).deployedContracts(i),
-              chain.chainId,
-              "Get Deployed contract address",
-            );
+          for (let i = deployedContractsCount - BigInt(1); i >= 0; i--) {
+            const daoAddress: string =
+              await this.rpcProvidersService.executeJsonRpcQuery(
+                (provider) =>
+                  (
+                    this.factoryContract.connect(provider) as ethers.Contract
+                  ).deployedContracts(i),
+                chain.chainId,
+                "Get Deployed contract address",
+              );
 
-          if (daoAddress !== ethers.ZeroAddress) {
-            const newDao = await this.saveDAO(chain.chainId, daoAddress);
+            if (daoAddress !== ethers.ZeroAddress) {
+              const newDao = await this.saveDAO(chain.chainId, daoAddress);
 
-            const isAlreadySaved = savedContracts.some(
-              (dao) =>
-                dao.contractAddress.toLowerCase() ===
-                newDao.contractAddress.toLowerCase(),
-            );
+              const isAlreadySaved = savedContracts.some(
+                (dao) =>
+                  dao.contractAddress.toLowerCase() ===
+                  newDao.contractAddress.toLowerCase(),
+              );
 
-            if (!isAlreadySaved) {
-              lackedContractsCount--;
-            }
+              if (!isAlreadySaved) {
+                lackedContractsCount--;
+              }
 
-            if (lackedContractsCount === 0) {
-              break;
+              if (lackedContractsCount === 0) {
+                break;
+              }
             }
           }
         }
+      } catch (error: unknown) {
+        this.logger.error(`Cron Error: ${error}`);
       }
     }
   }
