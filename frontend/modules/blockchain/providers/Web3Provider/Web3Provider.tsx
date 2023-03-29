@@ -9,8 +9,8 @@ import {
   goerli,
   polygon,
   polygonMumbai,
-  optimism,
-  arbitrum,
+  bsc,
+  bscTestnet,
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { infuraProvider } from "wagmi/providers/infura";
@@ -20,7 +20,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
 
 const { chains, provider } = configureChains(
-  [mainnet, goerli, polygon, polygonMumbai, optimism, arbitrum],
+  [mainnet, goerli, polygon, polygonMumbai, bsc, bscTestnet],
   [
     alchemyProvider({ apiKey: PUBLIC_CONFIG.ALCHEMY_KEY }),
     infuraProvider({ apiKey: PUBLIC_CONFIG.INFURA_KEY }),
