@@ -38,7 +38,7 @@ export class DaoService {
     );
   }
 
-  @Cron(CronExpression.EVERY_30_MINUTES)
+  @Cron(CronExpression.EVERY_10_MINUTES)
   public async handleCron() {
     this.logger.log("Cron to detect unsaved DAOs started");
 
