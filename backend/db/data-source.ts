@@ -31,6 +31,10 @@ export const dataSourceOptions: DataSourceOptions = {
     InitLoginEntity,
   ],
   migrations: [Migration1680041799585],
+  ssl:
+    process.env.NODE_ENV === NODE_ENV.PRODUCTION
+      ? { rejectUnauthorized: false }
+      : false,
 };
 
 const dataSource = new DataSource(dataSourceOptions);
