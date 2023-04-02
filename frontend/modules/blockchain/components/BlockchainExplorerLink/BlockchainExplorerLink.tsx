@@ -15,7 +15,7 @@ export const BlockchainExplorerLink = (props: BlockchainExplorerLinkProps) => {
   const href = `${chainData?.blockExplorers?.default.url}/address/${address}`;
 
   return (
-    <InlineLink href={href} external>
+    <InlineLink href={href} external stopClickEventPropagation>
       {truncateEthAddress(address)}
     </InlineLink>
   );

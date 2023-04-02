@@ -1,16 +1,27 @@
-import { ComponentPropsWithoutRef } from "react";
+"use client";
+
+import { ComponentPropsWithoutRef, MouseEventHandler } from "react";
 import Link from "next/link";
 import { Link2 } from "react-feather";
 
 import styles from "./InlineLink.module.scss";
 
 type InlineLinkProps = ComponentPropsWithoutRef<"a"> & {
-  external?: boolean;
   href: string;
+  external?: boolean;
+  stopClickEventPropagation?: boolean;
 };
 
 export const InlineLink = (props: InlineLinkProps) => {
-  const { children, href, external, className, ...rest } = props;
+  const {
+    children,
+    href,
+    external,
+    stopClickEventPropagation,
+    className,
+    onClick,
+    ...rest
+  } = props;
 
   const finalClass = `${styles.link} ${className || ""}`;
 
@@ -23,6 +34,16 @@ export const InlineLink = (props: InlineLinkProps) => {
     </>
   );
 
+  const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    if (stopClickEventPropagation) {
+      event.stopPropagation();
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
   if (external) {
     return (
       <a
@@ -31,6 +52,7 @@ export const InlineLink = (props: InlineLinkProps) => {
         className={finalClass}
         target="_blank"
         rel="noreferrer noopener"
+        onClick={handleClick}
       >
         {content}
       </a>
@@ -38,7 +60,7 @@ export const InlineLink = (props: InlineLinkProps) => {
   }
 
   return (
-    <Link {...rest} href={href} className={finalClass}>
+    <Link {...rest} href={href} className={finalClass} onClick={handleClick}>
       {content}
     </Link>
   );
