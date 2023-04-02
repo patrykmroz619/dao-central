@@ -1,7 +1,7 @@
-export type GetQueryParams<FilteredKeys extends string> = {
+export type GetQueryParams<FilterSchema extends object> = {
   page?: number;
   limit?: number;
   sortBy?: string | string[];
   search?: string;
-  filter?: Partial<Record<FilteredKeys, string>>;
+  filter?: Partial<FilterSchema>;
 };

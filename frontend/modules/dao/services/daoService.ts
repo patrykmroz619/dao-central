@@ -3,6 +3,12 @@ import { GetQueryParams } from "modules/common/types/getQueryParams.type";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
 import { DaoData } from "../types/daoData.type";
 
+type GetDaoFilter = {
+  owner: {
+    walletAddress: string;
+  };
+};
+
 export class DaoService {
   constructor(
     private api: HttpService = new HttpService(PUBLIC_CONFIG.API_URL)
@@ -28,7 +34,7 @@ export class DaoService {
   }
 
   public async getDaosList(
-    params: GetQueryParams<"owner">,
+    params: GetQueryParams<GetDaoFilter>,
     revalidate?: number
   ) {
     type GetDaoListResponse = {

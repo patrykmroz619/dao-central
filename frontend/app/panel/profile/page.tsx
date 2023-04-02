@@ -15,7 +15,9 @@ const ProfilePage = async () => {
   const { data: daos } = await daoService.getDaosList(
     {
       filter: {
-        owner: `$eq:${user.wallet + "s"}`,
+        owner: {
+          walletAddress: `$eq:${user.wallet}`,
+        },
       },
     },
     0

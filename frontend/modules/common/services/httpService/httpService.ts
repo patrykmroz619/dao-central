@@ -124,7 +124,9 @@ export class HttpService {
     }
 
     if (params) {
-      const queryString = qs.stringify(params);
+      const queryString = qs.stringify(params, {
+        allowDots: true,
+      });
       url += "?" + queryString;
     }
 
