@@ -22,7 +22,7 @@ export const DaosListItem = (props: DaosListItemProps) => {
   const router = useRouter();
 
   const handleDetailsClick = () => {
-    router.push(`/daos/${id}`);
+    router.push(`panel/daos/${id}`);
   };
 
   return (
