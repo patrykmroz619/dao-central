@@ -1,9 +1,7 @@
 import { useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-import { QUERY_PARAM } from "modules/common/constants/queryParams";
-
-export const useSetSearchParam = (param: QUERY_PARAM) => {
+export const useSetSearchParam = (param: string) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

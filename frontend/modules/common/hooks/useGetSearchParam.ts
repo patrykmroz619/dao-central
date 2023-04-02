@@ -1,8 +1,6 @@
 import { useSearchParams } from "next/navigation";
 
-import { QUERY_PARAM } from "modules/common/constants/queryParams";
-
-export const useGetSearchParam = (param: QUERY_PARAM) => {
+export const useGetSearchParam = (param: string) => {
   const searchParams = useSearchParams();
 
   return searchParams?.get(param);
