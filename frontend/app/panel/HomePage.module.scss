@@ -1,9 +1,27 @@
 @import "modules/common/styles/variables";
+@import "modules/common/styles/media";
 
-.cardWrapper {
+.cardsWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: $spacing-l;
   margin-top: $spacing-l;
+
+  @include min-vw(1100px) {
+    flex-wrap: nowrap;
+  }
+
+  &__firstCard {
+    flex-grow: 1;
+  }
+
+  &__secondCard {
+    flex-grow: 1;
+    align-self: flex-start;
+
+    @include min-vw(1100px) {
+      max-width: 450px;
+    }
+  }
 }

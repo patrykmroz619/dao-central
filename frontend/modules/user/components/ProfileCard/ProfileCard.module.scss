@@ -3,9 +3,6 @@
 .box {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  align-self: flex-start;
-  max-width: 450px;
   gap: $spacing-m;
 
   &__image {

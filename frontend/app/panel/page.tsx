@@ -27,9 +27,13 @@ export default async function HomePage() {
   return (
     <DefaultPageWrapper>
       <WelcomeCard />
-      <div className={styles.cardWrapper}>
-        <LastDaosCard daos={lastDaos} />
-        <ProfileCard />
+      <div className={styles.cardsWrapper}>
+        <div className={styles.cardsWrapper__firstCard}>
+          <LastDaosCard daos={lastDaos} />
+        </div>
+        <div className={styles.cardsWrapper__secondCard}>
+          <ProfileCard />
+        </div>
       </div>
     </DefaultPageWrapper>
   );
