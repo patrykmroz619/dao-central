@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ExternalLink } from "react-feather";
 
 import { Table, TableConfig } from "modules/common/components/Table";
@@ -24,6 +25,12 @@ type DaoTableProps = {
 
 export const DaoTable = (props: DaoTableProps) => {
   const { daos } = props;
+
+  const router = useRouter();
+
+  const handleDaoRowClick = (daoId: number) => {
+    router.push(`/panel/daos/${daoId}`);
+  };
 
   const tableConfig: TableConfig<DaoTableItem> = useMemo(
     () => ({
@@ -74,6 +81,7 @@ export const DaoTable = (props: DaoTableProps) => {
           ),
         },
       },
+      onRowClick: handleDaoRowClick,
     }),
     [daos]
   );

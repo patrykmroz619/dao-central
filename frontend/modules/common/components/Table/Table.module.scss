@@ -16,6 +16,16 @@
 
 .tableRow {
   border-bottom: 1px solid $gray-light;
+  background-color: transparent;
+  transition: $transition-time background-color;
+
+  &__clickable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $gray-light;
+    }
+  }
 }
 
 .tableHeadCell {

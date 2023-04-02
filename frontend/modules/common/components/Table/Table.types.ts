@@ -17,4 +17,5 @@ export type ColumnsConfig<DataItem extends TableDataItem> = Partial<
 
 export type TableConfig<DataItem extends TableDataItem> = {
   columns: ColumnsConfig<DataItem>;
+  onRowClick?: (itemId: DataItem["id"]) => void;
 };

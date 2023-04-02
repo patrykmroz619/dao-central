@@ -1,9 +1,12 @@
 "use client";
 
+import classNames from "classnames";
+
 import { QUERY_PARAM } from "modules/common/constants/queryParams";
 import { SORT_DIRECTION } from "modules/common/constants/sortDirection";
 import { useSortableMechanism } from "./useSortableMechanism";
 import { ColumnsConfig, TableConfig, TableDataItem } from "./Table.types";
+
 import styles from "./Table.module.scss";
 
 type TableProps<DataItem extends TableDataItem> = {
@@ -52,7 +55,14 @@ export const Table = <DataItem extends TableDataItem>(
         </thead>
         <tbody className={styles.tableBody}>
           {items.map((item) => (
-            <tr key={item.id} className={styles.tableRow}>
+            <tr
+              key={item.id}
+              className={classNames({
+                [styles.tableRow]: true,
+                [styles.tableRow__clickable]: Boolean(config.onRowClick),
+              })}
+              onClick={() => config.onRowClick && config.onRowClick(item.id)}
+            >
               {columnsData.map(([key, columnConfig]) => (
                 <td key={key} className={styles.tableCell}>
                   {columnConfig?.value ? columnConfig.value(item) : item[key]}

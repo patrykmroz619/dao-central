@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { useSigner } from "wagmi";
-import { toast } from "react-toastify/dist/core";
+import { toast } from "react-toastify";
 
 import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { NFT_VOTING_CONTRACT_ABI } from "modules/dao/constants/nftVotingContractAbi";
