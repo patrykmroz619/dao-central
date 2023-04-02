@@ -178,24 +178,6 @@ describe("AuthModule (e2e)", () => {
       );
     });
 
-    it("should not allow to refresh token with different ip address", async () => {
-      const wallet = ethers.Wallet.createRandom();
-
-      const { refreshToken, userAgent } = await login(httpServer, wallet);
-
-      const refreshTokenResponse = await request(httpServer)
-        .post("/auth/refresh")
-        .set("user-agent", userAgent)
-        .set("x-client-ip", "::2")
-        .set("Authorization", `Bearer ${refreshToken}`);
-
-      expectApiError(
-        refreshTokenResponse,
-        HttpStatus.UNAUTHORIZED,
-        "Unauthorized",
-      );
-    });
-
     it("should allow to refresh tokens", async () => {
       const wallet = ethers.Wallet.createRandom();
 

@@ -5,7 +5,6 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import * as crypto from "crypto";
 import { Request } from "express";
-import * as requestIp from "request-ip";
 import * as dayjs from "dayjs";
 
 import { UserEntity } from "src/modules/users/users.entity";
@@ -97,6 +96,7 @@ export class JWTService {
     payload: unknown,
     jwtType: JWTType,
   ): Promise<UserEntity> {
+    console.log({ payload });
     if (!this.isValidJwtPayload(payload)) {
       throw new UnauthorizedException();
     }
@@ -105,10 +105,6 @@ export class JWTService {
       payload.aud !== this.configService.get<string>(CONFIG.APP_FRONTEND_URL) ||
       payload.iss !== this.configService.get<string>(CONFIG.APP_BACKEND_URL)
     ) {
-      throw new UnauthorizedException();
-    }
-
-    if (requestIp.getClientIp(req) != payload.ip) {
       throw new UnauthorizedException();
     }
 
