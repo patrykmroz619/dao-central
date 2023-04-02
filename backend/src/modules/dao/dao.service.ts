@@ -185,7 +185,7 @@ export class DaoService {
         id: [FilterOperator.EQ],
         organization: [FilterOperator.ILIKE],
         nftAddress: [FilterOperator.EQ],
-        owner: [FilterOperator.EQ],
+        ["owner.walletAddress"]: [FilterOperator.EQ],
       },
       relations: ["owner", "chain"],
     });
