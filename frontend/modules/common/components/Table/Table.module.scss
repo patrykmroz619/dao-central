@@ -1,8 +1,11 @@
 @import "modules/common/styles/variables";
+@import "modules/common/styles/mixins";
 
 .wrapper {
   width: 100%;
   overflow-x: auto;
+
+  @include custom-scrollbar;
 }
 
 .table {
