@@ -13,6 +13,7 @@ export const ProposalsList = () => {
       {proposals.map((proposal) => (
         <Proposal
           key={proposal.id}
+          proposalId={proposal.id}
           description={proposal.description}
           start={proposal.startTime}
           end={proposal.endTime}

@@ -7,8 +7,10 @@ import { H3, Text } from "modules/common/components/Typography";
 
 import styles from "./Proposal.module.scss";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
+import { useVotingHandler } from "./useVotingHandler";
 
 type ProposalProps = {
+  proposalId: number;
   description: string;
   start: Date;
   end: Date;
@@ -17,7 +19,9 @@ type ProposalProps = {
 };
 
 export const Proposal = (props: ProposalProps) => {
-  const { description, start, end, approvals, denials } = props;
+  const { description, start, end, approvals, denials, proposalId } = props;
+
+  const { handleVote } = useVotingHandler(proposalId);
 
   const { isConnected } = useAccount();
 
@@ -57,8 +61,12 @@ export const Proposal = (props: ProposalProps) => {
           </Text>
         ) : (
           <>
-            <IconButton Icon={Check}>Approve (+{numberOfUserNFTs})</IconButton>
-            <IconButton Icon={X}>Deny (-{numberOfUserNFTs})</IconButton>
+            <IconButton onClick={() => handleVote(true)} Icon={Check}>
+              Approve (+{numberOfUserNFTs})
+            </IconButton>
+            <IconButton onClick={() => handleVote(false)} Icon={X}>
+              Deny (-{numberOfUserNFTs})
+            </IconButton>
           </>
         )}
       </div>
