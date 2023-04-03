@@ -1,0 +1,92 @@
+[
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "What is DAO Central?",
+    "answer": "DAO Central is a decentralized application that allows users to create and manage decentralized autonomous organizations (DAOs) using blockchain technology. It allows for community participation in decision-making processes through voting."
+  },
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "What are DAOs?",
+    "answer": "Decentralized autonomous organizations (DAOs) are organizations that are run by smart contracts on a blockchain network. They are decentralized and autonomous, meaning that they are not controlled by any central authority and operate based on predetermined rules."
+  },
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "What is the purpose of DAO Central?",
+    "answer": "The purpose of DAO Central is to provide a platform for creating and managing DAOs in a decentralized manner. It allows for community participation in decision-making processes, which makes the organization more transparent and democratic."
+  },
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "What kind of DAOs can be created on DAO Central?",
+    "answer": "Currently, DAO Central supports creating DAOs for communities built around an NFT collection. This means that the user is recognized as a community member if they hold NFTs from the collection."
+  },
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "How does DAO Central verify that a user is a community member?",
+    "answer": "DAO Central's smart contracts verify the balance of NFTs on the user's wallet to determine if they are a community member. This ensures that only members of the community can participate in votings."
+  },
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "How can I create a DAO on DAO Central?",
+    "answer": "To create a DAO on DAO Central, you need to have an NFT collection that is supported by the platform. Once you have the NFTs, you can create a proposal on DAO Central and allow the community to vote on it."
+  },
+  {
+    "category": "dao-central",
+    "categoryLabel": "DAO-Central",
+    "question": "Can anyone participate in DAO Central's DAOs?",
+    "answer": "No, only members of the community can participate in votings on DAO Central's DAOs. To become a member, you need to hold NFTs from the supported collection."
+  },
+  {
+    "category": "wallet",
+    "categoryLabel": "Wallet",
+    "question": "What is a crypto wallet login?",
+    "answer": "A crypto wallet login is a secure and decentralized method of logging into an application using a cryptocurrency wallet. Instead of using a traditional username and password, users log in using their crypto wallet to sign message provided by the server."
+  },
+  {
+    "category": "wallet",
+    "categoryLabel": "Wallet",
+    "question": "How do I create a crypto wallet to log in?",
+    "answer": "You can create a crypto wallet by using one of the many wallet providers available in the market. Some popular wallet providers are Coinbase, MetaMask, and Ledger. Once you have created your wallet, you can connect the wallet to log in to the application."
+  },
+  {
+    "category": "wallet",
+    "categoryLabel": "Wallet",
+    "question": "Is it safe to use a crypto wallet as a login?",
+    "answer": "Yes, using a crypto wallet as a login is safe as long as you keep your private key secure. Your private key is the most important piece of information that allows you to access your wallet and make transactions. Therefore, it is crucial that you keep it safe and never share it with anyone."
+  },
+  {
+    "category": "wallet",
+    "categoryLabel": "Wallet",
+    "question": "What happens if I lose access to my crypto wallet?",
+    "answer": "If you lose access to your crypto wallet, you will also lose access to your account on the application. Therefore, it is important to keep your private key and seed phrase secure and make a backup of it. If you lose your private key, you may not be able to recover your wallet or the funds stored in it."
+  },
+  {
+    "category": "wallet",
+    "categoryLabel": "Wallet",
+    "question": "Can I use multiple crypto wallets to log in to the same application?",
+    "answer": "The DAO Central application allow one wallet per account."
+  },
+  {
+    "category": "dapp",
+    "categoryLabel": "dApp",
+    "question": "What is a blockchain-based decentralized application?",
+    "answer": "A blockchain-based decentralized application, or dApp, is a software application that runs on a blockchain network, such as Ethereum or Bitcoin, and operates without a central authority."
+  },
+  {
+    "category": "dapp",
+    "categoryLabel": "dApp",
+    "question": "How does a blockchain-based decentralized application work?",
+    "answer": "A blockchain-based decentralized application is built using smart contracts, which are self-executing contracts that run on the blockchain. The smart contracts contain the rules and logic that govern the operation of the dApp."
+  },
+  {
+    "category": "dapp",
+    "categoryLabel": "dApp",
+    "question": "What are the benefits of a blockchain-based decentralized application?",
+    "answer": "Blockchain-based decentralized applications provide greater security, transparency, and immutability than traditional applications, since they operate on a distributed network that is resistant to tampering and censorship."
+  }
+]

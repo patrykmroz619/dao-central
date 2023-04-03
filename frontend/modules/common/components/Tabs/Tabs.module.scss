@@ -10,14 +10,14 @@
 .tab {
   flex-shrink: 0;
   position: relative;
-  width: 100px;
+  width: 125px;
   text-align: center;
   color: $gray;
   border-bottom: 2px solid $gray-light;
 
   button {
     width: 100%;
-    padding: $spacing-s;
+    padding: $spacing-s 0;
     background-color: transparent;
     border: none;
     font-size: $font-size-normal;

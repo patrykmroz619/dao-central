@@ -68,3 +68,12 @@
     }
   }
 }
+
+.faqBox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}

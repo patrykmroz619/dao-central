@@ -1,0 +1,27 @@
+@import "modules/common/styles/variables";
+
+.faqItem {
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: $spacing-m;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: $font-size-big;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    transform-origin: center;
+  }
+
+  &__answer {
+    text-align: justify;
+  }
+}
