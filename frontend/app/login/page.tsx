@@ -4,6 +4,7 @@ import organizationImage from "public/images/illustrations/organization.svg";
 import styles from "./page.module.scss";
 import { H1, Text } from "modules/common/components/Typography";
 import { WalletLogin } from "modules/auth/components/WalletLogin";
+import { InlineLink } from "modules/common/components/InlineLink";
 
 export default function LoginPage() {
   return (
@@ -16,6 +17,10 @@ export default function LoginPage() {
             here.
           </Text>
           <WalletLogin />
+          <Text>
+            Learn more about the application.{" "}
+            <InlineLink href="/help">Help center</InlineLink>
+          </Text>
         </div>
       </section>
       <div className={styles.illustrationWrapper}>

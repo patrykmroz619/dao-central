@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Archive, PlusCircle, User } from "react-feather";
+import { Home, Archive, PlusCircle, User, HelpCircle } from "react-feather";
 
 import { NavLink } from "modules/common/components/NavLink";
 import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
@@ -28,6 +28,11 @@ const links = [
     href: "/panel/profile",
     label: "Profile",
     Icon: User,
+  },
+  {
+    href: "/help",
+    label: "Help Center",
+    Icon: HelpCircle,
   },
 ];
 

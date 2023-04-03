@@ -22,7 +22,7 @@
 
   &__heading {
     margin: $spacing-l 0;
-    color: $primary-color-inverted;
+    color: $primary-color-inverted !important;
     font-size: 2.8rem;
 
     @include min-vw($breakpoint-md) {
@@ -31,11 +31,11 @@
   }
 
   &__subheading {
-    color: $primary-color-inverted;
+    color: $primary-color-inverted !important;
   }
 
   &__description {
-    color: $primary-color-inverted;
+    color: $primary-color-inverted !important;
   }
 
   &__link {

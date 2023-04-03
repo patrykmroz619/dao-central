@@ -27,7 +27,7 @@ const HelpPage = () => {
       <header className={styles.header}>
         <section>
           <Text className={styles.header__subheading}>The FAQs</Text>
-          <H1 className={styles.header__heading}>Help centre</H1>
+          <H1 className={styles.header__heading}>Help center</H1>
           <Text className={styles.header__description}>
             Everything you need to know about the DAO Central
           </Text>

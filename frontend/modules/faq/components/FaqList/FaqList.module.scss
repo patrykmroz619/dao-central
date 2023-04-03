@@ -5,15 +5,3 @@
   flex-direction: column;
   gap: $spacing-l;
 }
-
-.faqItem {
-  &__question {
-    margin-bottom: $spacing-m;
-    font-size: $font-size-big;
-    font-weight: 700;
-  }
-
-  &__answer {
-    text-align: justify;
-  }
-}
