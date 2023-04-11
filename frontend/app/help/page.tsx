@@ -33,7 +33,7 @@ const HelpPage = () => {
             <Text className={styles.header__description}>
               Everything you need to know about the DAO Central
             </Text>
-            <Link href="/panel" className={styles.header__link}>
+            <Link href="/" className={styles.header__link}>
               Go to app
             </Link>
           </section>
