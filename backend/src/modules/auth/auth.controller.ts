@@ -11,7 +11,7 @@ import { ApiTags } from "@nestjs/swagger";
 
 import { User, Ip } from "src/decorators";
 import { JwtRefreshGuard, JwtAuthGuard } from "src/guards";
-import { UserEntity } from "src/modules/users/users.entity";
+import { UserEntity } from "src/modules/users/infrastructure/entities/users.entity";
 import { AuthService } from "./auth.service";
 import {
   InitLoginResponseDto,

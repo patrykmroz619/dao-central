@@ -7,7 +7,6 @@ import * as crypto from "crypto";
 import { Request } from "express";
 import * as dayjs from "dayjs";
 
-import { UserEntity } from "src/modules/users/users.entity";
 import { JWTEntity } from "./jwt.entity";
 import {
   JWTCustomPayload,
@@ -15,8 +14,9 @@ import {
   JWTTokens,
   JWTType,
 } from "./jwt.interfaces";
-import { UsersService } from "src/modules/users/users.service";
 import { CONFIG } from "src/constants";
+import { UsersService } from "src/modules/users/presentation/services/users.service";
+import { UserModel } from "src/modules/users/domain/models/UserModel";
 
 @Injectable()
 export class JWTService {
@@ -29,7 +29,7 @@ export class JWTService {
   ) {}
 
   public async getNewJWTTokens(
-    user: UserEntity,
+    user: UserModel,
     ip: string,
   ): Promise<JWTTokens> {
     await this.jwtRepository.update(
@@ -95,7 +95,7 @@ export class JWTService {
     req: Request,
     payload: unknown,
     jwtType: JWTType,
-  ): Promise<UserEntity> {
+  ): Promise<UserModel> {
     console.log({ payload });
     if (!this.isValidJwtPayload(payload)) {
       throw new UnauthorizedException();
@@ -108,7 +108,7 @@ export class JWTService {
       throw new UnauthorizedException();
     }
 
-    const user = await this.usersService.getUser(payload.walletAddress);
+    const user = await this.usersService.findByWallet(payload.walletAddress);
 
     if (!user) {
       throw new UnauthorizedException();
@@ -133,8 +133,8 @@ export class JWTService {
     return user;
   }
 
-  public async removeJwtTokens(user: UserEntity): Promise<void> {
-    await this.jwtRepository.delete({ user: { id: user.id } });
+  public async removeJwtTokens(userId: string): Promise<void> {
+    await this.jwtRepository.delete({ user: { id: userId } });
   }
 
   private isValidJwtPayload(payload: any): payload is JWTPayload {

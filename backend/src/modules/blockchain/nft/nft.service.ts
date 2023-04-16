@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { UserEntity } from "src/modules/users/users.entity";
+import { UserEntity } from "src/modules/users/infrastructure/entities/users.entity";
 import { ExternalBlockchainApiService } from "../external-blockchain-api/external-blockchain-api.service";
 import { GetUserTokensDto } from "./dto";
 

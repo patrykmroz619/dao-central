@@ -1,7 +1,7 @@
 import { DataSource, DataSourceOptions } from "typeorm";
 import { config } from "dotenv";
 import { NODE_ENV } from "src/constants";
-import { UserEntity } from "src/modules/users/users.entity";
+import { UserEntity } from "src/modules/users/infrastructure/entities/users.entity";
 import { DaoEntity } from "src/modules/dao/dao.entity";
 import { ChainEntity } from "src/modules/blockchain/chains/chains.entity";
 import { JWTEntity } from "src/modules/auth/jwt/jwt.entity";

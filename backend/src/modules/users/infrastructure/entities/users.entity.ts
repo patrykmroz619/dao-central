@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-import { JWTEntity } from "../auth/jwt/jwt.entity";
-import { DaoEntity } from "../dao/dao.entity";
+import { JWTEntity } from "../../../auth/jwt/jwt.entity";
+import { DaoEntity } from "../../../dao/dao.entity";
 
 @Entity({ name: "users" })
 export class UserEntity {

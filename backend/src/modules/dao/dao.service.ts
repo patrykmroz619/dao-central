@@ -10,10 +10,10 @@ import { CONFIG, ERRORS } from "src/constants";
 import { ChainsService } from "../blockchain/chains/chains.service";
 import { ChainDto } from "../blockchain/chains/dto";
 import { RpcProvidersService } from "../blockchain/rpc-providers/rpc-providers.service";
-import { UsersService } from "../users/users.service";
 import { nftVotingContractAbi, nftVotingFactoryContractAbi } from "./abi";
 import { DaoEntity } from "./dao.entity";
 import { DaoDto, GetDaosDto } from "./dto";
+import { UsersService } from "../users/presentation/services/users.service";
 
 @Injectable()
 export class DaoService {
@@ -157,7 +157,7 @@ export class DaoService {
         "Get owner of NFTVoting contract",
       );
 
-    const owner = await this.userService.getUser(ownerAddress);
+    const owner = await this.userService.findByWallet(ownerAddress);
 
     const newDao = await this.daoRepository.save({
       contractAddress: contractAddress.toLowerCase(),

@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { ChainEntity } from "../blockchain/chains/chains.entity";
-import { UserEntity } from "../users/users.entity";
+import { UserEntity } from "../users/infrastructure/entities/users.entity";
 
 @Entity({ name: "daos" })
 export class DaoEntity {

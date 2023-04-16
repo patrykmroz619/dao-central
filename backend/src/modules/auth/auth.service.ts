@@ -11,8 +11,6 @@ import * as crypto from "crypto";
 import { ethers } from "ethers";
 
 import { ERRORS } from "src/constants";
-import { UserEntity } from "src/modules/users/users.entity";
-import { UsersService } from "src/modules/users/users.service";
 import {
   InitLoginResponseDto,
   JwtTokensResponseDto,
@@ -20,6 +18,8 @@ import {
 } from "./dto";
 import { InitLoginEntity } from "./init-login.entity";
 import { JWTService } from "./jwt/jwt.service";
+import { UsersService } from "../users/presentation/services/users.service";
+import { UserModel } from "../users/domain/models/UserModel";
 
 @Injectable()
 export class AuthService {
@@ -66,10 +66,10 @@ export class AuthService {
       signature,
     );
 
-    let user = await this.usersService.getUser(signerWalletAddress);
+    let user = await this.usersService.findByWallet(signerWalletAddress);
 
     if (!user) {
-      user = await this.usersService.createUser(signerWalletAddress);
+      user = await this.usersService.create(signerWalletAddress);
     }
 
     this.logger.log(`User with id ${user.id} logged in`);
@@ -83,13 +83,13 @@ export class AuthService {
     return jwtTokens;
   }
 
-  async logout(user: UserEntity): Promise<void> {
-    this.jwtService.removeJwtTokens(user);
+  async logout(user: UserModel): Promise<void> {
+    this.jwtService.removeJwtTokens(user.id);
     this.logger.log(`User with id ${user.id} logged out`);
   }
 
   async refreshToken(
-    user: UserEntity,
+    user: UserModel,
     ip: string,
   ): Promise<JwtTokensResponseDto> {
     const jwtTokens = await this.jwtService.getNewJWTTokens(user, ip);
