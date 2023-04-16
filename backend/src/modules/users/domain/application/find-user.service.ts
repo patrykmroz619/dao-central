@@ -1,16 +1,27 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 
-import { UserRepositoryPort } from "../ports/UserRepositoryPort";
-import { UserModel } from "../models/UserModel";
+import {
+  UserRepositoryPort,
+  UserRepositoryPortToken,
+} from "../ports/user-repository.port";
 
 @Injectable()
 export class FindUserService {
-  constructor(private userRepositoryPort: UserRepositoryPort) {}
+  constructor(
+    @Inject(UserRepositoryPortToken)
+    private userRepositoryPort: UserRepositoryPort,
+  ) {}
 
-  async findByWallet(walletAddress: string): Promise<UserModel> {
+  async findByWallet(walletAddress: string) {
     const user = await this.userRepositoryPort.findByWalletAddress(
       walletAddress,
     );
+
+    return user;
+  }
+
+  async findById(userId: string) {
+    const user = await this.userRepositoryPort.findById(userId);
 
     return user;
   }

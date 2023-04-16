@@ -5,7 +5,6 @@ export enum JWTType {
 
 export interface JWTCustomPayload {
   walletAddress: string;
-  ip: string;
   code: string;
 }
 

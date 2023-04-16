@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString } from "class-validator";
-import { JWTTokens } from "../jwt/jwt.interfaces";
+import { JWTTokens } from "../../../domain/interfaces/jwt.interfaces";
 
 export class JwtTokensResponseDto implements JWTTokens {
   @ApiProperty({

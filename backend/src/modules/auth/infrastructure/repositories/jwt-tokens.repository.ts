@@ -1,25 +1,23 @@
+import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { Injectable, UnauthorizedException } from "@nestjs/common";
-import { JwtService as NestJwtService } from "@nestjs/jwt";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import * as crypto from "crypto";
-import { Request } from "express";
 import * as dayjs from "dayjs";
+import { JwtService as NestJwtService } from "@nestjs/jwt";
 
-import { JWTEntity } from "./jwt.entity";
-import {
-  JWTCustomPayload,
-  JWTPayload,
-  JWTTokens,
-  JWTType,
-} from "./jwt.interfaces";
 import { CONFIG } from "src/constants";
 import { UsersService } from "src/modules/users/presentation/services/users.service";
-import { UserModel } from "src/modules/users/domain/models/UserModel";
+import { JwtTokensModel } from "../../domain/model/jwt-tokens.model";
+import { JwtTokensRepositoryPort } from "../../domain/ports/jwt-tokens.repository.port";
+import {
+  JWTCustomPayload,
+  JWTType,
+} from "../../domain/interfaces/jwt.interfaces";
+import { JWTEntity } from "../entities/jwt.entity";
 
 @Injectable()
-export class JWTService {
+export class JwtTokensRepository implements JwtTokensRepositoryPort {
   constructor(
     @InjectRepository(JWTEntity)
     private jwtRepository: Repository<JWTEntity>,
@@ -28,14 +26,10 @@ export class JWTService {
     private usersService: UsersService,
   ) {}
 
-  public async getNewJWTTokens(
-    user: UserModel,
-    ip: string,
-  ): Promise<JWTTokens> {
-    await this.jwtRepository.update(
-      { user: { id: user.id } },
-      { active: false },
-    );
+  public async createJWTTokensForUser(userId: string): Promise<JwtTokensModel> {
+    const user = await this.usersService.findById(userId);
+
+    await this.jwtRepository.update({ user }, { active: false });
 
     const accessTokenCode = crypto.randomBytes(32).toString("hex");
 
@@ -48,7 +42,6 @@ export class JWTService {
     const accessTokenPayload: JWTCustomPayload = {
       walletAddress: user.walletAddress.toLowerCase(),
       code: accessTokenCode,
-      ip,
     };
 
     const refreshTokenCode = crypto.randomBytes(32).toString("hex");
@@ -62,7 +55,6 @@ export class JWTService {
     const refreshTokenPayload: JWTCustomPayload = {
       walletAddress: user.walletAddress.toLowerCase(),
       code: refreshTokenCode,
-      ip,
     };
 
     const accessTokenExpiry = dayjs().add(
@@ -70,7 +62,7 @@ export class JWTService {
       "seconds",
     );
 
-    return {
+    const jwt = {
       accessToken: this.nestJwtService.sign(accessTokenPayload, {
         expiresIn: this.configService.get<number>(CONFIG.JWT_ACCESS_TOKEN_EXP),
         subject: user.id,
@@ -89,67 +81,17 @@ export class JWTService {
         audience: this.configService.get<string>(CONFIG.APP_FRONTEND_URL),
       }),
     };
+
+    const jwtTokensModel = new JwtTokensModel(
+      jwt.accessToken,
+      jwt.refreshToken,
+      jwt.accessTokenExpiry,
+    );
+
+    return jwtTokensModel;
   }
 
-  public async validateToken(
-    req: Request,
-    payload: unknown,
-    jwtType: JWTType,
-  ): Promise<UserModel> {
-    console.log({ payload });
-    if (!this.isValidJwtPayload(payload)) {
-      throw new UnauthorizedException();
-    }
-
-    if (
-      payload.aud !== this.configService.get<string>(CONFIG.APP_FRONTEND_URL) ||
-      payload.iss !== this.configService.get<string>(CONFIG.APP_BACKEND_URL)
-    ) {
-      throw new UnauthorizedException();
-    }
-
-    const user = await this.usersService.findByWallet(payload.walletAddress);
-
-    if (!user) {
-      throw new UnauthorizedException();
-    }
-
-    const token = await this.jwtRepository.findOne({
-      where: {
-        id: Number(payload.jti),
-        code: payload.code,
-        active: true,
-        type: jwtType,
-        user: { id: user.id },
-      },
-    });
-
-    if (!token) {
-      throw new UnauthorizedException();
-    }
-
-    await this.jwtRepository.update(token.id, { lastUsed: new Date() });
-
-    return user;
-  }
-
-  public async removeJwtTokens(userId: string): Promise<void> {
+  public async removeJWTTokensForUser(userId: string): Promise<void> {
     await this.jwtRepository.delete({ user: { id: userId } });
-  }
-
-  private isValidJwtPayload(payload: any): payload is JWTPayload {
-    if (
-      !payload?.aud ||
-      !payload?.iss ||
-      !payload?.jti ||
-      !payload?.sub ||
-      !payload?.ip ||
-      !payload?.code ||
-      !payload?.ip
-    ) {
-      return false;
-    }
-
-    return true;
   }
 }

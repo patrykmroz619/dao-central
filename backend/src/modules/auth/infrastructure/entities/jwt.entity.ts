@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 import { UserEntity } from "src/modules/users/infrastructure/entities/users.entity";
-import { JWTType } from "./jwt.interfaces";
+import { JWTType } from "../../domain/interfaces/jwt.interfaces";
 
 @Entity({ name: "jwts" })
 export class JWTEntity {

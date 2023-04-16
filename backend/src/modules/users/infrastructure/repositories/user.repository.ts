@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { FindOptionsWhere, Repository } from "typeorm";
 
-import { UserModel } from "../../domain/models/UserModel";
-import { UserRepositoryPort } from "../../domain/ports/UserRepositoryPort";
+import { UserModel } from "../../domain/models/user.model";
+import { UserRepositoryPort } from "../../domain/ports/user-repository.port";
 
 import { UserEntity } from "../entities/users.entity";
 
@@ -27,10 +27,26 @@ export class UserRepository implements UserRepositoryPort {
     return createdUserModel;
   }
 
-  public async findByWalletAddress(walletAddress: string): Promise<UserModel> {
-    const foundUser = await this.usersRepository.findOne({
-      where: { walletAddress: walletAddress.toLowerCase() },
+  public async findByWalletAddress(walletAddress: string) {
+    return await this.findUser({
+      walletAddress: walletAddress.toLowerCase(),
     });
+  }
+
+  public async findById(userId: string) {
+    return await this.findUser({
+      id: userId,
+    });
+  }
+
+  private async findUser(where: FindOptionsWhere<UserEntity>) {
+    const foundUser = await this.usersRepository.findOne({
+      where: where,
+    });
+
+    if (!foundUser) {
+      return null;
+    }
 
     const foundUserModel = new UserModel(foundUser.id, foundUser.walletAddress);
 

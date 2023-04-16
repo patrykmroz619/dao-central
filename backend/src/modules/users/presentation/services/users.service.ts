@@ -2,7 +2,6 @@ import { Injectable } from "@nestjs/common";
 
 import { CreateUserService } from "../../domain/application/create-user.service";
 import { FindUserService } from "../../domain/application/find-user.service";
-import { UserModel } from "../../domain/models/UserModel";
 
 @Injectable()
 export class UsersService {
@@ -11,11 +10,15 @@ export class UsersService {
     private findUserService: FindUserService,
   ) {}
 
-  public async create(walletAddress: string): Promise<UserModel> {
+  public async create(walletAddress: string) {
     return this.createUserService.createUser(walletAddress);
   }
 
-  public async findByWallet(walletAddress: string): Promise<UserModel> {
+  public async findByWallet(walletAddress: string) {
     return this.findUserService.findByWallet(walletAddress);
+  }
+
+  public async findById(userId: string) {
+    return this.findUserService.findById(userId);
   }
 }

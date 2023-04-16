@@ -4,9 +4,9 @@ import { NODE_ENV } from "src/constants";
 import { UserEntity } from "src/modules/users/infrastructure/entities/users.entity";
 import { DaoEntity } from "src/modules/dao/dao.entity";
 import { ChainEntity } from "src/modules/blockchain/chains/chains.entity";
-import { JWTEntity } from "src/modules/auth/jwt/jwt.entity";
+import { JWTEntity } from "src/modules/auth/infrastructure/entities/jwt.entity";
 import { RpcProviderEntity } from "src/modules/blockchain/rpc-providers/rpc-providers.entity";
-import { InitLoginEntity } from "src/modules/auth/init-login.entity";
+import { InitLoginEntity } from "src/modules/auth/infrastructure/entities/init-login.entity";
 import { Migration1680041799585 } from "./migrations/1680041799585-Migration";
 
 config();

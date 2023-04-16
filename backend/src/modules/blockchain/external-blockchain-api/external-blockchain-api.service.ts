@@ -1,7 +1,7 @@
 import { Injectable, OnApplicationBootstrap } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import Moralis from "moralis";
-import { CONFIG } from "src/constants";
+import { CONFIG, NODE_ENV } from "src/constants";
 import { NFTData } from "./external-blockchain-api.type";
 
 @Injectable()
@@ -12,10 +12,13 @@ export class ExternalBlockchainApiService implements OnApplicationBootstrap {
     const moralisApiKey = this.configService.get<string>(
       CONFIG.MORALIS_API_KEY,
     );
+    const env = this.configService.get<NODE_ENV>(CONFIG.APP_NODE_ENV);
 
-    await Moralis.start({
-      apiKey: moralisApiKey,
-    });
+    if (env != NODE_ENV.TEST) {
+      await Moralis.start({
+        apiKey: moralisApiKey,
+      });
+    }
   }
 
   public async getWalletNFTs(
