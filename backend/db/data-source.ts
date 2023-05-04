@@ -2,7 +2,7 @@ import { DataSource, DataSourceOptions } from "typeorm";
 import { config } from "dotenv";
 import { NODE_ENV } from "src/constants";
 import { UserEntity } from "src/modules/users/infrastructure/entities/users.entity";
-import { DaoEntity } from "src/modules/dao/dao.entity";
+import { DaoEntity } from "src/modules/dao/infrastructure/entities/dao.entity";
 import { ChainEntity } from "src/modules/blockchain/chains/chains.entity";
 import { JWTEntity } from "src/modules/auth/infrastructure/entities/jwt.entity";
 import { RpcProviderEntity } from "src/modules/blockchain/rpc-providers/rpc-providers.entity";

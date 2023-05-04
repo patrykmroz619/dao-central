@@ -1,6 +1,6 @@
 import { applyDecorators } from "@nestjs/common";
 import { ApiOkResponse, ApiOperation, ApiParam } from "@nestjs/swagger";
-import { DaoDto } from "../dto";
+import { DaoDetailsDto } from "../dto";
 
 export const GetDaoDocs = () =>
   applyDecorators(
@@ -11,6 +11,6 @@ export const GetDaoDocs = () =>
     }),
     ApiOkResponse({
       description: "Data of DAO",
-      type: DaoDto,
+      type: DaoDetailsDto,
     }),
   );

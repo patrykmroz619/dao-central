@@ -5,8 +5,9 @@ import {
   ApiCreatedResponse,
   ApiOperation,
 } from "@nestjs/swagger";
-import { ErrorDto } from "src/global";
-import { DaoDto, SaveDaoDto } from "../dto";
+
+import { ErrorDto, SuccessDto } from "src/global";
+import { SaveDaoDto } from "../dto";
 
 export const SaveDaoDocs = () =>
   applyDecorators(
@@ -14,7 +15,7 @@ export const SaveDaoDocs = () =>
     ApiBody({ type: SaveDaoDto }),
     ApiCreatedResponse({
       description: "Data of the new DAO",
-      type: DaoDto,
+      type: SuccessDto,
     }),
     ApiBadRequestResponse({ type: ErrorDto }),
   );

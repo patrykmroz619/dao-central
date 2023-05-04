@@ -18,7 +18,4 @@ export class DaoDto {
 
   @ApiProperty()
   chainId: number;
-
-  @ApiProperty()
-  chainName: string;
 }
