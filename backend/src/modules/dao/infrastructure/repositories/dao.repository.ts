@@ -47,6 +47,7 @@ export class DaoRepository implements DaosRepositoryPort {
       relations: {
         chain: true,
         owner: true,
+        extraLinks: true,
       },
     });
 
