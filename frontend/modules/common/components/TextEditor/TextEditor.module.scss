@@ -1,0 +1,28 @@
+@import "modules/common/styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.label {
+  margin-left: $spacing-xs;
+  color: $text-color;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.editor {
+  & > div {
+    border-color: $gray-light;
+  }
+
+  & > div:first-child {
+    border-radius: $border-radius-small $border-radius-small 0 0;
+  }
+
+  & > div:last-child {
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+  }
+}
