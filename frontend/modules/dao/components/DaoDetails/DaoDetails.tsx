@@ -1,21 +1,31 @@
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 import { VotingPower } from "./VotingPower";
 import styles from "./DaoDetails.module.scss";
+import { getChainData } from "modules/blockchain/utils/getChainData";
+import { DaoData } from "modules/dao/types/daoData.type";
+import { Separator } from "modules/common/components/Separator";
+import { DaoLinks } from "./DaoLinks";
 
 type DaoDetailsProps = {
-  chainName: string;
-  chainId: number;
-  ownerAddress: string;
-  contractAddress: string;
-  nftAddress: string;
+  daoData: DaoData;
 };
 
 export const DaoDetails = (props: DaoDetailsProps) => {
-  const { chainName, contractAddress, ownerAddress, nftAddress, chainId } =
-    props;
+  const {
+    daoData: {
+      contractAddress,
+      nftAddress,
+      chainId,
+      owner,
+      description,
+      extraLinks = [],
+    },
+  } = props;
+
+  const chainData = getChainData(chainId);
 
   const details = [
-    { label: "Network", value: chainName },
+    { label: "Network", value: chainData?.name },
     {
       label: "Contract address",
       value: (
@@ -24,9 +34,7 @@ export const DaoDetails = (props: DaoDetailsProps) => {
     },
     {
       label: "Owner",
-      value: (
-        <BlockchainExplorerLink address={ownerAddress} chainId={chainId} />
-      ),
+      value: <BlockchainExplorerLink address={owner} chainId={chainId} />,
     },
     {
       label: "NFT address",
@@ -39,13 +47,30 @@ export const DaoDetails = (props: DaoDetailsProps) => {
   ];
 
   return (
-    <ul className={styles.list}>
-      {details.map((detail) => (
-        <li className={styles.list__item} key={detail.label}>
-          <strong>{detail.label}: </strong>
-          <span>{detail.value}</span>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul className={styles.list}>
+        {details.map((detail) => (
+          <li className={styles.list__item} key={detail.label}>
+            <strong>{detail.label}</strong>
+            <span className={styles.list__item__value}>{detail.value}</span>
+          </li>
+        ))}
+      </ul>
+      {description ? (
+        <>
+          <Separator className={styles.separator} />
+          <div
+            className={styles.description}
+            dangerouslySetInnerHTML={{ __html: description }}
+          ></div>
+        </>
+      ) : null}
+      {extraLinks.length > 0 ? (
+        <>
+          <Separator className={styles.separator} />
+          <DaoLinks links={extraLinks} />
+        </>
+      ) : null}
+    </div>
   );
 };

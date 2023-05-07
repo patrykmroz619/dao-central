@@ -29,13 +29,7 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
         <section>
           <Box>
             <H2 className={styles.heading}>{dao.organization}</H2>
-            <DaoDetails
-              chainName={dao.chainName}
-              chainId={dao.chainId}
-              ownerAddress={dao.owner}
-              contractAddress={dao.contractAddress}
-              nftAddress={dao.nftAddress}
-            />
+            <DaoDetails daoData={dao} />
           </Box>
         </section>
         <section>

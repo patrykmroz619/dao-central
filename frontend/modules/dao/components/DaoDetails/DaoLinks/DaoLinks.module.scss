@@ -1,0 +1,8 @@
+@import "modules/common/styles/variables";
+
+.list {
+  display: flex;
+  gap: $spacing-m;
+  justify-content: flex-end;
+  align-items: center;
+}

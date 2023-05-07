@@ -2,12 +2,54 @@
 
 .list {
   display: flex;
-  flex-direction: column;
-  gap: $spacing-s;
+  flex-wrap: wrap;
+  gap: $spacing-m;
+  margin-top: $spacing-l;
 
   &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $spacing-s;
+
     strong {
       font-weight: 700;
     }
+
+    & > span,
+    & > span > a {
+      line-height: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.separator {
+  margin: $spacing-m 0;
+}
+
+.description {
+  line-height: 1.42;
+  tab-size: 4;
+  font-size: $font-size-small;
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.17em;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
   }
 }
