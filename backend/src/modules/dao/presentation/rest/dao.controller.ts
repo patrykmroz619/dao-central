@@ -11,7 +11,6 @@ import {
 import { ApiTags } from "@nestjs/swagger";
 import { Paginate, PaginateQuery } from "nestjs-paginate";
 import { ERRORS } from "src/constants";
-import { SuccessDto } from "src/global";
 
 import { JwtAuthGuard } from "src/guards";
 import { GetDaoService } from "../../domain/application/get-dao.service";
@@ -19,7 +18,12 @@ import { RegisterDaoService } from "../../domain/application/register-dao.servic
 import { DaoAlreadyExistsException } from "../../domain/exceptions/dao-already-exist.exception";
 import { DaoNotFoundException } from "../../domain/exceptions/dao-not-found.exception";
 import { SaveDaoDocs, GetDaosDocs, GetDaoDocs } from "./docs";
-import { DaoDetailsDto, GetDaosDto, SaveDaoDto } from "./dto";
+import {
+  DaoDetailsDto,
+  GetDaosDto,
+  SaveDaoDto,
+  SaveDaoResponseDto,
+} from "./dto";
 
 @ApiTags("DAO")
 @Controller("dao")
@@ -32,14 +36,18 @@ export class DaoController {
   @Post()
   @SaveDaoDocs()
   @UseGuards(JwtAuthGuard)
-  async registerDAO(@Body() saveDaoDto: SaveDaoDto): Promise<SuccessDto> {
+  async registerDAO(
+    @Body() saveDaoDto: SaveDaoDto,
+  ): Promise<SaveDaoResponseDto> {
     try {
-      await this.registerDaoService.registerDao(
+      const newDaoModel = await this.registerDaoService.registerDao(
         saveDaoDto.chainId,
         saveDaoDto.contractAddress,
+        saveDaoDto.description,
+        saveDaoDto.extraLinks,
       );
 
-      return { success: true };
+      return { daoId: newDaoModel.id };
     } catch (error: unknown) {
       if (error instanceof DaoAlreadyExistsException) {
         throw new BadRequestException(ERRORS.dao.alreadyExist);
@@ -63,7 +71,7 @@ export class DaoController {
         organization: dao.organizationName,
         owner: dao.ownerAddress,
         description: dao.organizationDescription,
-        socialLinks: dao.socialMediaLinks ?? [],
+        extraLinks: dao.extraLinks ?? [],
       };
     } catch (error: unknown) {
       if (error instanceof DaoNotFoundException) {

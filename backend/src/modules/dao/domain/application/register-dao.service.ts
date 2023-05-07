@@ -23,9 +23,9 @@ export class RegisterDaoService {
     chainId: number,
     contractAddress: string,
     organizationDescription?: string,
-    socialMediaLinks?: DaoModel["socialMediaLinks"],
+    extraLinks?: DaoModel["extraLinks"],
   ) {
-    const existingDao = this.daosRepositoryPort.getDaoByChainIdAndAddress(
+    const existingDao = await this.daosRepositoryPort.getDaoByChainIdAndAddress(
       chainId,
       contractAddress,
     );
@@ -47,7 +47,7 @@ export class RegisterDaoService {
       organizationName,
       tokenAddress,
       organizationDescription,
-      socialMediaLinks,
+      extraLinks,
     });
 
     return newDaoModel;

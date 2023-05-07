@@ -1,6 +1,8 @@
-type SocialMediaLink = {
-  link: string;
-  socialMediaName: string;
+import { DAO_EXTRA_LINK_TYPE } from "../constants/dao-extra-link.enum";
+
+type ExtraLink = {
+  type: DAO_EXTRA_LINK_TYPE;
+  url: string;
 };
 
 export class DaoModel {
@@ -12,6 +14,6 @@ export class DaoModel {
     public organizationName: string,
     public tokenAddress: string,
     public organizationDescription?: string,
-    public socialMediaLinks?: SocialMediaLink[],
+    public extraLinks?: ExtraLink[],
   ) {}
 }

@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { DaoModel } from "src/modules/dao/domain/models/dao.model";
+
+import { DaoExtraLinkDto } from "./dao-extra-link.dto";
 import { DaoDto } from "./dao.dto";
 
 export class DaoDetailsDto extends DaoDto {
@@ -7,7 +8,7 @@ export class DaoDetailsDto extends DaoDto {
   description?: string;
 
   @ApiProperty({
-    type: DaoModel["socialMediaLinks"],
+    type: [DaoExtraLinkDto],
   })
-  socialLinks: DaoModel["socialMediaLinks"];
+  extraLinks?: DaoExtraLinkDto[];
 }

@@ -7,7 +7,10 @@ import { ChainEntity } from "src/modules/blockchain/chains/chains.entity";
 import { JWTEntity } from "src/modules/auth/infrastructure/entities/jwt.entity";
 import { RpcProviderEntity } from "src/modules/blockchain/rpc-providers/rpc-providers.entity";
 import { InitLoginEntity } from "src/modules/auth/infrastructure/entities/init-login.entity";
+import { DaoExtraLinkEntity } from "src/modules/dao/infrastructure/entities/dao-extra-links.entity";
+
 import { Migration1680041799585 } from "./migrations/1680041799585-Migration";
+import { Migration1683478136633 } from "./migrations/1683478136633-Migration";
 
 config();
 
@@ -29,12 +32,18 @@ export const dataSourceOptions: DataSourceOptions = {
     JWTEntity,
     RpcProviderEntity,
     InitLoginEntity,
+    DaoExtraLinkEntity,
   ],
-  migrations: [Migration1680041799585],
-  ssl:
+  migrations: [Migration1680041799585, Migration1683478136633],
+  ssl: process.env.NODE_ENV === NODE_ENV.PRODUCTION,
+  extra:
     process.env.NODE_ENV === NODE_ENV.PRODUCTION
-      ? { rejectUnauthorized: false }
-      : false,
+      ? {
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        }
+      : undefined,
 };
 
 const dataSource = new DataSource(dataSourceOptions);

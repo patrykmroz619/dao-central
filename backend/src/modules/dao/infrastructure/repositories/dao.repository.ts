@@ -1,12 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
 import { FilterOperator, paginate, PaginateQuery } from "nestjs-paginate";
+
 import { ChainsService } from "src/modules/blockchain/chains/chains.service";
 import { UsersService } from "src/modules/users/presentation/services/users.service";
-import { Repository } from "typeorm";
 import { DaoModel } from "../../domain/models/dao.model";
 import { DaosRepositoryPort } from "../../domain/ports/daos-repository.port";
 import { SaveDaoData } from "../../domain/types/save-dao-data.type";
+
+import { DaoExtraLinkEntity } from "../entities/dao-extra-links.entity";
 import { DaoEntity } from "../entities/dao.entity";
 
 @Injectable()
@@ -14,6 +17,8 @@ export class DaoRepository implements DaosRepositoryPort {
   constructor(
     @InjectRepository(DaoEntity)
     private daoRepository: Repository<DaoEntity>,
+    @InjectRepository(DaoExtraLinkEntity)
+    private daoExtraLinkRepository: Repository<DaoExtraLinkEntity>,
     private chainsService: ChainsService,
     private usersService: UsersService,
   ) {}
@@ -86,7 +91,7 @@ export class DaoRepository implements DaosRepositoryPort {
         nftAddress: [FilterOperator.EQ],
         ["owner.walletAddress"]: [FilterOperator.EQ],
       },
-      relations: ["owner", "chain"],
+      relations: ["owner", "chain", "extraLinks"],
     });
 
     return {
@@ -101,17 +106,32 @@ export class DaoRepository implements DaosRepositoryPort {
       tokenAddress,
       chainId,
       ownerAddress,
+      organizationDescription,
+      extraLinks,
     } = daoData;
 
     const chain = await this.chainsService.getChainByChainId(chainId);
     const owner = await this.usersService.findByWallet(ownerAddress);
 
+    const extraLinksEntities: DaoExtraLinkEntity[] = [];
+
+    for (const extraLink of extraLinks) {
+      const newExtraLink = await this.daoExtraLinkRepository.save({
+        type: extraLink.type,
+        url: extraLink.url,
+      });
+
+      extraLinksEntities.push(newExtraLink);
+    }
+
     const newDao = await this.daoRepository.save({
       contractAddress: contractAddress.toLowerCase(),
       organization: organizationName,
       nftAddress: tokenAddress.toLowerCase(),
+      description: organizationDescription,
       chain,
       owner,
+      extraLinks: extraLinksEntities,
     });
 
     return this.convertDaoEntityToDaoModel(newDao);
@@ -125,6 +145,11 @@ export class DaoRepository implements DaosRepositoryPort {
       daoEntity.owner.walletAddress,
       daoEntity.organization,
       daoEntity.nftAddress,
+      daoEntity.description,
+      daoEntity.extraLinks?.map((extraLink) => ({
+        type: extraLink.type,
+        url: extraLink.url,
+      })) || [],
     );
   }
 }

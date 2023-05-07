@@ -7,5 +7,5 @@ export type SaveDaoData = {
   organizationName: string;
   tokenAddress: string;
   organizationDescription?: string;
-  socialMediaLinks?: DaoModel["socialMediaLinks"];
+  extraLinks?: DaoModel["extraLinks"];
 };

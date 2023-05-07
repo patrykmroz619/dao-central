@@ -12,6 +12,7 @@ import { DaoContractsRepositoryPortToken } from "./domain/ports/dao-contracts-re
 import { DaosRepositoryToken } from "./domain/ports/daos-repository.port";
 
 import { DaoEntity } from "./infrastructure/entities/dao.entity";
+import { DaoExtraLinkEntity } from "./infrastructure/entities/dao-extra-links.entity";
 import { DaoContractsRepository } from "./infrastructure/repositories/dao-contracts.repository";
 import { ChainsRepository } from "./infrastructure/repositories/chains.repository";
 import { DaoRepository } from "./infrastructure/repositories/dao.repository";
@@ -21,7 +22,7 @@ import { DiscoverDaoCron } from "./presentation/crons/discover-dao.cron";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([DaoEntity]),
+    TypeOrmModule.forFeature([DaoEntity, DaoExtraLinkEntity]),
     BlockchainModule,
     UsersModule,
   ],

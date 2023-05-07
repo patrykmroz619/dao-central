@@ -1,6 +1,14 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+
 import { ChainEntity } from "../../../blockchain/chains/chains.entity";
 import { UserEntity } from "../../../users/infrastructure/entities/users.entity";
+import { DaoExtraLinkEntity } from "./dao-extra-links.entity";
 
 @Entity({ name: "daos" })
 export class DaoEntity {
@@ -16,9 +24,17 @@ export class DaoEntity {
   @Column()
   nftAddress: string;
 
+  @Column({
+    nullable: true,
+  })
+  description: string | null;
+
   @ManyToOne(() => UserEntity, (user) => user.daos)
   owner: UserEntity;
 
   @ManyToOne(() => ChainEntity, (chain) => chain.daos)
   chain: ChainEntity;
+
+  @OneToMany(() => DaoExtraLinkEntity, (daoExtraLink) => daoExtraLink.dao)
+  extraLinks: DaoExtraLinkEntity[];
 }
