@@ -66,30 +66,10 @@ export const NewDaoForm = () => {
           />
         )}
       />
-      <TextInput
-        {...register("websiteLink")}
-        label="Website URL"
-        isError={Boolean(formErrors.nftAddress)}
-        helperText={formErrors.nftAddress?.message}
-      />
-      <TextInput
-        {...register("facebookLink")}
-        label="Facebook"
-        isError={Boolean(formErrors.nftAddress)}
-        helperText={formErrors.nftAddress?.message}
-      />
-      <TextInput
-        {...register("twitterLink")}
-        label="Twitter"
-        isError={Boolean(formErrors.nftAddress)}
-        helperText={formErrors.nftAddress?.message}
-      />
-      <TextInput
-        {...register("discordLink")}
-        label="Discord"
-        isError={Boolean(formErrors.nftAddress)}
-        helperText={formErrors.nftAddress?.message}
-      />
+      <TextInput {...register("websiteLink")} label="Website URL" />
+      <TextInput {...register("facebookLink")} label="Facebook" />
+      <TextInput {...register("twitterLink")} label="Twitter" />
+      <TextInput {...register("discordLink")} label="Discord" />
       <Separator />
       <CreatingDaoState state={creatingDaoState} txHash={txHash} />
       <div className={styles.form__buttonContainer}>

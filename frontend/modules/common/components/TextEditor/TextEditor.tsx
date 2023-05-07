@@ -1,4 +1,7 @@
+"use-client";
+
 import classNames from "classnames";
+import { useIsBrowser } from "modules/common/hooks/useIsBrowser";
 import { ComponentPropsWithoutRef } from "react";
 import ReactQuill from "react-quill";
 
@@ -16,6 +19,12 @@ type TextEditorProps = {
 export const TextEditor = (props: TextEditorProps) => {
   const { value, onChange, label, placeholder, className, ...restProps } =
     props;
+
+  const isBrowser = useIsBrowser();
+
+  if (!isBrowser) {
+    return null;
+  }
 
   return (
     <div className={classNames(styles.wrapper, className)} {...restProps}>

@@ -157,7 +157,7 @@ export const useCreateDao = () => {
           description,
           extraLinks
         );
-        router.replace(`panel/dao/${newDao.id}`);
+        router.replace(`panel/dao/${newDao.daoId}`);
       } else {
         router.replace(`panel/my-dao`);
       }

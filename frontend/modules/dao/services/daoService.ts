@@ -11,6 +11,10 @@ type GetDaoFilter = {
   };
 };
 
+type RegisterDaoResponse = {
+  daoId: number;
+};
+
 export class DaoService {
   constructor(
     private api: HttpService = new HttpService(PUBLIC_CONFIG.API_URL)
@@ -26,7 +30,7 @@ export class DaoService {
       url: string;
     }>
   ) {
-    const response = await this.api.post<DaoData>(
+    const response = await this.api.post<RegisterDaoResponse>(
       "/dao",
       {
         chainId,
