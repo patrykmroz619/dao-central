@@ -32,6 +32,7 @@ export class DaoRepository implements DaosRepositoryPort {
       },
       relations: {
         chain: true,
+        owner: true,
       },
     });
 
@@ -107,7 +108,7 @@ export class DaoRepository implements DaosRepositoryPort {
       chainId,
       ownerAddress,
       organizationDescription,
-      extraLinks,
+      extraLinks = [],
     } = daoData;
 
     const chain = await this.chainsService.getChainByChainId(chainId);
@@ -135,6 +136,41 @@ export class DaoRepository implements DaosRepositoryPort {
     });
 
     return this.convertDaoEntityToDaoModel(newDao);
+  }
+
+  public async updateDaoInformation(
+    daoId: number,
+    description?: string,
+    extraLinks?: DaoModel["extraLinks"],
+  ): Promise<DaoModel> {
+    await this.daoExtraLinkRepository.delete({
+      dao: {
+        id: daoId,
+      },
+    });
+
+    const extraLinksEntities: DaoExtraLinkEntity[] = [];
+
+    for (const extraLink of extraLinks) {
+      const newExtraLink = await this.daoExtraLinkRepository.save({
+        type: extraLink.type,
+        url: extraLink.url,
+      });
+
+      extraLinksEntities.push(newExtraLink);
+    }
+
+    const dao = await this.daoRepository.findOne({
+      where: {
+        id: daoId,
+      },
+    });
+
+    dao.description = description;
+    dao.extraLinks = extraLinksEntities;
+    await this.daoRepository.save(dao);
+
+    return this.convertDaoEntityToDaoModel(dao);
   }
 
   private convertDaoEntityToDaoModel(daoEntity: DaoEntity): DaoModel {

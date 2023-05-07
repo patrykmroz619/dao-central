@@ -13,10 +13,16 @@ export interface DaosRepositoryPort {
     query: PaginateQuery,
   ): Promise<{ count: number; data: DaoModel[] }>;
 
-  saveDao(daoData: SaveDaoData): Promise<DaoModel>;
-
   getDaoByChainIdAndAddress(
     chainId: number,
     contractAddress: string,
   ): Promise<DaoModel | null>;
+
+  saveDao(daoData: SaveDaoData): Promise<DaoModel>;
+
+  updateDaoInformation(
+    daoId: number,
+    description?: string,
+    extraLinks?: DaoModel["extraLinks"],
+  ): Promise<DaoModel>;
 }

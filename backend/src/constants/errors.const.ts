@@ -14,5 +14,6 @@ export const ERRORS = {
   dao: {
     notFound: "DAO not found",
     alreadyExist: "DAO already exists",
+    updateForbidden: "Update dao forbidden",
   },
 } as const;

@@ -7,6 +7,7 @@ import { UsersModule } from "../users/users.module";
 import { DiscoverUnsavedDaosService } from "./domain/application/discover-unsaved-daos.service";
 import { RegisterDaoService } from "./domain/application/register-dao.service";
 import { GetDaoService } from "./domain/application/get-dao.service";
+import { UpdateDaoInformationService } from "./domain/application/update-dao-information.service";
 import { ChainsRepositoryPortToken } from "./domain/ports/chains-repository.port";
 import { DaoContractsRepositoryPortToken } from "./domain/ports/dao-contracts-repository.port";
 import { DaosRepositoryToken } from "./domain/ports/daos-repository.port";
@@ -39,6 +40,7 @@ import { DiscoverDaoCron } from "./presentation/crons/discover-dao.cron";
     DiscoverUnsavedDaosService,
     RegisterDaoService,
     GetDaoService,
+    UpdateDaoInformationService,
     DiscoverDaoCron,
   ],
   controllers: [DaoController],
