@@ -14,25 +14,42 @@ import { walletAddressValidation } from "modules/blockchain/utils/walletAddressV
 import { useDaoService } from "modules/dao/hooks/useDaoService";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
 import { NFT_VOTING_FACTORY_CONTRACT_ABI } from "modules/dao/constants/nftVotingFactoryContractAbi";
+import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
 
 type CreateDaoFormData = {
   organizationName: string;
   nftAddress: string;
+  description: string;
+  websiteLink: string;
+  facebookLink: string;
+  twitterLink: string;
+  discordLink: string;
 };
 
 const createDaoFormSchema = yup.object().shape<YupShape<CreateDaoFormData>>({
   organizationName: yup.string().required("Organization name is required."),
   nftAddress: yup.string().test(walletAddressValidation),
+  description: yup.string(),
+  websiteLink: yup.string(),
+  facebookLink: yup.string(),
+  twitterLink: yup.string(),
+  discordLink: yup.string(),
 });
 
 const defaultValues: CreateDaoFormData = {
   organizationName: "",
   nftAddress: "",
+  description: "",
+  websiteLink: "",
+  facebookLink: "",
+  twitterLink: "",
+  discordLink: "",
 };
 
 export const useCreateDao = () => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<CreateDaoFormData>({
@@ -60,7 +77,15 @@ export const useCreateDao = () => {
       return;
     }
 
-    const { organizationName, nftAddress } = formData;
+    const {
+      organizationName,
+      nftAddress,
+      description,
+      discordLink,
+      facebookLink,
+      twitterLink,
+      websiteLink,
+    } = formData;
     setLoading();
 
     try {
@@ -106,10 +131,31 @@ export const useCreateDao = () => {
       }
 
       if (createdContractAddress) {
+        const extraLinks = [
+          {
+            type: DAO_EXTRA_LINKS_TYPES.FACEBOOK,
+            url: facebookLink,
+          },
+          {
+            type: DAO_EXTRA_LINKS_TYPES.DISCORD,
+            url: discordLink,
+          },
+          {
+            type: DAO_EXTRA_LINKS_TYPES.TWITTER,
+            url: twitterLink,
+          },
+          {
+            type: DAO_EXTRA_LINKS_TYPES.WEBSITE,
+            url: websiteLink,
+          },
+        ].filter((link) => link.url);
+
         const newDao = await daoService.registerNewDao(
           chain.id,
           createdContractAddress,
-          sessionData.accessToken
+          sessionData.accessToken,
+          description,
+          extraLinks
         );
         router.replace(`panel/dao/${newDao.id}`);
       } else {
@@ -125,6 +171,7 @@ export const useCreateDao = () => {
 
   return {
     register,
+    control,
     handleCreateDaoSubmit: handleSubmit(createDao),
     formErrors: errors,
     creatingDaoState,

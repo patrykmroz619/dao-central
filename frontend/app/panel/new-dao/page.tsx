@@ -1,11 +1,8 @@
-import Image from "next/image";
-
 import { Box } from "modules/common/components/Box";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { H2, Text } from "modules/common/components/Typography";
 import { FadeAnimationContainer } from "modules/common/components/FadeAnimationContainer";
 import { NewDaoForm } from "modules/dao/components/NewDaoForm";
-import setupIllustration from "public/images/illustrations/setup.svg";
 
 import styles from "./NewDaoPage.module.scss";
 
@@ -22,9 +19,6 @@ const NewDaoPage = () => {
             </Text>
             <NewDaoForm />
           </Box>
-          <div className={styles.wrapper__image}>
-            <Image src={setupIllustration} alt="" width={480} />
-          </div>
         </div>
       </DefaultPageWrapper>
     </FadeAnimationContainer>

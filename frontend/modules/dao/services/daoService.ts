@@ -1,6 +1,8 @@
 import { HttpService } from "modules/common/services/httpService";
 import { GetQueryParams } from "modules/common/types/getQueryParams.type";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
+
+import { DAO_EXTRA_LINKS_TYPES } from "../constants/daoExtraLinksTypes";
 import { DaoData } from "../types/daoData.type";
 
 type GetDaoFilter = {
@@ -17,13 +19,20 @@ export class DaoService {
   public async registerNewDao(
     chainId: number,
     contractAddress: string,
-    accessToken: string
+    accessToken: string,
+    description?: string,
+    extraLinks?: Array<{
+      type: DAO_EXTRA_LINKS_TYPES;
+      url: string;
+    }>
   ) {
     const response = await this.api.post<DaoData>(
       "/dao",
       {
         chainId,
         contractAddress,
+        description,
+        extraLinks,
       },
       {
         bearerToken: accessToken,
