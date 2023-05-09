@@ -1,0 +1,8 @@
+@import "modules/common/styles/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+  margin-top: $spacing-m;
+}

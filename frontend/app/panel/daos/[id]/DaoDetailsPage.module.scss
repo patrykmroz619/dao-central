@@ -4,6 +4,12 @@
   margin-bottom: $spacing-m;
 }
 
+.updateDetailsBtnWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $spacing-m;
+}
+
 .votingBox {
   margin-top: $spacing-l;
 

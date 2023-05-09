@@ -6,6 +6,7 @@ import { DaoDetailsProvider } from "modules/dao/providers/DaoDetailsProvider";
 import { DaoDetails } from "modules/dao/components/DaoDetails";
 import { NewVotingButton } from "modules/dao/components/NewVotingButton";
 import { ProposalsList } from "modules/dao/components/ProposalsList";
+import { UpdateDaoDetails } from "modules/dao/components/UpdateDaoDetails";
 
 import styles from "./DaoDetailsPage.module.scss";
 
@@ -30,6 +31,9 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
           <Box>
             <H2 className={styles.heading}>{dao.organization}</H2>
             <DaoDetails daoData={dao} />
+            <div className={styles.updateDetailsBtnWrapper}>
+              <UpdateDaoDetails />
+            </div>
           </Box>
         </section>
         <section>
