@@ -70,4 +70,25 @@ export class DaoService {
 
     return response.data;
   }
+
+  public async updateDaoDetails(
+    daoId: number,
+    bearerToken: string,
+    description?: string,
+    extraLinks?: Array<{
+      type: DAO_EXTRA_LINKS_TYPES;
+      url: string;
+    }>
+  ) {
+    await this.api.patch(
+      `/dao/${daoId}`,
+      {
+        description,
+        extraLinks,
+      },
+      {
+        bearerToken,
+      }
+    );
+  }
 }

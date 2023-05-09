@@ -16,6 +16,8 @@ type DaoDetailsPageProps = {
   };
 };
 
+export const revalidate = 120;
+
 export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
   const {
     params: { id: daoId },

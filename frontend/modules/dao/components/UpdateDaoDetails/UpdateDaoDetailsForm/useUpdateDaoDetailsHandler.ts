@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,6 +10,7 @@ import { DaoData } from "modules/dao/types/daoData.type";
 import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
 import { useAsyncState } from "modules/common/hooks/useAsyncState";
 import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { useDaoService } from "modules/dao/hooks/useDaoService";
 
 type UpdateDaoDetailsFormType = {
   description: string;
@@ -41,7 +44,7 @@ export const useUpdateDaoDetailsHandler = () => {
     state: updatingState,
     setLoading,
     setError,
-    resetState,
+    setSuccess,
   } = useAsyncState();
 
   const { register, control, handleSubmit } = useForm<UpdateDaoDetailsFormType>(
@@ -60,11 +63,53 @@ export const useUpdateDaoDetailsHandler = () => {
     }
   );
 
+  const router = useRouter();
+  const daoService = useDaoService();
+  const session = useSession();
+
   const onSubmit = async (formData: UpdateDaoDetailsFormType) => {
     console.log(formData);
     setLoading();
+    if (session.status !== "authenticated") {
+      router.push("/login");
+      return;
+    }
     try {
-      resetState();
+      const {
+        description,
+        facebookLink,
+        discordLink,
+        websiteLink,
+        twitterLink,
+      } = formData;
+
+      const extraLinks = [
+        {
+          type: DAO_EXTRA_LINKS_TYPES.FACEBOOK,
+          url: facebookLink,
+        },
+        {
+          type: DAO_EXTRA_LINKS_TYPES.DISCORD,
+          url: discordLink,
+        },
+        {
+          type: DAO_EXTRA_LINKS_TYPES.TWITTER,
+          url: twitterLink,
+        },
+        {
+          type: DAO_EXTRA_LINKS_TYPES.WEBSITE,
+          url: websiteLink,
+        },
+      ].filter((link) => link.url);
+
+      await daoService.updateDaoDetails(
+        dao.id,
+        session.data.accessToken,
+        description,
+        extraLinks
+      );
+      setSuccess();
+      router.refresh();
     } catch (error: unknown) {
       const errorMsg = getErrorMessage(error);
       setError(errorMsg);
