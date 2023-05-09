@@ -1,3 +1,4 @@
+import { getChainData } from "modules/blockchain/utils/getChainData";
 import { Box } from "modules/common/components/Box";
 import { H2 } from "modules/common/components/Typography";
 import { DaoData } from "modules/dao/types/daoData.type";
@@ -23,7 +24,7 @@ export const LastDaosCard = (props: LastDaosCardProps) => {
             id={dao.id}
             heading={dao.organization}
             chainId={dao.chainId}
-            networkName={dao.chainName}
+            networkName={getChainData(dao.chainId)?.name || "-"}
             contractAddress={dao.contractAddress}
           />
         ))}
