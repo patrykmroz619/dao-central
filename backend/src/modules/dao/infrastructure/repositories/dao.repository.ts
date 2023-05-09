@@ -165,6 +165,10 @@ export class DaoRepository implements DaosRepositoryPort {
       where: {
         id: daoId,
       },
+      relations: {
+        chain: true,
+        owner: true,
+      },
     });
 
     dao.description = description;
