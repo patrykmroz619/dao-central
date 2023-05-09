@@ -6,8 +6,9 @@ import { useRouter } from "next/navigation";
 import { ExternalLink } from "react-feather";
 
 import { Table, TableConfig } from "modules/common/components/Table";
-import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 import { NoData } from "modules/common/components/NoData";
+import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
+import { getChainData } from "modules/blockchain/utils/getChainData";
 
 type DaoTableItem = {
   id: number;
@@ -16,7 +17,6 @@ type DaoTableItem = {
   owner: string;
   nftAddress: string;
   chainId: number;
-  chainName: string;
 };
 
 type DaoTableProps = {
@@ -40,6 +40,7 @@ export const DaoTable = (props: DaoTableProps) => {
         },
         chainName: {
           label: "Network",
+          value: (item) => getChainData(item.chainId)?.name || "-",
         },
         contractAddress: {
           label: "Contract address",
