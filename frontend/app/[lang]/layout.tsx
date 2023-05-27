@@ -1,4 +1,5 @@
 import { Open_Sans } from "next/font/google";
+import { dir } from "i18next";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import { RegisterHttpMocks } from "tests/mocks/http";
@@ -6,6 +7,7 @@ import { GlobalProvider } from "modules/core/providers/GlobalProvider";
 import "modules/core/styles/global.scss";
 
 import styles from "./Panel.module.scss";
+import { languages } from "modules/internationalization/settings";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],
@@ -13,13 +15,23 @@ const openSans = Open_Sans({
   subsets: ["latin"],
 });
 
-type RootLayoutProps = {
-  children: React.ReactNode;
+export const generateStaticParams = () => {
+  return languages.map((lang) => ({ lang }));
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+type RootLayoutProps = {
+  children: React.ReactNode;
+  params: { lang: string };
+};
+
+export default function RootLayout(props: RootLayoutProps) {
+  const {
+    children,
+    params: { lang },
+  } = props;
+
   return (
-    <html className={openSans.className}>
+    <html className={openSans.className} lang={lang} dir={dir(lang)}>
       <head>
         <meta name="viewport" content="width=device-width" />
         <link

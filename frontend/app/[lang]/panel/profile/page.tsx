@@ -5,9 +5,9 @@ import { FadeAnimationContainer } from "modules/common/components/FadeAnimationC
 import { getSession } from "modules/auth/utils/getSession";
 import { DaoService } from "modules/dao/services/daoService";
 import { ProfileData } from "modules/user/components/ProfileData";
+import { DaosList } from "modules/dao/components/DaosList";
 
 import styles from "./ProfilePage.module.scss";
-import { DaosList } from "modules/dao/components/DaosList";
 
 const ITEMS_PER_PAGE = 8;
 

@@ -6,19 +6,24 @@ import { InlineLink } from "modules/common/components/InlineLink";
 import { FadeAnimationContainer } from "modules/common/components/FadeAnimationContainer";
 import { WalletLogin } from "modules/auth/components/WalletLogin";
 
+import { InternationalizedPageProps } from "modules/internationalization/types";
+import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import styles from "./page.module.scss";
 
-export default function LoginPage() {
+export default async function LoginPage(props: InternationalizedPageProps) {
+  const {
+    params: { lang },
+  } = props;
+
+  const { t } = await useServerTranslation(lang, "login");
+
   return (
     <FadeAnimationContainer>
       <main className={styles.main}>
         <section className={styles.loginSection}>
           <div className={styles.loginSection__content}>
-            <H1>Sign in to DAO Central</H1>
-            <Text>
-              Empower your community - the future of decentralized organization
-              is here.
-            </Text>
+            <H1>{t("heading")}</H1>
+            <Text>{t("subheading")}</Text>
             <WalletLogin />
             <Text>
               Learn more about the application.{" "}
