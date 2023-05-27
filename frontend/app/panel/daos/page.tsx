@@ -7,9 +7,19 @@ import { DaoTable } from "modules/dao/components/DaoTable";
 
 import styles from "./DaosListPage.module.scss";
 
+const DAOS_PER_PAGE = 8;
+
 const DaosListPage = async () => {
   const daoService = new DaoService();
-  const { data } = await daoService.getDaosList({}, 0);
+  const { data, count } = await daoService.getDaosList(
+    {
+      page: 1,
+      limit: DAOS_PER_PAGE,
+    },
+    60
+  );
+
+  const pageCount = Math.ceil(count / DAOS_PER_PAGE);
 
   return (
     <FadeAnimationContainer>
@@ -17,7 +27,11 @@ const DaosListPage = async () => {
         <Box className={styles.box}>
           <H2>Explore DAOs</H2>
           <Text>List of created DAOs</Text>
-          <DaoTable daos={data} />
+          <DaoTable
+            initialData={data}
+            itemsPerPage={DAOS_PER_PAGE}
+            pageCount={pageCount}
+          />
         </Box>
       </DefaultPageWrapper>
     </FadeAnimationContainer>

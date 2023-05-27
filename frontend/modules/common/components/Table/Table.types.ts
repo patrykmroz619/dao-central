@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 
 export type TableDataItem = {
   id: string | number;
-  [key: string]: ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
 };
 
 export type SingleColumnConfig<DataItem extends TableDataItem> = {

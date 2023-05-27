@@ -7,24 +7,22 @@ import { ExternalLink } from "react-feather";
 
 import { Table, TableConfig } from "modules/common/components/Table";
 import { NoData } from "modules/common/components/NoData";
+import { Pagination } from "modules/common/components/Pagination";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 import { getChainData } from "modules/blockchain/utils/getChainData";
+import { useDaoList } from "modules/dao/hooks/useDaoList";
+import { DaoData } from "modules/dao/types/daoData.type";
 
-type DaoTableItem = {
-  id: number;
-  organization: string;
-  contractAddress: string;
-  owner: string;
-  nftAddress: string;
-  chainId: number;
-};
+import styles from "./DaoTable.module.scss";
 
 type DaoTableProps = {
-  daos: DaoTableItem[];
+  initialData: DaoData[];
+  itemsPerPage: number;
+  pageCount: number;
 };
 
 export const DaoTable = (props: DaoTableProps) => {
-  const { daos } = props;
+  const { initialData, itemsPerPage, pageCount } = props;
 
   const router = useRouter();
 
@@ -32,7 +30,9 @@ export const DaoTable = (props: DaoTableProps) => {
     router.push(`/panel/daos/${daoId}`);
   };
 
-  const tableConfig: TableConfig<DaoTableItem> = useMemo(
+  const { daos, page, setPage } = useDaoList(initialData, itemsPerPage);
+
+  const tableConfig: TableConfig<DaoData> = useMemo(
     () => ({
       columns: {
         organization: {
@@ -88,13 +88,22 @@ export const DaoTable = (props: DaoTableProps) => {
   );
 
   return (
-    <div>
-      <Table items={daos} config={tableConfig} />
-      {daos.length === 0 && (
+    <div className={styles.wrapper}>
+      {daos.length === 0 ? (
         <NoData>
           There are no any organizations to show.{" "}
           <Link href="/panel/new-dao">Create DAO</Link>
         </NoData>
+      ) : (
+        <>
+          <Table items={daos} config={tableConfig} />
+          <Pagination
+            className={styles.pagination}
+            currentPage={page}
+            onPageChange={setPage}
+            pageCount={pageCount}
+          />
+        </>
       )}
     </div>
   );
