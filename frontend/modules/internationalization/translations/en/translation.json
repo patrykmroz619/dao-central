@@ -1,0 +1,14 @@
+{
+  "global": {
+    "wallet-not-connected": "Wallet is not connected"
+  },
+  "login-page": {
+    "heading": "Sign in to DAO Central",
+    "subheading": "Empower your community - the future of decentralized organization is here",
+    "learn-more": "Learn more about the application.",
+    "help-center": "Help center",
+    "connect-crypto-wallet": "Connect your crypto wallet",
+    "connected-wallet": "Connected wallet",
+    "sign-message-to-log-in": "Sign message to log in"
+  }
+}

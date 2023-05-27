@@ -15,7 +15,7 @@ export default async function LoginPage(props: InternationalizedPageProps) {
     params: { lang },
   } = props;
 
-  const { t } = await useServerTranslation(lang, "login");
+  const { t } = await useServerTranslation(lang, "translation", "login-page");
 
   return (
     <FadeAnimationContainer>
@@ -24,10 +24,10 @@ export default async function LoginPage(props: InternationalizedPageProps) {
           <div className={styles.loginSection__content}>
             <H1>{t("heading")}</H1>
             <Text>{t("subheading")}</Text>
-            <WalletLogin />
+            <WalletLogin lang={lang} />
             <Text>
-              Learn more about the application.{" "}
-              <InlineLink href="/help">Help center</InlineLink>
+              {t("learn-more")}{" "}
+              <InlineLink href="/help">{t("help-center")}</InlineLink>
             </Text>
           </div>
         </section>

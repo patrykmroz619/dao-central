@@ -6,7 +6,7 @@ import {
   languages,
 } from "modules/internationalization/settings";
 
-acceptLanguage.languages(languages);
+acceptLanguage.languages(languages as unknown as string[]);
 
 export const config = {
   // matcher: '/:lang*'

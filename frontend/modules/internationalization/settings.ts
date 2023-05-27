@@ -1,15 +1,21 @@
-export const languages = ["en", "pl"];
-export const fallbackLanguage = "en";
-export const defaultNS = "translation";
+import { InitOptions } from "i18next";
 
-export function getOptions(lang = fallbackLanguage, ns = defaultNS) {
+export const languages = ["en", "pl"] as const;
+export const fallbackLanguage = "en";
+
+export const namespaces = ["translation"] as const;
+export const defaultNamespace = "translation";
+
+export function getOptions(
+  lang = fallbackLanguage,
+  namespace = defaultNamespace
+): InitOptions {
   return {
-    // debug: true,
     supportedLngs: languages,
     fallbackLng: fallbackLanguage,
     lng: lang,
-    fallbackNS: defaultNS,
-    defaultNS,
-    ns,
+    fallbackNS: defaultNamespace,
+    defaultNS: defaultNamespace,
+    ns: namespace,
   };
 }

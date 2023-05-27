@@ -10,8 +10,14 @@ import { IconButton } from "modules/common/components/IconButton";
 
 import styles from "./WalletLogin.module.scss";
 import { useLoginByWallet } from "modules/auth/hooks/useLoginByWallet";
+import { InternationalizedProps } from "modules/internationalization/types";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 
-export const WalletLogin = () => {
+export const WalletLogin = (props: InternationalizedProps) => {
+  const { t } = useClientTranslation(props.lang, "translation", {
+    keyPrefix: "login-page",
+  });
+
   const { address } = useAccount();
   const isBrowser = useIsBrowser();
 
@@ -22,9 +28,9 @@ export const WalletLogin = () => {
       {isBrowser && (
         <>
           <div className={styles.walletWrapper}>
-            {address && <Text>Connected wallet:</Text>}
+            {address && <Text>{t("connected-wallet")}:</Text>}
             <ConnectButton
-              label="Connect your crypto wallet"
+              label={t("connect-crypto-wallet") ?? undefined}
               accountStatus="address"
               chainStatus="none"
               showBalance={false}
@@ -37,7 +43,7 @@ export const WalletLogin = () => {
               isLoading={loginState.state === "LOADING"}
               data-cy="sign-message"
             >
-              Sign message to log in
+              {t("sign-message-to-log-in")}
             </IconButton>
           )}
           {loginState.state == "ERROR" && (

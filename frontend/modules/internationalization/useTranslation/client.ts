@@ -4,12 +4,12 @@ import i18next from "i18next";
 import {
   initReactI18next,
   useTranslation as useTranslationOrg,
-  UseTranslationOptions,
 } from "react-i18next";
 import resourcesToBackend from "i18next-resources-to-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
 import { getOptions } from "../settings";
+import { Language, Namespaces } from "../types";
 
 //
 i18next
@@ -18,7 +18,7 @@ i18next
   .use(
     resourcesToBackend(
       (language: string, namespace: string) =>
-        import(`./locales/${language}/${namespace}.json`)
+        import(`../translations/${language}/${namespace}.json`)
     )
   )
   .init({
@@ -29,10 +29,14 @@ i18next
     },
   });
 
+type Options = {
+  keyPrefix?: string;
+};
+
 export function useClientTranslation(
-  lang: string,
-  ns?: string,
-  options?: UseTranslationOptions<undefined>
+  lang: Language,
+  ns?: Namespaces,
+  options?: Options
 ) {
   if (i18next.resolvedLanguage !== lang) i18next.changeLanguage(lang);
   return useTranslationOrg(ns, options);
