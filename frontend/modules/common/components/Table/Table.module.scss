@@ -44,6 +44,11 @@
 
 .tableBody {
   width: 100%;
+  transition: $transition-time opacity;
+
+  &__loading {
+    opacity: 0.4;
+  }
 }
 
 .tableCell {

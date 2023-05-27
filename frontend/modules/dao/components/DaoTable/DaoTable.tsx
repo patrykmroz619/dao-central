@@ -30,7 +30,10 @@ export const DaoTable = (props: DaoTableProps) => {
     router.push(`/panel/daos/${daoId}`);
   };
 
-  const { daos, page, setPage } = useDaoList(initialData, itemsPerPage);
+  const { daos, page, setPage, isLoading } = useDaoList(
+    initialData,
+    itemsPerPage
+  );
 
   const tableConfig: TableConfig<DaoData> = useMemo(
     () => ({
@@ -96,7 +99,7 @@ export const DaoTable = (props: DaoTableProps) => {
         </NoData>
       ) : (
         <>
-          <Table items={daos} config={tableConfig} />
+          <Table items={daos} config={tableConfig} isLoading={isLoading} />
           <Pagination
             className={styles.pagination}
             currentPage={page}

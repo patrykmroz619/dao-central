@@ -13,12 +13,18 @@ type TableProps<DataItem extends TableDataItem> = {
   items: DataItem[];
   config: TableConfig<DataItem>;
   sortQueryParamName?: QUERY_PARAM;
+  isLoading?: boolean;
 };
 
 export const Table = <DataItem extends TableDataItem>(
   props: TableProps<DataItem>
 ) => {
-  const { items, config, sortQueryParamName = QUERY_PARAM.SORT } = props;
+  const {
+    items,
+    config,
+    sortQueryParamName = QUERY_PARAM.SORT,
+    isLoading,
+  } = props;
 
   const columnsData = Object.entries(config.columns) as Entries<
     ColumnsConfig<DataItem>
@@ -53,7 +59,11 @@ export const Table = <DataItem extends TableDataItem>(
             ))}
           </tr>
         </thead>
-        <tbody className={styles.tableBody}>
+        <tbody
+          className={classNames(styles.tableBody, {
+            [styles.tableBody__loading]: isLoading,
+          })}
+        >
           {items.map((item) => (
             <tr
               key={item.id}
