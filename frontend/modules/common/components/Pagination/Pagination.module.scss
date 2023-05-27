@@ -1,0 +1,53 @@
+@import "modules/common/styles/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page {
+  width: 38px;
+  height: 38px;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  font-weight: 500;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: $border-radius-small;
+
+  &:hover {
+    background-color: $primary-color-light;
+    color: $primary-color-inverted;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 38px;
+  }
+}
+
+.activePage {
+  background-color: $primary-color;
+  color: $primary-color-inverted;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.previous,
+.next,
+.break {
+  width: 26px;
+  text-align: center;
+  color: $primary-color;
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+}
