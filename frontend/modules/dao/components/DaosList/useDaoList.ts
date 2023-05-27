@@ -2,10 +2,15 @@
 
 import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { useEffect, useState } from "react";
-import { DaoData } from "../types/daoData.type";
-import { useDaoService } from "./useDaoService";
+import { DaoData } from "../../types/daoData.type";
+import { useDaoService } from "../../hooks/useDaoService";
+import { DaosListFilter } from "./DaosList";
 
-export const useDaoList = (initialData: DaoData[], itemsPerPage: number) => {
+export const useDaoList = (
+  initialData: DaoData[],
+  itemsPerPage: number,
+  filter?: DaosListFilter
+) => {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -19,6 +24,7 @@ export const useDaoList = (initialData: DaoData[], itemsPerPage: number) => {
       const { data } = await daoService.getDaosList({
         page,
         limit,
+        filter,
       });
 
       setDaos(data);
@@ -31,7 +37,7 @@ export const useDaoList = (initialData: DaoData[], itemsPerPage: number) => {
 
   useEffect(() => {
     fetchDaos(page, itemsPerPage);
-  }, [page, itemsPerPage]);
+  }, [page, itemsPerPage, filter]);
 
   return {
     daos,

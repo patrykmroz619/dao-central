@@ -1,0 +1,11 @@
+@import "modules/common/styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination {
+  margin-top: $spacing-m;
+  align-self: flex-end;
+}

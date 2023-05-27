@@ -13,6 +13,10 @@ export const Pagination = (props: PaginationProps) => {
   const { currentPage, pageCount, onPageChange, className, ...restProps } =
     props;
 
+  if (pageCount === 0) {
+    return null;
+  }
+
   return (
     <div className={className} {...restProps}>
       <ReactPaginate
