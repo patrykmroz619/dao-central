@@ -15,7 +15,7 @@ export default async function LoginPage(props: InternationalizedPageProps) {
     params: { lang },
   } = props;
 
-  const { t } = await useServerTranslation(lang, "translation", "login-page");
+  const { t } = await useServerTranslation(lang, "login-page");
 
   return (
     <FadeAnimationContainer>

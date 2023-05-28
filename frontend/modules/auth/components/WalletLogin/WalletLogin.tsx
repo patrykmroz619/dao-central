@@ -14,9 +14,7 @@ import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 
 export const WalletLogin = (props: InternationalizedProps) => {
-  const { t } = useClientTranslation(props.lang, "translation", {
-    keyPrefix: "login-page",
-  });
+  const { t } = useClientTranslation(props.lang, "login-page");
 
   const { address } = useAccount();
   const isBrowser = useIsBrowser();
