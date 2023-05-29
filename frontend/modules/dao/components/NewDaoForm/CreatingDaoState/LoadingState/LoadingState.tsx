@@ -1,5 +1,7 @@
 import { useNetwork } from "wagmi";
 
+import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { Spinner } from "modules/common/components/Spinner";
 import { Text } from "modules/common/components/Typography";
 
@@ -10,6 +12,11 @@ type LoadingStateProps = {
 };
 
 export const LoadingState = ({ txHash }: LoadingStateProps) => {
+  const lang = useCurrentLanguage();
+  const { t } = useClientTranslation(lang, "dao", {
+    keyPrefix: "new-dao-form",
+  });
+
   const { chain } = useNetwork();
 
   const blockExplorerName = chain?.blockExplorers?.default.name;
@@ -18,13 +25,10 @@ export const LoadingState = ({ txHash }: LoadingStateProps) => {
   return (
     <div className={styles.wrapper}>
       <Spinner />
-      <Text>
-        Contract deployment is in progress. Please don&apos;t close the tab
-        browser.
-      </Text>
+      <Text>{t("contract-deployment-in-progres")}</Text>
       {txHash && (
         <a href={explorerUrl} target="_blank" rel="noreferrer noopener">
-          View pending transaction on the {blockExplorerName}
+          {t("view-pending-tx")} {blockExplorerName}
         </a>
       )}
     </div>

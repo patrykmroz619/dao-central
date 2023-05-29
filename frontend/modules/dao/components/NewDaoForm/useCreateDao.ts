@@ -15,6 +15,8 @@ import { useDaoService } from "modules/dao/hooks/useDaoService";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
 import { NFT_VOTING_FACTORY_CONTRACT_ABI } from "modules/dao/constants/nftVotingFactoryContractAbi";
 import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
+import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 
 type CreateDaoFormData = {
   organizationName: string;
@@ -55,6 +57,11 @@ export const useCreateDao = () => {
   } = useForm<CreateDaoFormData>({
     resolver: yupResolver(createDaoFormSchema),
     defaultValues,
+  });
+
+  const lang = useCurrentLanguage();
+  const { t } = useClientTranslation(lang, "dao", {
+    keyPrefix: "new-dao-form",
   });
 
   const { data: signer } = useSigner();
@@ -157,14 +164,14 @@ export const useCreateDao = () => {
           description,
           extraLinks
         );
-        router.replace(`panel/dao/${newDao.daoId}`);
+        router.replace(`${lang}/panel/dao/${newDao.daoId}`);
       } else {
-        router.replace(`panel/my-dao`);
+        router.replace(`${lang}/panel/profile`);
       }
 
       setSuccess();
     } catch (e: unknown) {
-      const errorMessage = getErrorMessage(e, "Creating DAO contract failed!");
+      const errorMessage = getErrorMessage(e, t("creating-dao-error") ?? "");
       setError(errorMessage);
     }
   };

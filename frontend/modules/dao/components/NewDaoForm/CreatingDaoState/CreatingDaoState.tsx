@@ -4,12 +4,13 @@ import {
   ASYNC_STATE,
   AsyncStateObject,
 } from "modules/common/hooks/useAsyncState";
-import { InitialInfo } from "./InitialInfo";
 
-import styles from "./CreatingDaoState.module.scss";
+import { InitialInfo } from "./InitialInfo";
 import { LoadingState } from "./LoadingState";
 import { SuccessState } from "./SuccessState";
 import { ErrorState } from "./ErrorState";
+
+import styles from "./CreatingDaoState.module.scss";
 
 type CreatingDaoStateProps = {
   state: AsyncStateObject;

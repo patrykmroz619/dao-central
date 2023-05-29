@@ -5,20 +5,28 @@ import { Controller } from "react-hook-form";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
+import { InternationalizedProps } from "modules/internationalization/types";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { IconButton } from "modules/common/components/IconButton";
 import { TextInput } from "modules/common/components/Input/TextInput";
 import { Text } from "modules/common/components/Typography";
 import { InlineLink } from "modules/common/components/InlineLink";
 import { TextEditor } from "modules/common/components/TextEditor";
 import { Separator } from "modules/common/components/Separator";
-
 import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
+
 import { useCreateDao } from "./useCreateDao";
 import { CreatingDaoState } from "./CreatingDaoState";
 
 import styles from "./NewDaoForm.module.scss";
 
-export const NewDaoForm = () => {
+export const NewDaoForm = (props: InternationalizedProps) => {
+  const { lang } = props;
+
+  const { t } = useClientTranslation(lang, "dao", {
+    keyPrefix: "new-dao-form",
+  });
+
   const {
     register,
     control,
@@ -34,21 +42,21 @@ export const NewDaoForm = () => {
     <form className={styles.form} onSubmit={handleCreateDaoSubmit}>
       <TextInput
         {...register("organizationName")}
-        label="Organization Name"
-        placeholder="My organization"
+        label={t("organization-name")}
+        placeholder={t("organization-name-placeholder") ?? ""}
         isError={Boolean(formErrors.organizationName)}
         helperText={formErrors.organizationName?.message}
       />
       <TextInput
         {...register("nftAddress")}
-        label="NFT address"
+        label={t("nft-address")}
         placeholder="0x..."
         isError={Boolean(formErrors.nftAddress)}
         helperText={formErrors.nftAddress?.message}
       />
 
       <Text>
-        If you do not have an NFT contract, you can create one using the{" "}
+        {t("external-nft-mint-cta")}{" "}
         <InlineLink external href="https://www.zerocodenft.com/">
           Zero Code NFT Platform
         </InlineLink>
@@ -59,17 +67,17 @@ export const NewDaoForm = () => {
         control={control}
         render={({ field: { value, onChange } }) => (
           <TextEditor
-            label="Organization description"
+            label={t("organization-description")}
             value={value}
             onChange={onChange}
             height={200}
           />
         )}
       />
-      <TextInput {...register("websiteLink")} label="Website URL" />
-      <TextInput {...register("facebookLink")} label="Facebook" />
-      <TextInput {...register("twitterLink")} label="Twitter" />
-      <TextInput {...register("discordLink")} label="Discord" />
+      <TextInput {...register("websiteLink")} label={t("website-url")} />
+      <TextInput {...register("facebookLink")} label={t("facebook-url")} />
+      <TextInput {...register("twitterLink")} label={t("twitter-url")} />
+      <TextInput {...register("discordLink")} label={t("discord-url")} />
       <Separator />
       <CreatingDaoState state={creatingDaoState} txHash={txHash} />
       <div className={styles.form__buttonContainer}>
@@ -79,10 +87,10 @@ export const NewDaoForm = () => {
             isLoading={creatingDaoState.state === ASYNC_STATE.LOADING}
             type="submit"
           >
-            Create contract
+            {t("create-contract")}
           </IconButton>
         ) : (
-          <ConnectButton />
+          <ConnectButton label={t("connect-wallet") ?? ""} />
         )}
       </div>
     </form>

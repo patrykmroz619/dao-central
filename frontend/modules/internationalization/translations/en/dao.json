@@ -1,0 +1,28 @@
+{
+  "new-dao-form": {
+    "heading": "New DAO",
+    "description": "To launch a new DAO, create a dedicated smart contract for your organization using the form below.",
+    "organization-name": "Organization name",
+    "organization-name-placeholder": "My organization",
+    "nft-address": "NFT address",
+    "organization-description": "Organization description",
+    "external-nft-mint-cta": "If you do not have an NFT contract, you can create one using the",
+    "website-url": "Website URL",
+    "facebook-url": "Facebook URL",
+    "twitter-url": "Twitter URL",
+    "discord-url": "Discord invitation URL",
+    "create-contract": "Create DAO contract",
+    "connect-wallet": "Connect wallet",
+    "creating-dao-error": "Creating DAO contract failed!",
+    "connect-wallet-to-deploy": "To deploy a new contract, you first need to connect a wallet.",
+    "connected-wallet": "Connected wallet",
+    "balance": "Balance",
+    "network": "Network",
+    "unsupported": "Unsupported",
+    "wallet-deployment-info": "The contract will be deployed via a connected wallet. Please make sure that your selected wallet and chain are correct.",
+    "error-while-deploying": "Error while deploying.",
+    "contract-deployment-in-progress": "Contract deployment is in progress. Please don't close the tab browser.",
+    "view-pending-tx": "View pending transaction on the",
+    "successful-deployment": "Your DAO smart contract has been deployed successfully!"
+  }
+}

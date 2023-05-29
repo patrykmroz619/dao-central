@@ -1,3 +1,5 @@
+import { InternationalizedPageProps } from "modules/internationalization/types";
+import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import { Box } from "modules/common/components/Box";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { H2, Text } from "modules/common/components/Typography";
@@ -6,18 +8,21 @@ import { NewDaoForm } from "modules/dao/components/NewDaoForm";
 
 import styles from "./NewDaoPage.module.scss";
 
-const NewDaoPage = () => {
+const NewDaoPage = async (props: InternationalizedPageProps) => {
+  const {
+    params: { lang },
+  } = props;
+
+  const { t } = await useServerTranslation(lang, "dao");
+
   return (
     <FadeAnimationContainer>
       <DefaultPageWrapper>
         <div className={styles.wrapper}>
           <Box className={styles.wrapper__form}>
-            <H2>New DAO</H2>
-            <Text>
-              To launch a new DAO, create a dedicated smart contract for your
-              organization using the form below
-            </Text>
-            <NewDaoForm />
+            <H2>{t("new-dao-form.heading")}</H2>
+            <Text>{t("new-dao-form.description")}</Text>
+            <NewDaoForm lang={lang} />
           </Box>
         </div>
       </DefaultPageWrapper>

@@ -1,0 +1,28 @@
+{
+  "new-dao-form": {
+    "heading": "Nowe DAO",
+    "description": "Aby uruchomić nowe DAO, stwórz dedykowany smart kontrakt dla Twojej organizacji używając formularza poniżej.",
+    "organization-name": "Nazwa organizacji",
+    "organization-name-placeholder": "Moja organizacja",
+    "nft-address": "Adres NFT",
+    "organization-description": "Opis organizacji",
+    "external-nft-mint-cta": "Jeśli nie masz kontraktu NFT, możesz utworzyć go korzystając z serwisu",
+    "website-url": "Adres strony internetowej",
+    "facebook-url": "Facebook URL",
+    "twitter-url": "Twitter URL",
+    "discord-url": "Link z zaproszeniem do Discorda",
+    "create-contract": "Stwórz kontrakt DAO",
+    "connect-wallet": "Podłącz portfel",
+    "creating-dao-error": "Błąd podczas tworzenia kontraktu DAO!",
+    "connect-wallet-to-deploy": "Aby wdrożyć smart kontrakt, najpierw podłącz portfel",
+    "connected-wallet": "Podłączony portfel",
+    "balance": "Saldo",
+    "network": "Sieć",
+    "unsupported": "Niewspierana",
+    "wallet-deployment-info": "Kontrakt będzie wdrożony z pomocą podłączonego portfela. Upewnij się, czy podłączony portfel oraz wybrana sięc w aplikacji portfelowej są poprawne.",
+    "error-while-deploying": "Błąd podczas wdrażania.",
+    "contract-deployment-in-progress": "Smart kontrakt jest aktualnie wdrażany. Proszę nie zamykaj okna przeglądarki.",
+    "view-pending-tx": "Zobacz transakcję w toku na",
+    "successful-deployment": "Twój smart kontrakt DAO został wdrożony pomyślnie!"
+  }
+}

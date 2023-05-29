@@ -1,5 +1,7 @@
 import { Skeleton } from "modules/common/components/Skeleton";
 import { Text } from "modules/common/components/Typography";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
+import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useAccount, useBalance, useNetwork } from "wagmi";
 
 import styles from "./InitialInfo.module.scss";
@@ -9,28 +11,29 @@ export const InitialInfo = () => {
   const { data, isFetching } = useBalance({ address });
   const { chain } = useNetwork();
 
+  const lang = useCurrentLanguage();
+  const { t } = useClientTranslation(lang, "dao", {
+    keyPrefix: "new-dao-form",
+  });
+
   if (!isConnected) {
-    return (
-      <Text center>
-        To deploy a new contract, you first need to connect a wallet.
-      </Text>
-    );
+    return <Text center>{t("connect-wallet-to-deploy")}</Text>;
   }
 
   const dataItems = [
     {
-      label: "Connected wallet",
+      label: t("connected-wallet"),
       value: address,
       isLoading: isConnecting,
     },
     {
-      label: "Balance",
+      label: t("balance"),
       value: `${data?.formatted} ${data?.symbol}`,
       isLoading: isFetching,
     },
     {
-      label: "Network",
-      value: chain?.unsupported ? "Unsupported" : chain?.name,
+      label: t("network"),
+      value: chain?.unsupported ? t("unsupported") : chain?.name,
       isLoading: false,
     },
   ];
@@ -43,10 +46,7 @@ export const InitialInfo = () => {
           {item.isLoading ? <Skeleton inline width="150px" /> : item.value}
         </li>
       ))}
-      <Text>
-        The contract will be deployed via a connected wallet. Please make sure
-        that your selected wallet and chain are correct.
-      </Text>
+      <Text>{t("wallet-deployment-info")}</Text>
     </ul>
   );
 };
