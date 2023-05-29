@@ -1,10 +1,17 @@
+import { ReactNode } from "react";
 import { Loader, LogOut } from "react-feather";
 
 import { useLogout } from "modules/auth/hooks/useLogout";
 
 import styles from "./LogoutButton.module.scss";
 
-export const LogoutButton = () => {
+type LogoutButtonProps = {
+  children: ReactNode;
+};
+
+export const LogoutButton = (props: LogoutButtonProps) => {
+  const { children } = props;
+
   const { handleLogout, loading: logoutLoading } = useLogout();
 
   return (
@@ -18,7 +25,7 @@ export const LogoutButton = () => {
       ) : (
         <LogOut />
       )}
-      <span className={styles.button__label}>Logout</span>
+      <span className={styles.button__label}>{children}</span>
     </button>
   );
 };

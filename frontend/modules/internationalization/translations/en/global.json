@@ -1,3 +1,11 @@
 {
-  "loading": "Loading"
+  "loading": "Loading",
+  "logout": "Wyloguj się",
+  "navigation": {
+    "home": "home",
+    "explore-daos": "Explore DAOs",
+    "new-dao": "New DAO",
+    "profile": "Profile",
+    "help-center": "Help Center"
+  }
 }

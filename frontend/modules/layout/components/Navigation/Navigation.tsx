@@ -7,37 +7,47 @@ import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStatePr
 import { LogoutButton } from "modules/auth/components/LogoutButton";
 
 import styles from "./Navigation.module.scss";
-
-const links = [
-  {
-    href: "/panel",
-    label: "Home",
-    Icon: Home,
-  },
-  {
-    href: "/panel/daos",
-    label: "Explore DAOs",
-    Icon: Archive,
-  },
-  {
-    href: "/panel/new-dao",
-    label: "New DAO",
-    Icon: PlusCircle,
-  },
-  {
-    href: "/panel/profile",
-    label: "Profile",
-    Icon: User,
-  },
-  {
-    href: "/help",
-    label: "Help Center",
-    Icon: HelpCircle,
-  },
-];
+import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
+import { useMemo } from "react";
 
 export const Navigation = () => {
   const { closeSidebar } = usePanelLayoutState();
+
+  const lang = useCurrentLanguage();
+
+  const { t } = useClientTranslation(lang, "global");
+
+  const links = useMemo(
+    () => [
+      {
+        href: `${lang}/panel`,
+        label: t("navigation.home"),
+        Icon: Home,
+      },
+      {
+        href: `${lang}/panel/daos`,
+        label: t("navigation.explore-daos"),
+        Icon: Archive,
+      },
+      {
+        href: `${lang}/panel/new-dao`,
+        label: t("navigation.new-dao"),
+        Icon: PlusCircle,
+      },
+      {
+        href: `${lang}/panel/profile`,
+        label: t("navigation.profile"),
+        Icon: User,
+      },
+      {
+        href: `${lang}/help`,
+        label: t("navigation.help-center"),
+        Icon: HelpCircle,
+      },
+    ],
+    [t, lang]
+  );
 
   return (
     <nav className={styles.navigation}>
@@ -56,7 +66,7 @@ export const Navigation = () => {
           </li>
         ))}
         <li className={styles.navigation__listItem} key="logout">
-          <LogoutButton />
+          <LogoutButton>{t("logout")}</LogoutButton>
         </li>
       </ul>
     </nav>

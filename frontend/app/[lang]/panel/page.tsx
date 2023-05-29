@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 
+import { InternationalizedPageProps } from "modules/internationalization/types";
 import { getSession } from "modules/auth/utils/getSession";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { DaoService } from "modules/dao/services/daoService";
@@ -10,11 +11,15 @@ import { FadeAnimationContainer } from "modules/common/components/FadeAnimationC
 
 import styles from "./HomePage.module.scss";
 
-export default async function HomePage() {
+export default async function HomePage(props: InternationalizedPageProps) {
+  const {
+    params: { lang },
+  } = props;
+
   const { user } = await getSession();
 
   if (!user) {
-    redirect("/login");
+    redirect(`/${lang}/login`);
   }
 
   const daoService = new DaoService();
