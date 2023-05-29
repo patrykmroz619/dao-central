@@ -1,92 +1,228 @@
 [
   {
     "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "What is DAO Central?",
-    "answer": "DAO Central is a decentralized application that allows users to create and manage decentralized autonomous organizations (DAOs) using blockchain technology. It allows for community participation in decision-making processes through voting."
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "What is DAO Central?",
+      "pl": "Co to jest DAO Central?"
+    },
+    "answer": {
+      "en": "DAO Central is a decentralized application that allows users to create and manage decentralized autonomous organizations (DAOs) using blockchain technology. It allows for community participation in decision-making processes through voting.",
+      "pl": "DAO Central to zdecentralizowana aplikacja, która umożliwia użytkownikom tworzenie i zarządzanie zdecentralizowanymi organizacjami autonomicznymi (DAO) przy użyciu technologii blockchain. Pozwala na udział społeczności w procesach podejmowania decyzji poprzez głosowanie."
+    }
   },
   {
     "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "What are DAOs?",
-    "answer": "Decentralized autonomous organizations (DAOs) are organizations that are run by smart contracts on a blockchain network. They are decentralized and autonomous, meaning that they are not controlled by any central authority and operate based on predetermined rules."
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "What are DAOs?",
+      "pl": "Czym są DAO?"
+    },
+    "answer": {
+      "en": "Decentralized autonomous organizations (DAOs) are organizations that are run by smart contracts on a blockchain network. They are decentralized and autonomous, meaning that they are not controlled by any central authority and operate based on predetermined rules.",
+      "pl": "Zdecentralizowane organizacje autonomiczne (DAO) to organizacje zarządzane przez inteligentne kontrakty na sieci blockchain. Są zdecentralizowane i autonomiczne, co oznacza, że nie są kontrolowane przez żadną centralną władzę i działają na podstawie ustalonych z góry zasad."
+    }
   },
   {
     "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "What is the purpose of DAO Central?",
-    "answer": "The purpose of DAO Central is to provide a platform for creating and managing DAOs in a decentralized manner. It allows for community participation in decision-making processes, which makes the organization more transparent and democratic."
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "What is the purpose of DAO Central?",
+      "pl": "Jaki jest cel DAO Central?"
+    },
+    "answer": {
+      "en": "The purpose of DAO Central is to provide a platform for creating and managing DAOs in a decentralized manner. It allows for community participation in decision-making processes, which makes the organization more transparent and democratic.",
+      "pl": "Celem DAO Central jest dostarczenie platformy umożliwiającej tworzenie i zarządzanie DAO w sposób zdecentralizowany. Pozwala na udział społeczności w procesach podejmowania decyzji, co sprawia, że organizacja staje się bardziej przejrzysta i demokratyczna."
+    }
   },
   {
     "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "What kind of DAOs can be created on DAO Central?",
-    "answer": "Currently, DAO Central supports creating DAOs for communities built around an NFT collection. This means that the user is recognized as a community member if they hold NFTs from the collection."
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "What kind of DAOs can be created on DAO Central?",
+      "pl": "Jakiego rodzaju DAO można tworzyć na DAO Central?"
+    },
+    "answer": {
+      "en": "Currently, DAO Central supports creating DAOs for communities built around an NFT collection. This means that the user is recognized as a community member if they hold NFTs from the collection.",
+      "pl": "Obecnie, DAO Central umożliwia tworzenie DAO dla społeczności związanych z kolekcją NFT. Oznacza to, że użytkownik jest uznawany za członka społeczności, jeśli posiada NFT z tej kolekcji."
+    }
+  },
+
+  {
+    "category": "dao-central",
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "How does DAO Central verify that a user is a community member?",
+      "pl": "Jak DAO Central weryfikuje, czy użytkownik jest członkiem społeczności?"
+    },
+    "answer": {
+      "en": "DAO Central's smart contracts verify the balance of NFTs on the user's wallet to determine if they are a community member. This ensures that only members of the community can participate in votings.",
+      "pl": "Inteligentne kontrakty DAO Central weryfikują stan posiadania NFT na portfelu użytkownika, aby określić, czy jest członkiem społeczności. Zapewnia to, że tylko członkowie społeczności mogą brać udział w głosowaniach."
+    }
   },
   {
     "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "How does DAO Central verify that a user is a community member?",
-    "answer": "DAO Central's smart contracts verify the balance of NFTs on the user's wallet to determine if they are a community member. This ensures that only members of the community can participate in votings."
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "How can I create a DAO on DAO Central?",
+      "pl": "Jak mogę utworzyć DAO na DAO Central?"
+    },
+    "answer": {
+      "en": "To create a DAO on DAO Central, you need to have an NFT collection that is supported by the platform. Once you have the NFTs, you can create a proposal on DAO Central and allow the community to vote on it.",
+      "pl": "Aby utworzyć DAO na DAO Central, musisz posiadać kolekcję NFT obsługiwaną przez platformę. Gdy już posiadasz NFT, możesz utworzyć propozycję na DAO Central i umożliwić społeczności głosowanie w jej sprawie."
+    }
   },
   {
     "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "How can I create a DAO on DAO Central?",
-    "answer": "To create a DAO on DAO Central, you need to have an NFT collection that is supported by the platform. Once you have the NFTs, you can create a proposal on DAO Central and allow the community to vote on it."
-  },
-  {
-    "category": "dao-central",
-    "categoryLabel": "DAO-Central",
-    "question": "Can anyone participate in DAO Central's DAOs?",
-    "answer": "No, only members of the community can participate in votings on DAO Central's DAOs. To become a member, you need to hold NFTs from the supported collection."
+    "categoryLabel": {
+      "en": "DAO Central",
+      "pl": "DAO Central"
+    },
+    "question": {
+      "en": "Can anyone participate in DAO Central's DAOs?",
+      "pl": "Czy każdy może brać udział w DAO na DAO Central?"
+    },
+    "answer": {
+      "en": "No, only members of the community can participate in votings on DAO Central's DAOs. To become a member, you need to hold NFTs from the supported collection.",
+      "pl": "Nie, tylko członkowie społeczności mogą brać udział w głosowaniach na DAO na DAO Central. Aby zostać członkiem, musisz posiadać NFT z obsługiwanej kolekcji."
+    }
   },
   {
     "category": "wallet",
-    "categoryLabel": "Wallet",
-    "question": "What is a crypto wallet login?",
-    "answer": "A crypto wallet login is a secure and decentralized method of logging into an application using a cryptocurrency wallet. Instead of using a traditional username and password, users log in using their crypto wallet to sign message provided by the server."
+    "categoryLabel": {
+      "en": "Wallet",
+      "pl": "Portfel"
+    },
+    "question": {
+      "en": "What is a crypto wallet login?",
+      "pl": "Czym jest logowanie przy użyciu portfela kryptowalutowego?"
+    },
+    "answer": {
+      "en": "A crypto wallet login is a secure and decentralized method of logging into an application using a cryptocurrency wallet. Instead of using a traditional username and password, users log in using their crypto wallet to sign message provided by the server.",
+      "pl": "Logowanie przy użyciu portfela kryptowalutowego to bezpieczna i zdecentralizowana metoda logowania się do aplikacji za pomocą portfela kryptowalutowego. Zamiast tradycyjnego nazwy użytkownika i hasła, użytkownicy logują się za pomocą swojego portfela kryptowalutowego, podpisując wiadomość dostarczoną przez serwer."
+    }
   },
   {
     "category": "wallet",
-    "categoryLabel": "Wallet",
-    "question": "How do I create a crypto wallet to log in?",
-    "answer": "You can create a crypto wallet by using one of the many wallet providers available in the market. Some popular wallet providers are Coinbase, MetaMask, and Ledger. Once you have created your wallet, you can connect the wallet to log in to the application."
+    "categoryLabel": {
+      "en": "Wallet",
+      "pl": "Portfel"
+    },
+    "question": {
+      "en": "How do I create a crypto wallet to log in?",
+      "pl": "Jak mogę utworzyć portfel kryptowalutowy do logowania się?"
+    },
+    "answer": {
+      "en": "You can create a crypto wallet by using one of the many wallet providers available in the market. Some popular wallet providers are Coinbase, MetaMask, and Ledger. Once you have created your wallet, you can connect the wallet to log in to the application.",
+      "pl": "Możesz utworzyć portfel kryptowalutowy, korzystając z jednego z wielu dostępnych na rynku dostawców portfeli. Niektóre popularne dostawcy portfeli to Coinbase, MetaMask i Ledger. Po utworzeniu portfela możesz połączyć go, aby zalogować się do aplikacji."
+    }
   },
   {
     "category": "wallet",
-    "categoryLabel": "Wallet",
-    "question": "Is it safe to use a crypto wallet as a login?",
-    "answer": "Yes, using a crypto wallet as a login is safe as long as you keep your private key secure. Your private key is the most important piece of information that allows you to access your wallet and make transactions. Therefore, it is crucial that you keep it safe and never share it with anyone."
+    "categoryLabel": {
+      "en": "Wallet",
+      "pl": "Portfel"
+    },
+    "question": {
+      "en": "Is it safe to use a crypto wallet as a login?",
+      "pl": "Czy korzystanie z portfela kryptowalutowego jako logowanie jest bezpieczne?"
+    },
+    "answer": {
+      "en": "Yes, using a crypto wallet as a login is safe as long as you keep your private key secure. Your private key is the most important piece of information that allows you to access your wallet and make transactions. Therefore, it is crucial that you keep it safe and never share it with anyone.",
+      "pl": "Tak, korzystanie z portfela kryptowalutowego jako logowanie jest bezpieczne, pod warunkiem, że zachowasz bezpieczeństwo swojego klucza prywatnego. Klucz prywatny to najważniejszy element informacji, który umożliwia dostęp do portfela i dokonywanie transakcji. Dlatego ważne jest, abyś go bezpiecznie przechowywał i nigdy nie udostępniał go nikomu."
+    }
   },
   {
     "category": "wallet",
-    "categoryLabel": "Wallet",
-    "question": "What happens if I lose access to my crypto wallet?",
-    "answer": "If you lose access to your crypto wallet, you will also lose access to your account on the application. Therefore, it is important to keep your private key and seed phrase secure and make a backup of it. If you lose your private key, you may not be able to recover your wallet or the funds stored in it."
+    "categoryLabel": {
+      "en": "Wallet",
+      "pl": "Portfel"
+    },
+    "question": {
+      "en": "What happens if I lose access to my crypto wallet?",
+      "pl": "Co się stanie, jeśli utracę dostęp do mojego portfela kryptowalutowego?"
+    },
+    "answer": {
+      "en": "If you lose access to your crypto wallet, you will also lose access to your account on the application. Therefore, it is important to keep your private key and seed phrase secure and make a backup of it. If you lose your private key, you may not be able to recover your wallet or the funds stored in it.",
+      "pl": "Jeśli utracisz dostęp do swojego portfela kryptowalutowego, stracisz również dostęp do swojego konta w aplikacji. Dlatego ważne jest, abyś bezpiecznie przechowywał swój klucz prywatny i frazę zasiewną oraz wykonał kopię zapasową. Jeśli utracisz swój klucz prywatny, może być niemożliwe odzyskanie portfela lub środków w nim przechowywanych."
+    }
   },
   {
     "category": "wallet",
-    "categoryLabel": "Wallet",
-    "question": "Can I use multiple crypto wallets to log in to the same application?",
-    "answer": "The DAO Central application allow one wallet per account."
+    "categoryLabel": {
+      "en": "Wallet",
+      "pl": "Portfel"
+    },
+    "question": {
+      "en": "Can I use multiple crypto wallets to log in to the same application?",
+      "pl": "Czy mogę używać wielu portfeli kryptowalutowych do logowania się do tej samej aplikacji?"
+    },
+    "answer": {
+      "en": "The DAO Central application allows one wallet per account.",
+      "pl": "Aplikacja DAO Central pozwala na jedno konto na portfel."
+    }
   },
   {
     "category": "dapp",
-    "categoryLabel": "dApp",
-    "question": "What is a blockchain-based decentralized application?",
-    "answer": "A blockchain-based decentralized application, or dApp, is a software application that runs on a blockchain network, such as Ethereum or Bitcoin, and operates without a central authority."
+    "categoryLabel": {
+      "en": "dApp",
+      "pl": "dApp"
+    },
+    "question": {
+      "en": "What is a blockchain-based decentralized application?",
+      "pl": "Czym jest zdecentralizowana aplikacja oparta na technologii blockchain?"
+    },
+    "answer": {
+      "en": "A blockchain-based decentralized application, or dApp, is a software application that runs on a blockchain network, such as Ethereum or Bitcoin, and operates without a central authority.",
+      "pl": "Zdecentralizowana aplikacja oparta na technologii blockchain, zwana również dApp, to aplikacja oprogramowania działająca w sieci blockchain, takiej jak Ethereum lub Bitcoin, która działa bez centralnej władzy."
+    }
   },
   {
     "category": "dapp",
-    "categoryLabel": "dApp",
-    "question": "How does a blockchain-based decentralized application work?",
-    "answer": "A blockchain-based decentralized application is built using smart contracts, which are self-executing contracts that run on the blockchain. The smart contracts contain the rules and logic that govern the operation of the dApp."
+    "categoryLabel": {
+      "en": "dApp",
+      "pl": "dApp"
+    },
+    "question": {
+      "en": "How does a blockchain-based decentralized application work?",
+      "pl": "Jak działa zdecentralizowana aplikacja oparta na technologii blockchain?"
+    },
+    "answer": {
+      "en": "A blockchain-based decentralized application is built using smart contracts, which are self-executing contracts that run on the blockchain. The smart contracts contain the rules and logic that govern the operation of the dApp.",
+      "pl": "Zdecentralizowana aplikacja oparta na technologii blockchain jest tworzona przy użyciu inteligentnych kontraktów, które są samowykonywalnymi kontraktami działającymi w sieci blockchain. Inteligentne kontrakty zawierają zasady i logikę, które regulują działanie dApp."
+    }
   },
   {
     "category": "dapp",
-    "categoryLabel": "dApp",
-    "question": "What are the benefits of a blockchain-based decentralized application?",
-    "answer": "Blockchain-based decentralized applications provide greater security, transparency, and immutability than traditional applications, since they operate on a distributed network that is resistant to tampering and censorship."
+    "categoryLabel": {
+      "en": "dApp",
+      "pl": "dApp"
+    },
+    "question": {
+      "en": "What are the benefits of a blockchain-based decentralized application?",
+      "pl": "Jakie są korzyści wynikające z zastosowania zdecentralizowanej aplikacji opartej na technologii blockchain?"
+    },
+    "answer": {
+      "en": "Blockchain-based decentralized applications provide greater security, transparency, and immutability than traditional applications, since they operate on a distributed network that is resistant to tampering and censorship.",
+      "pl": "Zdecentralizowane aplikacje oparte na technologii blockchain zapewniają większe bezpieczeństwo, transparentność i niemożliwość modyfikacji w porównaniu do tradycyjnych aplikacji, ponieważ działają w rozproszonej sieci, która jest odporna na ingerencję i cenzurę."
+    }
   }
 ]

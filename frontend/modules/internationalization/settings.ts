@@ -3,7 +3,12 @@ import { InitOptions } from "i18next";
 export const languages = ["en", "pl"] as const;
 export const fallbackLanguage = "en";
 
-export const namespaces = ["global", "errors", "login-page"] as const;
+export const namespaces = [
+  "global",
+  "errors",
+  "login-page",
+  "help-center",
+] as const;
 export const defaultNamespace = "global";
 
 export function getOptions(
