@@ -1,6 +1,7 @@
 {
   "loading": "Loading",
-  "logout": "Wyloguj się",
+  "logout": "Logout",
+  "welcome-in": "Welcome in",
   "navigation": {
     "home": "home",
     "explore-daos": "Explore DAOs",

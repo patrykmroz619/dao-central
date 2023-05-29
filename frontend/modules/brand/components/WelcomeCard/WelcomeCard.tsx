@@ -6,11 +6,18 @@ import { H2 } from "modules/common/components/Typography";
 
 import styles from "./WelcomeCard.module.scss";
 
-export const WelcomeCard = () => {
+type WelcomeCardProps = {
+  welcomeMsg: string;
+};
+
+export const WelcomeCard = (props: WelcomeCardProps) => {
+  const { welcomeMsg } = props;
+
   return (
     <Box className={styles.wrapper}>
       <H2 className={styles.heading}>
-        Welcome in <br />
+        {welcomeMsg}
+        <br />
         <strong>DAO Central</strong>
       </H2>
       <Image

@@ -8,6 +8,7 @@ export const namespaces = [
   "errors",
   "login-page",
   "help-center",
+  "profile",
 ] as const;
 export const defaultNamespace = "global";
 

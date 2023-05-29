@@ -1,3 +1,5 @@
+import { InternationalizedPageProps } from "modules/internationalization/types";
+import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { Box } from "modules/common/components/Box";
 import { H2, Text } from "modules/common/components/Typography";
@@ -11,7 +13,13 @@ import styles from "./ProfilePage.module.scss";
 
 const ITEMS_PER_PAGE = 8;
 
-const ProfilePage = async () => {
+const ProfilePage = async (props: InternationalizedPageProps) => {
+  const {
+    params: { lang },
+  } = props;
+
+  const { t } = await useServerTranslation(lang, "profile");
+
   const { user } = await getSession();
 
   const daoService = new DaoService();
@@ -35,12 +43,13 @@ const ProfilePage = async () => {
     <FadeAnimationContainer>
       <DefaultPageWrapper className={styles.wrapper}>
         <Box className={styles.box}>
-          <H2>Profile</H2>
-          <ProfileData user={user} />
+          <H2>{t("profile")}</H2>
+          {/* @ts-expect-error Server Component  */}
+          <ProfileData user={user} lang={lang} />
         </Box>
         <Box className={styles.box}>
-          <H2>Your DAOs</H2>
-          <Text>List of your decentralized organizations</Text>
+          <H2>{t("your-daos")}</H2>
+          <Text>{t("list-of-your-daos")}</Text>
           <DaosList
             initialData={daos}
             pageCount={pageCount}

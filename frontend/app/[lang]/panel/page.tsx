@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { InternationalizedPageProps } from "modules/internationalization/types";
+import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import { getSession } from "modules/auth/utils/getSession";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
 import { DaoService } from "modules/dao/services/daoService";
@@ -30,10 +31,12 @@ export default async function HomePage(props: InternationalizedPageProps) {
     0
   );
 
+  const { t } = await useServerTranslation(lang);
+
   return (
     <FadeAnimationContainer>
       <DefaultPageWrapper>
-        <WelcomeCard />
+        <WelcomeCard welcomeMsg={t("global:welcome-in")} />
         <div className={styles.cardsWrapper}>
           <div className={styles.cardsWrapper__firstCard}>
             <LastDaosCard daos={lastDaos} />
