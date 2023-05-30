@@ -76,6 +76,7 @@
     "website-url": "Website URL",
     "facebook-url": "Facebook URL",
     "twitter-url": "Twitter URL",
-    "discord-url": "Discord invitation URL"
+    "discord-url": "Discord invitation URL",
+    "details-updated": "The details have been updated."
   }
 }

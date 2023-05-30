@@ -4,8 +4,9 @@ import { ReactNode, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 
 import { useOutsideClick } from "modules/common/hooks/useOutsideClick";
-import styles from "./MainSidebar.module.scss";
 import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
+
+import styles from "./MainSidebar.module.scss";
 
 const sidebarVariants: Variants = {
   visible: {

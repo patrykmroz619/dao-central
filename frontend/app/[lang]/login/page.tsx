@@ -9,6 +9,7 @@ import { WalletLogin } from "modules/auth/components/WalletLogin";
 import { InternationalizedPageProps } from "modules/internationalization/types";
 import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import styles from "./page.module.scss";
+import { LanguageSwitcher } from "modules/internationalization/components/LanguageSwitcher";
 
 export default async function LoginPage(props: InternationalizedPageProps) {
   const {
@@ -29,6 +30,7 @@ export default async function LoginPage(props: InternationalizedPageProps) {
               {t("learn-more")}{" "}
               <InlineLink href="/help">{t("help-center")}</InlineLink>
             </Text>
+            <LanguageSwitcher />
           </div>
         </section>
         <div className={styles.illustrationWrapper}>

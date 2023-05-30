@@ -31,8 +31,19 @@
   background-color: $box-color;
   box-shadow: $shadow;
   gap: $spacing-m;
+  overflow-y: auto;
+
+  &__logo {
+    margin-top: $spacing-m;
+  }
 
   &__heading {
     margin-bottom: $spacing-l;
+  }
+
+  &__languageSwitcher {
+    margin-top: $spacing-l;
+    margin-bottom: $spacing-l;
+    justify-self: flex-end;
   }
 }

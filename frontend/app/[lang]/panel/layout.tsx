@@ -6,6 +6,7 @@ import { PanelLayoutStateProvider } from "modules/layout/providers/PanelLayoutSt
 import { MainSidebar } from "modules/layout/components/MainSidebar";
 import { MobileHeader } from "modules/layout/components/MobileHeader";
 import { Navigation } from "modules/layout/components/Navigation";
+import { LanguageSwitcher } from "modules/internationalization/components/LanguageSwitcher";
 
 import styles from "./PanelLayout.module.scss";
 
@@ -19,9 +20,15 @@ const PanelLayout = ({ children }: PanelLayoutProps) => {
       <PanelLayoutStateProvider>
         <MainSidebar>
           <div className={styles.sidebarContent}>
-            <Image src={logo} width="80" height="80" alt="DAO Central logo" />
+            <div />
+            <div className={styles.sidebarContent__logo}>
+              <Image src={logo} width="80" height="80" alt="DAO Central logo" />
+            </div>
             <H1 className={styles.sidebarContent__heading}>DAO Central</H1>
             <Navigation />
+            <div className={styles.sidebarContent__languageSwitcher}>
+              <LanguageSwitcher />
+            </div>
           </div>
         </MainSidebar>
 
