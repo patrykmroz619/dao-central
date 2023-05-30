@@ -7,7 +7,7 @@ import styles from "./TextInput.module.scss";
 type TextInputProps = {
   label: string;
   wrapperClassName?: string;
-  helperText?: string;
+  helperText?: string | null;
 } & BaseInputProps;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(

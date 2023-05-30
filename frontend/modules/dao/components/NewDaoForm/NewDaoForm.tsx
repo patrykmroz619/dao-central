@@ -45,14 +45,19 @@ export const NewDaoForm = (props: InternationalizedProps) => {
         label={t("organization-name")}
         placeholder={t("organization-name-placeholder") ?? ""}
         isError={Boolean(formErrors.organizationName)}
-        helperText={formErrors.organizationName?.message}
+        helperText={
+          formErrors.organizationName?.message &&
+          t(formErrors.organizationName?.message)
+        }
       />
       <TextInput
         {...register("nftAddress")}
         label={t("nft-address")}
         placeholder="0x..."
         isError={Boolean(formErrors.nftAddress)}
-        helperText={formErrors.nftAddress?.message}
+        helperText={
+          formErrors.nftAddress?.message && t(formErrors.nftAddress?.message)
+        }
       />
 
       <Text>
@@ -74,10 +79,42 @@ export const NewDaoForm = (props: InternationalizedProps) => {
           />
         )}
       />
-      <TextInput {...register("websiteLink")} label={t("website-url")} />
-      <TextInput {...register("facebookLink")} label={t("facebook-url")} />
-      <TextInput {...register("twitterLink")} label={t("twitter-url")} />
-      <TextInput {...register("discordLink")} label={t("discord-url")} />
+      <TextInput
+        {...register("websiteLink")}
+        label={t("website-url")}
+        isError={Boolean(formErrors.websiteLink)}
+        placeholder="https://"
+        helperText={
+          formErrors.websiteLink?.message && t(formErrors.websiteLink.message)
+        }
+      />
+      <TextInput
+        {...register("facebookLink")}
+        label={t("facebook-url")}
+        isError={Boolean(formErrors.facebookLink)}
+        placeholder="https://"
+        helperText={
+          formErrors.facebookLink?.message && t(formErrors.facebookLink.message)
+        }
+      />
+      <TextInput
+        {...register("twitterLink")}
+        label={t("twitter-url")}
+        isError={Boolean(formErrors.twitterLink)}
+        placeholder="https://"
+        helperText={
+          formErrors.twitterLink?.message && t(formErrors.twitterLink.message)
+        }
+      />
+      <TextInput
+        {...register("discordLink")}
+        label={t("discord-url")}
+        isError={Boolean(formErrors.discordLink)}
+        placeholder="https://"
+        helperText={
+          formErrors.discordLink?.message && t(formErrors.discordLink.message)
+        }
+      />
       <Separator />
       <CreatingDaoState state={creatingDaoState} txHash={txHash} />
       <div className={styles.form__buttonContainer}>

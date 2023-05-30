@@ -23,6 +23,9 @@
     "error-while-deploying": "Error while deploying.",
     "contract-deployment-in-progress": "Contract deployment is in progress. Please don't close the tab browser.",
     "view-pending-tx": "View pending transaction on the",
-    "successful-deployment": "Your DAO smart contract has been deployed successfully!"
+    "successful-deployment": "Your DAO smart contract has been deployed successfully!",
+    "organization-name-is-required": "Organization name is required.",
+    "invalid-address": "NFT contract address is invalid.",
+    "invalid-url": "URL address is invalid."
   }
 }

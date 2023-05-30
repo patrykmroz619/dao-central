@@ -10,7 +10,7 @@ import * as yup from "yup";
 import { YupShape } from "modules/common/types/yup-schema";
 import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { useAsyncState } from "modules/common/hooks/useAsyncState";
-import { walletAddressValidation } from "modules/blockchain/utils/walletAddressValidation";
+import { ethAddressValidation } from "modules/blockchain/utils/ethAddressValidation";
 import { useDaoService } from "modules/dao/hooks/useDaoService";
 import { PUBLIC_CONFIG } from "modules/core/config/public";
 import { NFT_VOTING_FACTORY_CONTRACT_ABI } from "modules/dao/constants/nftVotingFactoryContractAbi";
@@ -29,13 +29,13 @@ type CreateDaoFormData = {
 };
 
 const createDaoFormSchema = yup.object().shape<YupShape<CreateDaoFormData>>({
-  organizationName: yup.string().required("Organization name is required."),
-  nftAddress: yup.string().test(walletAddressValidation),
+  organizationName: yup.string().required("organization-name-is-required"),
+  nftAddress: yup.string().test(ethAddressValidation),
   description: yup.string(),
-  websiteLink: yup.string(),
-  facebookLink: yup.string(),
-  twitterLink: yup.string(),
-  discordLink: yup.string(),
+  websiteLink: yup.string().url("invalid-url"),
+  facebookLink: yup.string().url("invalid-url"),
+  twitterLink: yup.string().url("invalid-url"),
+  discordLink: yup.string().url("invalid-url"),
 });
 
 const defaultValues: CreateDaoFormData = {
