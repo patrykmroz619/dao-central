@@ -8,10 +8,6 @@ const withPWA = initializePWAConfig({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-};
+const nextConfig = {};
 
 module.exports = withPWA(nextConfig);

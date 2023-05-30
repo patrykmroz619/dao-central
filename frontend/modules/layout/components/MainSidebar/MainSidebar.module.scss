@@ -4,12 +4,12 @@
 .sidebar {
   transform: translateX(-45px);
   z-index: $z-index-sidebar;
-  overflow-y: auto;
 
   @include max-vw($breakpoint-lg) {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
+    overflow-y: auto;
   }
 }
