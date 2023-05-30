@@ -13,9 +13,7 @@ type LoadingStateProps = {
 
 export const LoadingState = ({ txHash }: LoadingStateProps) => {
   const lang = useCurrentLanguage();
-  const { t } = useClientTranslation(lang, "dao", {
-    keyPrefix: "new-dao-form",
-  });
+  const { t } = useClientTranslation(lang, "dao", "new-dao-form");
 
   const { chain } = useNetwork();
 

@@ -1,11 +1,14 @@
 "use client";
 
+import { InternationalizedProps } from "modules/internationalization/types";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 import { Proposal } from "./Proposal";
 
 import styles from "./ProposalsList.module.scss";
 
-export const ProposalsList = () => {
+export const ProposalsList = (props: InternationalizedProps) => {
+  const { lang } = props;
+
   const { proposals } = useDaoDetails();
 
   return (
@@ -19,6 +22,7 @@ export const ProposalsList = () => {
           end={proposal.endTime}
           approvals={proposal.approvals}
           denials={proposal.denials}
+          lang={lang}
         />
       ))}
     </ul>

@@ -11,9 +11,7 @@ type ErrorStateProps = {
 
 export const ErrorState = ({ error }: ErrorStateProps) => {
   const lang = useCurrentLanguage();
-  const { t } = useClientTranslation(lang, "dao", {
-    keyPrefix: "new-dao-form",
-  });
+  const { t } = useClientTranslation(lang, "dao", "new-dao-form");
 
   return (
     <InfoBox variant={INFO_BOX_VARIANT.DANGER} className={styles.box}>

@@ -1,11 +1,13 @@
+import { MouseEvent } from "react";
 import { useSwitchNetwork } from "wagmi";
 
+import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { InfoBox } from "modules/common/components/InfoBox";
 import { Text } from "modules/common/components/Typography";
 import { Button } from "modules/common/components/Button";
 
 import styles from "./SwitchNetworkBox.module.scss";
-import { MouseEvent } from "react";
 
 type SwitchNetworkBoxProps = {
   requiredNetworkId: number;
@@ -13,6 +15,9 @@ type SwitchNetworkBoxProps = {
 
 export const SwitchNetworkBox = (props: SwitchNetworkBoxProps) => {
   const { requiredNetworkId } = props;
+
+  const lang = useCurrentLanguage();
+  const { t } = useClientTranslation(lang);
 
   const { switchNetwork, isLoading, chains } = useSwitchNetwork({
     chainId: requiredNetworkId,
@@ -30,10 +35,10 @@ export const SwitchNetworkBox = (props: SwitchNetworkBoxProps) => {
   return (
     <InfoBox>
       <div className={styles.content}>
-        <Text>You need to switch network in your wallet on {chainName}</Text>
+        <Text>{t("you-need-switch-network", { chainName })}</Text>
         {switchNetwork && (
           <Button isLoading={isLoading} onClick={handleNetworkSwitch}>
-            Switch network
+            {t("switch-network")}
           </Button>
         )}
       </div>

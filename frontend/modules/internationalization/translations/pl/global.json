@@ -8,5 +8,7 @@
     "new-dao": "Nowe DAO",
     "profile": "Profil",
     "help-center": "Centrum pomocy"
-  }
+  },
+  "switch-network": "Przełącz sieć",
+  "you-need-switch-network": "Musisz przełączyć sieć w swoim portfelu na {{chainName}}"
 }

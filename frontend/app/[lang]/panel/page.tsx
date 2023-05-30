@@ -39,7 +39,8 @@ export default async function HomePage(props: InternationalizedPageProps) {
         <WelcomeCard welcomeMsg={t("global:welcome-in")} />
         <div className={styles.cardsWrapper}>
           <div className={styles.cardsWrapper__firstCard}>
-            <LastDaosCard daos={lastDaos} />
+            {/* @ts-expect-error Server component */}
+            <LastDaosCard daos={lastDaos} lang={lang} />
           </div>
           <div className={styles.cardsWrapper__secondCard}>
             <ProfileCard />

@@ -6,9 +6,7 @@ import styles from "./SuccessState.module.scss";
 
 export const SuccessState = () => {
   const lang = useCurrentLanguage();
-  const { t } = useClientTranslation(lang, "dao", {
-    keyPrefix: "new-dao-form",
-  });
+  const { t } = useClientTranslation(lang, "dao", "new-dao-form");
 
   return (
     <InfoBox variant={INFO_BOX_VARIANT.SUCCESS} className={styles.box}>

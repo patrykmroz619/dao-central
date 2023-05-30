@@ -1,16 +1,19 @@
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
-import { VotingPower } from "./VotingPower";
-import styles from "./DaoDetails.module.scss";
+import { useServerTranslation } from "modules/internationalization/useTranslation/server";
+import { InternationalizedProps } from "modules/internationalization/types";
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { DaoData } from "modules/dao/types/daoData.type";
 import { Separator } from "modules/common/components/Separator";
 import { DaoLinks } from "./DaoLinks";
+import { VotingPower } from "./VotingPower";
+
+import styles from "./DaoDetails.module.scss";
 
 type DaoDetailsProps = {
   daoData: DaoData;
-};
+} & InternationalizedProps;
 
-export const DaoDetails = (props: DaoDetailsProps) => {
+export const DaoDetails = async (props: DaoDetailsProps) => {
   const {
     daoData: {
       contractAddress,
@@ -20,29 +23,32 @@ export const DaoDetails = (props: DaoDetailsProps) => {
       description,
       extraLinks = [],
     },
+    lang,
   } = props;
+
+  const { t } = await useServerTranslation(lang, "dao", "dao-details");
 
   const chainData = getChainData(chainId);
 
   const details = [
-    { label: "Network", value: chainData?.name },
+    { label: t("network"), value: chainData?.name },
     {
-      label: "Contract address",
+      label: t("contract-address"),
       value: (
         <BlockchainExplorerLink address={contractAddress} chainId={chainId} />
       ),
     },
     {
-      label: "Owner",
+      label: t("owner"),
       value: <BlockchainExplorerLink address={owner} chainId={chainId} />,
     },
     {
-      label: "NFT address",
+      label: t("nft-address"),
       value: <BlockchainExplorerLink address={nftAddress} chainId={chainId} />,
     },
     {
-      label: "Voting power",
-      value: <VotingPower />,
+      label: t("voting-power"),
+      value: <VotingPower lang={lang} />,
     },
   ];
 

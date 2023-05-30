@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ExternalLink } from "react-feather";
 
+import { InternationalizedProps } from "modules/internationalization/types";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { Table, TableConfig } from "modules/common/components/Table";
 import { NoData } from "modules/common/components/NoData";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
@@ -14,29 +16,31 @@ import { DaoData } from "modules/dao/types/daoData.type";
 type DaoTableProps = {
   daos: DaoData[];
   isLoading: boolean;
-};
+} & InternationalizedProps;
 
 export const DaoTable = (props: DaoTableProps) => {
-  const { daos, isLoading } = props;
+  const { daos, isLoading, lang } = props;
+
+  const { t } = useClientTranslation(lang, "dao", "dao-list");
 
   const router = useRouter();
 
   const handleDaoRowClick = (daoId: number) => {
-    router.push(`/panel/daos/${daoId}`);
+    router.push(`${lang}/panel/daos/${daoId}`);
   };
 
   const tableConfig: TableConfig<DaoData> = useMemo(
     () => ({
       columns: {
         organization: {
-          label: "Organization",
+          label: t("organization"),
         },
         chainName: {
-          label: "Network",
+          label: t("network"),
           value: (item) => getChainData(item.chainId)?.name || "-",
         },
         contractAddress: {
-          label: "Contract address",
+          label: t("contract-address"),
           isSortable: true,
           value: (item) => (
             <BlockchainExplorerLink
@@ -46,7 +50,7 @@ export const DaoTable = (props: DaoTableProps) => {
           ),
         },
         owner: {
-          label: "Owner",
+          label: t("owner"),
           value: (item) => (
             <BlockchainExplorerLink
               chainId={item.chainId}
@@ -55,7 +59,7 @@ export const DaoTable = (props: DaoTableProps) => {
           ),
         },
         nftAddress: {
-          label: "NFT Address",
+          label: t("nft-address"),
           value: (item) => (
             <BlockchainExplorerLink
               chainId={item.chainId}
@@ -67,7 +71,7 @@ export const DaoTable = (props: DaoTableProps) => {
           label: "",
           value: (item) => (
             <Link
-              href={`/panel/daos/${item.id}`}
+              href={`${lang}/panel/daos/${item.id}`}
               aria-label={`Details of ${item.organization}`}
             >
               <ExternalLink />
@@ -77,15 +81,15 @@ export const DaoTable = (props: DaoTableProps) => {
       },
       onRowClick: handleDaoRowClick,
     }),
-    [props.daos]
+    [props.daos, t]
   );
 
   return (
     <div>
       {daos.length === 0 ? (
         <NoData>
-          There are no any organizations to show.{" "}
-          <Link href="/panel/new-dao">Create DAO</Link>
+          {t("no-data")}{" "}
+          <Link href={`${lang}/panel/new-dao`}>{t("create-dao")}</Link>
         </NoData>
       ) : (
         <Table items={daos} config={tableConfig} isLoading={isLoading} />

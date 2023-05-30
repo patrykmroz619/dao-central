@@ -1,13 +1,15 @@
 import { useAccount } from "wagmi";
 import { Check, X } from "react-feather";
 
+import { InternationalizedProps } from "modules/internationalization/types";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { IconButton } from "modules/common/components/IconButton";
 import { SingleBarChart } from "modules/common/components/SingleBarChart";
 import { H3, Text } from "modules/common/components/Typography";
-
-import styles from "./Proposal.module.scss";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 import { useVotingHandler } from "./useVotingHandler";
+
+import styles from "./Proposal.module.scss";
 
 type ProposalProps = {
   proposalId: number;
@@ -16,10 +18,13 @@ type ProposalProps = {
   end: Date;
   approvals: number;
   denials: number;
-};
+} & InternationalizedProps;
 
 export const Proposal = (props: ProposalProps) => {
-  const { description, start, end, approvals, denials, proposalId } = props;
+  const { description, start, end, approvals, denials, proposalId, lang } =
+    props;
+
+  const { t } = useClientTranslation(lang, "dao", "dao-details");
 
   const { handleVote } = useVotingHandler(proposalId);
 
@@ -39,33 +44,34 @@ export const Proposal = (props: ProposalProps) => {
       </div>
       <div className={styles.proposal__chart}>
         <SingleBarChart
-          optionALabel="Approvals"
+          optionALabel={t("approvals")}
           optionAValue={approvals}
-          optionBLabel="Denials"
+          optionBLabel={t("denials")}
           optionBValue={denials}
         />
       </div>
       <div className={styles.proposal__dates}>
-        <Text>Start: {start.toLocaleString()}</Text>
-        <Text>End: {end.toLocaleString()}</Text>
+        <Text>
+          {t("start")}: {start.toLocaleString()}
+        </Text>
+        <Text>
+          {t("end")}: {end.toLocaleString()}
+        </Text>
       </div>
       <div className={styles.proposal__footer}>
         {!isVotingActive ? (
-          <Text>Voting is inactive.</Text>
+          <Text>{t("voting-is-inactive")}</Text>
         ) : !isConnected ? (
-          <Text>Connect wallet to vote.</Text>
+          <Text>{t("connect-wallet-to-vote")}</Text>
         ) : !hasUserNFTs ? (
-          <Text>
-            You need to have an NFT from the organization&apos;s official
-            collection to vote
-          </Text>
+          <Text>{t("you-need-to-have-organization-nfts")}</Text>
         ) : (
           <>
             <IconButton onClick={() => handleVote(true)} Icon={Check}>
-              Approve (+{numberOfUserNFTs})
+              {t("approve")} (+{numberOfUserNFTs})
             </IconButton>
             <IconButton onClick={() => handleVote(false)} Icon={X}>
-              Deny (-{numberOfUserNFTs})
+              {t("deny")} (-{numberOfUserNFTs})
             </IconButton>
           </>
         )}

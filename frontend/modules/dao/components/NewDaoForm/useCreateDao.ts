@@ -60,9 +60,7 @@ export const useCreateDao = () => {
   });
 
   const lang = useCurrentLanguage();
-  const { t } = useClientTranslation(lang, "dao", {
-    keyPrefix: "new-dao-form",
-  });
+  const { t } = useClientTranslation(lang, "dao", "new-dao-form");
 
   const { data: signer } = useSigner();
   const { chain } = useNetwork();

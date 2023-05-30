@@ -55,6 +55,7 @@ const ProfilePage = async (props: InternationalizedPageProps) => {
             pageCount={pageCount}
             itemsPerPage={ITEMS_PER_PAGE}
             filter={filter}
+            lang={lang}
           />
         </Box>
       </DefaultPageWrapper>

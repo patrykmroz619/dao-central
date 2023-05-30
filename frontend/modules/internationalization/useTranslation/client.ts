@@ -29,15 +29,13 @@ i18next
     },
   });
 
-type Options = {
-  keyPrefix?: string;
-};
-
 export function useClientTranslation(
   lang: Language,
   ns?: Namespaces,
-  options?: Options
+  keyPrefix?: string
 ) {
   if (i18next.resolvedLanguage !== lang) i18next.changeLanguage(lang);
-  return useTranslationOrg(ns, options);
+  return useTranslationOrg(ns, {
+    keyPrefix,
+  });
 }

@@ -3,6 +3,8 @@
 import { useSession } from "next-auth/react";
 import { Edit } from "react-feather";
 
+import { InternationalizedProps } from "modules/internationalization/types";
+import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { IconButton } from "modules/common/components/IconButton";
 import { useBoolean } from "modules/common/hooks/useBoolean";
 import { Modal } from "modules/common/components/Modal";
@@ -11,7 +13,11 @@ import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 
 import { UpdateDaoDetailsForm } from "./UpdateDaoDetailsForm";
 
-export const UpdateDaoDetails = () => {
+export const UpdateDaoDetails = (props: InternationalizedProps) => {
+  const { lang } = props;
+
+  const { t } = useClientTranslation(lang, "dao", "dao-details");
+
   const { dao } = useDaoDetails();
   const session = useSession();
   const [isModalOpened, openModal, closeModal] = useBoolean();
@@ -26,11 +32,11 @@ export const UpdateDaoDetails = () => {
   return (
     <>
       <IconButton Icon={Edit} onClick={openModal}>
-        Update details
+        {t("update-details")}
       </IconButton>
       <Modal isOpen={isModalOpened} onClose={closeModal}>
-        <H3>Update details</H3>
-        <UpdateDaoDetailsForm />
+        <H3>{t("update-details")}</H3>
+        <UpdateDaoDetailsForm lang={lang} />
       </Modal>
     </>
   );

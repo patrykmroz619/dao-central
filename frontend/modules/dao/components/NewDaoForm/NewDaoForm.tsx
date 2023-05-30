@@ -23,9 +23,7 @@ import styles from "./NewDaoForm.module.scss";
 export const NewDaoForm = (props: InternationalizedProps) => {
   const { lang } = props;
 
-  const { t } = useClientTranslation(lang, "dao", {
-    keyPrefix: "new-dao-form",
-  });
+  const { t } = useClientTranslation(lang, "dao", "new-dao-form");
 
   const {
     register,

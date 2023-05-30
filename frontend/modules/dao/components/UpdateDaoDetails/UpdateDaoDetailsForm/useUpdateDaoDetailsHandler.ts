@@ -24,10 +24,10 @@ const updateDaoDetailsFormSchema = yup
   .object()
   .shape<YupShape<UpdateDaoDetailsFormType>>({
     description: yup.string(),
-    websiteLink: yup.string(),
-    facebookLink: yup.string(),
-    twitterLink: yup.string(),
-    discordLink: yup.string(),
+    websiteLink: yup.string().url("invalid-url"),
+    facebookLink: yup.string().url("invalid-url"),
+    twitterLink: yup.string().url("invalid-url"),
+    discordLink: yup.string().url("invalid-url"),
   });
 
 const getDaoLink = (
@@ -47,21 +47,21 @@ export const useUpdateDaoDetailsHandler = () => {
     setSuccess,
   } = useAsyncState();
 
-  const { register, control, handleSubmit } = useForm<UpdateDaoDetailsFormType>(
-    {
-      resolver: yupResolver(updateDaoDetailsFormSchema),
-      defaultValues: {
-        description: dao.description ?? "",
-        websiteLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.WEBSITE),
-        facebookLink: getDaoLink(
-          dao.extraLinks,
-          DAO_EXTRA_LINKS_TYPES.FACEBOOK
-        ),
-        twitterLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.TWITTER),
-        discordLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.DISCORD),
-      },
-    }
-  );
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors: formErrors },
+  } = useForm<UpdateDaoDetailsFormType>({
+    resolver: yupResolver(updateDaoDetailsFormSchema),
+    defaultValues: {
+      description: dao.description ?? "",
+      websiteLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.WEBSITE),
+      facebookLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.FACEBOOK),
+      twitterLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.TWITTER),
+      discordLink: getDaoLink(dao.extraLinks, DAO_EXTRA_LINKS_TYPES.DISCORD),
+    },
+  });
 
   const router = useRouter();
   const daoService = useDaoService();
@@ -121,5 +121,6 @@ export const useUpdateDaoDetailsHandler = () => {
     register,
     control,
     handleSubmit: handleSubmit(onSubmit),
+    formErrors,
   };
 };

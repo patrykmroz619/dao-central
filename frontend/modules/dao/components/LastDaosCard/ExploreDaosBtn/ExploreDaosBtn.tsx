@@ -1,11 +1,18 @@
 "use client";
 
+import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { Archive } from "react-feather";
 
 import { IconButton } from "modules/common/components/IconButton";
 
-export const ExploreDaosBtn = () => {
+type ExploreDaosBtnProps = {
+  children: ReactNode;
+};
+
+export const ExploreDaosBtn = (props: ExploreDaosBtnProps) => {
+  const { children } = props;
+
   const router = useRouter();
 
   const handleClick = () => {
@@ -14,7 +21,7 @@ export const ExploreDaosBtn = () => {
 
   return (
     <IconButton Icon={Archive} role="link" onClick={handleClick}>
-      Explore DAOs
+      {children}
     </IconButton>
   );
 };
