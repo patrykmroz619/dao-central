@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import { useAccount } from "wagmi";
 import { Check, X } from "react-feather";
 
@@ -29,6 +30,9 @@ export const Proposal = (props: ProposalProps) => {
   const { handleVote } = useVotingHandler(proposalId);
 
   const { isConnected } = useAccount();
+  const { status } = useSession();
+
+  const isAuthenticated = status === "authenticated";
 
   const { userNFTs } = useDaoDetails();
   const numberOfUserNFTs = userNFTs.length;
@@ -63,6 +67,8 @@ export const Proposal = (props: ProposalProps) => {
           <Text>{t("voting-is-inactive")}</Text>
         ) : !isConnected ? (
           <Text>{t("connect-wallet-to-vote")}</Text>
+        ) : !isAuthenticated ? (
+          <Text>{t("login-to-vote")}</Text>
         ) : !hasUserNFTs ? (
           <Text>{t("you-need-to-have-organization-nfts")}</Text>
         ) : (

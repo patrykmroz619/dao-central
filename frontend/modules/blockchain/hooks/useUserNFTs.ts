@@ -32,8 +32,6 @@ export const useUserNFTs = (chainId: number, collectionAddress: string) => {
   useEffect(() => {
     if (status === "authenticated") {
       fetchUserNFTs(session.accessToken);
-    } else if (status === "unauthenticated") {
-      router.push("/login");
     }
   }, [status]);
 

@@ -1,6 +1,14 @@
 "use client";
 
-import { Home, Archive, PlusCircle, User, HelpCircle } from "react-feather";
+import { useSession } from "next-auth/react";
+import {
+  Home,
+  Archive,
+  PlusCircle,
+  User,
+  HelpCircle,
+  LogIn,
+} from "react-feather";
 
 import { NavLink } from "modules/common/components/NavLink";
 import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
@@ -10,6 +18,7 @@ import styles from "./Navigation.module.scss";
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { useMemo } from "react";
+import classNames from "classnames";
 
 export const Navigation = () => {
   const { closeSidebar } = usePanelLayoutState();
@@ -18,35 +27,44 @@ export const Navigation = () => {
 
   const { t } = useClientTranslation(lang, "global");
 
+  const { status } = useSession();
+
+  const isAuthenticated = status === "authenticated";
+
   const links = useMemo(
     () => [
       {
         href: `${lang}/panel`,
         label: t("navigation.home"),
         Icon: Home,
+        disabled: false,
       },
       {
         href: `${lang}/panel/daos`,
         label: t("navigation.explore-daos"),
         Icon: Archive,
+        disabled: false,
       },
       {
         href: `${lang}/panel/new-dao`,
         label: t("navigation.new-dao"),
         Icon: PlusCircle,
+        disabled: !isAuthenticated,
       },
       {
         href: `${lang}/panel/profile`,
         label: t("navigation.profile"),
         Icon: User,
+        disabled: !isAuthenticated,
       },
       {
         href: `${lang}/help`,
         label: t("navigation.help-center"),
         Icon: HelpCircle,
+        disabled: false,
       },
     ],
-    [t, lang]
+    [t, lang, isAuthenticated]
   );
 
   return (
@@ -57,7 +75,9 @@ export const Navigation = () => {
             <NavLink
               onClick={closeSidebar}
               activeClassName={styles.navigation__link_active}
-              className={styles.navigation__link}
+              className={classNames(styles.navigation__link, {
+                [styles.navigation__link_disabled]: link.disabled,
+              })}
               href={link.href}
             >
               <link.Icon />
@@ -65,9 +85,23 @@ export const Navigation = () => {
             </NavLink>
           </li>
         ))}
-        <li className={styles.navigation__listItem} key="logout">
-          <LogoutButton>{t("logout")}</LogoutButton>
-        </li>
+        {isAuthenticated ? (
+          <li className={styles.navigation__listItem} key="logout">
+            <LogoutButton>{t("logout")}</LogoutButton>
+          </li>
+        ) : (
+          <li className={styles.navigation__listItem} key="login">
+            <NavLink
+              onClick={closeSidebar}
+              activeClassName={styles.navigation__link_active}
+              className={styles.navigation__link}
+              href={`${lang}/login`}
+            >
+              <LogIn />
+              <span>{t("login")}</span>
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );

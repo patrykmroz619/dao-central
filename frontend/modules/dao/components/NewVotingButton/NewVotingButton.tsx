@@ -1,6 +1,7 @@
 "use client";
 
 import { useAccount } from "wagmi";
+import { useSession } from "next-auth/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Plus } from "react-feather";
 
@@ -11,6 +12,7 @@ import { Modal } from "modules/common/components/Modal";
 import { useBoolean } from "modules/common/hooks/useBoolean";
 import { NewVotingForm } from "./NewVotingForm";
 import { useIsBrowser } from "modules/common/hooks/useIsBrowser";
+import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 
 export const NewVotingButton = (props: InternationalizedProps) => {
   const { lang } = props;
@@ -20,21 +22,31 @@ export const NewVotingButton = (props: InternationalizedProps) => {
   const [isModalOpen, openModal, closeModal] = useBoolean();
 
   const { isConnected } = useAccount();
+  const { data: session } = useSession();
   const isBrowser = useIsBrowser();
+
+  const { dao } = useDaoDetails();
+
+  const isOwnerOfDao =
+    session?.user.wallet.toLowerCase() === dao.owner.toLowerCase();
 
   if (!isBrowser) {
     return null;
   }
 
+  if (!isConnected) {
+    return <ConnectButton />;
+  }
+
+  if (!isOwnerOfDao) {
+    return null;
+  }
+
   return (
     <>
-      {isConnected ? (
-        <IconButton Icon={Plus} onClick={openModal}>
-          {t("new-voting")}
-        </IconButton>
-      ) : (
-        <ConnectButton />
-      )}
+      <IconButton Icon={Plus} onClick={openModal}>
+        {t("new-voting")}
+      </IconButton>
       <Modal heading="New voting" isOpen={isModalOpen} onClose={closeModal}>
         <NewVotingForm onSuccess={closeModal} lang={lang} />
       </Modal>

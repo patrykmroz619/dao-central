@@ -11,6 +11,8 @@ import { DaosList } from "modules/dao/components/DaosList";
 
 import styles from "./ProfilePage.module.scss";
 
+export const dynamic = "force-dynamic";
+
 const ITEMS_PER_PAGE = 8;
 
 const ProfilePage = async (props: InternationalizedPageProps) => {

@@ -1,6 +1,7 @@
 {
   "loading": "Loading",
   "logout": "Logout",
+  "login": "Login",
   "welcome-in": "Welcome in",
   "navigation": {
     "home": "home",
