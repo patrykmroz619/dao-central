@@ -1,15 +1,16 @@
 import Image from "next/image";
 import organizationImage from "public/images/illustrations/organization.svg";
 
-import { H1, Text } from "@/infrastructure/ui/Typography";
-import { InlineLink } from "@/infrastructure/ui/InlineLink";
-import { FadeAnimationContainer } from "@/infrastructure/ui/FadeAnimationContainer";
+import { H1, Text } from "@/infrastructure/ui/core/Typography";
+import { InlineLink } from "@/infrastructure/ui/core/InlineLink";
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
 import { WalletLogin } from "modules/auth/components/WalletLogin";
 
-import { InternationalizedPageProps } from "modules/internationalization/types";
-import { useServerTranslation } from "modules/internationalization/useTranslation/server";
+import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
+import { useServerTranslation } from "@/infrastructure/internationalization/server";
+import { LanguageSwitcher } from "@/infrastructure/internationalization/components/LanguageSwitcher";
+
 import styles from "./page.module.scss";
-import { LanguageSwitcher } from "modules/internationalization/components/LanguageSwitcher";
 
 export default async function LoginPage(props: InternationalizedPageProps) {
   const {

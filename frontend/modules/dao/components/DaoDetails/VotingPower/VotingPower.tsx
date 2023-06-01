@@ -1,8 +1,8 @@
 "use client";
 
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
 
 export const VotingPower = (props: InternationalizedProps) => {
   const { lang } = props;

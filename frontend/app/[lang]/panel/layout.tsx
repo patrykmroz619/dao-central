@@ -1,12 +1,13 @@
 import Image from "next/image";
 
 import logo from "public/images/brand/logo-black.png";
-import { H1 } from "@/infrastructure/ui/Typography";
-import { PanelLayoutStateProvider } from "modules/layout/providers/PanelLayoutStateProvider";
-import { MainSidebar } from "modules/layout/components/MainSidebar";
-import { MobileHeader } from "modules/layout/components/MobileHeader";
-import { Navigation } from "modules/layout/components/Navigation";
-import { LanguageSwitcher } from "modules/internationalization/components/LanguageSwitcher";
+import { LanguageSwitcher } from "@/infrastructure/internationalization/components/LanguageSwitcher";
+import { H1 } from "@/infrastructure/ui/core/Typography";
+
+import { PanelLayoutStateProvider } from "@/modules/layout/panel/providers/PanelLayoutStateProvider";
+import { MainSidebar } from "@/modules/layout/components/MainSidebar";
+import { Navigation } from "@/modules/layout/components/Navigation";
+import { MobileHeader } from "@/modules/layout/components/MobileHeader";
 
 import styles from "./PanelLayout.module.scss";
 

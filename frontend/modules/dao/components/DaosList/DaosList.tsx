@@ -1,9 +1,11 @@
 "use client";
 
-import { Pagination } from "@/infrastructure/ui/Pagination";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { Pagination } from "@/infrastructure/ui/core/Pagination";
+
 import { useDaoList } from "modules/dao/components/DaosList/useDaoList";
 import { DaoData } from "modules/dao/types/daoData.type";
-import { InternationalizedProps } from "modules/internationalization/types";
+
 import { DaoTable } from "../DaoTable";
 
 import styles from "./DaosList.module.scss";

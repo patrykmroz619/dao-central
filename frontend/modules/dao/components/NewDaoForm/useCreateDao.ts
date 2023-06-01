@@ -7,16 +7,16 @@ import { useNetwork, useSigner } from "wagmi";
 import { ethers } from "ethers";
 import * as yup from "yup";
 
-import { YupShape } from "modules/common/types/yup-schema";
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
-import { useAsyncState } from "modules/common/hooks/useAsyncState";
+import { YupShape } from "@/infrastructure/helpers/types/yup-schema";
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
+import { useAsyncState } from "@/infrastructure/helpers/hooks/useAsyncState";
 import { ethAddressValidation } from "modules/blockchain/utils/ethAddressValidation";
 import { useDaoService } from "modules/dao/hooks/useDaoService";
-import { PUBLIC_CONFIG } from "modules/core/config/public";
+import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 import { NFT_VOTING_FACTORY_CONTRACT_ABI } from "modules/dao/constants/nftVotingFactoryContractAbi";
 import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
-import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
 
 type CreateDaoFormData = {
   organizationName: string;

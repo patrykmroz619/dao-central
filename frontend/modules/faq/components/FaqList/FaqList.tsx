@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { LayoutGroup } from "framer-motion";
 
-import { useGetSearchParam } from "modules/common/hooks/useGetSearchParam";
+import { useGetSearchParam } from "@/infrastructure/helpers/hooks/useGetSearchParam";
 import { FAQ_QUERY_PARAMS } from "modules/faq/constants";
 import { FaqItem } from "../FaqItem";
 

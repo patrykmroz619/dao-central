@@ -4,11 +4,11 @@ import { dir } from "i18next";
 
 import { RegisterHttpMocks } from "tests/mocks/http";
 import { GlobalProvider } from "modules/core/providers/GlobalProvider";
-import "modules/core/styles/global.scss";
+import "@/infrastructure/styles/global.scss";
 
 import styles from "./Panel.module.scss";
-import { languages } from "modules/internationalization/settings";
-import { InternationalizedPageProps } from "modules/internationalization/types";
+import { languages } from "@/infrastructure/internationalization/settings";
+import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],

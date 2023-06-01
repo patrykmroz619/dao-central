@@ -1,8 +1,7 @@
 "use client";
 
+import { usePanelLayoutState } from "@/modules/layout/panel/providers/PanelLayoutStateProvider";
 import { Menu } from "react-feather";
-
-import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
 
 import styles from "./HamburgerButton.module.scss";
 

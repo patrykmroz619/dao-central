@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/navigation";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Button } from "@/infrastructure/ui/Button";
-import { H3, Text } from "@/infrastructure/ui/Typography";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { Button } from "@/infrastructure/ui/core/buttons/Button";
+import { H3, Text } from "@/infrastructure/ui/core/Typography";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 import styles from "./DaosListItem.module.scss";

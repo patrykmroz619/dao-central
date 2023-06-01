@@ -1,4 +1,4 @@
-import { InlineLink } from "@/infrastructure/ui/InlineLink";
+import { InlineLink } from "@/infrastructure/ui/core/InlineLink";
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { truncateEthAddress } from "modules/blockchain/utils/truncateEthAddress";
 

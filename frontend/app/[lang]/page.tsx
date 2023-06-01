@@ -1,4 +1,4 @@
-import { InternationalizedPageProps } from "modules/internationalization/types";
+import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { redirect } from "next/navigation";
 
 const MainPage = async (props: InternationalizedPageProps) => {

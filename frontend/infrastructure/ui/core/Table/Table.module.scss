@@ -1,0 +1,61 @@
+@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/mixins";
+
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+
+  @include custom-scrollbar;
+}
+
+.table {
+  width: 100%;
+}
+
+.tableHead {
+  background-color: $primary-color-light;
+  color: $primary-color-inverted;
+}
+
+.tableRow {
+  border-bottom: 1px solid $gray-light;
+  background-color: transparent;
+  transition: $transition-time background-color;
+
+  &__clickable {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $gray-light;
+    }
+  }
+}
+
+.tableHeadCell {
+  padding: $spacing-m;
+
+  text-align: left;
+  white-space: nowrap;
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+.tableBody {
+  width: 100%;
+  transition: $transition-time opacity;
+
+  &__loading {
+    opacity: 0.4;
+  }
+}
+
+.tableCell {
+  padding: $spacing-m;
+  white-space: nowrap;
+
+  &:last-child {
+    text-align: right;
+  }
+}

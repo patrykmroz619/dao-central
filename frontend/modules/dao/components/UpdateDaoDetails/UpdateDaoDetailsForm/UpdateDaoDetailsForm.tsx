@@ -1,12 +1,12 @@
 import { Controller } from "react-hook-form";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Button } from "@/infrastructure/ui/Button";
-import { TextInput } from "@/infrastructure/ui/Input/TextInput";
-import { TextEditor } from "@/infrastructure/ui/TextEditor";
-import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
-import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { Button } from "@/infrastructure/ui/core/buttons/Button";
+import { TextInput } from "@/infrastructure/ui/core/inputs/TextInput";
+import { TextEditor } from "@/infrastructure/ui/core/inputs/TextEditor";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/core/InfoBox";
+import { ASYNC_STATE } from "@/infrastructure/helpers/hooks/useAsyncState";
 
 import { useUpdateDaoDetailsHandler } from "./useUpdateDaoDetailsHandler";
 

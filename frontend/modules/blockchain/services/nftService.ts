@@ -1,5 +1,5 @@
-import { HttpService } from "modules/common/services/httpService";
-import { PUBLIC_CONFIG } from "modules/core/config/public";
+import { HttpService } from "@/infrastructure/services/http";
+import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 import { NFTData } from "../types/nftData.type";
 
 export class NFTService {

@@ -1,11 +1,11 @@
 import { MouseEvent } from "react";
 import { useSwitchNetwork } from "wagmi";
 
-import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { InfoBox } from "@/infrastructure/ui/InfoBox";
-import { Text } from "@/infrastructure/ui/Typography";
-import { Button } from "@/infrastructure/ui/Button";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { InfoBox } from "@/infrastructure/ui/core/InfoBox";
+import { Text } from "@/infrastructure/ui/core/Typography";
+import { Button } from "@/infrastructure/ui/core/buttons/Button";
 
 import styles from "./SwitchNetworkBox.module.scss";
 

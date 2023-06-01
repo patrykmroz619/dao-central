@@ -1,7 +1,9 @@
 "use client";
 
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
 import { useEffect, useState } from "react";
+
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
+
 import { DaoData } from "../../types/daoData.type";
 import { useDaoService } from "../../hooks/useDaoService";
 import { DaosListFilter } from "./DaosList";

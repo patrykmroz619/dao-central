@@ -1,9 +1,9 @@
 import { getChainData } from "modules/blockchain/utils/getChainData";
-import { Box } from "@/infrastructure/ui/Box";
-import { H2 } from "@/infrastructure/ui/Typography";
+import { Box } from "@/infrastructure/ui/core/Box";
+import { H2 } from "@/infrastructure/ui/core/Typography";
 import { DaoData } from "modules/dao/types/daoData.type";
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useServerTranslation } from "modules/internationalization/useTranslation/server";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useServerTranslation } from "@/infrastructure/internationalization/server";
 import { DaosListItem } from "./DaosListItem";
 import { ExploreDaosBtn } from "./ExploreDaosBtn";
 

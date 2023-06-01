@@ -1,8 +1,8 @@
 import { SessionUser } from "modules/auth/types/next-auth";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
-import { Text } from "@/infrastructure/ui/Typography";
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useServerTranslation } from "modules/internationalization/useTranslation/server";
+import { Text } from "@/infrastructure/ui/core/Typography";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useServerTranslation } from "@/infrastructure/internationalization/server";
 
 import styles from "./ProfileData.module.scss";
 

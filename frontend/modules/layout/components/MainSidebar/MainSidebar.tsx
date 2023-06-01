@@ -3,8 +3,9 @@
 import { ReactNode, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 
-import { useOutsideClick } from "modules/common/hooks/useOutsideClick";
-import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
+import { useOutsideClick } from "@/infrastructure/helpers/hooks/useOutsideClick";
+
+import { usePanelLayoutState } from "../../panel/providers/PanelLayoutStateProvider";
 
 import styles from "./MainSidebar.module.scss";
 

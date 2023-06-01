@@ -1,8 +1,8 @@
 "use client";
 
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { ErrorView } from "modules/layout/components/ErrorView";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { ErrorView } from "@/infrastructure/ui/layout/ErrorView";
 
 const Error = () => {
   const lang = useCurrentLanguage();

@@ -1,6 +1,6 @@
-import { HttpService } from "modules/common/services/httpService/httpService";
-import { isHttpError } from "modules/common/services/httpService/isHttpError";
-import { PUBLIC_CONFIG } from "modules/core/config/public";
+import { HttpService } from "@/infrastructure/services/http/httpService";
+import { isHttpError } from "@/infrastructure/services/http/isHttpError";
+import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 
 export class AuthService {
   constructor(

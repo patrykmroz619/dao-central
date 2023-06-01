@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import logo from "public/images/brand/logo-black.png";
-import { Text } from "@/infrastructure/ui/Typography";
+import { Text } from "@/infrastructure/ui/core/Typography";
 import { HamburgerButton } from "./HamburgerButton";
 
 import styles from "./MobileHeader.module.scss";

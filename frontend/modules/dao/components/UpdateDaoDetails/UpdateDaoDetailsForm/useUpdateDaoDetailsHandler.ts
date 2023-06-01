@@ -5,11 +5,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
-import { YupShape } from "modules/common/types/yup-schema";
+import { YupShape } from "@/infrastructure/helpers/types/yup-schema";
 import { DaoData } from "modules/dao/types/daoData.type";
 import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
-import { useAsyncState } from "modules/common/hooks/useAsyncState";
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { useAsyncState } from "@/infrastructure/helpers/hooks/useAsyncState";
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
 import { useDaoService } from "modules/dao/hooks/useDaoService";
 
 type UpdateDaoDetailsFormType = {

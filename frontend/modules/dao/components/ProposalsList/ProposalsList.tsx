@@ -1,6 +1,6 @@
 "use client";
 
-import { InternationalizedProps } from "modules/internationalization/types";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 import { Proposal } from "./Proposal";
 

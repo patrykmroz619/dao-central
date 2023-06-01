@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useContract, useProvider } from "wagmi";
 
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
 import { useUserNFTs } from "modules/blockchain/hooks/useUserNFTs";
 import { DaoData } from "modules/dao/types/daoData.type";
 import { NFT_VOTING_CONTRACT_ABI } from "modules/dao/constants/nftVotingContractAbi";

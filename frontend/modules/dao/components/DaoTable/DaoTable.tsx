@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ExternalLink } from "react-feather";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Table, TableConfig } from "@/infrastructure/ui/Table";
-import { NoData } from "@/infrastructure/ui/NoData";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { Table, TableConfig } from "@/infrastructure/ui/core/Table";
+import { NoData } from "@/infrastructure/ui/core/NoData";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { DaoData } from "modules/dao/types/daoData.type";

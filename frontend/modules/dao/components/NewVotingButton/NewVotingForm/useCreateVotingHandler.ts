@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { ethers } from "ethers";
 import { useSigner } from "wagmi";
 
-import { useAsyncState } from "modules/common/hooks/useAsyncState";
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { useAsyncState } from "@/infrastructure/helpers/hooks/useAsyncState";
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
 import { NFT_VOTING_CONTRACT_ABI } from "modules/dao/constants/nftVotingContractAbi";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 

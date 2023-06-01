@@ -2,8 +2,8 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useAccount, useSignMessage } from "wagmi";
 
-import { useAsyncState } from "modules/common/hooks/useAsyncState";
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { useAsyncState } from "@/infrastructure/helpers/hooks/useAsyncState";
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
 import { useAuthService } from "./useAuthService";
 
 export const useLoginByWallet = () => {

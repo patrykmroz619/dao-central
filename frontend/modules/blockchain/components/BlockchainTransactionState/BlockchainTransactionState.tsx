@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import {
   ASYNC_STATE,
   AsyncStateObject,
-} from "modules/common/hooks/useAsyncState";
+} from "@/infrastructure/helpers/hooks/useAsyncState";
 import { LoadingState } from "./LoadingState";
 import { SuccessState } from "./SuccessState";
 import { ErrorState } from "./ErrorState";

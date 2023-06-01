@@ -2,11 +2,11 @@ import { useSession } from "next-auth/react";
 import { useAccount } from "wagmi";
 import { Check, X } from "react-feather";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "@/infrastructure/ui/IconButton";
-import { SingleBarChart } from "@/infrastructure/ui/SingleBarChart";
-import { H3, Text } from "@/infrastructure/ui/Typography";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
+import { SingleBarChart } from "@/infrastructure/ui/core/SingleBarChart";
+import { H3, Text } from "@/infrastructure/ui/core/Typography";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 import { useVotingHandler } from "./useVotingHandler";
 

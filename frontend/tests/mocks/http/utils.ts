@@ -1,4 +1,4 @@
-import { PUBLIC_CONFIG } from "modules/core/config/public";
+import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 
 export const externalApi = (endpoint: string) => {
   let url = String(PUBLIC_CONFIG.API_URL);

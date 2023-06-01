@@ -1,6 +1,6 @@
-@import "modules/common/styles/variables";
-@import "modules/common/styles/media";
-@import "modules/common/styles/mixins";
+@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/mixins";
 
 .wrapper {
   display: flex;

@@ -1,8 +1,8 @@
 import { ChevronDown } from "react-feather";
 import { motion, AnimatePresence, MotionProps } from "framer-motion";
 
-import { useBoolean } from "modules/common/hooks/useBoolean";
-import { Text } from "@/infrastructure/ui/Typography";
+import { useBoolean } from "@/infrastructure/helpers/hooks/useBoolean";
+import { Text } from "@/infrastructure/ui/core/Typography";
 
 import styles from "./FaqItem.module.scss";
 

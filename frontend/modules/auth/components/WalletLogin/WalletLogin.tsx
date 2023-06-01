@@ -4,14 +4,14 @@ import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { LogIn } from "react-feather";
 
-import { useIsBrowser } from "modules/common/hooks/useIsBrowser";
-import { Text } from "@/infrastructure/ui/Typography";
-import { IconButton } from "@/infrastructure/ui/IconButton";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
+import { Text } from "@/infrastructure/ui/core/Typography";
+import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
 
-import styles from "./WalletLogin.module.scss";
 import { useLoginByWallet } from "modules/auth/hooks/useLoginByWallet";
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
+import styles from "./WalletLogin.module.scss";
 
 export const WalletLogin = (props: InternationalizedProps) => {
   const { t } = useClientTranslation(props.lang, "login-page");

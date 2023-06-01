@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+import classNames from "classnames";
 import { useSession } from "next-auth/react";
 import {
   Home,
@@ -10,15 +12,14 @@ import {
   LogIn,
 } from "react-feather";
 
-import { NavLink } from "@/infrastructure/ui/NavLink";
-import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { NavLink } from "@/infrastructure/ui/core/NavLink";
+
 import { LogoutButton } from "modules/auth/components/LogoutButton";
+import { usePanelLayoutState } from "../../panel/providers/PanelLayoutStateProvider";
 
 import styles from "./Navigation.module.scss";
-import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { useMemo } from "react";
-import classNames from "classnames";
 
 export const Navigation = () => {
   const { closeSidebar } = usePanelLayoutState();

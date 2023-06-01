@@ -5,13 +5,13 @@ import { useSession } from "next-auth/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Plus } from "react-feather";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "@/infrastructure/ui/IconButton";
-import { Modal } from "@/infrastructure/ui/Modal";
-import { useBoolean } from "modules/common/hooks/useBoolean";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
+import { Modal } from "@/infrastructure/ui/core/Modal";
+import { useBoolean } from "@/infrastructure/helpers/hooks/useBoolean";
 import { NewVotingForm } from "./NewVotingForm";
-import { useIsBrowser } from "modules/common/hooks/useIsBrowser";
+import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 
 export const NewVotingButton = (props: InternationalizedProps) => {

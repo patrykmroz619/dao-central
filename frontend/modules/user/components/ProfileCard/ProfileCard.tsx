@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { LogIn, User } from "react-feather";
 
-import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
 import profileImage from "public/images/illustrations/profile.svg";
-import { Box } from "@/infrastructure/ui/Box";
-import { IconButton } from "@/infrastructure/ui/IconButton";
-import { H2, Text } from "@/infrastructure/ui/Typography";
+import { Box } from "@/infrastructure/ui/core/Box";
+import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
+import { H2, Text } from "@/infrastructure/ui/core/Typography";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 import styles from "./ProfileCard.module.scss";

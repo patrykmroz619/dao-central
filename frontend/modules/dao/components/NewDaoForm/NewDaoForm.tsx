@@ -5,15 +5,15 @@ import { Controller } from "react-hook-form";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "@/infrastructure/ui/IconButton";
-import { TextInput } from "@/infrastructure/ui/Input/TextInput";
-import { Text } from "@/infrastructure/ui/Typography";
-import { InlineLink } from "@/infrastructure/ui/InlineLink";
-import { TextEditor } from "@/infrastructure/ui/TextEditor";
-import { Separator } from "@/infrastructure/ui/Separator";
-import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
+import { TextInput } from "@/infrastructure/ui/core/inputs/TextInput";
+import { Text } from "@/infrastructure/ui/core/Typography";
+import { InlineLink } from "@/infrastructure/ui/core/InlineLink";
+import { TextEditor } from "@/infrastructure/ui/core/inputs/TextEditor";
+import { Separator } from "@/infrastructure/ui/core/Separator";
+import { ASYNC_STATE } from "@/infrastructure/helpers/hooks/useAsyncState";
 
 import { useCreateDao } from "./useCreateDao";
 import { CreatingDaoState } from "./CreatingDaoState";

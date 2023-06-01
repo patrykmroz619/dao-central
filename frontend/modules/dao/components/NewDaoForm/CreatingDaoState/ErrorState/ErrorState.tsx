@@ -1,7 +1,7 @@
-import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
-import { Text } from "@/infrastructure/ui/Typography";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/core/InfoBox";
+import { Text } from "@/infrastructure/ui/core/Typography";
 
 import styles from "./ErrorState.module.scss";
 

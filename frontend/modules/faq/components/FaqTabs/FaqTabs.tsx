@@ -1,7 +1,7 @@
 "use client";
 
-import { Tabs } from "@/infrastructure/ui/Tabs";
-import { useSearchParamState } from "modules/common/hooks/useSearchParamState";
+import { Tabs } from "@/infrastructure/ui/core/Tabs";
+import { useSearchParamState } from "@/infrastructure/helpers/hooks/useSearchParamState";
 import { FAQ_QUERY_PARAMS } from "modules/faq/constants";
 
 type FaqTabOption = {

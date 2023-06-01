@@ -3,12 +3,12 @@
 import { useSession } from "next-auth/react";
 import { Edit } from "react-feather";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "@/infrastructure/ui/IconButton";
-import { useBoolean } from "modules/common/hooks/useBoolean";
-import { Modal } from "@/infrastructure/ui/Modal";
-import { H3 } from "@/infrastructure/ui/Typography";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
+import { useBoolean } from "@/infrastructure/helpers/hooks/useBoolean";
+import { Modal } from "@/infrastructure/ui/core/Modal";
+import { H3 } from "@/infrastructure/ui/core/Typography";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 
 import { UpdateDaoDetailsForm } from "./UpdateDaoDetailsForm";

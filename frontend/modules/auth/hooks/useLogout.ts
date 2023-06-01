@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { signOut, useSession } from "next-auth/react";
 
-import { getErrorMessage } from "modules/common/utils/getErrorMessage";
+import { getErrorMessage } from "@/infrastructure/helpers/utils/getErrorMessage";
 import { useAuthService } from "./useAuthService";
 
 export const useLogout = () => {

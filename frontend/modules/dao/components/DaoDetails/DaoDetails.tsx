@@ -1,9 +1,10 @@
+import { useServerTranslation } from "@/infrastructure/internationalization/server";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
-import { useServerTranslation } from "modules/internationalization/useTranslation/server";
-import { InternationalizedProps } from "modules/internationalization/types";
+import { Separator } from "@/infrastructure/ui/core/Separator";
+
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { DaoData } from "modules/dao/types/daoData.type";
-import { Separator } from "@/infrastructure/ui/Separator";
 import { DaoLinks } from "./DaoLinks";
 import { VotingPower } from "./VotingPower";
 

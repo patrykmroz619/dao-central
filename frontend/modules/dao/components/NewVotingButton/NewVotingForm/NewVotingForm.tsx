@@ -1,12 +1,12 @@
 import { MouseEvent } from "react";
 import { useNetwork } from "wagmi";
 
-import { InternationalizedProps } from "modules/internationalization/types";
-import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Button } from "@/infrastructure/ui/Button";
-import { TextInput } from "@/infrastructure/ui/Input/TextInput";
+import { InternationalizedProps } from "@/infrastructure/internationalization/types";
+import { useClientTranslation } from "@/infrastructure/internationalization/client";
+import { Button } from "@/infrastructure/ui/core/buttons/Button";
+import { TextInput } from "@/infrastructure/ui/core/inputs/TextInput";
 import { useCreateVotingHandler } from "./useCreateVotingHandler";
-import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
+import { ASYNC_STATE } from "@/infrastructure/helpers/hooks/useAsyncState";
 import { BlockchainTransactionState } from "modules/blockchain/components/BlockchainTransactionState";
 import { SwitchNetworkBox } from "modules/blockchain/components/SwitchNetworkBox";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";

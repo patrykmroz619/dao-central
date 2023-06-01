@@ -4,7 +4,7 @@ import acceptLanguage from "accept-language";
 import {
   fallbackLanguage,
   languages,
-} from "modules/internationalization/settings";
+} from "@/infrastructure/internationalization/settings";
 
 acceptLanguage.languages(languages as unknown as string[]);
 

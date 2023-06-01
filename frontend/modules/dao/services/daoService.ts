@@ -1,7 +1,7 @@
-import { HttpService } from "modules/common/services/httpService";
-import { GetQueryParams } from "modules/common/types/getQueryParams.type";
-import { PUBLIC_CONFIG } from "modules/core/config/public";
+import { GetQueryParams } from "@/infrastructure/helpers/types/getQueryParams.type";
+import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 
+import { HttpService } from "@/infrastructure/services/http";
 import { DAO_EXTRA_LINKS_TYPES } from "../constants/daoExtraLinksTypes";
 import { DaoData } from "../types/daoData.type";
 

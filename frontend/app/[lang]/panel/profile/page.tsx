@@ -1,9 +1,9 @@
-import { InternationalizedPageProps } from "modules/internationalization/types";
-import { useServerTranslation } from "modules/internationalization/useTranslation/server";
-import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
-import { Box } from "@/infrastructure/ui/Box";
-import { H2, Text } from "@/infrastructure/ui/Typography";
-import { FadeAnimationContainer } from "@/infrastructure/ui/FadeAnimationContainer";
+import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
+import { useServerTranslation } from "@/infrastructure/internationalization/server";
+import { DefaultPageWrapper } from "@/infrastructure/ui/layout/DefaultPageWrapper";
+import { Box } from "@/infrastructure/ui/core/Box";
+import { H2, Text } from "@/infrastructure/ui/core/Typography";
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
 import { getSession } from "modules/auth/utils/getSession";
 import { DaoService } from "modules/dao/services/daoService";
 import { ProfileData } from "modules/user/components/ProfileData";

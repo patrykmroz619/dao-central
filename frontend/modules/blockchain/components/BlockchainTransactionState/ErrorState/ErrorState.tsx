@@ -1,5 +1,5 @@
-import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
-import { Text } from "@/infrastructure/ui/Typography";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/core/InfoBox";
+import { Text } from "@/infrastructure/ui/core/Typography";
 
 import styles from "./ErrorState.module.scss";
 
