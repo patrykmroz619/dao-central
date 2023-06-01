@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const initializePWAConfig = require("next-pwa");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const initializeBundleAnalyzer = require("@next/bundle-analyzer");
 
 const withPWA = initializePWAConfig({
   dest: "public",
@@ -7,7 +9,11 @@ const withPWA = initializePWAConfig({
   sw: "service-worker.js",
 });
 
+const withBundleAnalyzer = initializeBundleAnalyzer({
+  enabled: process.env.BUNDLE_ANALYZE === "true",
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-module.exports = withPWA(nextConfig);
+module.exports = withPWA(withBundleAnalyzer(nextConfig));
