@@ -1,9 +1,9 @@
 import Image from "next/image";
 import organizationImage from "public/images/illustrations/organization.svg";
 
-import { H1, Text } from "modules/common/components/Typography";
-import { InlineLink } from "modules/common/components/InlineLink";
-import { FadeAnimationContainer } from "modules/common/components/FadeAnimationContainer";
+import { H1, Text } from "@/infrastructure/ui/Typography";
+import { InlineLink } from "@/infrastructure/ui/InlineLink";
+import { FadeAnimationContainer } from "@/infrastructure/ui/FadeAnimationContainer";
 import { WalletLogin } from "modules/auth/components/WalletLogin";
 
 import { InternationalizedPageProps } from "modules/internationalization/types";

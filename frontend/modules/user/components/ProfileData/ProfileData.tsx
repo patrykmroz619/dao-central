@@ -1,6 +1,6 @@
 import { SessionUser } from "modules/auth/types/next-auth";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
-import { Text } from "modules/common/components/Typography";
+import { Text } from "@/infrastructure/ui/Typography";
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 

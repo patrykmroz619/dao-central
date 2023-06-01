@@ -1,7 +1,7 @@
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { InfoBox, INFO_BOX_VARIANT } from "modules/common/components/InfoBox";
-import { Text } from "modules/common/components/Typography";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
+import { Text } from "@/infrastructure/ui/Typography";
 
 import styles from "./ErrorState.module.scss";
 

@@ -1,9 +1,9 @@
 import { InternationalizedPageProps } from "modules/internationalization/types";
 import { useServerTranslation } from "modules/internationalization/useTranslation/server";
-import { Box } from "modules/common/components/Box";
+import { Box } from "@/infrastructure/ui/Box";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
-import { H2, Text } from "modules/common/components/Typography";
-import { FadeAnimationContainer } from "modules/common/components/FadeAnimationContainer";
+import { H2, Text } from "@/infrastructure/ui/Typography";
+import { FadeAnimationContainer } from "@/infrastructure/ui/FadeAnimationContainer";
 import { NewDaoForm } from "modules/dao/components/NewDaoForm";
 
 import styles from "./NewDaoPage.module.scss";

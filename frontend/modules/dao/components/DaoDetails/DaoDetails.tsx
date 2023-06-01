@@ -3,7 +3,7 @@ import { useServerTranslation } from "modules/internationalization/useTranslatio
 import { InternationalizedProps } from "modules/internationalization/types";
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { DaoData } from "modules/dao/types/daoData.type";
-import { Separator } from "modules/common/components/Separator";
+import { Separator } from "@/infrastructure/ui/Separator";
 import { DaoLinks } from "./DaoLinks";
 import { VotingPower } from "./VotingPower";
 

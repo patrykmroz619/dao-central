@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs } from "modules/common/components/Tabs";
+import { Tabs } from "@/infrastructure/ui/Tabs";
 import { useSearchParamState } from "modules/common/hooks/useSearchParamState";
 import { FAQ_QUERY_PARAMS } from "modules/faq/constants";
 

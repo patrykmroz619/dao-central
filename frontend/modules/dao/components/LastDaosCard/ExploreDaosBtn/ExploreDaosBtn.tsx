@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { Archive } from "react-feather";
 
-import { IconButton } from "modules/common/components/IconButton";
+import { IconButton } from "@/infrastructure/ui/IconButton";
 
 type ExploreDaosBtnProps = {
   children: ReactNode;

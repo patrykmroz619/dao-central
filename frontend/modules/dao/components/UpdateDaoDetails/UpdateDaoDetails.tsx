@@ -5,10 +5,10 @@ import { Edit } from "react-feather";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "modules/common/components/IconButton";
+import { IconButton } from "@/infrastructure/ui/IconButton";
 import { useBoolean } from "modules/common/hooks/useBoolean";
-import { Modal } from "modules/common/components/Modal";
-import { H3 } from "modules/common/components/Typography";
+import { Modal } from "@/infrastructure/ui/Modal";
+import { H3 } from "@/infrastructure/ui/Typography";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 
 import { UpdateDaoDetailsForm } from "./UpdateDaoDetailsForm";

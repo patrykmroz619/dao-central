@@ -2,10 +2,10 @@ import { Controller } from "react-hook-form";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Button } from "modules/common/components/Button";
-import { TextInput } from "modules/common/components/Input/TextInput";
-import { TextEditor } from "modules/common/components/TextEditor";
-import { InfoBox, INFO_BOX_VARIANT } from "modules/common/components/InfoBox";
+import { Button } from "@/infrastructure/ui/Button";
+import { TextInput } from "@/infrastructure/ui/Input/TextInput";
+import { TextEditor } from "@/infrastructure/ui/TextEditor";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
 import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
 
 import { useUpdateDaoDetailsHandler } from "./useUpdateDaoDetailsHandler";

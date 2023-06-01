@@ -1,5 +1,5 @@
-import { Skeleton } from "modules/common/components/Skeleton";
-import { Text } from "modules/common/components/Typography";
+import { Skeleton } from "@/infrastructure/ui/Skeleton";
+import { Text } from "@/infrastructure/ui/Typography";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useAccount, useBalance, useNetwork } from "wagmi";

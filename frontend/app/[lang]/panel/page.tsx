@@ -5,7 +5,7 @@ import { DaoService } from "modules/dao/services/daoService";
 import { LastDaosCard } from "modules/dao/components/LastDaosCard";
 import { ProfileCard } from "modules/user/components/ProfileCard";
 import { WelcomeCard } from "modules/brand/components/WelcomeCard";
-import { FadeAnimationContainer } from "modules/common/components/FadeAnimationContainer";
+import { FadeAnimationContainer } from "@/infrastructure/ui/FadeAnimationContainer";
 
 import styles from "./HomePage.module.scss";
 

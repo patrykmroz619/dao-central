@@ -4,9 +4,9 @@ import { Check, X } from "react-feather";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "modules/common/components/IconButton";
-import { SingleBarChart } from "modules/common/components/SingleBarChart";
-import { H3, Text } from "modules/common/components/Typography";
+import { IconButton } from "@/infrastructure/ui/IconButton";
+import { SingleBarChart } from "@/infrastructure/ui/SingleBarChart";
+import { H3, Text } from "@/infrastructure/ui/Typography";
 import { useDaoDetails } from "modules/dao/providers/DaoDetailsProvider";
 import { useVotingHandler } from "./useVotingHandler";
 

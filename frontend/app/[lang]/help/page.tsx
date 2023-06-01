@@ -5,9 +5,9 @@ import faqIllustrations from "public/images/illustrations/faq.svg";
 import { InternationalizedPageProps } from "modules/internationalization/types";
 import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import { removeDuplicatesInArray } from "modules/common/utils/removeDuplicatesInArray";
-import { H1, Text } from "modules/common/components/Typography";
-import { Box } from "modules/common/components/Box";
-import { FadeAnimationContainer } from "modules/common/components/FadeAnimationContainer";
+import { H1, Text } from "@/infrastructure/ui/Typography";
+import { Box } from "@/infrastructure/ui/Box";
+import { FadeAnimationContainer } from "@/infrastructure/ui/FadeAnimationContainer";
 import { FaqTabs } from "modules/faq/components/FaqTabs";
 import { FaqList } from "modules/faq/components/FaqList/";
 

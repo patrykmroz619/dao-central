@@ -2,8 +2,8 @@ import { useNetwork } from "wagmi";
 
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Spinner } from "modules/common/components/Spinner";
-import { Text } from "modules/common/components/Typography";
+import { Spinner } from "@/infrastructure/ui/Spinner";
+import { Text } from "@/infrastructure/ui/Typography";
 
 import styles from "./LoadingState.module.scss";
 

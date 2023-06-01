@@ -8,9 +8,9 @@ import { LogIn, User } from "react-feather";
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import profileImage from "public/images/illustrations/profile.svg";
-import { Box } from "modules/common/components/Box";
-import { IconButton } from "modules/common/components/IconButton";
-import { H2, Text } from "modules/common/components/Typography";
+import { Box } from "@/infrastructure/ui/Box";
+import { IconButton } from "@/infrastructure/ui/IconButton";
+import { H2, Text } from "@/infrastructure/ui/Typography";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 import styles from "./ProfileCard.module.scss";

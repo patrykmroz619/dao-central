@@ -5,8 +5,8 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { LogIn } from "react-feather";
 
 import { useIsBrowser } from "modules/common/hooks/useIsBrowser";
-import { Text } from "modules/common/components/Typography";
-import { IconButton } from "modules/common/components/IconButton";
+import { Text } from "@/infrastructure/ui/Typography";
+import { IconButton } from "@/infrastructure/ui/IconButton";
 
 import styles from "./WalletLogin.module.scss";
 import { useLoginByWallet } from "modules/auth/hooks/useLoginByWallet";

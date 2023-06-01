@@ -2,7 +2,7 @@ import { ChevronDown } from "react-feather";
 import { motion, AnimatePresence, MotionProps } from "framer-motion";
 
 import { useBoolean } from "modules/common/hooks/useBoolean";
-import { Text } from "modules/common/components/Typography";
+import { Text } from "@/infrastructure/ui/Typography";
 
 import styles from "./FaqItem.module.scss";
 

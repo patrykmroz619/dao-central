@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Image from "next/image";
 
-import { Text } from "modules/common/components/Typography";
+import { Text } from "@/infrastructure/ui/Typography";
 import errorIllustration from "public/images/illustrations/error.svg";
 
 import styles from "./ErrorView.module.scss";

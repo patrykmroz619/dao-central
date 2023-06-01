@@ -7,8 +7,8 @@ import { ExternalLink } from "react-feather";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Table, TableConfig } from "modules/common/components/Table";
-import { NoData } from "modules/common/components/NoData";
+import { Table, TableConfig } from "@/infrastructure/ui/Table";
+import { NoData } from "@/infrastructure/ui/NoData";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 import { getChainData } from "modules/blockchain/utils/getChainData";
 import { DaoData } from "modules/dao/types/daoData.type";

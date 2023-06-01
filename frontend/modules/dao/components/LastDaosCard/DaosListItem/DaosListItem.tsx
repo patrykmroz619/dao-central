@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Button } from "modules/common/components/Button";
-import { H3, Text } from "modules/common/components/Typography";
+import { Button } from "@/infrastructure/ui/Button";
+import { H3, Text } from "@/infrastructure/ui/Typography";
 import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
 
 import styles from "./DaosListItem.module.scss";

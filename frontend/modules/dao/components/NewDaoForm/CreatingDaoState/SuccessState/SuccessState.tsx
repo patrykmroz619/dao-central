@@ -1,6 +1,6 @@
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
-import { InfoBox, INFO_BOX_VARIANT } from "modules/common/components/InfoBox";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
 
 import styles from "./SuccessState.module.scss";
 

@@ -7,8 +7,8 @@ import { Plus } from "react-feather";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { IconButton } from "modules/common/components/IconButton";
-import { Modal } from "modules/common/components/Modal";
+import { IconButton } from "@/infrastructure/ui/IconButton";
+import { Modal } from "@/infrastructure/ui/Modal";
 import { useBoolean } from "modules/common/hooks/useBoolean";
 import { NewVotingForm } from "./NewVotingForm";
 import { useIsBrowser } from "modules/common/hooks/useIsBrowser";

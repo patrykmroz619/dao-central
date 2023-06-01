@@ -10,7 +10,7 @@ import {
   LogIn,
 } from "react-feather";
 
-import { NavLink } from "modules/common/components/NavLink";
+import { NavLink } from "@/infrastructure/ui/NavLink";
 import { usePanelLayoutState } from "modules/layout/providers/PanelLayoutStateProvider";
 import { LogoutButton } from "modules/auth/components/LogoutButton";
 

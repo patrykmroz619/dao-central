@@ -1,8 +1,8 @@
 import { Language } from "modules/internationalization/types";
 import { useServerTranslation } from "modules/internationalization/useTranslation/server";
 import { DefaultPageWrapper } from "modules/layout/components/DefaultPageWrapper";
-import { H2 } from "modules/common/components/Typography";
-import { Box } from "modules/common/components/Box";
+import { H2 } from "@/infrastructure/ui/Typography";
+import { Box } from "@/infrastructure/ui/Box";
 import { DaoService } from "modules/dao/services/daoService";
 import { DaoDetailsProvider } from "modules/dao/providers/DaoDetailsProvider";
 import { DaoDetails } from "modules/dao/components/DaoDetails";

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { InfoBox, INFO_BOX_VARIANT } from "modules/common/components/InfoBox";
+import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/InfoBox";
 import styles from "./SuccessState.module.scss";
 
 type SuccessStateProps = {

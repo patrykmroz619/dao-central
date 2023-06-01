@@ -1,10 +1,10 @@
 import { useNetwork } from "wagmi";
 
-import { Spinner } from "modules/common/components/Spinner";
-import { Text } from "modules/common/components/Typography";
+import { Spinner } from "@/infrastructure/ui/Spinner";
+import { Text } from "@/infrastructure/ui/Typography";
 
 import styles from "./LoadingState.module.scss";
-import { InfoBox } from "modules/common/components/InfoBox";
+import { InfoBox } from "@/infrastructure/ui/InfoBox";
 
 type LoadingStateProps = {
   txHash?: string;

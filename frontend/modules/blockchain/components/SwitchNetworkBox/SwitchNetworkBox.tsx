@@ -3,9 +3,9 @@ import { useSwitchNetwork } from "wagmi";
 
 import { useCurrentLanguage } from "modules/internationalization/utils/useCurrentLanguage";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { InfoBox } from "modules/common/components/InfoBox";
-import { Text } from "modules/common/components/Typography";
-import { Button } from "modules/common/components/Button";
+import { InfoBox } from "@/infrastructure/ui/InfoBox";
+import { Text } from "@/infrastructure/ui/Typography";
+import { Button } from "@/infrastructure/ui/Button";
 
 import styles from "./SwitchNetworkBox.module.scss";
 

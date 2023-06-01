@@ -3,8 +3,8 @@ import { useNetwork } from "wagmi";
 
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useClientTranslation } from "modules/internationalization/useTranslation/client";
-import { Button } from "modules/common/components/Button";
-import { TextInput } from "modules/common/components/Input/TextInput";
+import { Button } from "@/infrastructure/ui/Button";
+import { TextInput } from "@/infrastructure/ui/Input/TextInput";
 import { useCreateVotingHandler } from "./useCreateVotingHandler";
 import { ASYNC_STATE } from "modules/common/hooks/useAsyncState";
 import { BlockchainTransactionState } from "modules/blockchain/components/BlockchainTransactionState";

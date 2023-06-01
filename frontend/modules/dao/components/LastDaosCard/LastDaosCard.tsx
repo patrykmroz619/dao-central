@@ -1,6 +1,6 @@
 import { getChainData } from "modules/blockchain/utils/getChainData";
-import { Box } from "modules/common/components/Box";
-import { H2 } from "modules/common/components/Typography";
+import { Box } from "@/infrastructure/ui/Box";
+import { H2 } from "@/infrastructure/ui/Typography";
 import { DaoData } from "modules/dao/types/daoData.type";
 import { InternationalizedProps } from "modules/internationalization/types";
 import { useServerTranslation } from "modules/internationalization/useTranslation/server";
