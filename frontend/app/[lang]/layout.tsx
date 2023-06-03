@@ -4,11 +4,13 @@ import { dir } from "i18next";
 
 import { RegisterHttpMocks } from "tests/mocks/http";
 import { GlobalProvider } from "modules/core/providers/GlobalProvider";
-import { languages } from "@/infrastructure/internationalization/settings";
-import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
-import { ThemeProvider } from "@/infrastructure/services/theme/ThemeProvider";
+import {
+  InternationalizedPageProps,
+  languages,
+} from "@/infrastructure/internationalization";
+import { ThemeProvider } from "@/infrastructure/services/theme";
 
-import "@/infrastructure/styles/global.scss";
+import "@/infrastructure/styles/global/index.scss";
 import styles from "./Panel.module.scss";
 
 const openSans = Open_Sans({

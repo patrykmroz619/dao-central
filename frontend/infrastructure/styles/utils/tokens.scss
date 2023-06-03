@@ -1,0 +1,50 @@
+@use "sass:map";
+
+// Spacings
+$spacing-100: 4px;
+$spacing-300: 8px;
+$spacing-500: 16px;
+$spacing-700: 32px;
+$spacing-900: 64px;
+
+// Font sizes
+$font-size-100: 0.9rem;
+$font-size-200: 1rem;
+$font-size-300: 1.2rem;
+$font-size-500: 1.4rem;
+$font-size-700: 1.8rem;
+$font-size-900: 2.2rem;
+
+// Borders
+$border-300: 1px solid;
+
+// Radius
+$border-radius-500: 8px;
+$border-radius-700: 16px;
+
+// Shadows
+$shadow-500: 0px 0px 12px 2px;
+
+// Sizings
+$form-element-height-500: 48px; // Height of interactive elements e.g. buttons, inputs
+$button-min-width-500: 200px;
+
+// Breakpoints for media queries
+$breakpoints: (
+  "mobile-300": 360px,
+  "mobile-500": 412px,
+  "tablet-300": 640px,
+  "tablet-500": 768px,
+  "tablet-700": 1024px,
+  "desktop-300": 1280px,
+  "desktop-500": 1536px,
+  "desktop-700": 1900px,
+);
+
+// Animation
+$transition-time-500: 0.3s;
+$transition-time-300: 0.15s;
+
+// Z-indexes
+$z-index-modal: 1000;
+$z-index-sidebar: 800;

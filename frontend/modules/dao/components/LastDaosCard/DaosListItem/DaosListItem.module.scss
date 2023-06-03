@@ -1,16 +1,16 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .item {
   display: flex;
-  gap: $spacing-m;
+  gap: $spacing-500;
   border-bottom: 1px solid get-color(gray-light);
-  padding-bottom: $spacing-m;
+  padding-bottom: $spacing-500;
 
   &__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: $spacing-s;
+    gap: $spacing-300;
   }
 
   &__buttonWrapper {

@@ -1,20 +1,20 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $spacing-100;
 }
 
 .label {
-  margin-left: $spacing-xs;
+  margin-left: $spacing-100;
   color: get-color(text);
   font-weight: 600;
   font-size: 0.9rem;
 }
 
 .helperText {
-  margin-left: $spacing-xs;
+  margin-left: $spacing-100;
   font-size: 0.8rem;
   font-weight: 600;
 

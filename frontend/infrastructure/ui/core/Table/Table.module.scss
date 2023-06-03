@@ -1,5 +1,4 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/mixins";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   width: 100%;
@@ -20,7 +19,7 @@
 .tableRow {
   border-bottom: 1px solid get-color(gray-light);
   background-color: transparent;
-  transition: $transition-time background-color;
+  transition: $transition-time-500 background-color;
 
   &__clickable {
     cursor: pointer;
@@ -32,7 +31,7 @@
 }
 
 .tableHeadCell {
-  padding: $spacing-m;
+  padding: $spacing-500;
 
   text-align: left;
   white-space: nowrap;
@@ -44,7 +43,7 @@
 
 .tableBody {
   width: 100%;
-  transition: $transition-time opacity;
+  transition: $transition-time-500 opacity;
 
   &__loading {
     opacity: 0.4;
@@ -52,7 +51,7 @@
 }
 
 .tableCell {
-  padding: $spacing-m;
+  padding: $spacing-500;
   white-space: nowrap;
 
   &:last-child {

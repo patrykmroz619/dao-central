@@ -1,12 +1,11 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: $spacing-m;
+  gap: $spacing-500;
 }
 
 .heading {
@@ -19,7 +18,7 @@
     color: get-color(primary);
   }
 
-  @include min-vw($breakpoint-xl) {
+  @include min-device(desktop-300) {
     font-size: 2.4rem;
 
     strong {

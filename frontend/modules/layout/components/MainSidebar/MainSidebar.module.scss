@@ -1,11 +1,10 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .sidebar {
   transform: translateX(-45px);
   z-index: $z-index-sidebar;
 
-  @include max-vw($breakpoint-lg) {
+  @include max-device(tablet-700) {
     position: fixed;
     top: 0;
     left: 0;

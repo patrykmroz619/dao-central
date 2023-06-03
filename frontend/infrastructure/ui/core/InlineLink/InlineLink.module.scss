@@ -1,13 +1,13 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: $spacing-s;
+  gap: $spacing-300;
   color: get-color(primary-dark);
   text-decoration: none;
-  transition: $transition-time color;
+  transition: $transition-time-500 color;
 
   &::after {
     content: "";
@@ -18,7 +18,7 @@
     height: 1px;
     background-color: get-color(primary-light);
     transform: scaleX(0);
-    transition: $transition-time transform;
+    transition: $transition-time-500 transform;
   }
 
   &:hover {

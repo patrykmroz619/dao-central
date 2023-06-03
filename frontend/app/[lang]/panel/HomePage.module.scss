@@ -1,12 +1,11 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .cardsWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: $spacing-l;
-  margin-top: $spacing-l;
+  gap: $spacing-700;
+  margin-top: $spacing-700;
 
   @include min-vw(1100px) {
     flex-wrap: nowrap;

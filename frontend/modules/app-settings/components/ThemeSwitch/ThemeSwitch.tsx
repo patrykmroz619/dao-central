@@ -1,16 +1,15 @@
 "use client";
 
+import { ChangeEvent } from "react";
 import { Sun, Moon } from "react-feather";
 
 import { IconSwitch } from "@/infrastructure/ui/core";
 import { COLOR_THEME, useTheme } from "@/infrastructure/services/theme";
-import { ChangeEvent } from "react";
 
 export const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.checked);
     setTheme(event.target.checked ? COLOR_THEME.LIGHT : COLOR_THEME.DARK);
   };
 

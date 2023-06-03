@@ -1,19 +1,19 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
-  gap: $spacing-xs;
+  gap: $spacing-100;
 }
 
 .languageBtn {
   background-color: get-color(background);
-  border-radius: $border-radius-small;
-  padding: $spacing-s;
-  transition: $transition-time background-color;
+  border-radius: $border-radius-500;
+  padding: $spacing-300;
+  transition: $transition-time-500 background-color;
 
   img {
     filter: grayscale(0.25);
-    transition: $transition-time filter;
+    transition: $transition-time-500 filter;
   }
 
   &:hover {

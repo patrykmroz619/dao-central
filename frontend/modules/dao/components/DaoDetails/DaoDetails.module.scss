@@ -1,16 +1,16 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-m;
-  margin-top: $spacing-l;
+  gap: $spacing-500;
+  margin-top: $spacing-700;
 
   &__item {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: $spacing-s;
+    gap: $spacing-300;
 
     strong {
       font-weight: 700;
@@ -25,13 +25,13 @@
 }
 
 .separator {
-  margin: $spacing-m 0;
+  margin: $spacing-500 0;
 }
 
 .description {
   line-height: 1.42;
   tab-size: 4;
-  font-size: $font-size-small;
+  font-size: $font-size-100;
 
   h1 {
     font-size: 2em;

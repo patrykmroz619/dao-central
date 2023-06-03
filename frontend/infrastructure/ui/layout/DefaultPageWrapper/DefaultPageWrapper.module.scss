@@ -1,10 +1,9 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
-  padding: $spacing-m;
+  padding: $spacing-500;
 
-  @include min-vw($breakpoint-lg) {
-    padding: $spacing-l;
+  @include min-device(tablet-700) {
+    padding: $spacing-700;
   }
 }

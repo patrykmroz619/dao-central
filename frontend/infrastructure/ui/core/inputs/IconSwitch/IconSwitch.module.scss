@@ -1,11 +1,11 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: inline-block;
   position: relative;
   background-color: get-color(background);
-  height: $form-element-height;
-  border-radius: $form-element-height;
+  height: $form-element-height-500;
+  border-radius: $form-element-height-500;
   width: fit-content;
 }
 
@@ -19,12 +19,12 @@
 .label {
   position: relative;
   display: flex;
-  gap: $spacing-xs;
-  padding: $spacing-s;
+  gap: $spacing-100;
+  padding: $spacing-300;
   cursor: pointer;
 }
 
-$iconSize: $form-element-height - 2 * $spacing-s;
+$iconSize: $form-element-height-500 - 2 * $spacing-300;
 
 .icon {
   width: $iconSize;
@@ -32,9 +32,9 @@ $iconSize: $form-element-height - 2 * $spacing-s;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: $spacing-xs;
+  padding: $spacing-100;
   color: get-color(gray-light);
-  transition: $transition-time color;
+  transition: $transition-time-500 color;
   z-index: 1;
 
   &__checked {
@@ -45,10 +45,10 @@ $iconSize: $form-element-height - 2 * $spacing-s;
 .indicator {
   position: absolute;
   top: 0;
-  margin: $spacing-s;
+  margin: $spacing-300;
   width: $iconSize;
   height: $iconSize;
   border-radius: 100px;
-  transition: $transition-time background-color;
+  transition: $transition-time-500 background-color;
   background-color: get-color(primary);
 }

@@ -1,31 +1,30 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  margin: $spacing-m;
-  gap: $spacing-m;
+  margin: $spacing-500;
+  gap: $spacing-500;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $spacing-l;
+  padding: $spacing-700;
   background-color: get-color(primary);
-  border-radius: $border-radius-big;
+  border-radius: $border-radius-700;
 
-  @include min-vw($breakpoint-sm) {
-    padding: $spacing-xl;
+  @include min-device(mobile-300) {
+    padding: $spacing-900;
   }
 
   &__heading {
-    margin: $spacing-l 0;
+    margin: $spacing-700 0;
     color: get-color(primary-inverted) !important;
     font-size: 2.8rem;
 
-    @include min-vw($breakpoint-md) {
+    @include min-device(tablet-500) {
       font-size: 4.2rem;
     }
   }
@@ -41,19 +40,19 @@
   &__link {
     display: block;
     width: 160px;
-    margin: $spacing-l 0 0 0;
-    padding: $spacing-m;
+    margin: $spacing-700 0 0 0;
+    padding: $spacing-500;
     background-color: get-color(primary-inverted);
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-500;
     text-align: center;
-    font-size: $font-size-small;
+    font-size: $font-size-100;
     font-weight: 700;
     color: get-color(text);
     text-transform: uppercase;
     text-decoration: none;
-    transition: $transition-time background-color;
+    transition: $transition-time-500 background-color;
 
-    @include max-vw($breakpoint-sm) {
+    @include max-device(mobile-300) {
       margin-left: auto;
     }
 
@@ -63,7 +62,7 @@
   }
 
   &__illustration {
-    @include max-vw($breakpoint-lg) {
+    @include max-device(tablet-700) {
       display: none;
     }
   }
@@ -72,7 +71,7 @@
 .faqBox {
   display: flex;
   flex-direction: column;
-  gap: $spacing-m;
+  gap: $spacing-500;
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;

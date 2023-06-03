@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "./tokens.scss";
 
 @mixin custom-scrollbar {
   @media (hover: hover) {
@@ -16,7 +16,7 @@
       outline: 2px solid get-color(primary-light);
       cursor: pointer;
 
-      transition: $transition-time;
+      transition: $transition-time-500;
 
       &:hover {
         background-color: get-color(primary);

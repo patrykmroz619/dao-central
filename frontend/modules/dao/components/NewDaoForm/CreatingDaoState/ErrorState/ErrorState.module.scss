@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .box {
   height: 125px;
@@ -7,6 +7,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: $spacing-m;
+    gap: $spacing-500;
   }
 }

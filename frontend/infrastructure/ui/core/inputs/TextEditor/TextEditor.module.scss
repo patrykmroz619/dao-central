@@ -1,13 +1,13 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: $spacing-xs;
+  gap: $spacing-100;
 }
 
 .label {
-  margin-left: $spacing-xs;
+  margin-left: $spacing-100;
   color: get-color(text);
   font-weight: 600;
   font-size: 0.9rem;
@@ -19,11 +19,11 @@
   }
 
   & > div:first-child {
-    border-radius: $border-radius-small $border-radius-small 0 0;
+    border-radius: $border-radius-500 $border-radius-500 0 0;
   }
 
   & > div:last-child {
-    border-radius: 0 0 $border-radius-small $border-radius-small;
+    border-radius: 0 0 $border-radius-500 $border-radius-500;
 
     strong {
       font-weight: 700;

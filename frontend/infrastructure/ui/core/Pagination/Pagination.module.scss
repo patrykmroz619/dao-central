@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .container {
   display: flex;
@@ -14,7 +14,7 @@
   font-weight: 500;
   transition: 0.3s;
   cursor: pointer;
-  border-radius: $border-radius-small;
+  border-radius: $border-radius-500;
 
   &:hover {
     background-color: get-color(primary-light);

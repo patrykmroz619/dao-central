@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .background {
   position: fixed;
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: $spacing-m;
+  padding: $spacing-500;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -19,19 +19,19 @@
   z-index: $z-index-modal + 1;
   width: 100%;
   max-width: 425px;
-  padding: $spacing-m;
+  padding: $spacing-500;
   background-color: get-color(box);
-  border-radius: $border-radius-big;
-  box-shadow: $shadow;
+  border-radius: $border-radius-700;
+  box-shadow: $shadow-500 get-color(gray-light);
 
   &__heading {
-    margin-bottom: $spacing-m;
+    margin-bottom: $spacing-500;
   }
 
   &__closeBtn {
     position: absolute;
-    top: $spacing-m;
-    right: $spacing-m;
+    top: $spacing-500;
+    right: $spacing-500;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@
     border: none;
     background-color: transparent;
     color: get-color(text);
-    transition: $transition-time color;
+    transition: $transition-time-500 color;
     cursor: pointer;
 
     &:hover {

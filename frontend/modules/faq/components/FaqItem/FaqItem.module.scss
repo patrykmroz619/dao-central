@@ -1,15 +1,15 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .faqItem {
   &__question {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: $spacing-m;
+    margin-bottom: $spacing-500;
     padding: 0;
     background-color: transparent;
     border: none;
-    font-size: $font-size-big;
+    font-size: $font-size-300;
     font-weight: 700;
     text-align: left;
     cursor: pointer;

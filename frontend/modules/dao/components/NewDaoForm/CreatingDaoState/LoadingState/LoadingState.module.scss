@@ -1,10 +1,10 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-m;
+  gap: $spacing-500;
 
   p {
     max-width: 400px;

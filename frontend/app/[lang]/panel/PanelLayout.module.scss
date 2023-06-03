@@ -1,6 +1,4 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
-@import "@/infrastructure/styles/mixins";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
@@ -14,7 +12,7 @@
 
     @include custom-scrollbar;
 
-    @include min-vw($breakpoint-lg) {
+    @include min-device(tablet-700) {
       margin-left: -45px;
     }
   }
@@ -29,24 +27,24 @@
   height: 100%;
   padding-left: 45px;
   background-color: get-color(box);
-  box-shadow: $shadow;
-  gap: $spacing-m;
+  box-shadow: $shadow-500 get-color(gray-light);
+  gap: $spacing-500;
   overflow-y: auto;
 
   &__logo {
-    margin-top: $spacing-m;
+    margin-top: $spacing-500;
   }
 
   &__heading {
-    margin-bottom: $spacing-l;
+    margin-bottom: $spacing-700;
   }
 }
 
 .settings {
-  margin-top: $spacing-l;
-  margin-bottom: $spacing-l;
+  margin-top: $spacing-700;
+  margin-bottom: $spacing-700;
   justify-self: flex-end;
   display: flex;
-  gap: $spacing-s;
+  gap: $spacing-300;
   align-items: center;
 }

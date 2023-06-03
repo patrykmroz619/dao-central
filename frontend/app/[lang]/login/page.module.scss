@@ -1,4 +1,3 @@
-@import "@/infrastructure/styles/variables.scss";
 @import "@/infrastructure/styles/media.scss";
 
 .main {
@@ -7,9 +6,9 @@
   align-items: center;
   justify-content: center;
   min-height: 100vw;
-  padding: $spacing-m;
+  padding: $spacing-500;
 
-  @include min-vw($breakpoint-lg) {
+  @include min-device(tablet-700) {
     flex-direction: row;
     height: 100vh;
     min-height: auto;
@@ -21,15 +20,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: $spacing-l;
+  gap: $spacing-700;
   width: 100%;
   max-width: 600px;
-  padding: $spacing-m;
+  padding: $spacing-500;
 
   &__content {
     display: flex;
     flex-direction: column;
-    gap: $spacing-l;
+    gap: $spacing-700;
     max-width: 400px;
   }
 }
@@ -46,21 +45,21 @@
     height: auto;
   }
 
-  @include min-vw($breakpoint-lg) {
+  @include min-device(tablet-700) {
     width: 100%;
     flex-grow: 1;
     height: 100%;
     background-color: get-color(primary);
-    border-radius: $border-radius-big;
+    border-radius: $border-radius-700;
   }
 }
 
 .settings {
   background-color: get-color(box);
-  border-radius: $border-radius-small;
-  padding: $spacing-s;
+  border-radius: $border-radius-500;
+  padding: $spacing-300;
   display: flex;
   align-items: center;
-  gap: $spacing-s;
+  gap: $spacing-300;
   width: fit-content;
 }

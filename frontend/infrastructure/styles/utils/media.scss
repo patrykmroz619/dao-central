@@ -1,0 +1,39 @@
+@use "sass:map";
+
+@import "./tokens.scss";
+
+@mixin min-vw($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin max-vw($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin min-device($device) {
+  $width: map.get($breakpoints, $device);
+
+  @if $width == null {
+    @error "Device #{$device} not found";
+  }
+
+  @include min-vw($width) {
+    @content;
+  }
+}
+
+@mixin max-device($device) {
+  $width: map.get($breakpoints, $device);
+
+  @if $width == null {
+    @error "Device #{$device} not found";
+  }
+
+  @include max-vw($width) {
+    @content;
+  }
+}

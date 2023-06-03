@@ -1,7 +1,7 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: $spacing-l;
+  gap: $spacing-700;
 }

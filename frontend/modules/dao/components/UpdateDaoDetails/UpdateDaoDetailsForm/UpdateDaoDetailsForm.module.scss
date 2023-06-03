@@ -1,8 +1,8 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: $spacing-m;
-  margin-top: $spacing-m;
+  gap: $spacing-500;
+  margin-top: $spacing-500;
 }

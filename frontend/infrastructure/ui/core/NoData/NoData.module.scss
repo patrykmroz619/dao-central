@@ -1,9 +1,9 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .noDataWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-m;
-  padding: $spacing-xl $spacing-m;
+  gap: $spacing-500;
+  padding: $spacing-900 $spacing-500;
 }

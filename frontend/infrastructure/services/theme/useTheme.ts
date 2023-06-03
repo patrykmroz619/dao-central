@@ -1,3 +1,5 @@
+"use client";
+
 import { useTheme as useNextTheme } from "next-themes";
 import { useCallback, useMemo } from "react";
 import { COLOR_THEME } from "./types";

@@ -1,21 +1,20 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $spacing-s $spacing-l;
+  padding: $spacing-300 $spacing-700;
   background-color: get-color(box);
-  box-shadow: $shadow;
+  box-shadow: $shadow-500 get-color(gray-light);
 
   &__brand {
     display: flex;
     align-items: center;
-    gap: $spacing-m;
+    gap: $spacing-500;
   }
 
-  @include min-vw($breakpoint-lg) {
+  @include min-device(tablet-700) {
     display: none;
   }
 }

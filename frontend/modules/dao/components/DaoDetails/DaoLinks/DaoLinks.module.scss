@@ -1,8 +1,8 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .list {
   display: flex;
-  gap: $spacing-m;
+  gap: $spacing-500;
   justify-content: flex-end;
   align-items: center;
 }

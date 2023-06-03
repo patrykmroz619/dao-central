@@ -1,9 +1,9 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: $spacing-s;
+  gap: $spacing-300;
 }
 
 .label {

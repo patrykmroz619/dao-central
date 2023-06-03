@@ -1,11 +1,11 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .input {
-  padding: 0 $spacing-m;
-  height: $form-element-height;
-  border-radius: $border-radius-small;
-  border: $primary-border;
-  transition: $transition-time;
+  padding: 0 $spacing-500;
+  height: $form-element-height-500;
+  border-radius: $border-radius-500;
+  border: $border-300 get-color(gray-light);
+  transition: $transition-time-500;
   font-family: inherit;
   font-weight: 500;
 

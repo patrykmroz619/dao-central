@@ -1,17 +1,17 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .heading {
-  margin-bottom: $spacing-m;
+  margin-bottom: $spacing-500;
 }
 
 .updateDetailsBtnWrapper {
   display: flex;
   justify-content: flex-end;
-  margin-top: $spacing-m;
+  margin-top: $spacing-500;
 }
 
 .votingBox {
-  margin-top: $spacing-l;
+  margin-top: $spacing-700;
 
   &__header {
     display: flex;

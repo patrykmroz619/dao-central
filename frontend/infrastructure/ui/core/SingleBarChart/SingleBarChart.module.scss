@@ -1,11 +1,9 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/keyframes";
-
+@import "@/infrastructure/styles/utils";
 .chart {
   &__labels {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $spacing-s;
+    margin-bottom: $spacing-300;
   }
 
   &__label {
@@ -26,7 +24,7 @@
     width: 100%;
     height: 24px;
     background-color: get-color(gray-light);
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-500;
     overflow: hidden;
 
     &::after {

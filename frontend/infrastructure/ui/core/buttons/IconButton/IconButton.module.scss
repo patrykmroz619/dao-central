@@ -1,5 +1,4 @@
-@import "@/infrastructure/styles/variables.scss";
-@import "@/infrastructure/styles/keyframes.scss";
+@import "@/infrastructure/styles/utils";
 
 .button {
   justify-content: space-between;
@@ -21,14 +20,14 @@
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    min-width: $button-min-width - $form-element-height;
+    min-width: $button-min-width-500 - $form-element-height-500;
   }
 
   .iconWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: $form-element-height;
-    height: $form-element-height;
+    width: $form-element-height-500;
+    height: $form-element-height-500;
   }
 }

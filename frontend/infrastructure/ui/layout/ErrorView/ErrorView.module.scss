@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   position: absolute;
@@ -12,10 +12,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-m;
+  gap: $spacing-500;
 
   &__text {
-    font-size: $font-size-big !important;
+    font-size: $font-size-300 !important;
     font-weight: 700;
   }
 }

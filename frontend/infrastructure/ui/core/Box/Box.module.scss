@@ -1,13 +1,12 @@
-@import "@/infrastructure/styles/variables";
-@import "@/infrastructure/styles/media";
+@import "@/infrastructure/styles/utils";
 
 .box {
   background-color: get-color(box);
-  box-shadow: $shadow;
-  padding: $spacing-m;
-  border-radius: $border-radius-small;
+  box-shadow: $shadow-500 get-color(gray-light);
+  padding: $spacing-500;
+  border-radius: $border-radius-500;
 
-  @include min-vw($breakpoint-md) {
-    padding: $spacing-l;
+  @include min-device(tablet-500) {
+    padding: $spacing-700;
   }
 }

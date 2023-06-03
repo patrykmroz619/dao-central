@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   display: flex;
@@ -6,6 +6,6 @@
 }
 
 .pagination {
-  margin-top: $spacing-m;
+  margin-top: $spacing-500;
   align-self: flex-end;
 }

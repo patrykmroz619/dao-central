@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/variables";
+@import "@/infrastructure/styles/utils";
 
 .wrapper {
   position: absolute;
@@ -8,5 +8,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-m;
+  gap: $spacing-500;
 }
