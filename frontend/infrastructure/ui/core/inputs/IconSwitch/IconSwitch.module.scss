@@ -1,0 +1,54 @@
+@import "@/infrastructure/styles/variables";
+
+.wrapper {
+  display: inline-block;
+  position: relative;
+  background-color: get-color(background);
+  height: $form-element-height;
+  border-radius: $form-element-height;
+  width: fit-content;
+}
+
+.input {
+  display: none;
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}
+
+.label {
+  position: relative;
+  display: flex;
+  gap: $spacing-xs;
+  padding: $spacing-s;
+  cursor: pointer;
+}
+
+$iconSize: $form-element-height - 2 * $spacing-s;
+
+.icon {
+  width: $iconSize;
+  height: $iconSize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-xs;
+  color: get-color(gray-light);
+  transition: $transition-time color;
+  z-index: 1;
+
+  &__checked {
+    color: get-color(primary-inverted);
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  margin: $spacing-s;
+  width: $iconSize;
+  height: $iconSize;
+  border-radius: 100px;
+  transition: $transition-time background-color;
+  background-color: get-color(primary);
+}

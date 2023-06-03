@@ -8,14 +8,14 @@
 
 .label {
   margin-left: $spacing-xs;
-  color: $text-color;
+  color: get-color(text);
   font-weight: 600;
   font-size: 0.9rem;
 }
 
 .editor {
   & > div {
-    border-color: $gray-light;
+    border-color: get-color(gray-light);
   }
 
   & > div:first-child {

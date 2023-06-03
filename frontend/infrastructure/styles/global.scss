@@ -1,4 +1,7 @@
 @import "./reset.scss";
+@import "../services/theme/themes.scss";
+
+@include theme-variables;
 
 body {
   min-height: 100vh;

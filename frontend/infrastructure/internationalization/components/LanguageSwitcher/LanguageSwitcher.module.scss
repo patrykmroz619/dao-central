@@ -6,18 +6,18 @@
 }
 
 .languageBtn {
-  background-color: $background;
+  background-color: get-color(background);
   border-radius: $border-radius-small;
   padding: $spacing-s;
   transition: $transition-time background-color;
 
   img {
-    filter: grayscale(0.65);
+    filter: grayscale(0.25);
     transition: $transition-time filter;
   }
 
   &:hover {
-    background-color: $gray-light;
+    background-color: get-color(gray-light);
 
     img {
       filter: grayscale(0);

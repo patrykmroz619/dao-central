@@ -16,7 +16,7 @@
 
   strong {
     font-size: 2.7rem;
-    color: $primary-color;
+    color: get-color(primary);
   }
 
   @include min-vw($breakpoint-xl) {

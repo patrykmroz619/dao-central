@@ -7,7 +7,7 @@
 
   &__item {
     strong {
-      color: $primary-color-dark;
+      color: get-color(primary-dark);
       font-weight: 700;
     }
   }

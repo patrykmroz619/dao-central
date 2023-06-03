@@ -12,8 +12,8 @@
   position: relative;
   width: 125px;
   text-align: center;
-  color: $gray;
-  border-bottom: 2px solid $gray-light;
+  color: get-color(gray-500);
+  border-bottom: 2px solid get-color(gray-light);
 
   button {
     width: 100%;
@@ -27,12 +27,12 @@
     transition: $transition-time color;
 
     &:hover {
-      color: $primary-color;
+      color: get-color(primary);
     }
   }
 
   &__active {
-    color: $text-color;
+    color: get-color(text);
   }
 
   &__underline {
@@ -41,6 +41,6 @@
     right: 0;
     bottom: -2px;
     height: 2px;
-    background-color: $primary-color;
+    background-color: get-color(primary);
   }
 }

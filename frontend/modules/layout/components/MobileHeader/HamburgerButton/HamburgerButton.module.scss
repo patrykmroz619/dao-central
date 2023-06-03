@@ -19,7 +19,7 @@
 
   &:hover {
     svg {
-      color: $primary-color;
+      color: get-color(primary);
     }
   }
 }

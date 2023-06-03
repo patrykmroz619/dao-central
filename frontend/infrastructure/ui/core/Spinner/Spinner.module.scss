@@ -16,8 +16,8 @@
     border-radius: 100px;
 
     &:first-child {
-      border-left-color: $primary-color;
-      border-right-color: $primary-color;
+      border-left-color: get-color(primary);
+      border-right-color: get-color(primary);
       animation: spin 2000ms linear infinite;
     }
 
@@ -26,8 +26,8 @@
       right: 15%;
       bottom: 15%;
       left: 15%;
-      border-top-color: $primary-color;
-      border-bottom-color: $primary-color;
+      border-top-color: get-color(primary);
+      border-bottom-color: get-color(primary);
       animation: spin-reverse 2000ms linear infinite;
     }
   }

@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   padding: $spacing-l;
-  background-color: $primary-color;
+  background-color: get-color(primary);
   border-radius: $border-radius-big;
 
   @include min-vw($breakpoint-sm) {
@@ -22,7 +22,7 @@
 
   &__heading {
     margin: $spacing-l 0;
-    color: $primary-color-inverted !important;
+    color: get-color(primary-inverted) !important;
     font-size: 2.8rem;
 
     @include min-vw($breakpoint-md) {
@@ -31,11 +31,11 @@
   }
 
   &__subheading {
-    color: $primary-color-inverted !important;
+    color: get-color(primary-inverted) !important;
   }
 
   &__description {
-    color: $primary-color-inverted !important;
+    color: get-color(primary-inverted) !important;
   }
 
   &__link {
@@ -43,12 +43,12 @@
     width: 160px;
     margin: $spacing-l 0 0 0;
     padding: $spacing-m;
-    background-color: $primary-color-inverted;
+    background-color: get-color(primary-inverted);
     border-radius: $border-radius-small;
     text-align: center;
     font-size: $font-size-small;
     font-weight: 700;
-    color: $text-color;
+    color: get-color(text);
     text-transform: uppercase;
     text-decoration: none;
     transition: $transition-time background-color;
@@ -58,7 +58,7 @@
     }
 
     &:hover {
-      background-color: $gray-light;
+      background-color: get-color(gray-light);
     }
   }
 

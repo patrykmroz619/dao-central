@@ -8,7 +8,7 @@
 
 .label {
   margin-left: $spacing-xs;
-  color: $text-color;
+  color: get-color(text);
   font-weight: 600;
   font-size: 0.9rem;
 }
@@ -19,10 +19,10 @@
   font-weight: 600;
 
   &__success {
-    color: $success;
+    color: get-color(success);
   }
 
   &__error {
-    color: $danger;
+    color: get-color(danger);
   }
 }

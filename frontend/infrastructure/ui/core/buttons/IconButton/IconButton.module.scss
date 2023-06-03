@@ -7,7 +7,7 @@
 
   &_loading {
     &:disabled {
-      background-color: $primary-color-light;
+      background-color: get-color(primary-light);
     }
 
     .iconWrapper {

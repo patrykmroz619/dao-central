@@ -3,7 +3,7 @@
 .item {
   display: flex;
   gap: $spacing-m;
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px solid get-color(gray-light);
   padding-bottom: $spacing-m;
 
   &__content {

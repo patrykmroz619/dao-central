@@ -2,5 +2,5 @@
 
 .body {
   position: relative;
-  background-color: $background;
+  background-color: get-color(background);
 }

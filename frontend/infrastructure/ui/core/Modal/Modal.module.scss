@@ -20,7 +20,7 @@
   width: 100%;
   max-width: 425px;
   padding: $spacing-m;
-  background-color: $box-color;
+  background-color: get-color(box);
   border-radius: $border-radius-big;
   box-shadow: $shadow;
 
@@ -38,12 +38,12 @@
     align-items: center;
     border: none;
     background-color: transparent;
-    color: $text-color;
+    color: get-color(text);
     transition: $transition-time color;
     cursor: pointer;
 
     &:hover {
-      color: $primary-color;
+      color: get-color(primary);
     }
   }
 }

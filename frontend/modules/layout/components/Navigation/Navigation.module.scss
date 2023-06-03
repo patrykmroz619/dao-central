@@ -20,7 +20,7 @@
       left: -45px;
       bottom: 0;
       width: 45px + 8px;
-      background-color: $primary-color;
+      background-color: get-color(primary);
       opacity: 0;
       border-radius: $border-radius-small;
       transition: $transition-time;
@@ -39,7 +39,7 @@
     height: $form-element-height;
     padding: 0 $spacing-m;
     background-color: transparent;
-    color: $text-color;
+    color: get-color(text);
     font-weight: 500;
     font-size: $font-size-normal;
     text-decoration: none;
@@ -50,18 +50,18 @@
     cursor: pointer;
 
     &:hover {
-      background-color: $primary-color-light;
-      color: $primary-color-inverted;
+      background-color: get-color(primary-light);
+      color: get-color(primary-inverted);
     }
 
     &_active {
-      background-color: $primary-color;
-      color: $primary-color-inverted;
+      background-color: get-color(primary);
+      color: get-color(primary-inverted);
     }
 
     &_disabled {
       pointer-events: none;
-      color: $gray;
+      color: get-color(gray-500);
     }
 
     span {
@@ -69,11 +69,11 @@
     }
 
     &_logout {
-      color: $danger;
+      color: get-color(danger);
 
       &:hover {
-        color: $danger;
-        background-color: $danger-light;
+        color: get-color(danger);
+        background-color: get-color(danger-light);
       }
     }
   }

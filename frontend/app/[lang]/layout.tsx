@@ -4,11 +4,12 @@ import { dir } from "i18next";
 
 import { RegisterHttpMocks } from "tests/mocks/http";
 import { GlobalProvider } from "modules/core/providers/GlobalProvider";
-import "@/infrastructure/styles/global.scss";
-
-import styles from "./Panel.module.scss";
 import { languages } from "@/infrastructure/internationalization/settings";
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
+import { ThemeProvider } from "@/infrastructure/services/theme/ThemeProvider";
+
+import "@/infrastructure/styles/global.scss";
+import styles from "./Panel.module.scss";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "500", "700"],
@@ -95,8 +96,10 @@ export default function RootLayout(props: RootLayoutProps) {
     <html className={openSans.className} lang={lang} dir={dir(lang)}>
       <body className={styles.body}>
         <RegisterHttpMocks />
-        <GlobalProvider>{children}</GlobalProvider>
-        <div id="modal" />
+        <ThemeProvider>
+          <GlobalProvider>{children}</GlobalProvider>
+          <div id="modal" />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -9,6 +9,7 @@ import { WalletLogin } from "modules/auth/components/WalletLogin";
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
 import { LanguageSwitcher } from "@/infrastructure/internationalization/components/LanguageSwitcher";
+import { ThemeSwitch } from "@/modules/app-settings";
 
 import styles from "./page.module.scss";
 
@@ -31,7 +32,10 @@ export default async function LoginPage(props: InternationalizedPageProps) {
               {t("learn-more")}{" "}
               <InlineLink href="/help">{t("help-center")}</InlineLink>
             </Text>
-            <LanguageSwitcher />
+            <div className={styles.settings}>
+              <LanguageSwitcher />
+              <ThemeSwitch />
+            </div>
           </div>
         </section>
         <div className={styles.illustrationWrapper}>

@@ -11,14 +11,14 @@
 
   &:focus {
     outline: none;
-    border-color: $primary-color;
+    border-color: get-color(primary);
   }
 
   &__error {
-    border-color: $danger;
+    border-color: get-color(danger);
   }
 
   &__success {
-    border-color: $success;
+    border-color: get-color(success);
   }
 }

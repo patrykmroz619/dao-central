@@ -2,7 +2,7 @@
 @import "@/infrastructure/styles/media";
 
 .box {
-  background-color: $box-color;
+  background-color: get-color(box);
   box-shadow: $shadow;
   padding: $spacing-m;
   border-radius: $border-radius-small;

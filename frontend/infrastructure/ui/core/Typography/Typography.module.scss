@@ -3,24 +3,24 @@
 .h1 {
   font-size: $font-size-h1-big;
   font-weight: 700;
-  color: $heading-color;
+  color: get-color(heading);
 }
 
 .h2 {
   font-size: $font-size-h2-big;
   font-weight: 700;
-  color: $heading-color;
+  color: get-color(heading);
 }
 
 .h3 {
   font-size: $font-size-h3-big;
   font-weight: 700;
-  color: $heading-color;
+  color: get-color(heading);
 }
 
 .text {
   font-size: $font-size-normal;
-  color: $text-color;
+  color: get-color(text);
 
   &__bold {
     font-weight: 600;
@@ -36,5 +36,5 @@
 }
 
 .textDanger {
-  color: $danger;
+  color: get-color(danger);
 }

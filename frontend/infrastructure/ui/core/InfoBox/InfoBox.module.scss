@@ -12,12 +12,12 @@
   }
 
   &__success {
-    border: 1px solid $success;
-    background-color: transparentize($success, 0.75);
+    border: 1px solid get-color(success);
+    background-color: get-color(success-light);
   }
 
   &__danger {
-    border: 1px solid $danger;
-    background-color: transparentize($danger, 0.75);
+    border: 1px solid get-color(danger);
+    background-color: get-color(danger-light);
   }
 }

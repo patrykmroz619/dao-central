@@ -1,7 +1,7 @@
 @import "@/infrastructure/styles/variables";
 
 .proposal {
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px solid get-color(gray-light);
   padding-bottom: $spacing-m;
 
   &:last-child {
