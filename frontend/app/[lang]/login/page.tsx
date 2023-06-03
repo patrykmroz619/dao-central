@@ -8,8 +8,7 @@ import { WalletLogin } from "modules/auth/components/WalletLogin";
 
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { LanguageSwitcher } from "@/infrastructure/internationalization/components/LanguageSwitcher";
-import { ThemeSwitch } from "@/modules/app-settings";
+import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings";
 
 import styles from "./page.module.scss";
 

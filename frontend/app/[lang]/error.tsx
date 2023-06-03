@@ -1,7 +1,7 @@
 "use client";
 
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/hooks/useCurrentLanguage";
 import { ErrorView } from "@/infrastructure/ui/layout/ErrorView";
 
 const Error = () => {

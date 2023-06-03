@@ -1,5 +1,5 @@
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 import { InfoBox, INFO_BOX_VARIANT } from "@/infrastructure/ui/core/InfoBox";
 
 import styles from "./SuccessState.module.scss";

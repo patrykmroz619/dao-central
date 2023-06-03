@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 import ukFlag from "public/images/icons/uk-flag.svg";
 import plFlag from "public/images/icons/pl-flag.svg";
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 
 import styles from "./LanguageSwitcher.module.scss";
 

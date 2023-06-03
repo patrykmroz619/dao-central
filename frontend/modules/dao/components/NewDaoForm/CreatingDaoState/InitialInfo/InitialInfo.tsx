@@ -1,7 +1,7 @@
 import { Skeleton } from "@/infrastructure/ui/core/Skeleton";
 import { Text } from "@/infrastructure/ui/core/Typography";
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 import { useAccount, useBalance, useNetwork } from "wagmi";
 
 import styles from "./InitialInfo.module.scss";

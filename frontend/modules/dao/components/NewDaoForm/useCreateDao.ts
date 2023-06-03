@@ -15,7 +15,7 @@ import { useDaoService } from "modules/dao/hooks/useDaoService";
 import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 import { NFT_VOTING_FACTORY_CONTRACT_ABI } from "modules/dao/constants/nftVotingFactoryContractAbi";
 import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
 
 type CreateDaoFormData = {

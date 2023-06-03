@@ -1,10 +1,9 @@
 import Image from "next/image";
 
 import logo from "public/images/brand/logo-black.png";
-import { LanguageSwitcher } from "@/infrastructure/internationalization/components/LanguageSwitcher";
 import { H1 } from "@/infrastructure/ui/core/Typography";
 
-import { ThemeSwitch } from "@/modules/app-settings";
+import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings";
 import { PanelLayoutStateProvider } from "@/modules/layout/panel/providers/PanelLayoutStateProvider";
 import { MainSidebar } from "@/modules/layout/components/MainSidebar";
 import { Navigation } from "@/modules/layout/components/Navigation";

@@ -1,6 +1,6 @@
 import { useNetwork } from "wagmi";
 
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
 import { Spinner } from "@/infrastructure/ui/core/Spinner";
 import { Text } from "@/infrastructure/ui/core/Typography";

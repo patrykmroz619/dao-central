@@ -1,7 +1,7 @@
 import { MouseEvent } from "react";
 import { useSwitchNetwork } from "wagmi";
 
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
 import { InfoBox } from "@/infrastructure/ui/core/InfoBox";
 import { Text } from "@/infrastructure/ui/core/Typography";

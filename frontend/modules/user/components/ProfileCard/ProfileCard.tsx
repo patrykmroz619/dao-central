@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { LogIn, User } from "react-feather";
 
-import { useCurrentLanguage } from "@/infrastructure/internationalization/utils/useCurrentLanguage";
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
 import profileImage from "public/images/illustrations/profile.svg";
 import { Box } from "@/infrastructure/ui/core/Box";
