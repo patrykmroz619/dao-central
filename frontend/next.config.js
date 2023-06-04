@@ -14,6 +14,16 @@ const withBundleAnalyzer = initializeBundleAnalyzer({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/panel",
+        permanent: true,
+      },
+    ];
+  },
+};
 
 module.exports = withPWA(withBundleAnalyzer(nextConfig));

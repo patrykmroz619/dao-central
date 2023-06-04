@@ -61,7 +61,7 @@ export const Navigation = () => {
         disabled: !isAuthenticated,
       },
       {
-        href: `/${lang}/help`,
+        href: `/${lang}/panel/help`,
         label: t("navigation.help-center"),
         Icon: HelpCircle,
         disabled: false,

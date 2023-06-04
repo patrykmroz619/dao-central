@@ -40,8 +40,10 @@ export const InitialInfo = () => {
     <ul className={styles.list}>
       {dataItems.map((item) => (
         <li key={item.label} className={styles.list__item}>
-          <strong>{item.label}: </strong>
-          {item.isLoading ? <Skeleton inline width="150px" /> : item.value}
+          <Text>
+            <strong>{item.label}: </strong>
+            {item.isLoading ? <Skeleton inline width="150px" /> : item.value}
+          </Text>
         </li>
       ))}
       <Text>{t("wallet-deployment-info")}</Text>

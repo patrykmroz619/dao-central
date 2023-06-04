@@ -10,5 +10,10 @@
       color: get-color(primary-700);
       font-weight: 700;
     }
+
+    & > p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

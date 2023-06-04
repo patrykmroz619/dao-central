@@ -25,6 +25,7 @@
   font-size: $font-size-200;
   color: get-color(text-500);
   transition: $transition-time-500 color;
+  line-height: 120%;
 
   &__bold {
     font-weight: 600;

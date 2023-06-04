@@ -19,7 +19,7 @@ export default async function HomePage(props: InternationalizedPageProps) {
   const daoService = new DaoService();
   const { data: lastDaos } = await daoService.getDaosList(
     {
-      limit: 5,
+      limit: 3,
     },
     0
   );

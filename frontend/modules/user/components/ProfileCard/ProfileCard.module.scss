@@ -3,14 +3,15 @@
 .box {
   display: flex;
   flex-direction: column;
-  gap: $spacing-500;
+  gap: $spacing-700;
 
   &__image {
+    margin-top: $spacing-300;
     align-self: center;
   }
 
   &__text {
-    margin: $spacing-500 0;
+    margin: $spacing-300 0;
     text-align: center;
 
     strong {

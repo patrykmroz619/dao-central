@@ -5,10 +5,7 @@ import { InternationalizedPageProps } from "@/infrastructure/internationalizatio
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
 
 import { H1, Text } from "@/infrastructure/ui/core";
-import {
-  InlineLink,
-  FadeAnimationContainer,
-} from "@/infrastructure/ui/core/client";
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/client";
 
 import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings/client";
 import { WalletLogin } from "@/modules/auth/components/WalletLogin";
@@ -30,10 +27,6 @@ export default async function LoginPage(props: InternationalizedPageProps) {
             <H1>{t("heading")}</H1>
             <Text>{t("subheading")}</Text>
             <WalletLogin lang={lang} />
-            <Text>
-              {t("learn-more")}{" "}
-              <InlineLink href="/help">{t("help-center")}</InlineLink>
-            </Text>
             <div className={styles.settings}>
               <LanguageSwitcher />
               <ThemeSwitch />

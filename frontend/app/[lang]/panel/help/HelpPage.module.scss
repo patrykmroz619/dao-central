@@ -3,8 +3,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  margin: $spacing-500;
-  gap: $spacing-500;
+  gap: $spacing-700;
 }
 
 .header {
@@ -72,7 +71,5 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-500;
-  max-width: 1024px;
   width: 100%;
-  margin: 0 auto;
 }

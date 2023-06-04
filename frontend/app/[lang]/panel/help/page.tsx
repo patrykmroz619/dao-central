@@ -5,6 +5,7 @@ import { InternationalizedPageProps } from "@/infrastructure/internationalizatio
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
 import { removeDuplicatesInArray } from "@/infrastructure/helpers/utils";
 
+import { DefaultPageWrapper } from "@/infrastructure/ui/layout";
 import { H1, Text, Box } from "@/infrastructure/ui/core";
 import { FadeAnimationContainer } from "@/infrastructure/ui/core/client";
 
@@ -41,7 +42,7 @@ const HelpPage = async (props: InternationalizedPageProps) => {
 
   return (
     <FadeAnimationContainer>
-      <div className={styles.wrapper}>
+      <DefaultPageWrapper className={styles.wrapper}>
         <header className={styles.header}>
           <section>
             <Text className={styles.header__subheading}>{t("the-faqs")}</Text>
@@ -64,7 +65,7 @@ const HelpPage = async (props: InternationalizedPageProps) => {
           <FaqTabs options={categories} />
           <FaqList data={faqItems} />
         </Box>
-      </div>
+      </DefaultPageWrapper>
     </FadeAnimationContainer>
   );
 };

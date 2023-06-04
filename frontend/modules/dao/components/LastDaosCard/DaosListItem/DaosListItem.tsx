@@ -31,22 +31,27 @@ export const DaosListItem = (props: DaosListItemProps) => {
 
   return (
     <li className={styles.item}>
-      <div className={styles.item__content}>
-        <H3>{heading}</H3>
-        <Text bolder>{networkName}</Text>
-        <Text>
-          {t("smart-contract")}:{" "}
-          <BlockchainExplorerLink address={contractAddress} chainId={chainId} />
-        </Text>
-      </div>
-      <div className={styles.item__buttonWrapper}>
-        <Button
-          className={styles.item__detailsBtn}
-          onClick={handleDetailsClick}
-          role="link"
-        >
-          {t("details")}
-        </Button>
+      <H3>{heading}</H3>
+      <div className={styles.item__details}>
+        <div className={styles.item__content}>
+          <Text bolder>{networkName}</Text>
+          <Text>
+            {t("smart-contract")}:{" "}
+            <BlockchainExplorerLink
+              address={contractAddress}
+              chainId={chainId}
+            />
+          </Text>
+        </div>
+        <div className={styles.item__buttonWrapper}>
+          <Button
+            className={styles.item__detailsBtn}
+            onClick={handleDetailsClick}
+            role="link"
+          >
+            {t("details")}
+          </Button>
+        </div>
       </div>
     </li>
   );

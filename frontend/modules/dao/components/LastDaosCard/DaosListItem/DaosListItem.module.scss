@@ -2,21 +2,33 @@
 
 .item {
   display: flex;
+  flex-direction: column;
   gap: $spacing-500;
   border-bottom: $border-300 get-color(neutral-500);
   padding-bottom: $spacing-500;
   transition: $transition-time-500 border-bottom;
 
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-500;
+
+    @include min-device(desktop-300) {
+      flex-wrap: nowrap;
+    }
+  }
+
   &__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: $spacing-300;
+    gap: $spacing-500;
   }
 
   &__buttonWrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    margin-left: auto;
   }
 
   &__detailsBtn {
