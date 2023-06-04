@@ -55,6 +55,8 @@
     "you-have-nfts": "Posiadasz {{numberOfNFTs}} NFT organizacji",
     "new-voting": "Nowe głosowanie",
     "proposal": "Propozycja",
+    "fetching-proposals": "Pobieranie propozycji...",
+    "no-proposals": "Brak utworzonych propozycji dla organizacji.",
     "voting-start": "Start głosowania",
     "voting-end": "Koniec głosowania",
     "create-voting": "Stwórz głosowanie",

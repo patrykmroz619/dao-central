@@ -1,0 +1,1 @@
+export { FetchingProposalsStatus } from "./FetchingProposalsStatus";

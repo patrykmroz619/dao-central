@@ -55,6 +55,8 @@
     "you-have-nfts": "You have {{numberOfNFTs}} NFTs of the organization",
     "new-voting": "New voting",
     "proposal": "Proposal",
+    "fetching-proposals": "Fetching proposals...",
+    "no-proposals": "No proposals for the organization found.",
     "voting-start": "Voting start",
     "voting-end": "Voting end",
     "create-voting": "Create voting",

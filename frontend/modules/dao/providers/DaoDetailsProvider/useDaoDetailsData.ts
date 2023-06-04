@@ -17,7 +17,7 @@ type ProposalData = {
 };
 
 export const useDaoDetailsData = (dao: DaoData) => {
-  const [proposalsCount, setProposalsCount] = useState(0);
+  const [proposalsCount, setProposalsCount] = useState<number | null>(null);
   const [proposals, setProposals] = useState<ProposalData[]>([]);
   const [fetchingProposalsError, setFetchingProposalsError] =
     useState<string>();
@@ -78,8 +78,9 @@ export const useDaoDetailsData = (dao: DaoData) => {
     startTime: Date,
     endTime: Date
   ) => {
+    const currentProposalsCount = proposalsCount || 0;
     const newProposal: ProposalData = {
-      id: proposalsCount + 1,
+      id: currentProposalsCount + 1,
       description,
       startTime,
       endTime,
@@ -88,7 +89,7 @@ export const useDaoDetailsData = (dao: DaoData) => {
     };
 
     setProposals((prev) => [newProposal, ...prev]);
-    setProposalsCount(proposalsCount + 1);
+    setProposalsCount(currentProposalsCount + 1);
   };
 
   const updateProposalData = async (proposalId: number) => {
@@ -119,7 +120,6 @@ export const useDaoDetailsData = (dao: DaoData) => {
 
   useEffect(() => {
     if (VotingContract) {
-      console.log("FETCHING");
       fetchData();
     }
   }, []);
