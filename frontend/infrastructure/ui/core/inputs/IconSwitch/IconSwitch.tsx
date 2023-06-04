@@ -1,7 +1,7 @@
 "use client";
 
-import classNames from "classnames";
 import { ComponentProps, ReactNode } from "react";
+import classNames from "classnames";
 import { motion } from "framer-motion";
 
 import styles from "./IconSwitch.module.scss";
@@ -20,16 +20,12 @@ export const IconSwitch = (props: IconSwitchProps) => {
     <div className={classNames(styles.wrapper, className)} tabIndex={0}>
       <input id={id} type="checkbox" className={styles.input} {...restProps} />
       <label htmlFor={id} className={styles.label}>
-        <motion.div
-          className={styles.indicator}
-          layout
-          animate={checked ? { left: 0 } : { right: 0 }}
-        />
         <div
           className={classNames(styles.icon, {
             [styles.icon__checked]: checked,
           })}
         >
+          {checked && <motion.div className={styles.indicator} layoutId={id} />}
           {checkedIcon}
         </div>
         <div
@@ -37,6 +33,9 @@ export const IconSwitch = (props: IconSwitchProps) => {
             [styles.icon__checked]: !checked,
           })}
         >
+          {!checked && (
+            <motion.div className={styles.indicator} layoutId={id} />
+          )}
           {uncheckedIcon}
         </div>
       </label>

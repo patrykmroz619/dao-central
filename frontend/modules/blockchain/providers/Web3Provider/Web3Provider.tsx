@@ -20,6 +20,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
 import { COLOR_THEME, useTheme } from "@/infrastructure/services/theme";
+import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
 
 const { chains, provider } = configureChains(
   [mainnet, goerli, polygon, polygonMumbai, bsc, bscTestnet],
@@ -48,7 +49,9 @@ type Web3ProviderProps = {
 export function Web3Provider({ children }: Web3ProviderProps) {
   const { theme } = useTheme();
 
-  const isDarkTheme = theme === COLOR_THEME.DARK;
+  const isBrowser = useIsBrowser();
+  // Update theme only on client site to avoid props mismatch during hydration
+  const isDarkTheme = theme === COLOR_THEME.DARK && isBrowser;
 
   const customThemeConfig = {
     accentColor: "var(--primary-500)",

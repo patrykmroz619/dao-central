@@ -32,6 +32,7 @@
 $iconSize: $form-element-height-500 - 2 * $spacing-300;
 
 .icon {
+  position: relative;
   width: $iconSize;
   height: $iconSize;
   display: flex;
@@ -40,7 +41,10 @@ $iconSize: $form-element-height-500 - 2 * $spacing-300;
   padding: $spacing-100;
   color: get-color(text-500);
   transition: $transition-time-500 color;
-  z-index: 1;
+
+  & > * {
+    z-index: 1;
+  }
 
   &__checked {
     color: get-color(primary-500-inverted);
@@ -50,7 +54,7 @@ $iconSize: $form-element-height-500 - 2 * $spacing-300;
 .indicator {
   position: absolute;
   top: 0;
-  margin: $spacing-300;
+  left: 0;
   width: $iconSize;
   height: $iconSize;
   border-radius: 100px;
