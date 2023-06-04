@@ -1,4 +1,5 @@
-import { Text } from "@/infrastructure/ui/core/Typography";
+import { Text } from "@/infrastructure/ui/core";
+
 import { AppLogo } from "@/modules/brand";
 import { HamburgerButton } from "./HamburgerButton";
 

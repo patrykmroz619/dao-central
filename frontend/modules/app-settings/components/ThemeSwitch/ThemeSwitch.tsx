@@ -3,9 +3,11 @@
 import { ChangeEvent } from "react";
 import { Sun, Moon } from "react-feather";
 
-import { IconSwitch } from "@/infrastructure/ui/core";
-import { COLOR_THEME, useTheme } from "@/infrastructure/services/theme";
-import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
+import { useTheme } from "@/infrastructure/services/theme/client";
+import { useIsBrowser } from "@/infrastructure/helpers/hooks/client";
+import { COLOR_THEME } from "@/infrastructure/services/theme";
+
+import { IconSwitch } from "@/infrastructure/ui/core/client";
 
 export const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();

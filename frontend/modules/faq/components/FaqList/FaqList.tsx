@@ -3,8 +3,9 @@
 import { useMemo } from "react";
 import { LayoutGroup } from "framer-motion";
 
-import { useGetSearchParam } from "@/infrastructure/helpers/hooks/useGetSearchParam";
-import { FAQ_QUERY_PARAMS } from "modules/faq/constants";
+import { useGetSearchParam } from "@/infrastructure/helpers/hooks/client";
+
+import { FAQ_QUERY_PARAMS } from "../../constants";
 import { FaqItem } from "../FaqItem";
 
 import styles from "./FaqList.module.scss";

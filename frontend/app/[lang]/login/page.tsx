@@ -1,14 +1,17 @@
 import Image from "next/image";
 import organizationImage from "public/images/illustrations/organization.svg";
 
-import { H1, Text } from "@/infrastructure/ui/core/Typography";
-import { InlineLink } from "@/infrastructure/ui/core/InlineLink";
-import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
-import { WalletLogin } from "modules/auth/components/WalletLogin";
-
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings";
+
+import { H1, Text } from "@/infrastructure/ui/core";
+import {
+  InlineLink,
+  FadeAnimationContainer,
+} from "@/infrastructure/ui/core/client";
+
+import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings/client";
+import { WalletLogin } from "@/modules/auth/components/WalletLogin";
 
 import styles from "./page.module.scss";
 

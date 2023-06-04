@@ -1,6 +1,6 @@
-import { HTTP_METHOD } from "@/infrastructure/helpers/constants/httpMethod";
 import qs from "qs";
 
+import { HTTP_METHOD } from "./httpMethod";
 import { HttpError } from "./httpError";
 
 type ResponseWithData<DataType> = Response & { data: DataType };

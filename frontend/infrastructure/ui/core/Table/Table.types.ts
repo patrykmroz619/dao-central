@@ -1,5 +1,14 @@
 import { ReactNode } from "react";
 
+export enum TABLE_QUERY_PARAM {
+  SORT = "SORT",
+}
+
+export enum TABLE_SORT_DIRECTION {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
 export type TableDataItem = {
   id: string | number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

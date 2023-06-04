@@ -5,9 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
 
+import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
+
 import ukFlag from "public/images/icons/uk-flag.svg";
 import plFlag from "public/images/icons/pl-flag.svg";
-import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
 
 import styles from "./LanguageSwitcher.module.scss";
 

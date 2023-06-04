@@ -1,8 +1,10 @@
+"use client";
+
 import { ChevronDown } from "react-feather";
 import { motion, AnimatePresence, MotionProps } from "framer-motion";
 
-import { useBoolean } from "@/infrastructure/helpers/hooks/useBoolean";
-import { Text } from "@/infrastructure/ui/core/Typography";
+import { useBoolean } from "@/infrastructure/helpers/hooks/client";
+import { Text } from "@/infrastructure/ui/core";
 
 import styles from "./FaqItem.module.scss";
 
@@ -54,10 +56,10 @@ const answerMotionProps: MotionProps = {
 const toggleIconMotionProps: MotionProps = {
   variants: {
     open: {
-      rotate: "0deg",
+      rotateX: "180deg",
     },
     close: {
-      rotate: "180deg",
+      rotateX: "0deg",
     },
   },
   transition: {

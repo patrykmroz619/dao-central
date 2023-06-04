@@ -1,11 +1,12 @@
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { DefaultPageWrapper } from "@/infrastructure/ui/layout/DefaultPageWrapper";
-import { Box } from "@/infrastructure/ui/core/Box";
-import { H2, Text } from "@/infrastructure/ui/core/Typography";
-import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
-import { DaoService } from "modules/dao/services/daoService";
-import { DaosList } from "modules/dao/components/DaosList";
+
+import { DefaultPageWrapper } from "@/infrastructure/ui/layout";
+import { H2, Text, Box } from "@/infrastructure/ui/core";
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/client";
+
+import { DaoService } from "@/modules/dao/services/daoService";
+import { DaosList } from "@/modules/dao/components/DaosList";
 
 import styles from "./DaosListPage.module.scss";
 

@@ -19,7 +19,8 @@ import { publicProvider } from "wagmi/providers/public";
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
-import { COLOR_THEME, useTheme } from "@/infrastructure/services/theme";
+import { COLOR_THEME } from "@/infrastructure/services/theme";
+import { useTheme } from "@/infrastructure/services/theme/client";
 import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
 
 const { chains, provider } = configureChains(

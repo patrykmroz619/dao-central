@@ -1,16 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import faqIllustrations from "public/images/illustrations/faq.svg";
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { removeDuplicatesInArray } from "@/infrastructure/helpers/utils/removeDuplicatesInArray";
-import { H1, Text } from "@/infrastructure/ui/core/Typography";
-import { Box } from "@/infrastructure/ui/core/Box";
-import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
-import { FaqTabs } from "modules/faq/components/FaqTabs";
-import { FaqList } from "modules/faq/components/FaqList/";
+import { removeDuplicatesInArray } from "@/infrastructure/helpers/utils";
 
+import { H1, Text, Box } from "@/infrastructure/ui/core";
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/client";
+
+import { FaqTabs } from "@/modules/faq/components/FaqTabs";
+import { FaqList } from "@/modules/faq/components/FaqList/";
+
+import faqIllustrations from "public/images/illustrations/faq.svg";
 import faqData from "./faq.json";
 import styles from "./HelpPage.module.scss";
 

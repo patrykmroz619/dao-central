@@ -1,20 +1,22 @@
 import { useCallback } from "react";
 
-import { QUERY_PARAM } from "@/infrastructure/helpers/constants/queryParams";
-import { SORT_DIRECTION } from "@/infrastructure/helpers/constants/sortDirection";
 import { useSearchParamState } from "@/infrastructure/helpers/hooks/useSearchParamState";
+import { TABLE_SORT_DIRECTION } from "./Table.types";
 
 const parseSortParam = (sortParam: string) => {
   const [key, direction] = sortParam.split(":");
 
-  if (direction !== SORT_DIRECTION.ASC && direction !== SORT_DIRECTION.DESC) {
+  if (
+    direction !== TABLE_SORT_DIRECTION.ASC &&
+    direction !== TABLE_SORT_DIRECTION.DESC
+  ) {
     throw new Error("Invalid sort param");
   }
 
   return [key, direction] as const;
 };
 
-export const useSortableMechanism = (sortQueryParamName: QUERY_PARAM) => {
+export const useSortableMechanism = (sortQueryParamName: string) => {
   const [sortParam, setSortParam] = useSearchParamState(sortQueryParamName);
 
   const [sortKey, sortDirection] = sortParam
@@ -23,12 +25,13 @@ export const useSortableMechanism = (sortQueryParamName: QUERY_PARAM) => {
 
   const handleSort = useCallback(
     (key: string) => {
-      let direction: SORT_DIRECTION | undefined = SORT_DIRECTION.ASC;
+      let direction: TABLE_SORT_DIRECTION | undefined =
+        TABLE_SORT_DIRECTION.ASC;
 
       if (key === sortKey) {
-        if (sortDirection === SORT_DIRECTION.ASC) {
-          direction = SORT_DIRECTION.DESC;
-        } else if (sortDirection === SORT_DIRECTION.DESC) {
+        if (sortDirection === TABLE_SORT_DIRECTION.ASC) {
+          direction = TABLE_SORT_DIRECTION.DESC;
+        } else if (sortDirection === TABLE_SORT_DIRECTION.DESC) {
           setSortParam(undefined);
           return;
         }

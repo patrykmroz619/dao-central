@@ -1,10 +1,14 @@
-import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings";
-import { PanelLayoutStateProvider } from "@/modules/layout/panel/providers/PanelLayoutStateProvider";
-import { H1 } from "@/infrastructure/ui/core/Typography";
-import { MainSidebar } from "@/modules/layout/components/MainSidebar";
-import { Navigation } from "@/modules/layout/components/Navigation";
-import { MobileHeader } from "@/modules/layout/components/MobileHeader";
+import { H1 } from "@/infrastructure/ui/core";
+
 import { AppLogo } from "@/modules/brand";
+import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings/client";
+
+import {
+  MainSidebar,
+  Navigation,
+  PanelLayoutStateProvider,
+} from "@/modules/layout/panel/client";
+import { MobileHeader } from "@/modules/layout/panel";
 
 import styles from "./PanelLayout.module.scss";
 

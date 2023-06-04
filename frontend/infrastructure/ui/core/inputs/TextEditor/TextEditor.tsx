@@ -1,9 +1,10 @@
 "use-client";
 
 import classNames from "classnames";
-import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
 import { ComponentPropsWithoutRef } from "react";
 import ReactQuill from "react-quill";
+
+import { useIsBrowser } from "@/infrastructure/helpers/hooks/client";
 
 import "react-quill/dist/quill.snow.css";
 import styles from "./TextEditor.module.scss";

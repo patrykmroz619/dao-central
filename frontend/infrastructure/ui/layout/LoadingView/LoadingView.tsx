@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 
-import { Spinner } from "../../core/Spinner";
-import { FadeAnimationContainer } from "../../core/FadeAnimationContainer";
+import { Spinner } from "../../core";
+import { FadeAnimationContainer } from "../../core/client";
 
 import styles from "./LoadingView.module.scss";
 

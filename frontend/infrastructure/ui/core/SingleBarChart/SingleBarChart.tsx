@@ -1,4 +1,5 @@
 import { Text } from "../Typography";
+
 import styles from "./SingleBarChart.module.scss";
 
 type SingleBarChartProps = {

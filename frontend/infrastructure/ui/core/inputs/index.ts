@@ -1,1 +1,2 @@
-export { IconSwitch } from "./IconSwitch";
+export { BaseInput } from "./BaseInput";
+export { TextInput } from "./TextInput";

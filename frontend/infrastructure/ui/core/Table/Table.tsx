@@ -2,17 +2,21 @@
 
 import classNames from "classnames";
 
-import { QUERY_PARAM } from "@/infrastructure/helpers/constants/queryParams";
-import { SORT_DIRECTION } from "@/infrastructure/helpers/constants/sortDirection";
 import { useSortableMechanism } from "./useSortableMechanism";
-import { ColumnsConfig, TableConfig, TableDataItem } from "./Table.types";
+import {
+  ColumnsConfig,
+  TableConfig,
+  TableDataItem,
+  TABLE_QUERY_PARAM,
+  TABLE_SORT_DIRECTION,
+} from "./Table.types";
 
 import styles from "./Table.module.scss";
 
 type TableProps<DataItem extends TableDataItem> = {
   items: DataItem[];
   config: TableConfig<DataItem>;
-  sortQueryParamName?: QUERY_PARAM;
+  sortQueryParamName?: string;
   isLoading?: boolean;
 };
 
@@ -22,7 +26,7 @@ export const Table = <DataItem extends TableDataItem>(
   const {
     items,
     config,
-    sortQueryParamName = QUERY_PARAM.SORT,
+    sortQueryParamName = TABLE_QUERY_PARAM.SORT,
     isLoading,
   } = props;
 
@@ -51,7 +55,7 @@ export const Table = <DataItem extends TableDataItem>(
               >
                 {columnConfig?.label}{" "}
                 {sortKey === key && sortDirection
-                  ? sortDirection === SORT_DIRECTION.ASC
+                  ? sortDirection === TABLE_SORT_DIRECTION.ASC
                     ? " ⇑"
                     : " ⇓"
                   : null}

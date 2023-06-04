@@ -1,4 +1,4 @@
-import { LoadingView } from "@/infrastructure/ui/layout/LoadingView";
+import { LoadingView } from "@/infrastructure/ui/layout";
 
 const Loading = () => {
   return <LoadingView />;

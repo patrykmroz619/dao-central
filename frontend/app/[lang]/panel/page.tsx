@@ -1,11 +1,13 @@
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { DefaultPageWrapper } from "@/infrastructure/ui/layout/DefaultPageWrapper";
-import { DaoService } from "modules/dao/services/daoService";
-import { LastDaosCard } from "modules/dao/components/LastDaosCard";
-import { ProfileCard } from "modules/user/components/ProfileCard";
-import { WelcomeCard } from "modules/brand/components/WelcomeCard";
-import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
+
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/client";
+import { DefaultPageWrapper } from "@/infrastructure/ui/layout";
+
+import { DaoService } from "@/modules/dao/services/daoService";
+import { LastDaosCard } from "@/modules/dao/components/LastDaosCard";
+import { ProfileCard } from "@/modules/user/client";
+import { WelcomeCard } from "@/modules/brand";
 
 import styles from "./HomePage.module.scss";
 

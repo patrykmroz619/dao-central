@@ -12,12 +12,14 @@ import {
   LogIn,
 } from "react-feather";
 
-import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
-import { useClientTranslation } from "@/infrastructure/internationalization/client";
-import { NavLink } from "@/infrastructure/ui/core/NavLink";
+import {
+  useCurrentLanguage,
+  useClientTranslation,
+} from "@/infrastructure/internationalization/client";
+import { NavLink } from "@/infrastructure/ui/core/client";
 
-import { LogoutButton } from "modules/auth/components/LogoutButton";
-import { usePanelLayoutState } from "../../panel/providers/PanelLayoutStateProvider";
+import { LogoutButton } from "@/modules/auth/components/LogoutButton";
+import { usePanelLayoutState } from "../../providers/PanelLayoutStateProvider";
 
 import styles from "./Navigation.module.scss";
 

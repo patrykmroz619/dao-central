@@ -1,3 +1,5 @@
+"use client";
+
 import { ComponentPropsWithoutRef } from "react";
 import ReactPaginate from "react-paginate";
 

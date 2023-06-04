@@ -7,13 +7,13 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import { InternationalizedProps } from "@/infrastructure/internationalization/types";
 import { useClientTranslation } from "@/infrastructure/internationalization/client";
-import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
-import { TextInput } from "@/infrastructure/ui/core/inputs/TextInput";
-import { Text } from "@/infrastructure/ui/core/Typography";
-import { InlineLink } from "@/infrastructure/ui/core/InlineLink";
-import { TextEditor } from "@/infrastructure/ui/core/inputs/TextEditor";
-import { Separator } from "@/infrastructure/ui/core/Separator";
 import { ASYNC_STATE } from "@/infrastructure/helpers/hooks/useAsyncState";
+import { Separator, Text, TextInput } from "@/infrastructure/ui/core";
+import {
+  IconButton,
+  InlineLink,
+  TextEditor,
+} from "@/infrastructure/ui/core/client";
 
 import { useCreateDao } from "./useCreateDao";
 import { CreatingDaoState } from "./CreatingDaoState";

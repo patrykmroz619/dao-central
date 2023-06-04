@@ -5,14 +5,17 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { LogIn, User } from "react-feather";
 
-import { useCurrentLanguage } from "@/infrastructure/internationalization/client";
-import { useClientTranslation } from "@/infrastructure/internationalization/client";
-import profileImage from "public/images/illustrations/profile.svg";
-import { Box } from "@/infrastructure/ui/core/Box";
-import { IconButton } from "@/infrastructure/ui/core/buttons/IconButton";
-import { H2, Text } from "@/infrastructure/ui/core/Typography";
-import { BlockchainExplorerLink } from "modules/blockchain/components/BlockchainExplorerLink";
+import {
+  useCurrentLanguage,
+  useClientTranslation,
+} from "@/infrastructure/internationalization/client";
 
+import { IconButton } from "@/infrastructure/ui/core/client";
+import { H2, Text, Box } from "@/infrastructure/ui/core";
+
+import { BlockchainExplorerLink } from "@/modules/blockchain/components/BlockchainExplorerLink";
+
+import profileImage from "public/images/illustrations/profile.svg";
 import styles from "./ProfileCard.module.scss";
 
 export const ProfileCard = () => {
@@ -20,15 +23,16 @@ export const ProfileCard = () => {
 
   const router = useRouter();
 
+  const lang = useCurrentLanguage();
+
   const handleLoginClick = () => {
-    router.push("/login");
+    router.push(`/${lang}/login`);
   };
 
   const handleProfileClick = () => {
-    router.push("/panel/profile");
+    router.push(`/${lang}/panel/profile`);
   };
 
-  const lang = useCurrentLanguage();
   const { t } = useClientTranslation(lang, "profile");
 
   return (

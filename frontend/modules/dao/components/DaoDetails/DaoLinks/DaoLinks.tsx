@@ -3,7 +3,7 @@ import { Globe } from "react-feather";
 import {
   SocialMediaIcon,
   SOCIAL_MEDIA_ICON_TYPE,
-} from "@/infrastructure/ui/core/Icon/SocialMediaIcon";
+} from "@/infrastructure/ui/core";
 import { DAO_EXTRA_LINKS_TYPES } from "modules/dao/constants/daoExtraLinksTypes";
 
 import styles from "./DaoLinks.module.scss";

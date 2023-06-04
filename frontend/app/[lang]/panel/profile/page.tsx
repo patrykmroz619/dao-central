@@ -1,13 +1,14 @@
 import { InternationalizedPageProps } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { DefaultPageWrapper } from "@/infrastructure/ui/layout/DefaultPageWrapper";
-import { Box } from "@/infrastructure/ui/core/Box";
-import { H2, Text } from "@/infrastructure/ui/core/Typography";
-import { FadeAnimationContainer } from "@/infrastructure/ui/core/FadeAnimationContainer";
-import { getSession } from "modules/auth/utils/getSession";
-import { DaoService } from "modules/dao/services/daoService";
-import { ProfileData } from "modules/user/components/ProfileData";
-import { DaosList } from "modules/dao/components/DaosList";
+
+import { DefaultPageWrapper } from "@/infrastructure/ui/layout";
+import { Box, H2, Text } from "@/infrastructure/ui/core";
+import { FadeAnimationContainer } from "@/infrastructure/ui/core/client";
+
+import { getSession } from "@/modules/auth/utils/getSession";
+import { DaoService } from "@/modules/dao/services/daoService";
+import { ProfileData } from "@/modules/user";
+import { DaosList } from "@/modules/dao/components/DaosList";
 
 import styles from "./ProfilePage.module.scss";
 

@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import Image from "next/image";
 
-import errorIllustration from "public/images/illustrations/error.svg";
-import { Text } from "../../core/Typography";
+import { Text } from "../../core";
 
+import errorIllustration from "public/images/illustrations/error.svg";
 import styles from "./ErrorView.module.scss";
 
 type ErrorViewProps = {

@@ -5,9 +5,12 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion, MotionProps } from "framer-motion";
 import { X } from "react-feather";
 
-import { useIsBrowser } from "@/infrastructure/helpers/hooks/useIsBrowser";
-import { useOutsideClick } from "@/infrastructure/helpers/hooks/useOutsideClick";
+import {
+  useIsBrowser,
+  useOutsideClick,
+} from "@/infrastructure/helpers/hooks/client";
 import { H3 } from "../Typography";
+
 import styles from "./Modal.module.scss";
 
 type ModalProps = {

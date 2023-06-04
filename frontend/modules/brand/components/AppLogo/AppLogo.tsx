@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 
-import { COLOR_THEME, useTheme } from "@/infrastructure/services/theme";
+import { COLOR_THEME } from "@/infrastructure/services/theme";
+import { useTheme } from "@/infrastructure/services/theme/client";
 
 import logo from "public/images/brand/logo.png";
 import logoBlack from "public/images/brand/logo-black.png";

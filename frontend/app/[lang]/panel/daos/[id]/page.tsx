@@ -1,14 +1,15 @@
 import { Language } from "@/infrastructure/internationalization/types";
 import { useServerTranslation } from "@/infrastructure/internationalization/server";
-import { DefaultPageWrapper } from "@/infrastructure/ui/layout/DefaultPageWrapper";
-import { H2 } from "@/infrastructure/ui/core/Typography";
-import { Box } from "@/infrastructure/ui/core/Box";
-import { DaoService } from "modules/dao/services/daoService";
-import { DaoDetailsProvider } from "modules/dao/providers/DaoDetailsProvider";
-import { DaoDetails } from "modules/dao/components/DaoDetails";
-import { NewVotingButton } from "modules/dao/components/NewVotingButton";
-import { ProposalsList } from "modules/dao/components/ProposalsList";
-import { UpdateDaoDetails } from "modules/dao/components/UpdateDaoDetails";
+
+import { DefaultPageWrapper } from "@/infrastructure/ui/layout";
+import { H2, Box } from "@/infrastructure/ui/core";
+
+import { DaoService } from "@/modules/dao/services/daoService";
+import { DaoDetailsProvider } from "@/modules/dao/providers/DaoDetailsProvider";
+import { DaoDetails } from "@/modules/dao/components/DaoDetails";
+import { NewVotingButton } from "@/modules/dao/components/NewVotingButton";
+import { ProposalsList } from "@/modules/dao/components/ProposalsList";
+import { UpdateDaoDetails } from "@/modules/dao/components/UpdateDaoDetails";
 
 import styles from "./DaoDetailsPage.module.scss";
 
