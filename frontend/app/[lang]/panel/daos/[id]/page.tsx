@@ -47,8 +47,10 @@ export default async function DaoDetailsPage(props: DaoDetailsPageProps) {
         <section>
           <Box className={styles.votingBox}>
             <div className={styles.votingBox__header}>
-              <H2 className={styles.heading}>{t("vote-on-proposals")}</H2>
-              <NewVotingButton lang={lang} />
+              <H2>{t("vote-on-proposals")}</H2>
+              <div className={styles.votingBox__buttonWrapper}>
+                <NewVotingButton lang={lang} />
+              </div>
             </div>
             <ProposalsList lang={lang} />
           </Box>

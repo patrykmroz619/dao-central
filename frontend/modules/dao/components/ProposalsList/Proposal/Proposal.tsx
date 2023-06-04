@@ -43,17 +43,13 @@ export const Proposal = (props: ProposalProps) => {
 
   return (
     <li className={styles.proposal}>
-      <div className={styles.proposal__header}>
-        <H3>{description}</H3>
-      </div>
-      <div className={styles.proposal__chart}>
-        <SingleBarChart
-          optionALabel={t("approvals")}
-          optionAValue={approvals}
-          optionBLabel={t("denials")}
-          optionBValue={denials}
-        />
-      </div>
+      <H3>{description}</H3>
+      <SingleBarChart
+        optionALabel={t("approvals")}
+        optionAValue={approvals}
+        optionBLabel={t("denials")}
+        optionBValue={denials}
+      />
       <div className={styles.proposal__dates}>
         <Text>
           {t("start")}: {start.toLocaleString()}

@@ -3,11 +3,7 @@
 .box {
   background-color: get-color(background-300);
   box-shadow: $shadow-500 get-color(shadow);
-  padding: $spacing-500;
+  padding: $spacing-700;
   border-radius: $border-radius-500;
   transition: $transition-time-500;
-
-  @include min-device(tablet-500) {
-    padding: $spacing-700;
-  }
 }

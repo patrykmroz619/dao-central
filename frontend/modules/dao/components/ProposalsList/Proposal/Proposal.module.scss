@@ -4,34 +4,43 @@
   border-bottom: 1px solid get-color(neutral-300);
   padding-bottom: $spacing-500;
   transition: $transition-time-500 border-bottom;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-500;
 
   &:last-child {
     border-bottom: none;
     padding-bottom: 0;
   }
 
-  &__header {
-    margin-bottom: $spacing-500;
-  }
-
-  &__chart {
-    margin: $spacing-300 0;
-  }
-
   &__dates {
     display: flex;
     justify-content: space-between;
     margin-bottom: $spacing-300;
+    gap: $spacing-300;
+
+    @include max-device(mobile-500) {
+      flex-wrap: wrap;
+      p {
+        font-size: $font-size-75;
+      }
+    }
   }
 
   &__footer {
     display: flex;
+    flex-wrap: wrap;
     gap: $spacing-300;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     min-height: $form-element-height-500;
 
-    p {
+    @include min-device(mobile-700) {
+      justify-content: center;
+    }
+
+    & > p {
+      flex-basis: 100%;
       text-align: center;
     }
   }

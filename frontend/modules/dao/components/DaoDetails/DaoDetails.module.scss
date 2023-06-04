@@ -3,7 +3,7 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-500;
+  gap: $spacing-700;
   margin-top: $spacing-700;
 
   &__item {
@@ -21,11 +21,15 @@
       line-height: 16px;
       height: 16px;
     }
+
+    @include max-device(mobile-700) {
+      flex-basis: 100%;
+    }
   }
 }
 
 .separator {
-  margin: $spacing-500 0;
+  margin: $spacing-700 0;
 }
 
 .description {

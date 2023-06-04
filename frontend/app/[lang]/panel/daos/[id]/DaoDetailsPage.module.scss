@@ -1,20 +1,28 @@
 @import "@/infrastructure/styles/utils";
 
-.heading {
-  margin-bottom: $spacing-500;
-}
-
 .updateDetailsBtnWrapper {
   display: flex;
   justify-content: flex-end;
-  margin-top: $spacing-500;
+  margin-top: $spacing-700;
 }
 
 .votingBox {
-  margin-top: $spacing-700;
+  margin: $spacing-700 0px 0px;
 
   &__header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $spacing-700;
+    margin-bottom: $spacing-700;
+
+    @include min-device(mobile-700) {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__buttonWrapper {
+    margin-left: auto;
   }
 }

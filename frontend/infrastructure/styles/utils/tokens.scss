@@ -8,6 +8,7 @@ $spacing-700: 32px;
 $spacing-900: 64px;
 
 // Font sizes
+$font-size-75: 0.8rem;
 $font-size-100: 0.9rem;
 $font-size-200: 1rem;
 $font-size-300: 1.2rem;
@@ -33,6 +34,7 @@ $button-min-width-500: 200px;
 $breakpoints: (
   "mobile-300": 360px,
   "mobile-500": 412px,
+  "mobile-700": 490px,
   "tablet-300": 640px,
   "tablet-500": 768px,
   "tablet-700": 1024px,
