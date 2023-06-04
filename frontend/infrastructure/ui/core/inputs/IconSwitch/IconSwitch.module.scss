@@ -3,10 +3,15 @@
 .wrapper {
   display: inline-block;
   position: relative;
-  background-color: get-color(background);
+  background-color: get-color(neutral-300);
   height: $form-element-height-500;
   border-radius: $form-element-height-500;
   width: fit-content;
+  transition: $transition-time-500 background-color;
+
+  &:hover {
+    background-color: get-color(neutral-500);
+  }
 }
 
 .input {
@@ -33,12 +38,12 @@ $iconSize: $form-element-height-500 - 2 * $spacing-300;
   justify-content: center;
   align-items: center;
   padding: $spacing-100;
-  color: get-color(gray-light);
+  color: get-color(text-500);
   transition: $transition-time-500 color;
   z-index: 1;
 
   &__checked {
-    color: get-color(primary-inverted);
+    color: get-color(primary-500-inverted);
   }
 }
 
@@ -50,5 +55,5 @@ $iconSize: $form-element-height-500 - 2 * $spacing-300;
   height: $iconSize;
   border-radius: 100px;
   transition: $transition-time-500 background-color;
-  background-color: get-color(primary);
+  background-color: get-color(primary-500);
 }

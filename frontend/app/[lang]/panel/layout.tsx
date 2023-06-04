@@ -1,13 +1,10 @@
-import Image from "next/image";
-
-import logo from "public/images/brand/logo-black.png";
-import { H1 } from "@/infrastructure/ui/core/Typography";
-
 import { ThemeSwitch, LanguageSwitcher } from "@/modules/app-settings";
 import { PanelLayoutStateProvider } from "@/modules/layout/panel/providers/PanelLayoutStateProvider";
+import { H1 } from "@/infrastructure/ui/core/Typography";
 import { MainSidebar } from "@/modules/layout/components/MainSidebar";
 import { Navigation } from "@/modules/layout/components/Navigation";
 import { MobileHeader } from "@/modules/layout/components/MobileHeader";
+import { AppLogo } from "@/modules/brand";
 
 import styles from "./PanelLayout.module.scss";
 
@@ -23,7 +20,7 @@ const PanelLayout = ({ children }: PanelLayoutProps) => {
           <div className={styles.sidebarContent}>
             <div />
             <div className={styles.sidebarContent__logo}>
-              <Image src={logo} width="80" height="80" alt="DAO Central logo" />
+              <AppLogo size={80} />
             </div>
             <H1 className={styles.sidebarContent__heading}>DAO Central</H1>
             <Navigation />

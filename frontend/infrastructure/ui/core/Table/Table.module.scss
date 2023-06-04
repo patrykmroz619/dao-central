@@ -12,20 +12,22 @@
 }
 
 .tableHead {
-  background-color: get-color(primary-light);
-  color: get-color(primary-inverted);
+  background-color: get-color(primary-500);
+  color: get-color(primary-500-inverted);
+  border-radius: $border-radius-500;
 }
 
 .tableRow {
-  border-bottom: 1px solid get-color(gray-light);
+  border-bottom: 1px solid get-color(neutral-500);
   background-color: transparent;
-  transition: $transition-time-500 background-color;
+  transition: $transition-time-500 background-color,
+    $transition-time-500 border-bottom;
 
   &__clickable {
     cursor: pointer;
 
     &:hover {
-      background-color: get-color(gray-light);
+      background-color: get-color(neutral-300);
     }
   }
 }
@@ -36,7 +38,12 @@
   text-align: left;
   white-space: nowrap;
 
+  &:first-child {
+    border-radius: $border-radius-500 0px 0px 0px;
+  }
+
   &:last-child {
+    border-radius: 0px $border-radius-500 0px 0px;
     text-align: right;
   }
 }
@@ -53,6 +60,8 @@
 .tableCell {
   padding: $spacing-500;
   white-space: nowrap;
+  color: get-color(text-500);
+  transition: $transition-time-500 color;
 
   &:last-child {
     text-align: right;

@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: $spacing-700;
-  background-color: get-color(primary);
+  background-color: get-color(primary-500);
   border-radius: $border-radius-700;
 
   @include min-device(mobile-300) {
@@ -21,7 +21,7 @@
 
   &__heading {
     margin: $spacing-700 0;
-    color: get-color(primary-inverted) !important;
+    color: get-color(primary-500-inverted) !important;
     font-size: 2.8rem;
 
     @include min-device(tablet-500) {
@@ -30,11 +30,11 @@
   }
 
   &__subheading {
-    color: get-color(primary-inverted) !important;
+    color: get-color(primary-500-inverted) !important;
   }
 
   &__description {
-    color: get-color(primary-inverted) !important;
+    color: get-color(primary-500-inverted) !important;
   }
 
   &__link {
@@ -42,12 +42,12 @@
     width: 160px;
     margin: $spacing-700 0 0 0;
     padding: $spacing-500;
-    background-color: get-color(primary-inverted);
+    background-color: get-color(primary-500-inverted);
     border-radius: $border-radius-500;
     text-align: center;
     font-size: $font-size-100;
     font-weight: 700;
-    color: get-color(text);
+    color: get-color(text-500, "LIGHT");
     text-transform: uppercase;
     text-decoration: none;
     transition: $transition-time-500 background-color;
@@ -57,7 +57,7 @@
     }
 
     &:hover {
-      background-color: get-color(gray-light);
+      background-color: get-color(neutral-500, "LIGHT");
     }
   }
 

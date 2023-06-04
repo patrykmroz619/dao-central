@@ -2,5 +2,6 @@
 
 .body {
   position: relative;
-  background-color: get-color(background);
+  background-color: get-color(background-500);
+  transition: $transition-time-500 background-color;
 }

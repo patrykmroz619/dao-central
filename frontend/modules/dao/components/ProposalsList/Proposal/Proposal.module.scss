@@ -1,8 +1,9 @@
 @import "@/infrastructure/styles/utils";
 
 .proposal {
-  border-bottom: 1px solid get-color(gray-light);
+  border-bottom: 1px solid get-color(neutral-300);
   padding-bottom: $spacing-500;
+  transition: $transition-time-500 border-bottom;
 
   &:last-child {
     border-bottom: none;

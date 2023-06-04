@@ -23,7 +23,7 @@ export const LoadingState = ({ txHash }: LoadingStateProps) => {
   return (
     <div className={styles.wrapper}>
       <Spinner />
-      <Text>{t("contract-deployment-in-progres")}</Text>
+      <Text>{t("contract-deployment-in-progress")}</Text>
       {txHash && (
         <a href={explorerUrl} target="_blank" rel="noreferrer noopener">
           {t("view-pending-tx")} {blockExplorerName}

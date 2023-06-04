@@ -35,31 +35,31 @@ export const Navigation = () => {
   const links = useMemo(
     () => [
       {
-        href: `${lang}/panel`,
+        href: `/${lang}/panel`,
         label: t("navigation.home"),
         Icon: Home,
         disabled: false,
       },
       {
-        href: `${lang}/panel/daos`,
+        href: `/${lang}/panel/daos`,
         label: t("navigation.explore-daos"),
         Icon: Archive,
         disabled: false,
       },
       {
-        href: `${lang}/panel/new-dao`,
+        href: `/${lang}/panel/new-dao`,
         label: t("navigation.new-dao"),
         Icon: PlusCircle,
         disabled: !isAuthenticated,
       },
       {
-        href: `${lang}/panel/profile`,
+        href: `/${lang}/panel/profile`,
         label: t("navigation.profile"),
         Icon: User,
         disabled: !isAuthenticated,
       },
       {
-        href: `${lang}/help`,
+        href: `/${lang}/help`,
         label: t("navigation.help-center"),
         Icon: HelpCircle,
         disabled: false,

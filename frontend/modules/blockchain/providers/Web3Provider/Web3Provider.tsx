@@ -2,6 +2,7 @@ import {
   getDefaultWallets,
   RainbowKitProvider,
   lightTheme,
+  darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import {
@@ -18,6 +19,7 @@ import { publicProvider } from "wagmi/providers/public";
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { PUBLIC_CONFIG } from "@/infrastructure/config/public";
+import { COLOR_THEME, useTheme } from "@/infrastructure/services/theme";
 
 const { chains, provider } = configureChains(
   [mainnet, goerli, polygon, polygonMumbai, bsc, bscTestnet],
@@ -44,13 +46,23 @@ type Web3ProviderProps = {
 };
 
 export function Web3Provider({ children }: Web3ProviderProps) {
+  const { theme } = useTheme();
+
+  const isDarkTheme = theme === COLOR_THEME.DARK;
+
+  const customThemeConfig = {
+    accentColor: "var(--primary-500)",
+  };
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider
         chains={chains}
-        theme={lightTheme({
-          accentColor: "#4548f7",
-        })}
+        theme={
+          isDarkTheme
+            ? darkTheme(customThemeConfig)
+            : lightTheme(customThemeConfig)
+        }
       >
         {children}
       </RainbowKitProvider>

@@ -3,5 +3,6 @@
 .separator {
   width: 100%;
   height: 1px;
-  background-color: get-color(gray-light);
+  background-color: get-color(neutral-500);
+  transition: $transition-time-500 background-color;
 }

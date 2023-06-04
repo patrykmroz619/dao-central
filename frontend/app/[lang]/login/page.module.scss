@@ -1,4 +1,4 @@
-@import "@/infrastructure/styles/media.scss";
+@import "@/infrastructure/styles/utils";
 
 .main {
   display: flex;
@@ -49,17 +49,18 @@
     width: 100%;
     flex-grow: 1;
     height: 100%;
-    background-color: get-color(primary);
+    background-color: get-color(primary-500);
     border-radius: $border-radius-700;
   }
 }
 
 .settings {
-  background-color: get-color(box);
-  border-radius: $border-radius-500;
-  padding: $spacing-300;
   display: flex;
   align-items: center;
   gap: $spacing-300;
+  padding: $spacing-300;
   width: fit-content;
+  border-radius: $border-radius-500;
+  background-color: get-color(background-300);
+  transition: $transition-time-500 background-color;
 }

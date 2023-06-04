@@ -5,7 +5,7 @@
   display: inline-flex;
   align-items: center;
   gap: $spacing-300;
-  color: get-color(primary-dark);
+  color: get-color(primary-500);
   text-decoration: none;
   transition: $transition-time-500 color;
 
@@ -16,13 +16,13 @@
     right: 5px;
     bottom: 0;
     height: 1px;
-    background-color: get-color(primary-light);
+    background-color: get-color(primary-500-hovered);
     transform: scaleX(0);
     transition: $transition-time-500 transform;
   }
 
   &:hover {
-    color: get-color(primary-light);
+    color: get-color(primary-500-hovered);
     &::after {
       transform: scaleX(1);
     }

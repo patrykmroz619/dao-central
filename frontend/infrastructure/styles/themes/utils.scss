@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@import "./index.scss";
+
+@mixin theme-variables {
+  @each $themeName, $themeMap in $themes {
+    @if $themeName == $defaultTheme {
+      :root {
+        @each $color, $colorValue in $themeMap {
+          --#{$color}: #{$colorValue};
+        }
+      }
+    } @else {
+      [data-theme="#{$themeName}"] {
+        @each $color, $colorValue in $themeMap {
+          --#{$color}: #{$colorValue};
+        }
+      }
+    }
+  }
+}
+
+@function get-color($colorName, $theme: null) {
+  @if $theme == null {
+    @if map.get((map.get($themes, $defaultTheme)), $colorName) == null {
+      @error "Color #{$colorName} not found";
+    }
+    @return var(--#{$colorName});
+  }
+
+  $colorValue: map.get((map.get($themes, $theme)), $colorName);
+
+  @if $colorValue != null {
+    @return $colorValue;
+  } @else {
+    @error "Color #{$colorName} for theme #{$theme} not found";
+  }
+}

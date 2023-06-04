@@ -15,7 +15,7 @@
 
   strong {
     font-size: 2.7rem;
-    color: get-color(primary);
+    color: get-color(primary-500);
   }
 
   @include min-device(desktop-300) {

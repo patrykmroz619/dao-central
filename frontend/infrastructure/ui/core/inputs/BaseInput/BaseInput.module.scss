@@ -4,21 +4,27 @@
   padding: 0 $spacing-500;
   height: $form-element-height-500;
   border-radius: $border-radius-500;
-  border: $border-300 get-color(gray-light);
+  border: $border-300 get-color(neutral-500);
+  color: get-color(text-700);
+  background-color: transparent;
   transition: $transition-time-500;
   font-family: inherit;
   font-weight: 500;
 
   &:focus {
     outline: none;
-    border-color: get-color(primary);
+    border-color: get-color(primary-500);
+  }
+
+  &::placeholder {
+    color: get-color(neutral-700);
   }
 
   &__error {
-    border-color: get-color(danger);
+    border-color: get-color(danger-500);
   }
 
   &__success {
-    border-color: get-color(success);
+    border-color: get-color(success-500);
   }
 }

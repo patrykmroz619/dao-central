@@ -20,9 +20,9 @@
   width: 100%;
   max-width: 425px;
   padding: $spacing-500;
-  background-color: get-color(box);
+  background-color: get-color(background-300);
   border-radius: $border-radius-700;
-  box-shadow: $shadow-500 get-color(gray-light);
+  box-shadow: $shadow-500 get-color(shadow);
 
   &__heading {
     margin-bottom: $spacing-500;
@@ -38,12 +38,12 @@
     align-items: center;
     border: none;
     background-color: transparent;
-    color: get-color(text);
+    color: get-color(text-500);
     transition: $transition-time-500 color;
     cursor: pointer;
 
     &:hover {
-      color: get-color(primary);
+      color: get-color(primary-500);
     }
   }
 }

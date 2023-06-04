@@ -26,10 +26,11 @@
   width: 365px;
   height: 100%;
   padding-left: 45px;
-  background-color: get-color(box);
-  box-shadow: $shadow-500 get-color(gray-light);
+  background-color: get-color(background-300);
+  box-shadow: $shadow-500 get-color(shadow);
   gap: $spacing-500;
   overflow-y: auto;
+  transition: $transition-time-500;
 
   &__logo {
     margin-top: $spacing-500;

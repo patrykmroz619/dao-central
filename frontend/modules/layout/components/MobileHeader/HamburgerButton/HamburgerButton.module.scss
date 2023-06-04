@@ -15,11 +15,12 @@
     width: 100%;
     height: 100%;
     transition: $transition-time-500;
+    color: get-color(text-700);
   }
 
   &:hover {
     svg {
-      color: get-color(primary);
+      color: get-color(primary-500);
     }
   }
 }

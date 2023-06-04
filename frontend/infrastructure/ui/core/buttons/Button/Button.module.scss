@@ -11,24 +11,24 @@
   border-radius: $border-radius-500;
   font-size: $font-size-100;
   font-weight: 500;
-  color: get-color(primary-inverted);
-  background-color: get-color(primary);
+  color: get-color(primary-500-inverted);
+  background-color: get-color(primary-500);
   transition: $transition-time-500 background-color;
   cursor: pointer;
   overflow: hidden;
 
   &:hover {
-    background-color: get-color(primary-light);
+    background-color: get-color(primary-700);
   }
 
   &:disabled {
     cursor: not-allowed;
-    background-color: get-color(gray-500);
+    background-color: get-color(neutral-500);
   }
 
   &_loading {
     &:disabled {
-      background-color: get-color(primary-light);
+      background-color: get-color(primary-300);
     }
   }
 }

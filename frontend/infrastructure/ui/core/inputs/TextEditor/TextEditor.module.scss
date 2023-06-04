@@ -8,21 +8,43 @@
 
 .label {
   margin-left: $spacing-100;
-  color: get-color(text);
+  color: get-color(text-500);
   font-weight: 600;
   font-size: 0.9rem;
 }
 
 .editor {
+  color: get-color(text-500);
+
+  :global {
+    .ql-picker-label {
+      color: get-color(text-500);
+      border-color: transparent !important;
+    }
+  }
+
   & > div {
-    border-color: get-color(gray-light);
+    border: $border-300 get-color(neutral-500) !important;
+    transition: $transition-time-500 border;
   }
 
   & > div:first-child {
     border-radius: $border-radius-500 $border-radius-500 0 0;
+
+    // svg,
+    rect {
+      fill: get-color(text-500);
+    }
+
+    path,
+    line,
+    polygon {
+      stroke: get-color(text-500);
+    }
   }
 
   & > div:last-child {
+    border-top: none !important;
     border-radius: 0 0 $border-radius-500 $border-radius-500;
 
     strong {

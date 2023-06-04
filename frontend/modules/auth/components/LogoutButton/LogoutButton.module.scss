@@ -8,7 +8,7 @@
   background-color: transparent;
   border: none;
   border-radius: $border-radius-500;
-  color: get-color(danger);
+  color: get-color(danger-500);
   font-weight: 500;
   font-size: $font-size-200;
   transition: $transition-time-500;
@@ -20,7 +20,7 @@
   }
 
   &:hover {
-    background-color: get-color(danger-light);
+    background-color: get-color(danger-transparent);
   }
 
   &__loadingIcon {

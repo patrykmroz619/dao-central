@@ -3,24 +3,28 @@
 .h1 {
   font-size: $font-size-900;
   font-weight: 700;
-  color: get-color(heading);
+  color: get-color(text-700);
+  transition: $transition-time-500 color;
 }
 
 .h2 {
   font-size: $font-size-700;
   font-weight: 700;
-  color: get-color(heading);
+  color: get-color(text-700);
+  transition: $transition-time-500 color;
 }
 
 .h3 {
   font-size: $font-size-500;
   font-weight: 700;
-  color: get-color(heading);
+  color: get-color(text-700);
+  transition: $transition-time-500 color;
 }
 
 .text {
   font-size: $font-size-200;
-  color: get-color(text);
+  color: get-color(text-500);
+  transition: $transition-time-500 color;
 
   &__bold {
     font-weight: 600;
@@ -36,5 +40,5 @@
 }
 
 .textDanger {
-  color: get-color(danger);
+  color: get-color(danger-500);
 }

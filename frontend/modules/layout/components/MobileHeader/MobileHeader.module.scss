@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: space-between;
   padding: $spacing-300 $spacing-700;
-  background-color: get-color(box);
-  box-shadow: $shadow-500 get-color(gray-light);
+  background-color: get-color(background-300);
+  box-shadow: $shadow-500 get-color(shadow);
 
   &__brand {
     display: flex;

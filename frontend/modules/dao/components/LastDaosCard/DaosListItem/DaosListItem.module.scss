@@ -3,8 +3,9 @@
 .item {
   display: flex;
   gap: $spacing-500;
-  border-bottom: 1px solid get-color(gray-light);
+  border-bottom: $border-300 get-color(neutral-500);
   padding-bottom: $spacing-500;
+  transition: $transition-time-500 border-bottom;
 
   &__content {
     display: flex;

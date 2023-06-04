@@ -1,7 +1,5 @@
-import Image from "next/image";
-
-import logo from "public/images/brand/logo-black.png";
 import { Text } from "@/infrastructure/ui/core/Typography";
+import { AppLogo } from "@/modules/brand";
 import { HamburgerButton } from "./HamburgerButton";
 
 import styles from "./MobileHeader.module.scss";
@@ -10,7 +8,7 @@ export const MobileHeader = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__brand}>
-        <Image src={logo} width="32" height="32" alt="DAO Central logo" />
+        <AppLogo size={32} />
         <Text>DAO Central</Text>
       </div>
       <HamburgerButton />
